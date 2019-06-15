@@ -54,50 +54,45 @@
    * **concluded on:** need a **more modular structure**, a better **delivery workflow** and a more **content-oriented UX strategy**
 
 ## stack & development features
-here are presented the application stack & the solutions used
+stack is built upon various technologies, answering different problematics
 
-each of them is first described by its basic features, while the rest is dedicated to implementation
+### base features
+base features briefly sum up : 
+* **which external providers** (modules, web-services ...) **do we use & which features do they provide**
+* **what solutions is developped in this project**
 
-#### table of contents
 * [Firebase back-end](#firebase-back-end)
 * [MongoDB database](#mongodb-database)
 * [server-side rendered pages](#server-side-rendered-pages)
 * [hybrid jQuery/React client bundles](#hybrid-jqueryreact-client-bundles)
 
-### [Firebase](https://firebase.google.com/docs/web/setup) back-end
-
-#### base features
+#### [Firebase](https://firebase.google.com/docs/web/setup) back-end
 * [Hosting](https://firebase.google.com/docs/hosting/)
 * [Authentication](https://firebase.google.com/docs/auth/)
 * [**Express**](http://expressjs.com/) server using [**Cloud Functions**](https://firebase.google.com/docs/functions/)
 * exposes `firebase serve` and `firebase deploy` command line scripts
 * delegated authentication & tokenization
 
-### [MongoDB](https://www.mongodb.com) database
-
-#### base features
+#### [MongoDB](https://www.mongodb.com) database
 * easily deployed with [**MongoDB Atlas**](https://www.mongodb.com/cloud/atlas) 
 * powerful agregation pipeline
 * provides the [**MongoDB Compass**](https://www.mongodb.com/products/compass) desktop tool
 * scaling options
 
-### server-side rendered pages
-
-#### base features
+#### server-side rendered pages
 * uses [**Pug**](http://pugjs.org/) as the templating engine
 * light-weighted first load & search engine-optimized
 
-### hybrid [jQuery](https://jquery.com)/[React](https://reactjs.org/) client bundles
-
-#### base features
-* [**Bootstrap**] is used to build & animate UI
+#### hybrid [jQuery](https://jquery.com)/[React](https://reactjs.org/) client bundles
+* [**Bootstrap**](https://getbootstrap.com/) is used to build & animate UI
 * **jQuery** provides DOM targeting & update methods
-   * *plus, is required by some Bootstrap components*
+
+   * *plus, it is required by some Bootstrap components*
 * **React** provides isolated scope components, with state management & automated re-render
 
-#### app root store, observers & lifecycle
+##### app root store, observers & lifecycle
 * single app root **store + observers**
 * **app lifecycle** API
 
-#### page components
-* **React** modules rendered **conditionaly on specific page parts**
+##### dynamic page modules
+* **React** modules rendered **conditionaly** (from observers) **on specific page parts**
