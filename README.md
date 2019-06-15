@@ -54,6 +54,9 @@
    * **concluded on:** need a **more modular structure**, a better **delivery workflow** and a more **content-oriented UX strategy**
 
 ## stack & development features
+here are presented the application stack & the solutions used
+
+each of them is first described by its basic features, while the rest is dedicated to implementation
 
 #### table of contents
 * [Firebase back-end](#firebase-back-end)
@@ -62,6 +65,8 @@
 * [hybrid jQuery/React client bundles](#hybrid-jqueryreact-client-bundles)
 
 ### [Firebase](https://firebase.google.com/docs/web/setup) back-end
+
+#### base features
 * [Hosting](https://firebase.google.com/docs/hosting/)
 * [Authentication](https://firebase.google.com/docs/auth/)
 * [**Express**](http://expressjs.com/) server using [**Cloud Functions**](https://firebase.google.com/docs/functions/)
@@ -69,16 +74,30 @@
 * delegated authentication & tokenization
 
 ### [MongoDB](https://www.mongodb.com) database
+
+#### base features
 * easily deployed with [**MongoDB Atlas**](https://www.mongodb.com/cloud/atlas) 
 * powerful agregation pipeline
 * provides the [**MongoDB Compass**](https://www.mongodb.com/products/compass) desktop tool
 * scaling options
 
 ### server-side rendered pages
+
+#### base features
 * uses [**Pug**](http://pugjs.org/) as the templating engine
 * light-weighted first load & search engine-optimized
 
 ### hybrid [jQuery](https://jquery.com)/[React](https://reactjs.org/) client bundles
+
+#### base features
+* [**Bootstrap**] is used to build & animate UI
+* **jQuery** provides DOM targeting & update methods
+   * *plus, is required by some Bootstrap components*
+* **React** provides isolated scope components, with state management & automated re-render
+
+#### app root store, observers & lifecycle
 * single app root **store + observers**
 * **app lifecycle** API
+
+#### page components
 * **React** modules rendered **conditionaly on specific page parts**
