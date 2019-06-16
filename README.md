@@ -58,7 +58,8 @@ stack is built upon various technologies, answering different problematics
 
 the following list briefly describe, with large-scale modules :
 * **which third-party is used, providing what features**
-* **what solutions are developped specificaly for this project**, if
+* **what solutions are developped specificaly for this project**
+* [WIP] complete modules description is to be found in the [project wiki](https://github.com/Skaant/perma-data-5/wiki)
 
 #### table of contents
 * [Firebase server](#firebase-server)
@@ -67,6 +68,15 @@ the following list briefly describe, with large-scale modules :
 * [hybrid jQuery/React client bundles](#hybrid-jqueryreact-client-bundles)
 
 ### [Firebase](https://firebase.google.com/docs/web/setup) server
+Free usage of Firebase Blaze plan induces limitations that should be taken in mind during development :
+* 125 000 **Cloud Functions** call/month
+* 40k **Cloud Functions** CPU-second/month (minimum algorithmics server side)
+* 10 GB transfered from **Hosting**/month (minimum client bundle weight)
+* 100 000 external calls/month (**consumed by calling the Mongo DB instance**)
+
+**Authentication** seems to have no quota on web usage
+
+##### Features
 * [Hosting](https://firebase.google.com/docs/hosting/)
 * [Authentication](https://firebase.google.com/docs/auth/)
 * [**Express**](http://expressjs.com/) server using [**Cloud Functions**](https://firebase.google.com/docs/functions/)
