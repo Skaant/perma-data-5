@@ -61,17 +61,21 @@ the following list briefly describe, with large-scale modules :
 * **what solutions are developped specificaly for this project**, if
 
 #### table of contents
-* [Firebase back-end](#firebase-back-end)
+* [Firebase server](#firebase-server)
 * [MongoDB database](#mongodb-database)
 * [server-side rendered pages](#server-side-rendered-pages)
 * [hybrid jQuery/React client bundles](#hybrid-jqueryreact-client-bundles)
 
-### [Firebase](https://firebase.google.com/docs/web/setup) back-end
+### [Firebase](https://firebase.google.com/docs/web/setup) server
 * [Hosting](https://firebase.google.com/docs/hosting/)
 * [Authentication](https://firebase.google.com/docs/auth/)
 * [**Express**](http://expressjs.com/) server using [**Cloud Functions**](https://firebase.google.com/docs/functions/)
 * exposes `firebase serve` and `firebase deploy` command line scripts
 * delegated authentication & tokenization
+
+#### middlewares
+* `/lang/` params to `req.lang`
+* [**Firebase**] authentication `token` to `req.user`
 
 ### [MongoDB](https://www.mongodb.com) database
 * easily deployed with [**MongoDB Atlas**](https://www.mongodb.com/cloud/atlas) 
@@ -80,11 +84,10 @@ the following list briefly describe, with large-scale modules :
 * scaling options
 
 ### server-side rendered pages
-* lang (& authentication ?) middleware
 * uses [**Pug**](http://pugjs.org/) as the templating engine
 * light-weighted first load & search engine-optimized
 
-### hybrid [jQuery](https://jquery.com)/[React](https://reactjs.org/) client bundles
+### hybrid [jQuery](https://jquery.com)/[React](https://reactjs.org/) client bundle
 * [**Bootstrap**](https://getbootstrap.com/) is used to build & animate UI
 * **jQuery** provides DOM targeting & update methods
 
