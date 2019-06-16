@@ -58,20 +58,34 @@ stack is built upon various technologies, answering different problematics
 
 the following list briefly describe, with large-scale modules :
 * **which third-party is used, providing what features**
-* **what solutions are developped specificaly for this project**, if
+* **what solutions are developped specificaly for this project**
+* [WIP] complete modules description is to be found in the [project wiki](https://github.com/Skaant/perma-data-5/wiki)
 
 #### table of contents
-* [Firebase back-end](#firebase-back-end)
+* [Firebase server](#firebase-server)
 * [MongoDB database](#mongodb-database)
 * [server-side rendered pages](#server-side-rendered-pages)
 * [hybrid jQuery/React client bundles](#hybrid-jqueryreact-client-bundles)
 
-### [Firebase](https://firebase.google.com/docs/web/setup) back-end
+### [Firebase](https://firebase.google.com/docs/web/setup) server
+Free usage of Firebase Blaze plan induces limitations that should be taken in mind during development :
+* 125 000 **Cloud Functions** call/month
+* 40k **Cloud Functions** CPU-second/month (minimum algorithmics server side)
+* 10 GB transfered from **Hosting**/month (minimum client bundle weight)
+* 100 000 external calls/month (**consumed by calling the Mongo DB instance**)
+
+**Authentication** seems to have no quota on web usage
+
+##### Features
 * [Hosting](https://firebase.google.com/docs/hosting/)
 * [Authentication](https://firebase.google.com/docs/auth/)
 * [**Express**](http://expressjs.com/) server using [**Cloud Functions**](https://firebase.google.com/docs/functions/)
 * exposes `firebase serve` and `firebase deploy` command line scripts
 * delegated authentication & tokenization
+
+#### middlewares
+* `/lang/` params to `req.lang`
+* [**Firebase**] authentication `token` to `req.user`
 
 ### [MongoDB](https://www.mongodb.com) database
 * easily deployed with [**MongoDB Atlas**](https://www.mongodb.com/cloud/atlas) 
@@ -80,11 +94,10 @@ the following list briefly describe, with large-scale modules :
 * scaling options
 
 ### server-side rendered pages
-* lang (& authentication ?) middleware
 * uses [**Pug**](http://pugjs.org/) as the templating engine
 * light-weighted first load & search engine-optimized
 
-### hybrid [jQuery](https://jquery.com)/[React](https://reactjs.org/) client bundles
+### hybrid [jQuery](https://jquery.com)/[React](https://reactjs.org/) client bundle
 * [**Bootstrap**](https://getbootstrap.com/) is used to build & animate UI
 * **jQuery** provides DOM targeting & update methods
 
