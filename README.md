@@ -56,43 +56,55 @@
 ## stack & development features
 stack is built upon various technologies, answering different problematics
 
-### base features
-base features briefly sum up : 
-* **which external providers** (modules, web-services ...) **do we use & which features do they provide**
-* **what solutions is developped in this project**
+the following list briefly describe, with large-scale modules :
+* **which third-party is used, providing what features**
+* **what solutions are developped specificaly for this project**, if
 
+#### table of contents
 * [Firebase back-end](#firebase-back-end)
 * [MongoDB database](#mongodb-database)
 * [server-side rendered pages](#server-side-rendered-pages)
 * [hybrid jQuery/React client bundles](#hybrid-jqueryreact-client-bundles)
 
-#### [Firebase](https://firebase.google.com/docs/web/setup) back-end
+### [Firebase](https://firebase.google.com/docs/web/setup) back-end
 * [Hosting](https://firebase.google.com/docs/hosting/)
 * [Authentication](https://firebase.google.com/docs/auth/)
 * [**Express**](http://expressjs.com/) server using [**Cloud Functions**](https://firebase.google.com/docs/functions/)
 * exposes `firebase serve` and `firebase deploy` command line scripts
 * delegated authentication & tokenization
 
-#### [MongoDB](https://www.mongodb.com) database
+### [MongoDB](https://www.mongodb.com) database
 * easily deployed with [**MongoDB Atlas**](https://www.mongodb.com/cloud/atlas) 
 * powerful agregation pipeline
 * provides the [**MongoDB Compass**](https://www.mongodb.com/products/compass) desktop tool
 * scaling options
 
-#### server-side rendered pages
+### server-side rendered pages
+* lang (& authentication ?) middleware
 * uses [**Pug**](http://pugjs.org/) as the templating engine
 * light-weighted first load & search engine-optimized
 
-#### hybrid [jQuery](https://jquery.com)/[React](https://reactjs.org/) client bundles
+### hybrid [jQuery](https://jquery.com)/[React](https://reactjs.org/) client bundles
 * [**Bootstrap**](https://getbootstrap.com/) is used to build & animate UI
 * **jQuery** provides DOM targeting & update methods
 
-   * *plus, it is required by some Bootstrap components*
+   * *plus, it's required by some Bootstrap components*
 * **React** provides isolated scope components, with state management & automated re-render
 
-##### app root store, observers & lifecycle
-* single app root **store + observers**
-* **app lifecycle** API
+#### app root store, observers & lifecycle
+* single app root **store + observers** (*inspired from the Redux implementation*)
+* **app lifecycle** API (*inspired from the React stateful component's lifecycle*)
+   
+   * lifecycle events can be provisioned with *transition methods*
+   * *transitions* can be page-specific or common to all page
+   * for updates, *transitions*' params can conditionally trigger jQuery functions and React component re-renders
+* **automated** authentication & user data **provisioning**
 
-##### dynamic page modules
-* **React** modules rendered **conditionaly** (from observers) **on specific page parts**
+#### dynamic page modules
+* **React** modules rendered **conditionaly** (*from observers*) **on specific page parts**
+* major app modules :
+   
+   * `<LoginModal/>` and `<UserPanel/>`
+   * `<DialogModal/>`
+   * `<ZumCite/>`
+   * feature **DOMS**
