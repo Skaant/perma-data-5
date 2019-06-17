@@ -27,6 +27,9 @@
   },
   "homepage": "https://github.com/Skaant/perma-data-5#readme",
   "devDependencies": {
-    "mocha": "^6.1.4"
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
+    "mocha": "^6.1.4",
+    "mock-fs": "^4.10.1"
   }
 }
