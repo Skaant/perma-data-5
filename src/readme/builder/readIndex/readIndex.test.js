@@ -32,12 +32,9 @@ describe('readme builder - readIndex()', () => {
       rejectionCheck('format not object', done))
   })
     
-  describe('index content checks', () => {
+  describe('index content check', () => {
 
     it('should reject if index doesn\'t have a content property', done =>
       rejectionCheck('content missing', done))
-
-    it('should reject if index content isn\'t an array', done =>
-      rejectionCheck('content not array', done))
   })
 })
