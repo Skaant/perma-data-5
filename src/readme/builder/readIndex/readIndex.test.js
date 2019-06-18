@@ -7,40 +7,37 @@ const readIndex = require('./readIndex')
 chai.use(chaiAsPromised)
 chai.should()
 
+const rejectionCheck = (key, done) => {
+  mock(_mocks[key])
+  const promise = readIndex('test')
+  promise.should.be.rejectedWith(key)
+  mock.restore()
+  done()
+}
+
 describe('readme builder - readIndex()', () => {
   
-  describe('check index format', () => {
+  describe('index file check', () => {
 
-    it('should reject if provided path doesn\'t match any file', done => {
-      mock(_mocks['no index'])
-      const promise = readIndex('test')
-      promise.should.be.rejectedWith('index file not found')
-      mock.restore()
-      done()
-    })
+    it('should reject if provided path doesn\'t match any file', done =>
+      rejectionCheck('no file', done))
+  })
+
+  describe('index format checks', () => {
   
-    it('should reject if index cannot be parsed to JSON', done => {
-      mock(_mocks['not json'])
-      const promise = readIndex('test')
-      promise.should.be.rejectedWith('cannot parse index to json')
-      mock.restore()
-      done()
-    })
+    it('should reject if index cannot be parsed to JSON', done =>
+      rejectionCheck('format not json', done))
   
-    it('should reject if index.json doesn\'t returns an object', done => {
-      mock(_mocks['not object'])
-      const promise = readIndex('test')
-      promise.should.be.rejectedWith('index not an object')
-      mock.restore()
-      done()
-    })
-  
-    it('should be fine', done => {
-      mock(_mocks['ok'])
-      const promise = readIndex('test')
-      promise.should.be.fulfilled
-      mock.restore()
-      done()
-    })
+    it('should reject if the index root isn\'t an object', done =>
+      rejectionCheck('format not object', done))
+  })
+    
+  describe('index content checks', () => {
+
+    it('should reject if index doesn\'t have a content property', done =>
+      rejectionCheck('content missing', done))
+
+    it('should reject if index content isn\'t an array', done =>
+      rejectionCheck('content not array', done))
   })
 })

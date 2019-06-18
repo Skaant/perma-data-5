@@ -6,15 +6,21 @@ module.exports = path =>
       const buffer = fs.readFileSync(path + '/index.json')
       const data = JSON.parse(buffer.toString())
       if (typeof data !== 'object' || Array.isArray(data)) {
-        reject(Error('index not an object'))
+        reject(Error('format not object'))
       } else {
+        const content = data.content
+        if (!content) {
+          reject(Error('content missing'))
+        } else if (!Array.isArray(content)) {
+          reject(Error('content not array'))
+        }
         resolve(data)
       }
     } catch (err) {
       if (err.code === 'ENOENT') {
-        reject(Error('index file not found'))
+        reject(Error('no file'))
       } else if (err instanceof SyntaxError) {
-        reject(Error('cannot parse index to json'))
+        reject(Error('format not json'))
       }
     }
   })

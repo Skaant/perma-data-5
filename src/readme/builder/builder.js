@@ -14,8 +14,7 @@ module.exports = path =>
           reject(new Error('empty folder'))
         } else {
           readIndex(path)
-            .then(index =>
-              resolve(true))
+            .then(index => resolve(true))
             .catch(err => reject(err))
         }
       }
