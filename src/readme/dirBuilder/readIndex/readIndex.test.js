@@ -20,7 +20,7 @@ describe('readme builder - readIndex()', () => {
   describe('index file check', () => {
 
     it('should reject if provided path doesn\'t match any file', done =>
-      rejectionCheck('no file', done))
+      rejectionCheck('file not found', done))
   })
 
   describe('index format checks', () => {

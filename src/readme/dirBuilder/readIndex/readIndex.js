@@ -18,9 +18,11 @@ module.exports = path =>
       }
     } catch (err) {
       if (err.code === 'ENOENT') {
-        reject(Error('no file'))
+        reject(Error('file not found'))
       } else if (err instanceof SyntaxError) {
         reject(Error('format not json'))
+      } else {
+        reject(err)
       }
     }
   })

@@ -1,7 +1,7 @@
-const noFolder = require('./noFolder/noFolder')
-const folderExists = require('./folderExists/folderExists')
+const folderNotFound = require('./folderNotFound/folderNotFound')
+const folderEmpty = require('./folderEmpty/folderEmpty')
 
 module.exports = {
-  'no folder': noFolder,
-  'folder exists': folderExists
+  'folder not found': folderNotFound,
+  'folder empty': folderEmpty
 }
