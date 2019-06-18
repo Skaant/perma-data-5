@@ -1,4 +1,4 @@
-const builder = require('../../builder')
+const dirBuilder = require('../../dirBuilder')
 
 module.exports = (content, path) => {
   return new Promise((resolve, reject) => {
@@ -16,8 +16,7 @@ module.exports = (content, path) => {
           if (item.includes('.md')) {
             // return fileReader(path + '/' + item)
           } else {
-            // TODO : rename en dirBuilder
-            return builder(path + '/' + item)
+            return dirBuilder(path + '/' + item)
           }
         }
       })
