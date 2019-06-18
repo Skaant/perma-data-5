@@ -6,12 +6,12 @@ module.exports = path =>
     fs.readdir(path, (err, files) => {
       if (err) {
         if (err.code === 'ENOENT') {
-          reject(new Error('target folder not found'))
+          reject(new Error('folder not found'))
         } else {
           reject(err) }
       } else {
         if (!files || files.length === 0) {
-          reject(new Error('empty folder'))
+          reject(new Error('folder empty'))
         } else {
           readIndex(path)
             .then(index => resolve(true))

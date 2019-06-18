@@ -5,5 +5,4 @@ module.exports = {
   'format not object': require('./formatNotObject/formatNotObject'),
 
   'content missing': require('./contentMissing/contentMissing'),
-  'content not array': require('./contentNotArray/contentNotArray'),
 }
