@@ -1,3 +1,4 @@
+const fileReader = require('./fileReader/fileReader')
 const dirBuilder = require('../../dirBuilder')
 
 module.exports = (content, path) => {
@@ -11,17 +12,20 @@ module.exports = (content, path) => {
     } else {
       const itemPromises = content.map(item => {
         if (typeof item !== 'string') {
-          reject(Error('item not string'))
+          throw Error('item not string')
         } else {
           if (item.includes('.md')) {
-            // return fileReader(path + '/' + item)
+            return fileReader(path + '/' + item)
           } else {
             return dirBuilder(path + '/' + item)
           }
         }
       })
       Promise.all(itemPromises)
-        .then(() => resolve())
+        .then(texts =>
+          resolve(texts.join('\n\n')))
+        .catch(err =>
+          reject(err))
     }
   })
 }

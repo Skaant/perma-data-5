@@ -9,23 +9,25 @@ chai.should()
 
 describe('readme builder - fileReader()', () => {
 
-  describe('target file check', () =>
-  
-    it('should reject if provided path doesn\'t match any file', done => {
-      const key = 'file not found'
-      mock(_mocks[key])
-      const promise = fileReader('sample.md')
-      promise.should.be.rejectedWith(key)
-      mock.restore()
-      done()
-    }))
-  
-  describe('success', () =>
+  describe('CHECKS :', () =>
 
-    it('should resolve with a string (markdown content)', done => {
+    describe('* target file', () =>
+    
+      it('should reject if provided path doesn\'t match any file', done => {
+        const key = 'file not found'
+        mock(_mocks[key])
+        const promise = fileReader('sample.md')
+        promise.should.be.rejectedWith(key)
+        mock.restore()
+        done()
+      })))
+  
+  describe('SUCCESS :', () =>
+
+    it('should resolve with a (markdown) string equal to target file content', done => {
       mock(_mocks['file success'])
       const promise = fileReader('sample.md')
-      promise.should.eventually.be.a('string')
+      promise.should.eventually.equal('# expected title')
       mock.restore()
       done()
     }))

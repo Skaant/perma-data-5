@@ -13,9 +13,11 @@ module.exports = path =>
         if (!files || files.length === 0) {
           reject(new Error('folder empty'))
         } else {
-          readIndex(path)
+          // TODO resolve w/ readIndex callback
+          resolve('**temp**')
+          /* readIndex(path)
             .then(index => resolve(true))
-            .catch(err => reject(err))
+            .catch(err => reject(err)) */
         }
       }
     })
