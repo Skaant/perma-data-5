@@ -15,11 +15,13 @@ const rejectionCheck = (key, done) => {
   done()
 }
 
-describe('readme builder - dirBuilder()', () => {
+describe('readme builder - dirBuilder()', () =>
 
-  it('should reject if provided path doesn\'t match any folder', done =>
-    rejectionCheck('folder not found', done))
+  describe('CHECKS :', () => {
 
-  it('should reject if folder is empty', done => 
-    rejectionCheck('folder empty', done))
-})
+    it('should reject if provided path doesn\'t match any folder', done =>
+      rejectionCheck('folder not found', done))
+  
+    it('should reject if folder is empty', done => 
+      rejectionCheck('folder empty', done))
+  }))

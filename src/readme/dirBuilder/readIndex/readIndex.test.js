@@ -16,25 +16,28 @@ const rejectionCheck = (key, done) => {
 }
 
 describe('readme builder - readIndex()', () => {
-  
-  describe('index file check', () => {
 
-    it('should reject if provided path doesn\'t match any file', done =>
-      rejectionCheck('file not found', done))
-  })
-
-  describe('index format checks', () => {
-  
-    it('should reject if index cannot be parsed to JSON', done =>
-      rejectionCheck('format not json', done))
-  
-    it('should reject if the index root isn\'t an object', done =>
-      rejectionCheck('format not object', done))
-  })
+  describe('CHECKS :', () => {
     
-  describe('index content check', () => {
+    describe('* index file', () => {
 
-    it('should reject if index doesn\'t have a content property', done =>
-      rejectionCheck('content missing', done))
+      it('should reject if provided path doesn\'t match any file', done =>
+        rejectionCheck('file not found', done))
+    })
+
+    describe('* index format', () => {
+    
+      it('should reject if index cannot be parsed to JSON', done =>
+        rejectionCheck('format not json', done))
+    
+      it('should reject if the index root isn\'t an object', done =>
+        rejectionCheck('format not object', done))
+    })
+      
+    describe('* index content', () => {
+
+      it('should reject if index doesn\'t have a content property', done =>
+        rejectionCheck('content missing', done))
+    })
   })
 })
