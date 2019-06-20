@@ -4,10 +4,16 @@ module.exports = {
     'components documentation': {
       'list introduction.md': '*here is the components list*',
       'index.json': `{
-        'content': [
-          'list introduction.md'
+        "content": [
+          "list introduction.md"
         ]
       }`
-    }
+    },
+    'index.json': `{
+      "content": [
+        "introduction.md",
+        "components documentation"
+      ]
+    }`
   }
 }

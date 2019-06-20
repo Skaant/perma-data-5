@@ -3,6 +3,7 @@ const chaiAsPromised = require('chai-as-promised')
 const mock = require('mock-fs')
 const _mocks = require('./_mocks')
 const browseContent = require('./browseContent')
+const dirBuilder = require('../../dirBuilder/dirBuilder')
 
 chai.use(chaiAsPromised)
 chai.should()
@@ -15,16 +16,9 @@ const rejectionCheck = (key, done) => {
 
 describe('readme builder - browseContent()', () => {
 
-  describe('CHECKS :', () => {
+  after(() => mock.restore())
 
-    describe('* content param', () => {
-    
-      it('should reject if content param isn`t an array', done => 
-        rejectionCheck('content not array', done))
-      
-      it('should reject if content param is an empty array', done => 
-        rejectionCheck('content empty array', done))
-    })
+  describe('CHECKS :', () => {
 
     describe('* item value', () => {
     
@@ -38,10 +32,9 @@ describe('readme builder - browseContent()', () => {
     it('should resolve with a (markdown) string based on the target folder content', done => {
       const key = 'content success'
       mock(_mocks[key].fileSystem)
-      const promise = browseContent(_mocks[key].content, 'test')
+      const promise = browseContent(_mocks[key].content, 'test', dirBuilder)
       promise.should.eventually.equal('# perma-data is so cool'
-        + '\n\n' + '**temp**')
-      mock.restore()
+        + '\n\n' + '*here is the components list*')
       done()
     })
   })

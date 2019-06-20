@@ -13,8 +13,11 @@ module.exports = path =>
           reject(Error('content missing'))
         } else if (!Array.isArray(content)) {
           reject(Error('content not array'))
+        } else if (content.length === 0) {
+          reject(Error('content empty array'))
+        } else {
+          resolve(content)
         }
-        resolve(data)
       }
     } catch (err) {
       if (err.code === 'ENOENT') {

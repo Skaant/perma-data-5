@@ -15,7 +15,7 @@ const rejectionCheck = (key, done) => {
   done()
 }
 
-describe('readme builder - dirBuilder()', () =>
+describe('readme builder - dirBuilder()', () => {
 
   describe('CHECKS :', () => {
 
@@ -24,4 +24,17 @@ describe('readme builder - dirBuilder()', () =>
   
     it('should reject if folder is empty', done => 
       rejectionCheck('folder empty', done))
-  }))
+  })
+
+  describe('SUCCESS :', () => {
+    
+    it('should resolve with a (markdown) string based on the target folder content', done => {
+      const key = 'content success'
+      mock(_mocks[key])
+      const promise = dirBuilder('test')
+      promise.should.eventually.equal('# perma-data is so cool'
+        + '\n\n' + '*here is the components list*')
+      done()
+    })
+  })
+})
