@@ -50,8 +50,7 @@ describe('readme builder - readIndex()', () => {
 
   describe('SUCCESS :', () => 
     it('should resolve with a (markdown) string extrapoled from target folder index file', done => {
-      const key = 'content success'
-      mock(_mocks[key])
+      mock(_mocks['content success'])
       const promise = readIndex('test')
       promise.should.eventually.deep.equal([
         'introduction.md',

@@ -10,12 +10,12 @@ chai.should()
 const rejectionCheck = (key, done) => {
   mock(_mocks[key])
   const promise = dirBuilder('test')
-  promise.should.be.rejectedWith(key)
-  mock.restore()
-  done()
+  promise.should.be.rejectedWith(key).notify(done)
 }
 
 describe('readme builder - dirBuilder()', () => {
+
+  after(() => mock.restore())
 
   describe('CHECKS :', () => {
 
@@ -29,12 +29,11 @@ describe('readme builder - dirBuilder()', () => {
   describe('SUCCESS :', () => {
     
     it('should resolve with a (markdown) string based on the target folder content', done => {
-      const key = 'content success'
-      mock(_mocks[key])
+      mock(_mocks['content success'])
       const promise = dirBuilder('test')
       promise.should.eventually.equal('# perma-data is so cool'
         + '\n\n' + '*here is the components list*')
-      done()
+        .notify(done)
     })
   })
 })
