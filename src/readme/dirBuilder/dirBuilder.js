@@ -1,7 +1,8 @@
 const fs = require('fs')
 const readIndex = require('./readIndex/readIndex')
+const browseContent = require('./browseContent/browseContent')
 
-module.exports = path =>
+const dirBuilder = path =>
   new Promise((resolve, reject) => {
     fs.readdir(path, (err, files) => {
       if (err) {
@@ -14,9 +15,12 @@ module.exports = path =>
           reject(new Error('folder empty'))
         } else {
           readIndex(path)
-            .then(index => resolve(true))
-            .catch(err => reject(err))
+            .then(content =>
+              browseContent(content, path, dirBuilder)
+                .then(text => resolve(text)))
         }
       }
     })
   })
+
+module.exports = dirBuilder
