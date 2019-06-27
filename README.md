@@ -1,4 +1,4 @@
-# perma-data-5
+## perma-data-5
 **PERMA-DATA** is a **plant database**, a **collaborative tool**, a **game** and a **rich creative universe** !
 
 ### table of contents
@@ -6,7 +6,7 @@
 * [versions history](#versions-history)
 * [stack & development features](#stack--development-features)
 
-## **PERMA-DATA** 5 manifest
+# **PERMA-DATA** 5 manifest
 1. **aggregate and synthetize** plant data
 
    * from various source supports (books, videos, experiences, etc.)
@@ -27,7 +27,8 @@
    * **discuss and submit proposal on story shape & content**
    * **contribute to features design & development**
 
-## versions history
+
+# versions history
 1. *lost in time*
 2. basic **plant search** and **extract-oriented data** display
 
@@ -53,21 +54,8 @@
    * [firebaseapp link](https://perma-data-4.firebaseapp.com/)
    * **concluded on:** need a **more modular structure**, a better **delivery workflow** and a more **content-oriented UX strategy**
 
-## stack & development features
-stack is built upon various technologies, answering different problematics
 
-the following list briefly describe, with large-scale modules :
-* **which third-party is used, providing what features**
-* **what solutions are developped specificaly for this project**
-* [WIP] complete modules description is to be found in the [project wiki](https://github.com/Skaant/perma-data-5/wiki)
-
-#### table of contents
-* [Firebase server](#firebase-server)
-* [MongoDB database](#mongodb-database)
-* [server-side rendered pages](#server-side-rendered-pages)
-* [hybrid jQuery/React client bundles](#hybrid-jqueryreact-client-bundles)
-
-### [Firebase](https://firebase.google.com/docs/web/setup) server
+## [Firebase](https://firebase.google.com/docs/web/setup) server
 Free usage of Firebase Blaze plan induces limitations that should be taken in mind during development :
 * 125 000 **Cloud Functions** call/month
 * 40k **Cloud Functions** CPU-second/month (minimum algorithmics server side)
@@ -76,35 +64,35 @@ Free usage of Firebase Blaze plan induces limitations that should be taken in mi
 
 **Authentication** seems to have no quota on web usage
 
-##### Features
+### Features
 * [Hosting](https://firebase.google.com/docs/hosting/)
 * [Authentication](https://firebase.google.com/docs/auth/)
 * [**Express**](http://expressjs.com/) server using [**Cloud Functions**](https://firebase.google.com/docs/functions/)
 * exposes `firebase serve` and `firebase deploy` command line scripts
 * delegated authentication & tokenization
 
-#### middlewares
+### middlewares
 * `/lang/` params to `req.lang`
 * [**Firebase**] authentication `token` to `req.user`
 
-### [MongoDB](https://www.mongodb.com) database
+## [MongoDB](https://www.mongodb.com) database
 * easily deployed with [**MongoDB Atlas**](https://www.mongodb.com/cloud/atlas) 
 * powerful agregation pipeline
 * provides the [**MongoDB Compass**](https://www.mongodb.com/products/compass) desktop tool
 * scaling options
 
-### server-side rendered pages
+## server-side rendered pages
 * uses [**Pug**](http://pugjs.org/) as the templating engine
 * light-weighted first load & search engine-optimized
 
-### hybrid [jQuery](https://jquery.com)/[React](https://reactjs.org/) client bundle
+## hybrid [jQuery](https://jquery.com)/[React](https://reactjs.org/) client bundle
 * [**Bootstrap**](https://getbootstrap.com/) is used to build & animate UI
 * **jQuery** provides DOM targeting & update methods
 
    * *plus, it's required by some Bootstrap components*
 * **React** provides isolated scope components, with state management & automated re-render
 
-#### app root store, observers & lifecycle
+### app root store, observers & lifecycle
 * single app root **store + observers** (*inspired from the Redux implementation*)
 * **app lifecycle** API (*inspired from the React stateful component's lifecycle*)
    
@@ -113,7 +101,7 @@ Free usage of Firebase Blaze plan induces limitations that should be taken in mi
    * for updates, *transitions*' params can conditionally trigger jQuery functions and React component re-renders
 * **automated** authentication & user data **provisioning**
 
-#### dynamic page modules
+### dynamic page modules
 * **React** modules rendered **conditionaly** (*from observers*) **on specific page parts**
 * major app modules :
    
