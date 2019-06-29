@@ -7,12 +7,12 @@ const dirBuilder = path =>
     fs.readdir(path, (err, files) => {
       if (err) {
         if (err.code === 'ENOENT') {
-          reject(new Error('folder not found'))
+          reject(new Error('folder not found : ' + path))
         } else {
           reject(err) }
       } else {
         if (!files || files.length === 0) {
-          reject(new Error('folder empty'))
+          reject(new Error('folder empty : ' + path))
         } else {
           readIndex(path)
             .then(content =>

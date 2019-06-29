@@ -1,5 +1,6 @@
 {
   "content": [
-    "manifest.md"
+    "head.md",
+    "items"
   ]
 }

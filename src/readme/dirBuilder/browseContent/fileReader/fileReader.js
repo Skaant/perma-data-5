@@ -7,7 +7,7 @@ module.exports = path =>
       resolve(buffer.toString())
     } catch (err) {
       if (err.code === 'ENOENT') {
-        reject(Error('file not found'))
+        reject(Error('file not found : ' + path))
       } else {
         reject(err)
       }
