@@ -4,7 +4,7 @@ module.exports = (content, path, dirBuilder) =>
   new Promise((resolve, reject) => {
     const itemPromises = content.map(item => {
       if (typeof item !== 'string') {
-        throw Error('item not string')
+        throw Error('item not string : ' + path + ' = ' + typeof item)
       } else {
         if (item.includes('.md')) {
           return fileReader(path + '/' + item)
