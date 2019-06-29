@@ -7,26 +7,19 @@
 * [stack & development features](#stack--development-features)
 
 # **PERMA-DATA** 5 manifest
-1. **aggregate and synthetize** plant data
 
-   * from various source supports (books, videos, experiences, etc.)
-   * to make it "digestible"/pertinent for the application users
-2. **aggregate, share, teach, improve** patterns
-3. **create, expand and refactor a** *deep optimistic science-fiction* **universe, (where :**
+## 1. **plant data**
 
-   * *deep*, stands for an infinite horizon of time
-   * *optimistic*, stands for positive perspectives, utopic
-   * *science-fiction*, stands both for technological speculations and thrilling adventures !)
-4. **expose** tools **on** data, community and gardening
+   * PERMA-DATA is initially about **gathering & displaying** *plant data* from different *sources*
+   * *sources* can be books, videos, scholarly literature, interviews, community feedback, etc.
+   * *data* can be about gardening, transforming, conservation, history, therapeutic uses, etc.
+   * due to the overwhelming (for humans) amount of data entries, **synthesis, ergonomics & personalization have to be focused**
 
-   * personalize toolbox and automations
-   * **make it a game**
-5. offer the most **hackable experience** possible
-
-   * **contribute to data & synthesis** pipelines
-   * **discuss and submit proposal on story shape & content**
-   * **contribute to features design & development**
-
+## 7. **improve universe**
+* exchange about the creative strategy & universe content
+* submit **your ideas & art** for alternate *formulation trees*
+* as every individual has its own sensibility, *formulation trees* are here to help each one to find what's the most understandable, meaningful & suiting content for itself
+* discuss game mechanics, collaborate to theory-crafting, balancing & **playfulness**
 
 # versions history
 1. *lost in time*

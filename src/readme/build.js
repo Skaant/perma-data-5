@@ -7,3 +7,4 @@ module.exports = () =>
       fs.writeFile('./README.md', text, err => {
         if (err) throw err
       }))
+    .catch(err => console.log(err))
