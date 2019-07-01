@@ -31,6 +31,7 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
+    "firebase-functions-test": "^0.1.6",
     "mocha": "^6.1.4",
     "mock-fs": "^4.10.1"
   },
