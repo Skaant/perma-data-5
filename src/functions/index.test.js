@@ -19,7 +19,7 @@ describe('firebase functions - index', () => {
     })
   })
 
-  describe('### root call', () => {
+  describe('## root call', () => {
 
     describe('SUCCESS :', () => {
 
