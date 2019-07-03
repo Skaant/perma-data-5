@@ -15,6 +15,30 @@
    * *data* can be about gardening, transforming, conservation, history, therapeutic uses, etc.
    * due to the overwhelming (for humans) amount of data entries, **synthesis, ergonomics & personalization have to be focused**
 
+## 2. **energy savings**
+
+* **lowering all application costs and consumption**
+* reduction of bandwidth usage (client & server), API calls, CPU-milliseconds (simpler logical operations)
+* reduction of development time, code complexity, technical debt (standards, technical watch, documentation, refactorables)
+* reduction of provider's features (cf. stack) *financial cost* (progressive implementation)
+* **minimalist features and workflow**
+* reduction of users' time spent & interaction needed to accomplish tasks on the application (automation)
+
+## 3. **creative universe**
+
+* PERMA-DATA stages a *deep optimistic science-fiction* artwork, with a dense living universe
+* *deep* stands for long-term projection (from close future **to the end of universe**)
+* *deep* also stands for conceptual investigation (absolute, abstraction, infinity, oneness-wholeness)
+* *optimistic* stands for strongly positive values like : symbiosis (integration, bio-mimetic), benevolence, collective consciousness
+* *science-fiction* stands for imagination, innovation, anticipation
+
+## 4. **educational game**
+
+* PERMA-DATA implements *gamification* concepts in order to share some precious pieces of knowledge
+* **gamification tends to improve engagement and passive learning**
+* game mechanics and stories illustrate *patterns*
+* *patterns* describe logical operations workflow
+
 ## 7. **improve universe**
 * exchange about the creative strategy & universe content
 * submit **your ideas & art** for alternate *formulation trees*
