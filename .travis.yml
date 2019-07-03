@@ -6,9 +6,13 @@ install:
 - (cd ./src/functions/ && npm install)
 - npm install -g firebase-tools
 before_script:
-- (cd ./src && firebase serve --token 1/zxZI8F9mlJTFrg_8bvI6NvS0WDgYeSRT-UjkUiOXBaW-Hmoh0KH3U7uhSIy6gNs0 --project perma-data-5)
+- (cd ./src && firebase serve --token 1/zxZI8F9mlJTFrg_8bvI6NvS0WDgYeSRT-UjkUiOXBaW-Hmoh0KH3U7uhSIy6gNs0 --project perma-data-5 &)
 script:
 - npm test
 env:
   global:
     secure: ngIKNXCo81mxBjpRZ7hTiydEp/0qZ/eIUIfSSwCsscQF5jU7yAPxBeqtaoLLd/38dO6MMxeWw7c7+1WP0kZUqvM+MCmU6/zqCGeba4m9cpswZ/UK9FzoTpOKHEguA6VP1O4cwtoBFjBDPRHQvcehgSECpNCxtkGL6VKbUXZ4sebJuoLIw3S7i5Mqm+UerJRwJSnAcOfNLU9n1nnGiRIJX00jx4WHYGdNMt2sTJF5GL3i4mPxxfANkido8FUEw9wWRBazGFyav+XqiAceF10Y8fR6+GsO6poCgOZUKnVLWgRsJKUyzM7UqvV0FN6yOQ2qyANGfnbqHNjPpSAxtL9Ev/nxsh1K85r9GZKxt6awCTTCODI97YkID54EvbTb9CHL04KD9Xrd05tJOaR1vGRy6aD64mZMawOeQkL4vfs+A1Ddhd5SvRf4toefD8yJXvn8+GqEpLwW0eOWKH3nPtjzACbrOFpyONWP17RNm0E0x0dT1d3HcVRfP+jEIMUvM6wii8WJmThy4PhlcBZzXxEvEj4iQvXA03asGMRDPLQxC9uOIGXnIQZKDSUzCdI1bNqX0YTt2FtPgz8ha62t09ct5ZsdYjaDwwqA20IsJSy9fqqGX2bcNVIWZtatKC50st2EOmJ7ALfKrLQlj27dHPimtvhg0ug2dCId0NZUjVdmlnU=
+cache:
+  directories:
+    - 'node_modules'
+    - 'src/functions/node_modules'
