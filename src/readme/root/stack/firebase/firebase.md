@@ -7,13 +7,9 @@ Free usage of Firebase Blaze plan induces limitations that should be taken in mi
 
 **Authentication** seems to have no quota on web usage
 
-### Features
+### Base features
 * [Hosting](https://firebase.google.com/docs/hosting/)
 * [Authentication](https://firebase.google.com/docs/auth/)
 * [**Express**](http://expressjs.com/) server using [**Cloud Functions**](https://firebase.google.com/docs/functions/)
 * exposes `firebase serve` and `firebase deploy` command line scripts
 * delegated authentication & tokenization
-
-### middlewares
-* `/lang/` params to `req.lang`
-* [**Firebase**] authentication `token` to `req.user`
