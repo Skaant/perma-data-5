@@ -1,4 +1,4 @@
-# versions history
+# version history
 1. *lost in time*
 2. basic **plant search** and **extract-oriented data** display
 
