@@ -27,13 +27,16 @@ This phase is meant to serve functions
 
 ```yaml
 before_script:
-- (cd ./src && firebase serve --token 1/zxZI8F9mlJTFrg_8bvI6NvS0WDgYeSRT-UjkUiOXBaW-Hmoh0KH3U7uhSIy6gNs0 --project perma-data-5 &)
+- (cd ./src && firebase serve --token $FIREBASE_TOKEN --project perma-data-5 &)
 - sleep 10
 ```
 
-* `(cd ./src && firebase serve --token 1/zxZI8F9mlJTFrg_8bvI6NvS0WDgYeSRT-UjkUiOXBaW-Hmoh0KH3U7uhSIy6gNs0 --project perma-data-5 &)`
+* `(cd ./src && firebase serve --token $FIREBASE_TOKEN --project perma-data-5 &)`
   * `firebase serve` emulates functions as a localhost server
-  * `--token 1/zxZI8F9mlJTFrg_8bvI6NvS0WDgYeSRT-UjkUiOXBaW-Hmoh0KH3U7uhSIy6gNs0` provides firebase account encrypted (using `travis encrypt`) token
+  * `--token $FIREBASE_TOKEN` provides firebase account encrypted (using `travis encrypt`) token (*)
   * `--project perma-data-5` provides target project identifier
   * `&` runs command in background, allowing next commands to be launched
 * `sleep 10` lets `firebase serve` 10 seconds to start before runing tests
+
+(*) `$FIREBASE_TOKEN` is declared in `env: global` with the `secure keyword`
+```
