@@ -1,0 +1,8 @@
+{
+  "content": [
+    "functions apps rewrites.md",
+    "base lang redirect.md",
+    "middlewares.md",
+    "travis config.md"
+  ]
+}

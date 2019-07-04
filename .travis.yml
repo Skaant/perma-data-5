@@ -6,7 +6,7 @@ install:
 - (cd ./src/functions/ && npm install)
 - npm install -g firebase-tools
 before_script:
-- (cd ./src && firebase serve --token 1/zxZI8F9mlJTFrg_8bvI6NvS0WDgYeSRT-UjkUiOXBaW-Hmoh0KH3U7uhSIy6gNs0 --project perma-data-5 &)
+- (cd ./src && firebase serve --token $FIREBASE_TOKEN --project perma-data-5 &)
 - sleep 10
 script:
 - npm test
