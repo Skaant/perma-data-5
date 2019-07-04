@@ -1,3 +1,5 @@
-### middlewares
+### Middlewares
+
+// NOT IMPLEMENTED YET
 * `/lang/` params to `req.lang`
-* [**Firebase**] authentication `token` to `req.user`
+* *Authentication* token to user, provisioning `req.user`

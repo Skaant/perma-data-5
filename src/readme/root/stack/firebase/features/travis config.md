@@ -39,4 +39,3 @@ before_script:
 * `sleep 10` lets `firebase serve` 10 seconds to start before runing tests
 
 (*) `$FIREBASE_TOKEN` is declared in `env: global` with the `secure keyword`
-```

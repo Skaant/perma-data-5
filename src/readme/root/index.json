@@ -1,8 +1,10 @@
 {
   "content": [
     "introduction.md",
+    "start.md",
     "manifest",
     "history",
-    "stack"
+    "stack",
+    "glossary.md"
   ]
 }

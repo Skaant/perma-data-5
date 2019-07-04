@@ -3,5 +3,6 @@
 
 ### table of contents
 * [**PERMA-DATA** 5 manifest](#perma-data-5-manifest)
-* [versions history](#versions-history)
-* [stack & development features](#stack--development-features)
+* [Start](#quick-start)
+* [Version history](#version-history)
+* [Development stack and features](#development-stack-and-features)
