@@ -8,6 +8,11 @@ The following list briefly describe, with large-scale modules :
 
 ### Table of contents
 * [Firebase server](#firebase-server)
+  * [Base features](#base-features)
+  * [Functions apps rewrite](#functions-apps-rewrite)
+  * [Root lang redirection](#root-lang-redirection)
+  * [Middlewares](#middlewares)
+  * [Travis configuration](#travis-configuration)
 * [MongoDB database](#mongodb-database)
 * [server-side rendered pages](#server-side-rendered-pages)
 * [hybrid jQuery/React client bundles](#hybrid-jqueryreact-client-bundles)
