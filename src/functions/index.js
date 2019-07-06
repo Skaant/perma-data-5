@@ -1,9 +1,7 @@
 const functions = require('firebase-functions')
+const api = require('./apps/api/api')
+const content = require('./apps/content/content')
 
-exports.content = functions.https.onRequest((request, response) => {
-  response.send('Hello PERMA-DATA')
-})
+exports.api = functions.https.onRequest(api)
 
-exports.api = functions.https.onRequest((request, response) => {
-  response.send({ valid: true })
-})
+exports.content = functions.https.onRequest(content)

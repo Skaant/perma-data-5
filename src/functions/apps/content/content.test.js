@@ -12,14 +12,14 @@ describe('firebase functions - index', () => {
   }
 
   before(done => {
-    request('http://localhost:5000/', (err, res) => {
+    request('http://localhost:5000/fr', (err, res) => {
       this.responses['root'].err = err
       this.responses['root'].response = res
       done()
     })
   })
 
-  describe('## root call', () => {
+  describe('## FR root call', () => {
 
     describe('SUCCESS :', () => {
 
@@ -33,20 +33,20 @@ describe('firebase functions - index', () => {
         done()
       })
 
-      it('should redirect "/" to "/fr"', done => {
-        this.responses['root'].response.request.path.should.equal('/fr')
+      it('should answer with a html content-type', done => {
+        this.responses['root'].response.headers['content-type'].should.include('text/html;')
         done()
       })
 
       it('should answer a page body with the id "home"', done => {
-        this.responses['root'].response.body.slice(0, 100)
-          .includes('id="home"').should.be.true
+        this.responses['root'].response.body.slice(0, 50)
+          .should.include('id="home"')
         done()
       })
 
       it('should answer a page body with lang set to "fr"', done => {
-        this.responses['root'].response.body.slice(0, 100)
-          .includes('lang="fr"').should.be.true
+        this.responses['root'].response.body.slice(0, 50)
+          .should.include('lang="fr"')
         done()
       })
     })
