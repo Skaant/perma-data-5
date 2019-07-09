@@ -6,6 +6,7 @@ Note, that most of command mentionned here are also typed in `./travis.yml`.
 
 * In `./` root directory, run a first `npm install`
 * In `./src/functions`, run a second `npm install` to install *Firebase* dependencies
+
   * You can run `(cd ./src/functions/ && npm install)` from root
 * In order to use the *Firebase* CLI, run a global `npm install -g firebase-tools`
 

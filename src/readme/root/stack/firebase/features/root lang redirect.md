@@ -6,11 +6,12 @@ In `./src/firebase.json`, root url (`permadata.net/`) is automatically redirecte
 
 ```json
 "hosting": {
-    "redirects": [
-      {
-        "source": "/",
-        "destination": "/fr",
-        "type" : 302
-      }
-    ]
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/fr",
+      "type" : 302
+    }
+  ]
+}
 ```

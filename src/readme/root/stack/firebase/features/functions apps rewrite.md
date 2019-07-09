@@ -1,6 +1,6 @@
 ### Functions apps rewrite
 
-See [app glossary definition](#firebase-functions-app).
+See [app glossary definition](#firebase-functions-app-).
 
 In `./src/firebase.json`, both PERMA-DATA's apps (content and api) are linked to url endpoints.
 
