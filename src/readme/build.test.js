@@ -8,7 +8,7 @@ const build = require('./build')
 chai.use(chaiAsPromised)
 const should = chai.should()
 
-describe('readme builder - build()', () => {
+describe('readme builder - build() #local', () => {
 
   after(() => mock.restore())
 

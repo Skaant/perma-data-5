@@ -7,7 +7,7 @@ const fileReader = require('./fileReader')
 chai.use(chaiAsPromised)
 chai.should()
 
-describe('readme builder - fileReader()', () => {
+describe('readme builder - fileReader() #local', () => {
 
   describe('CHECKS :', () =>
 

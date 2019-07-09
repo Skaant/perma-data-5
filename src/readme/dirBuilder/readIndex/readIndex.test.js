@@ -14,7 +14,7 @@ const rejectionCheck = (key, done) => {
   done()
 }
 
-describe('readme builder - readIndex()', () => {
+describe('readme builder - readIndex() #local', () => {
 
   after(() => mock.restore())
 
