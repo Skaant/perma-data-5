@@ -15,6 +15,7 @@ Note, that most of command mentionned here are also typed in `./travis.yml`.
 
 * In `./` root directory, run a first `npm install`
 * In `./src/functions`, run a second `npm install` to install *Firebase* dependencies
+
   * You can run `(cd ./src/functions/ && npm install)` from root
 * In order to use the *Firebase* CLI, run a global `npm install -g firebase-tools`
 
@@ -118,6 +119,7 @@ The following list briefly describe, with large-scale modules :
 
 ### Table of contents
 * [Firebase server](#firebase-server)
+
   * [Base features](#base-features)
   * [Functions apps rewrite](#functions-apps-rewrite)
   * [Root lang redirection](#root-lang-redirection)
@@ -145,7 +147,7 @@ Free usage of Firebase Blaze plan induces limitations that should be taken in mi
 
 ### Functions apps rewrite
 
-See [app glossary definition](#firebase-functions-app).
+See [app glossary definition](#firebase-functions-app-).
 
 In `./src/firebase.json`, both PERMA-DATA's apps (content and api) are linked to url endpoints.
 
@@ -180,13 +182,14 @@ In `./src/firebase.json`, root url (`permadata.net/`) is automatically redirecte
 
 ```json
 "hosting": {
-    "redirects": [
-      {
-        "source": "/",
-        "destination": "/fr",
-        "type" : 302
-      }
-    ]
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/fr",
+      "type" : 302
+    }
+  ]
+}
 ```
 
 ### Middlewares
@@ -274,7 +277,7 @@ before_script:
 
 # Glossary
 
-##### [*Firebase Functions*] **app** : 
+#### *Firebase Functions* **app**
 * *Functions* entry point
 * Two main apps in PERMA-DATA : **content** (pages) and **api**
 * Apps are provided to *Functions* index (`./src/functions/index.js`)
