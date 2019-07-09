@@ -33,10 +33,10 @@ Run *Firebase* server locally :
 
 ## 1. **plant data**
 
-   * PERMA-DATA is initially about **gathering & displaying** *plant data* from different *sources*
-   * *sources* can be books, videos, scholarly literature, interviews, community feedback, etc.
-   * *data* can be about gardening, transforming, conservation, history, therapeutic uses, etc.
-   * due to the overwhelming (for humans) amount of data entries, **synthesis, ergonomics & personalization have to be focused**
+* PERMA-DATA is initially about **gathering & displaying** *plant data* from different *sources*
+* *sources* can be books, videos, scholarly literature, interviews, community feedback, etc.
+* *data* can be about gardening, transforming, conservation, history, therapeutic uses, etc.
+* due to the overwhelming (for humans) amount of data entries, **synthesis, ergonomics & personalization have to be focused**
 
 ## 2. **energy savings**
 
@@ -61,6 +61,19 @@ Run *Firebase* server locally :
 * **gamification tends to improve engagement and passive learning**
 * game mechanics and stories illustrate *patterns*
 * *patterns* describe logical operations workflow
+
+## 5. **share feedback**
+
+* **feedback on plants and gardens**
+* add your own data to improve reliability and precision with geographical, climatic and growth contexts
+* improve sourcing and format
+* simply share your thoughts on data, or globally on plants
+
+## 6. **collaborative development**
+
+* project code is **open-source**
+* code is heavily documented with tests, wiki and README
+* creators/developers could add their content features and see their work on live application
 
 ## 7. **improve universe**
 * exchange about the creative strategy & universe content
@@ -94,6 +107,25 @@ Run *Firebase* server locally :
    * [firebaseapp link](https://perma-data-4.firebaseapp.com/)
    * **concluded on:** need a **more modular structure**, a better **delivery workflow** and a more **content-oriented UX strategy**
 
+
+# Development stack and features
+Stack is built upon various technologies, answering different problematics.
+
+The following list briefly describe, with large-scale modules :
+* **which third-party is used, providing what features**
+* **what solutions are developped specificaly for this project**
+* [WIP] complete modules description is to be found in the [project wiki](https://github.com/Skaant/perma-data-5/wiki)
+
+### Table of contents
+* [Firebase server](#firebase-server)
+  * [Base features](#base-features)
+  * [Functions apps rewrite](#functions-apps-rewrite)
+  * [Root lang redirection](#root-lang-redirection)
+  * [Middlewares](#middlewares)
+  * [Travis configuration](#travis-configuration)
+* [MongoDB database](#mongodb-database)
+* [server-side rendered pages](#server-side-rendered-pages)
+* [hybrid jQuery/React client bundles](#hybrid-jqueryreact-client-bundles)
 
 ## [Firebase](https://firebase.google.com/docs/web/setup) server
 Free usage of Firebase Blaze plan induces limitations that should be taken in mind during development :
