@@ -5,7 +5,7 @@ const request = require('request')
 chai.use(chaiAsPromised)
 const should = chai.should()
 
-describe('firebase functions - api [app]', () => {
+describe('firebase functions - [api app] root', () => {
 
   this.responses = {
     root: {}

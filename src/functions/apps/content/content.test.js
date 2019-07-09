@@ -4,7 +4,7 @@ const content = require('./content')
 
 chai.use(chaiAsPromised)
 
-describe('firebase functions - content (app root)', () => {
+describe('firebase functions - [content app] root', () => {
 
   it('should returns an EventEmitter object', () => {
     content.constructor.name.should.equal('EventEmitter')
@@ -15,6 +15,4 @@ describe('firebase functions - content (app root)', () => {
   })
 
   /* it('should be configured to use middlewares', () => {}) */
-
-  /* it('should be configured to use the lang router', () => {}) */
 }) 
