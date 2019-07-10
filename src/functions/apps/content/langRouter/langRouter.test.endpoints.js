@@ -50,7 +50,7 @@ describe('firebase functions - [content app] - lang router endpoints ###', () =>
 
   langs.map(lang => {
 
-    describe(`## ${ lang } (lang root) call`, () => {
+    describe(`## ${ lang } lang root call`, () => {
   
       describe('SUCCESS :', () => {
   
@@ -59,10 +59,6 @@ describe('firebase functions - [content app] - lang router endpoints ###', () =>
   
         it('should answer with a html content-type', () =>
           this.responses[lang].headers['content-type'].should.include('text/html;'))
-  
-        it('should answer a page body with the id "home"', () =>
-          this.responses[lang].body.slice(0, 50)
-            .should.include('id="home"'))
   
         it('should answer a page body with lang set to ' + lang, () =>
           this.responses[lang].body.slice(0, 50)
