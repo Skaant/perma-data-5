@@ -3,7 +3,6 @@ const chaiAsPromised = require('chai-as-promised')
 const index = require('./index')
 
 chai.use(chaiAsPromised)
-const should = chai.should()
 
 describe('firebase functions - index', () => {
 
