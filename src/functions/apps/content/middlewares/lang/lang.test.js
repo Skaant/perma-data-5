@@ -2,7 +2,7 @@ const chai = require('chai')
 const sinon = require('sinon')
 const lang = require('./lang')
 
-describe.only('firebase functions - [lang middleware]', () => {
+describe('firebase functions - [lang middleware]', () => {
 
   it('should call the next() method', () => {
     let req = {

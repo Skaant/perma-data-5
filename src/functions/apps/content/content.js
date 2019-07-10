@@ -1,9 +1,10 @@
 const express = require('express')
-// const middlewares = require('./middlewares/middlewares')
+const langMiddleware = require('./middlewares/lang/lang')
 const langRouter = require('./langRouter/langRouter')
 
-// const app = middlewares(express())
 const app = express()
+
+app.use(langMiddleware)
 
 app.set("view engine", "pug")
 
