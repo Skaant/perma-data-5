@@ -8,6 +8,7 @@ The following list briefly describe, with large-scale modules :
 
 ### Table of contents
 * [Firebase server](#firebase-server)
+
   * [Base features](#base-features)
   * [Functions apps rewrite](#functions-apps-rewrite)
   * [Root lang redirection](#root-lang-redirection)

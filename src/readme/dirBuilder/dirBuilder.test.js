@@ -13,7 +13,7 @@ const rejectionCheck = (key, done) => {
   promise.should.be.rejectedWith(key).notify(done)
 }
 
-describe('readme builder - dirBuilder()', () => {
+describe('readme builder - dirBuilder() #local', () => {
 
   after(() => mock.restore())
 
