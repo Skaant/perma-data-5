@@ -3,7 +3,7 @@
   "version": "0.5.0",
   "description": "PERMA-DATA is a plant database, a collaborative tool, a game and a rich creative universe !",
   "scripts": {
-    "test": "mocha \"./**/*test.*js\" --exclude \"./**/node_modules/**\" --grep \"#local\" --invert",
+    "test": "mocha \"./**/*test.*js\" --exclude \"./**/node_modules/**\" --grep \"#local\" --invert --timeout 5000",
     "testlocal": "mocha \"./**/*test.*js\" --exclude \"./**/node_modules/**\" --grep \"#local\"",
     "testall": "mocha \"./**/*test.*js\" --exclude \"./**/node_modules/**\"",
     "serve": "(cd ./src && firebase serve)",
