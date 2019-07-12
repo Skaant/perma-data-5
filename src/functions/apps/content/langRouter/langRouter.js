@@ -1,14 +1,16 @@
 const { Router } = require('express')
 const contentRouter = require('./contentRouter/contentRouter')
+const errorHandler = require('../errorHandler/errorHandler')
 const langs = require('../../../../../config.json').langs
 
 const router = Router()
 
 langs.map(lang =>
-  router.use(`/${ lang }`, contentRouter(lang)))
+  router.use(`/${ lang }`, contentRouter))
 
 // should be delegated to lang middleware
-router.use('/*', (req, res) =>
-  res.status(404).send('<html id="error" lang="en">ok</html>'))
+router.use('/*', errorHandler({
+  status: 404
+}))
 
 module.exports = router
