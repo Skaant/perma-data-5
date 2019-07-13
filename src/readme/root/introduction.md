@@ -1,8 +1,10 @@
 ## perma-data-5
 **PERMA-DATA** is a **plant database**, a **collaborative tool**, a **game** and a **rich creative universe** !
 
+Project aims balance between completeness and minimalism, between efficiency and economy.
+
 ### table of contents
-* [**PERMA-DATA** 5 manifest](#perma-data-5-manifest)
-* [Start](#quick-start)
+* [**PERMA-DATA** manifest](#perma-data-manifest)
+* [Quick start](#quick-start)
 * [Version history](#version-history)
-* [Development stack and features](#development-stack-and-features)
+* [Developers : stack and features](#developers--stack-and-features)

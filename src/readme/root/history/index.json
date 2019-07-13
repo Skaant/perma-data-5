@@ -1,5 +1,7 @@
 {
   "content": [
-    "history.md"
+    "1 introduction.md",
+    "2 versions history",
+    "3 releases history"
   ]
 }

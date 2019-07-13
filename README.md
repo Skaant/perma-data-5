@@ -1,11 +1,13 @@
 ## perma-data-5
 **PERMA-DATA** is a **plant database**, a **collaborative tool**, a **game** and a **rich creative universe** !
 
+Project aims balance between completeness and minimalism, between efficiency and economy.
+
 ### table of contents
-* [**PERMA-DATA** 5 manifest](#perma-data-5-manifest)
-* [Start](#quick-start)
+* [**PERMA-DATA** manifest](#perma-data-manifest)
+* [Quick start](#quick-start)
 * [Version history](#version-history)
-* [Development stack and features](#development-stack-and-features)
+* [Developers : stack and features](#developers--stack-and-features)
 
 # Quick start
 
@@ -30,23 +32,49 @@ Run *Firebase* server locally :
 * `npm run serve` is a shortcut for `(cd ./src && firebase serve)`
 * `npm run goreadme` will try to build the `./README.md` file from the `./src/readme/root` folder tree
 
-# **PERMA-DATA** 5 manifest
+# **PERMA-DATA** manifest
+Since the v5, **PERMA-DATA** shows off its conceptual roadmap, principles, guidelines and ethics.
 
-## 1. **plant data**
+Advices and improvements are more than welcomed !
 
-* PERMA-DATA is initially about **gathering & displaying** *plant data* from different *sources*
-* *sources* can be books, videos, scholarly literature, interviews, community feedback, etc.
-* *data* can be about gardening, transforming, conservation, history, therapeutic uses, etc.
-* due to the overwhelming (for humans) amount of data entries, **synthesis, ergonomics & personalization have to be focused**
+Like the whole rest of this project, you can interact with the manifest source code in `./src/readme/root/manifest`.
 
-## 2. **energy savings**
+### Roadmap features
 
-* **lowering all application costs and consumption**
-* reduction of bandwidth usage (client & server), API calls, CPU-milliseconds (simpler logical operations)
-* reduction of development time, code complexity, technical debt (standards, technical watch, documentation, refactorables)
-* reduction of provider's features (cf. stack) *financial cost* (progressive implementation)
-* **minimalist features and workflow**
-* reduction of users' time spent & interaction needed to accomplish tasks on the application (automation)
+* Build the `./README.md` file and update it on GitHub using Travis CI
+* An internal links checker
+* An **amendment tool** integrated in the **PERMA-DATA** application
+
+## 1. **Plant data**
+
+* **PERMA-DATA** is first about **gathering & displaying** *plant data* from different *sources*.
+* *Sources* could be :
+
+   * Books,
+   * Videos,
+   * Scholarly,
+   * Literature,
+   * Interviews,
+   * Community feedback, etc.
+* *Data* can be about :
+
+   * Gardening,
+   * Transforming,
+   * Conservation,
+   * History,
+   * Therapeutic uses, etc.
+* **Synthesis, ergonomics & personalization are** PERMA-DATA **keystones concepts**.
+* Users should be able to find relevant data for a minimal time and infrastructure cost ...
+
+## 2. **Energy savings**
+
+* **Lowering all application costs and consumption**
+* Reduction of bandwidth usage (client & server), API calls, CPU-milliseconds (simpler logical operations).
+* Reduction of development time, code complexity, technical debt (standards, technology intelligence, documentation, refactorables).
+* Reduction of provider's features (cf. [stack](#developers--stack-and-features)) *financial cost* (progressive implementation).
+* **Minimalist features and workflow**.
+* Reduction of users' time spent and interaction needed to fulfill tasks on the application (automation).
+* Reduction of time required to acquire skills and vision for both users and developers.
 
 ## 3. **creative universe**
 
@@ -82,34 +110,57 @@ Run *Firebase* server locally :
 * as every individual has its own sensibility, *formulation trees* are here to help each one to find what's the most understandable, meaningful & suiting content for itself
 * discuss game mechanics, collaborate to theory-crafting, balancing & **playfulness**
 
-# version history
-1. *lost in time*
+# History
+
+## Versions history
+
+### 1. **PERMA-DATA** is then only a one-dimension mind map browser
+
+* it's basically a super simple Wikipedia
+* features a single page **React** application
+* displays key-identified *concept* page
+* *concepts* describe (collaborative) data in strongly-typed categories
+
+  * keywords
+  * relationships (to others concepts)
+  * context
+  * inputs
+  * outputs
+  * functions
+* [FR] [permadata, l'application (open source) qui va enterrer wikipédia](https://www.youtube.com/watch?v=JhJ8msf3gII)
+  * *permadata, the (open source) application which will burrow wikipedia*
+  * exposes data and page addition, routing and browsing features
+
 2. basic **plant search** and **extract-oriented data** display
 
-   * features a single page create-react-app
-   * *pro-tip: search for* "rosmarinus"
-   * [firebaseapp link](https://perma-plant-data.firebaseapp.com)
-   * **concluded on:** need of a better data display and edit, ... and a homepage
+* features a single page [create-react-app] application
+* *pro-tip: search for* "rosmarinus"
+* [firebaseapp link](https://perma-plant-data.firebaseapp.com)
+* **concluded on:** need of a better data display and edit, ... and a homepage
+
 3. **plant-data-extract** structure and complete **contributor area**
 
-   * **server-side rendered** pages with static data
-   * **react** modules on dynamic parts and **authenticated areas** (contributor & inventory)
-   * *contributor area requires manual right edition, ask me in any case*
-   * *pro-tip: search for* "symphytum"
-   * [firebaseapp link](https://perma-data-3.firebaseapp.com)
-   * **concluded on:** need of better data request options & a more playful contribution experience
-4. [ FR only ! ] **storytelling**, **gamification** and **features planning**
+* **server-side rendered** pages with static data
+* **react** modules on dynamic parts and **authenticated areas** (contributor & inventory)
+* *contributor area requires manual right edition, ask me in any case*
+* *pro-tip: search for* "symphytum"
+* [firebaseapp link](https://perma-data-3.firebaseapp.com)
+* **concluded on:** need of better data request options & a more playful contribution experience
 
-   * independant **mongo database**
-   * **react modules** rendered on diverse page anchors
-   * "window **store**" and **application lifecycle**
-   * integrated **creative content** and **level design** elements
-   * *create an account simply by clicking* "s'authentifier" *and then* "s'enregistrer"
-   * [firebaseapp link](https://perma-data-4.firebaseapp.com/)
-   * **concluded on:** need a **more modular structure**, a better **delivery workflow** and a more **content-oriented UX strategy**
+4. **storytelling**, **gamification** and **features planning**
 
+* independant **mongo database**
+* **react modules** rendered on diverse page anchors
+* "window **store**" and **application lifecycle**
+* integrated **creative content** and **level design** elements
+* *create an account simply by clicking* "s'authentifier" *and then* "s'enregistrer"
+* [FR] [firebaseapp link](https://perma-data-4.firebaseapp.com/)
+  * EN localization won't be available until v5 or later
+* **concluded on:** need a **more modular structure**, a better **delivery workflow** and a more **content-oriented UX strategy**
 
-# Development stack and features
+## Releases history
+
+# Development : stack and features
 Stack is built upon various technologies, answering different problematics.
 
 The following list briefly describe, with large-scale modules :
@@ -118,18 +169,26 @@ The following list briefly describe, with large-scale modules :
 * [WIP] complete modules description is to be found in the [project wiki](https://github.com/Skaant/perma-data-5/wiki)
 
 ### Table of contents
-* [Firebase server](#firebase-server)
+* [Express server with Firebase Functions](#express-server-with-firebase-function)
 
+  * [Firebase boundaries](#firease-boundaries)
   * [Base features](#base-features)
   * [Functions apps rewrite](#functions-apps-rewrite)
   * [Root lang redirection](#root-lang-redirection)
   * [Middlewares](#middlewares)
-  * [Travis configuration](#travis-configuration)
-* [MongoDB database](#mongodb-database)
+* [Deployment and Travis configuration](#travis-configuration-tests-and-deployment)
 * [server-side rendered pages](#server-side-rendered-pages)
-* [hybrid jQuery/React client bundles](#hybrid-jqueryreact-client-bundles)
 
-## [Firebase](https://firebase.google.com/docs/web/setup) server
+  * Pug template engine
+  * Page list
+  * Layout and pages composition tree
+* [hybrid jQuery/React client bundles](#hybrid-jqueryreact-client-bundles)
+* [MongoDB database](#mongodb-database)
+* [API references](#api-references)
+
+## Express server with [Firebase](https://firebase.google.com/docs/web/setup) Functions
+
+### Firebase boundaries
 Free usage of Firebase Blaze plan induces limitations that should be taken in mind during development :
 * 125 000 **Cloud Functions** call/month
 * 40k **Cloud Functions** CPU-second/month (minimum algorithmics server side)
@@ -198,6 +257,8 @@ In `./src/firebase.json`, root url (`permadata.net/`) is automatically redirecte
 * `/lang/` params to `req.lang`
 * *Authentication* token to user, provisioning `req.user`
 
+## Travis configuration, tests and deployment
+
 ### Travis configuration
 
 Endpoints are tested against a `firebase serve` local server.
@@ -240,12 +301,6 @@ before_script:
 
 (*) `$FIREBASE_TOKEN` is declared in `env: global` with the `secure keyword`
 
-## [MongoDB](https://www.mongodb.com) database
-* easily deployed with [**MongoDB Atlas**](https://www.mongodb.com/cloud/atlas) 
-* powerful agregation pipeline
-* provides the [**MongoDB Compass**](https://www.mongodb.com/products/compass) desktop tool
-* scaling options
-
 ## server-side rendered pages
 * uses [**Pug**](http://pugjs.org/) as the templating engine
 * light-weighted first load & search engine-optimized
@@ -274,6 +329,14 @@ before_script:
    * `<DialogModal/>`
    * `<ZumCite/>`
    * feature **DOMS**
+
+## [MongoDB](https://www.mongodb.com) database
+* easily deployed with [**MongoDB Atlas**](https://www.mongodb.com/cloud/atlas) 
+* powerful agregation pipeline
+* provides the [**MongoDB Compass**](https://www.mongodb.com/products/compass) desktop tool
+* scaling options
+
+## API references
 
 # Glossary
 

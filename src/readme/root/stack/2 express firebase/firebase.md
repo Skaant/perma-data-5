@@ -1,4 +1,6 @@
-## [Firebase](https://firebase.google.com/docs/web/setup) server
+## Express server with [Firebase](https://firebase.google.com/docs/web/setup) Functions
+
+### Firebase boundaries
 Free usage of Firebase Blaze plan induces limitations that should be taken in mind during development :
 * 125 000 **Cloud Functions** call/month
 * 40k **Cloud Functions** CPU-second/month (minimum algorithmics server side)
