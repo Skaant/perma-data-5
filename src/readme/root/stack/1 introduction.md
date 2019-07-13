@@ -1,4 +1,4 @@
-# Development : stack and features
+# Developers : stack and features
 Stack is built upon various technologies, answering different problematics.
 
 The following list briefly describe, with large-scale modules :

@@ -1,4 +1,4 @@
-## 6. **collaborative development**
+## 6. **Collaborative development**
 
 * project code is **open-source**
 * code is heavily documented with tests, wiki and README

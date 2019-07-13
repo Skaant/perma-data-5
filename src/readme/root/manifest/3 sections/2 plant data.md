@@ -1,16 +1,13 @@
-## 1. **Plant data**
-
+### 1. **Plant data**
 * **PERMA-DATA** is first about **gathering & displaying** *plant data* from different *sources*.
 * *Sources* could be :
 
    * Books,
    * Videos,
-   * Scholarly,
-   * Literature,
+   * Scholarly Literature,
    * Interviews,
    * Community feedback, etc.
 * *Data* can be about :
-
    * Gardening,
    * Transforming,
    * Conservation,

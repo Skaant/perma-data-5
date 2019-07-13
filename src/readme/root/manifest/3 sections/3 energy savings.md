@@ -1,4 +1,4 @@
-## 2. **Energy savings**
+### 2. **Energy savings**
 
 * **Lowering all application costs and consumption**
 * Reduction of bandwidth usage (client & server), API calls, CPU-milliseconds (simpler logical operations).

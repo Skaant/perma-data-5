@@ -1,12 +1,12 @@
-## perma-data-5
+# perma-data-5
 **PERMA-DATA** is a **plant database**, a **collaborative tool**, a **game** and a **rich creative universe** !
 
 Project aims balance between completeness and minimalism, between efficiency and economy.
 
-### table of contents
+## Table of contents
 * [**PERMA-DATA** manifest](#perma-data-manifest)
 * [Quick start](#quick-start)
-* [Version history](#version-history)
+* [History](#history)
 * [Developers : stack and features](#developers--stack-and-features)
 
 # Quick start
@@ -39,25 +39,22 @@ Advices and improvements are more than welcomed !
 
 Like the whole rest of this project, you can interact with the manifest source code in `./src/readme/root/manifest`.
 
-### Roadmap features
+## Roadmap features
 
-* Build the `./README.md` file and update it on GitHub using Travis CI
-* An internal links checker
 * An **amendment tool** integrated in the **PERMA-DATA** application
 
-## 1. **Plant data**
+## Manifest content
 
+### 1. **Plant data**
 * **PERMA-DATA** is first about **gathering & displaying** *plant data* from different *sources*.
 * *Sources* could be :
 
    * Books,
    * Videos,
-   * Scholarly,
-   * Literature,
+   * Scholarly Literature,
    * Interviews,
    * Community feedback, etc.
 * *Data* can be about :
-
    * Gardening,
    * Transforming,
    * Conservation,
@@ -66,7 +63,7 @@ Like the whole rest of this project, you can interact with the manifest source c
 * **Synthesis, ergonomics & personalization are** PERMA-DATA **keystones concepts**.
 * Users should be able to find relevant data for a minimal time and infrastructure cost ...
 
-## 2. **Energy savings**
+### 2. **Energy savings**
 
 * **Lowering all application costs and consumption**
 * Reduction of bandwidth usage (client & server), API calls, CPU-milliseconds (simpler logical operations).
@@ -76,35 +73,38 @@ Like the whole rest of this project, you can interact with the manifest source c
 * Reduction of users' time spent and interaction needed to fulfill tasks on the application (automation).
 * Reduction of time required to acquire skills and vision for both users and developers.
 
-## 3. **creative universe**
+### 3. **Creative setting**
 
-* PERMA-DATA stages a *deep optimistic science-fiction* artwork, with a dense living universe
-* *deep* stands for long-term projection (from close future **to the end of universe**)
-* *deep* also stands for conceptual investigation (absolute, abstraction, infinity, oneness-wholeness)
-* *optimistic* stands for strongly positive values like : symbiosis (integration, bio-mimetic), benevolence, collective consciousness
-* *science-fiction* stands for imagination, innovation, anticipation
+* **PERMA-DATA** isn't only about efficiency, shapes does matter too. 
+* **Creativity, curiosity and diversity in content and styles are encouraged**.
+* **PERMA-DATA** stages a *deep optimistic science-fiction* artwork, with a dense living universe
+* *Deep* stands for long-term projection (from a close future **to the end of universe**)
+* *Deep* also stands for conceptual investigation (absolute, abstraction, infinity, oneness-wholeness)
+* *Optimistic* stands for strong positive values like : symbiosis (integration, bio-mimetics), benevolence, collective consciousness
+* *Science-fiction* stands for imagination, innovation, anticipation
 
-## 4. **educational game**
+## 4. **Educational game**
 
-* PERMA-DATA implements *gamification* concepts in order to share some precious pieces of knowledge
-* **gamification tends to improve engagement and passive learning**
-* game mechanics and stories illustrate *patterns*
-* *patterns* describe logical operations workflow
+* **PERMA-DATA** implements *gamification* concepts in order to share some precious pieces of knowledge.
+* Game is part of and gate to the artwork.
+* **Gamification tends to improve engagement and passive learning**.
+* Game mechanics and stories illustrate *patterns*.
+* *Patterns* describe logical operations workflow.
 
-## 5. **share feedback**
+## 6. **Share feedback**
 
 * **feedback on plants and gardens**
 * add your own data to improve reliability and precision with geographical, climatic and growth contexts
 * improve sourcing and format
 * simply share your thoughts on data, or globally on plants
 
-## 6. **collaborative development**
+## 6. **Collaborative development**
 
 * project code is **open-source**
 * code is heavily documented with tests, wiki and README
 * creators/developers could add their content features and see their work on live application
 
-## 7. **improve universe**
+## 7. **Improve universe**
 * exchange about the creative strategy & universe content
 * submit **your ideas & art** for alternate *formulation trees*
 * as every individual has its own sensibility, *formulation trees* are here to help each one to find what's the most understandable, meaningful & suiting content for itself
@@ -160,7 +160,7 @@ Like the whole rest of this project, you can interact with the manifest source c
 
 ## Releases history
 
-# Development : stack and features
+# Developers : stack and features
 Stack is built upon various technologies, answering different problematics.
 
 The following list briefly describe, with large-scale modules :

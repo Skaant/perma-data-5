@@ -1,4 +1,4 @@
-## 5. **share feedback**
+## 6. **Share feedback**
 
 * **feedback on plants and gardens**
 * add your own data to improve reliability and precision with geographical, climatic and growth contexts
