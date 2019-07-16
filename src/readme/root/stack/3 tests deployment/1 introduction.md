@@ -1,1 +1,0 @@
-## Travis configuration, tests and deployment
