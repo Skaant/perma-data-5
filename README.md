@@ -9,156 +9,136 @@ Project aims balance between completeness and minimalism, between efficiency and
 * [History](#history)
 * [Developers : stack and features](#developers--stack-and-features)
 
-# Quick start
+## Quick start
+*Note that most of command mentionned here are also written in `./travis.yml` for the CI/CD process workflow.*
 
-Note, that most of command mentionned here are also typed in `./travis.yml`.
-
-## Installation
-
+### Installation
 * In `./` root directory, run a first `npm install`
 * In `./src/functions`, run a second `npm install` to install *Firebase* dependencies
 
   * You can run `(cd ./src/functions/ && npm install)` from root
 * In order to use the *Firebase* CLI, run a global `npm install -g firebase-tools`
 
-## Local server
-
+### Local server
 Run *Firebase* server locally :
 * Log in using `firebase login` 
 * Then, run `firebase serve`
 
-## Other scripts
+### Other scripts
+* `npm test` runs the complete Mocha/Chaï test suite
+* `npm run serve` is a shortcut for `(cd ./src && firebase serve)
 
-* `npm run serve` is a shortcut for `(cd ./src && firebase serve)`
-* `npm run goreadme` will try to build the `./README.md` file from the `./src/readme/root` folder tree
+## Manifest
+**PERMA-DATA** materializes strong ideas and values. Here are some of the most important ones.
 
-# **PERMA-DATA** manifest
-Since the v5, **PERMA-DATA** shows off its conceptual roadmap, principles, guidelines and ethics.
+### Gather, formalize, store, synthetize and display plant data
+**PERMA-DATA** is first about **gathering** *plant data* from different *sources*, and **displaying** it in a ergonomic way.
 
-Advices and improvements are more than welcomed !
+*Plant data* can be about culture, production, functions and uses, transformation, conservation, multiplication, history, and a whole lot of different concerns.
 
-Like the whole rest of this project, you can interact with the manifest source code in `./src/readme/root/manifest`.
+Both (the tremendous amount of *data* extracted from sources like books, videos, users' feedback, etc) and (the need for an user to find efficiently and economicaly relevant data) **force us to focus on data atomization and agregation**.
 
-## Roadmap features
-
-* An **amendment tool** integrated in the **PERMA-DATA** application
-
-## Manifest content
-
-### 1. **Plant data**
-* **PERMA-DATA** is first about **gathering & displaying** *plant data* from different *sources*.
-* *Sources* could be :
-
-   * Books,
-   * Videos,
-   * Scholarly Literature,
-   * Interviews,
-   * Community feedback, etc.
-* *Data* can be about :
-   * Gardening,
-   * Transforming,
-   * Conservation,
-   * History,
-   * Therapeutic uses, etc.
-* **Synthesis, ergonomics & personalization are** PERMA-DATA **keystones concepts**.
-* Users should be able to find relevant data for a minimal time and infrastructure cost ...
-
-### 2. **Energy savings**
-
-* **Lowering all application costs and consumption**
+### **Save energy, save time**
+Physicaly and financialy, there is a lot of costs that we should keep as small as possible :
 * Reduction of bandwidth usage (client & server), API calls, CPU-milliseconds (simpler logical operations).
 * Reduction of development time, code complexity, technical debt (standards, technology intelligence, documentation, refactorables).
-* Reduction of provider's features (cf. [stack](#developers--stack-and-features)) *financial cost* (progressive implementation).
-* **Minimalist features and workflow**.
+* Reduction of provider's features *financial cost* (progressive implementation).
+* Reduction of inherent energy consumption sources leak ()
+
+Even for humans, there is time and attention to save with **minimalist features and workflows** :
 * Reduction of users' time spent and interaction needed to fulfill tasks on the application (automation).
 * Reduction of time required to acquire skills and vision for both users and developers.
 
-### 3. **Creative setting**
+### **Creative setting**
+**PERMA-DATA** isn't about efficiency only, shapes does matter too. 
 
-* **PERMA-DATA** isn't only about efficiency, shapes does matter too. 
-* **Creativity, curiosity and diversity in content and styles are encouraged**.
-* **PERMA-DATA** stages a *deep optimistic science-fiction* artwork, with a dense living universe
-* *Deep* stands for long-term projection (from a close future **to the end of universe**)
-* *Deep* also stands for conceptual investigation (absolute, abstraction, infinity, oneness-wholeness)
-* *Optimistic* stands for strong positive values like : symbiosis (integration, bio-mimetics), benevolence, collective consciousness
-* *Science-fiction* stands for imagination, innovation, anticipation
+**PERMA-DATA** stages a *deep optimistic science-fiction* artwork, with a dense living universe, where :
+* *Deep* stands for long-term projection (from a close future **to the end of universe**).
+* *Deep* also stands for conceptual investigation (absolute, abstraction, infinity, oneness-wholeness).
+* *Optimistic* stands for strong positive values like : symbiosis (integration, bio-mimetics), benevolence, collective consciousness.
+* *Science-fiction* stands for imagination, innovation, anticipation.
 
-## 4. **Educational game**
+**Creativity, curiosity and diversity in content and styles are encouraged**.
 
-* **PERMA-DATA** implements *gamification* concepts in order to share some precious pieces of knowledge.
-* Game is part of and gate to the artwork.
-* **Gamification tends to improve engagement and passive learning**.
-* Game mechanics and stories illustrate *patterns*.
-* *Patterns* describe logical operations workflow.
+### **If learning is the essence of life, the essence of learning is playing**
+**PERMA-DATA** implements *gamification* concepts in order to share some precious pieces of knowledge, while making it playful and delightful.
 
-## 6. **Share feedback**
+Game is part and gate to the artwork.
 
-* **feedback on plants and gardens**
-* add your own data to improve reliability and precision with geographical, climatic and growth contexts
-* improve sourcing and format
-* simply share your thoughts on data, or globally on plants
+**Gamification tends to improve engagement and passive learning**.
+* Game content shows practical knowledge and helps memorization.
+* Game mechanics illustrate *patterns*.
 
-## 6. **Collaborative development**
+### Share feedback
+**Feedback on plants**
+* Add your own data to improve reliability and precision with geographical, climatic and growth contexts
+* Improve sourcing and format
+* Simply share your thoughts on data, or globally on plants.
 
-* project code is **open-source**
-* code is heavily documented with tests, wiki and README
-* creators/developers could add their content features and see their work on live application
+**Feedback on gardens and lists**
+* Share seeds lists from your inventory and plants lists from your gardens.
+* Participate to the community gardens to-do list.
+* 
 
-## 7. **Improve universe**
-* exchange about the creative strategy & universe content
-* submit **your ideas & art** for alternate *formulation trees*
-* as every individual has its own sensibility, *formulation trees* are here to help each one to find what's the most understandable, meaningful & suiting content for itself
-* discuss game mechanics, collaborate to theory-crafting, balancing & **playfulness**
+### Collaborative development
+**PERMA-DATA** is fully **open-source**.
 
-# History
+It exposes a developer-oriented API. Code is heavily documented with tests, wiki and README.
+
+Creators can add their content features and see their work on the live application.
+
+### Improve universe
+Exchange about the creative strategy & universe content.
+* Submit **your ideas & art** for alternate *formulation trees*.
+* As every individual has its own sensibility, *formulation trees* are here to help each one to find what's the most understandable, meaningful & suiting content for itself.
+
+Discuss game mechanics, collaborate to theory-crafting, balancing & **playfulness**
 
 ## Versions history
 
-### 1. **PERMA-DATA** is then only a one-dimension mind map browser
+### v1. **PERMA-DATA** is then only a one-dimension mind map browser
 
-* it's basically a super simple Wikipedia
-* features a single page **React** application
-* displays key-identified *concept* page
-* *concepts* describe (collaborative) data in strongly-typed categories
+* It's basically a super simple Wikipedia
+* Features a single page **React** application
+* Displays key-identified *concept* page
+* *Concepts* describe (collaborative) data in strongly-typed categories :
 
-  * keywords
-  * relationships (to others concepts)
-  * context
-  * inputs
-  * outputs
-  * functions
+  * Keywords
+  * Relationships (to others concepts)
+  * Context
+  * Inputs
+  * Outputs
+  * Functions
 * [FR] [permadata, l'application (open source) qui va enterrer wikipédia](https://www.youtube.com/watch?v=JhJ8msf3gII)
   * *permadata, the (open source) application which will burrow wikipedia*
-  * exposes data and page addition, routing and browsing features
+  * Demonstrate (data and page addition, routing and browsing) features
 
-2. basic **plant search** and **extract-oriented data** display
+### v2. Basic **plant search** and **extract-oriented data** display
 
-* features a single page [create-react-app] application
-* *pro-tip: search for* "rosmarinus"
-* [firebaseapp link](https://perma-plant-data.firebaseapp.com)
-* **concluded on:** need of a better data display and edit, ... and a homepage
+* Features a single page [create-react-app] application
+* *Pro-tip: search for* "rosmarinus"
+* [Rirebaseapp link](https://perma-plant-data.firebaseapp.com)
+* **Concluded on:** need of a better data display and edit, ... and a homepage
 
-3. **plant-data-extract** structure and complete **contributor area**
+### v3. *plant-data-extract* structure and complete **contributor area**
 
-* **server-side rendered** pages with static data
-* **react** modules on dynamic parts and **authenticated areas** (contributor & inventory)
+* **Server-side rendered** pages with static data
+* **React** modules on dynamic parts and **authenticated areas** (contributor & inventory)
 * *contributor area requires manual right edition, ask me in any case*
-* *pro-tip: search for* "symphytum"
-* [firebaseapp link](https://perma-data-3.firebaseapp.com)
-* **concluded on:** need of better data request options & a more playful contribution experience
+* *Pro-tip: search for* "symphytum"
+* [Firebaseapp link](https://perma-data-3.firebaseapp.com)
+* **Concluded on:** need of better data request options & a more playful contribution experience
 
-4. **storytelling**, **gamification** and **features planning**
+4. **Storytelling**, **gamification** and **features planning**
 
-* independant **mongo database**
-* **react modules** rendered on diverse page anchors
-* "window **store**" and **application lifecycle**
-* integrated **creative content** and **level design** elements
-* *create an account simply by clicking* "s'authentifier" *and then* "s'enregistrer"
-* [FR] [firebaseapp link](https://perma-data-4.firebaseapp.com/)
+* Independant **mongo database**
+* **React modules** rendered on diverse page anchors
+* "Window **store**" and **application lifecycle**
+* Integrated **creative content** and **level design** elements
+* *Create an account simply by clicking* "s'authentifier" *and then* "s'enregistrer"
+* [FR] [Firebaseapp link](https://perma-data-4.firebaseapp.com/)
   * EN localization won't be available until v5 or later
-* **concluded on:** need a **more modular structure**, a better **delivery workflow** and a more **content-oriented UX strategy**
-
-## Releases history
+* **Concluded on:** need a **more modular structure**, a better **delivery workflow** and a more **content-oriented UX strategy**
 
 # Developers : stack and features
 Stack is built upon various technologies, answering different problematics.
@@ -336,11 +316,9 @@ before_script:
 * provides the [**MongoDB Compass**](https://www.mongodb.com/products/compass) desktop tool
 * scaling options
 
-## API references
+## Glossary
 
-# Glossary
-
-#### *Firebase Functions* **app**
+### *Firebase Functions* **app**
 * *Functions* entry point
 * Two main apps in PERMA-DATA : **content** (pages) and **api**
 * Apps are provided to *Functions* index (`./src/functions/index.js`)
