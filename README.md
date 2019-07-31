@@ -20,26 +20,26 @@ Project aims balance between completeness and minimalism, between efficiency and
 * In order to use the *Firebase* CLI, run a global `npm install -g firebase-tools`
 
 ### Local server
-Run *Firebase* server locally :
 * Log in using `firebase login` 
-* Then, run `firebase serve`
+* Then, start the server with `npm start`
 
 ### Other scripts
 * `npm test` runs the complete Mocha/Chaï test suite
-* `npm run serve` is a shortcut for `(cd ./src && firebase serve)
 
 ## Manifest
 **PERMA-DATA** materializes strong ideas and values. Here are some of the most important ones.
 
-### Gather, formalize, store, synthetize and display plant data
+### #1 Gather, formalize, store, synthetize and display plant data
 **PERMA-DATA** is first about **gathering** *plant data* from different *sources*, and **displaying** it in a ergonomic way.
 
 *Plant data* can be about culture, production, functions and uses, transformation, conservation, multiplication, history, and a whole lot of different concerns.
 
 Both (the tremendous amount of *data* extracted from sources like books, videos, users' feedback, etc) and (the need for an user to find efficiently and economicaly relevant data) **force us to focus on data atomization and agregation**.
 
-### **Save energy, save time**
-Physicaly and financialy, there is a lot of costs that we should keep as small as possible :
+### #2 **Save energy, save time : optimize**
+**PERMA-DATA** aims for optimization.
+
+Physicaly and financialy, there is a lot of costs that should be kept as small as possible :
 * Reduction of bandwidth usage (client & server), API calls, CPU-milliseconds (simpler logical operations).
 * Reduction of development time, code complexity, technical debt (standards, technology intelligence, documentation, refactorables).
 * Reduction of provider's features *financial cost* (progressive implementation).
@@ -49,18 +49,20 @@ Even for humans, there is time and attention to save with **minimalist features 
 * Reduction of users' time spent and interaction needed to fulfill tasks on the application (automation).
 * Reduction of time required to acquire skills and vision for both users and developers.
 
-### **Creative setting**
+Automation and continuous improvment.
+
+### #3 **Creative setting : art beyond technics**
 **PERMA-DATA** isn't about efficiency only, shapes does matter too. 
 
 **PERMA-DATA** stages a *deep optimistic science-fiction* artwork, with a dense living universe, where :
-* *Deep* stands for long-term projection (from a close future **to the end of universe**).
-* *Deep* also stands for conceptual investigation (absolute, abstraction, infinity, oneness-wholeness).
-* *Optimistic* stands for strong positive values like : symbiosis (integration, bio-mimetics), benevolence, collective consciousness.
-* *Science-fiction* stands for imagination, innovation, anticipation.
+* *deep* stands for long-term projection (from a close future **to the end of universe**).
+* *deep* also stands for conceptual investigation (absolute, abstraction, infinity, oneness-wholeness).
+* *optimistic* stands for strong positive values like : symbiosis (integration, bio-mimetics), benevolence, collective consciousness.
+* *science-fiction* stands for imagination, innovation, anticipation.
 
 **Creativity, curiosity and diversity in content and styles are encouraged**.
 
-### **If learning is the essence of life, the essence of learning is playing**
+### #4 **Playing is learning, learning is living**
 **PERMA-DATA** implements *gamification* concepts in order to share some precious pieces of knowledge, while making it playful and delightful.
 
 Game is part and gate to the artwork.
@@ -69,7 +71,7 @@ Game is part and gate to the artwork.
 * Game content shows practical knowledge and helps memorization.
 * Game mechanics illustrate *patterns*.
 
-### Share feedback
+### #5. Tooling and sharing feedback
 **Feedback on plants**
 * Add your own data to improve reliability and precision with geographical, climatic and growth contexts
 * Improve sourcing and format
@@ -78,27 +80,25 @@ Game is part and gate to the artwork.
 **Feedback on gardens and lists**
 * Share seeds lists from your inventory and plants lists from your gardens.
 * Participate to the community gardens to-do list.
-* 
 
-### Collaborative development
+### #6 Collaborative development
 **PERMA-DATA** is fully **open-source**.
 
 It exposes a developer-oriented API. Code is heavily documented with tests, wiki and README.
+Creators, designers and developers can add their content features and see their work on the live application.
 
-Creators can add their content features and see their work on the live application.
-
-### Improve universe
+### #7 Improve universe
 Exchange about the creative strategy & universe content.
 * Submit **your ideas & art** for alternate *formulation trees*.
 * As every individual has its own sensibility, *formulation trees* are here to help each one to find what's the most understandable, meaningful & suiting content for itself.
 
-Discuss game mechanics, collaborate to theory-crafting, balancing & **playfulness**
+Discuss game mechanics, collaborate to theory-crafting, balancing & **playfulness**.
 
 ## Versions history
 
 ### v1. **PERMA-DATA** is then only a one-dimension mind map browser
 
-* It's basically a super simple Wikipedia
+* It's basically a super simple Wikipedia, with a more strongly enforced relation-based navigation.
 * Features a single page **React** application
 * Displays key-identified *concept* page
 * *Concepts* describe (collaborative) data in strongly-typed categories :
@@ -115,30 +115,39 @@ Discuss game mechanics, collaborate to theory-crafting, balancing & **playfulnes
 
 ### v2. Basic **plant search** and **extract-oriented data** display
 
-* Features a single page [create-react-app] application
-* *Pro-tip: search for* "rosmarinus"
-* [Rirebaseapp link](https://perma-plant-data.firebaseapp.com)
-* **Concluded on:** need of a better data display and edit, ... and a homepage
+* Features a single page [create-react-app] application.
+* Data is displayed in category containers. Categories in the following :
+  * Culture conditions & maintenance,
+  * Multiplication,
+  * Shape, height, physiology,
+  * Functions in garden,
+  * Uses and production,
+  * *Inserts*, are highlighted sections of a book page,
+  * *Categories are strongly based on Bill Mollison & David Holmgren's book* Permaculture 1 *plant catalog appendix data types.*
+* In database, data is stored as "sections" (now extracts or atoms).
+* [Firebaseapp link](https://perma-plant-data.firebaseapp.com)
+* *Pro-tip: search for* "rosmarinus".
+* **Concluded on:** need of a better data display and edit, ... and homepage.
 
 ### v3. *plant-data-extract* structure and complete **contributor area**
 
-* **Server-side rendered** pages with static data
-* **React** modules on dynamic parts and **authenticated areas** (contributor & inventory)
-* *contributor area requires manual right edition, ask me in any case*
-* *Pro-tip: search for* "symphytum"
-* [Firebaseapp link](https://perma-data-3.firebaseapp.com)
-* **Concluded on:** need of better data request options & a more playful contribution experience
+* **Server-side rendered** pages with static data.
+* **React** modules on dynamic parts and **authenticated areas** (contributor & inventory).
+* *contributor area requires manual right edition, ask me in any case*.
+* *Pro-tip: search for* "symphytum".
+* [Firebaseapp link](https://perma-data-3.firebaseapp.com).
+* **Concluded on:** need of better data request options & a more playful contribution experience.
 
 4. **Storytelling**, **gamification** and **features planning**
 
-* Independant **mongo database**
-* **React modules** rendered on diverse page anchors
-* "Window **store**" and **application lifecycle**
-* Integrated **creative content** and **level design** elements
-* *Create an account simply by clicking* "s'authentifier" *and then* "s'enregistrer"
-* [FR] [Firebaseapp link](https://perma-data-4.firebaseapp.com/)
-  * EN localization won't be available until v5 or later
-* **Concluded on:** need a **more modular structure**, a better **delivery workflow** and a more **content-oriented UX strategy**
+* Independant **mongo database**.
+* **React modules** rendered on diverse page anchors.
+* "Window **store**" and **application lifecycle**.
+* Integrated **creative content** and **level design** elements.
+* *Create an account simply by clicking* "s'authentifier" *and then* "s'enregistrer".
+* [FR] [Firebaseapp link](https://perma-data-4.firebaseapp.com/).
+  * EN localization for creative content won't be available until v5 or later.
+* **Concluded on:** need a **more modular structure**, a better **delivery workflow** and a more **content-oriented UX strategy**.
 
 # Developers : stack and features
 Stack is built upon various technologies, answering different problematics.
