@@ -4,10 +4,11 @@
 Project aims balance between completeness and minimalism, between efficiency and economy.
 
 ## Table of contents
-* [**PERMA-DATA** manifest](#perma-data-manifest)
 * [Quick start](#quick-start)
-* [History](#history)
+* [Manifest](#perma-data-manifest)
+* [History](#versions-history)
 * [Developers : stack and features](#developers--stack-and-features)
+* [Glossary](#glossary)
 
 ## Quick start
 *Note that most of command mentionned here are also written in `./travis.yml` for the CI/CD process workflow.*

@@ -32,5 +32,8 @@
     "chai-as-promised": "^7.1.1",
     "mocha": "^6.1.4",
     "mock-fs": "^4.10.1"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
   }
 }

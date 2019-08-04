@@ -4,8 +4,7 @@ node_js:
 install:
 - npm install
 script:
-- npm
+- npm start
 cache:
   directories:
     - 'node_modules'
-    - 'src/functions/node_modules'
