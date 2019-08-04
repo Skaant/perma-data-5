@@ -3,8 +3,8 @@
   "version": "0.5.0",
   "description": "PERMA-DATA is a plant database, a collaborative tool, a game and a rich creative universe !",
   "scripts": {
-    "test": "mocha \"./**/*test.*js\" --exclude \"./**/node_modules/**\" --timeout 5000",
-    "serve": "(cd ./src && firebase serve)"
+    "start": "node ./src/index.js",
+    "test": "mocha \"./**/*test.*js\" --exclude \"./**/node_modules/**\""
   },
   "repository": {
     "type": "git",
@@ -30,12 +30,10 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
-    "firebase-functions-test": "^0.1.6",
     "mocha": "^6.1.4",
     "mock-fs": "^4.10.1"
   },
   "dependencies": {
-    "request": "^2.88.0",
-    "sinon": "^7.3.2"
+    "express": "^4.17.1"
   }
 }
