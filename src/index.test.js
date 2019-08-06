@@ -5,6 +5,15 @@ const  app = require('./app/app')
 chai.use(chaiHttp)
 chai.should()
 
+describe('[endpoint] /', () => {
+
+  it('should respond with html content', () =>
+    chai.request(app)
+      .get('/')
+      .then(res =>
+        res.should.be.html))
+})
+
 describe('[endpoint] /info', () => {
 
   it('should respond with html content when "accept" header is set to "text/html"', () =>
