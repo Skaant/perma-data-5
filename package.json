@@ -4,6 +4,7 @@
   "description": "PERMA-DATA is a plant database, a collaborative tool, a game and a rich creative universe !",
   "scripts": {
     "start": "node ./src/index.js",
+    "dev-start": "npx nodemon ./src/index.js",
     "test": "mocha \"./**/*test.*js\" --exclude \"./**/node_modules/**\""
   },
   "repository": {
@@ -30,8 +31,11 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
+    "chai-http": "^4.3.0",
+    "jsdom": "^15.1.1",
     "mocha": "^6.1.4",
-    "mock-fs": "^4.10.1"
+    "mock-fs": "^4.10.1",
+    "nodemon": "^1.19.1"
   },
   "dependencies": {
     "express": "^4.17.1"
