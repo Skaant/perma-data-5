@@ -4,7 +4,7 @@ const htmlHandler = require('./htmlHandler')
 
 const should = chai.should()
 
-describe('[handler] /info > getRoute > htmlHandler', () => {
+describe('[handler] infoRouter > getRoute > htmlHandler', () => {
 
   it('should send a valid html string.', done =>
     htmlHandler({}, {

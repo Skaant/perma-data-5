@@ -1,5 +1,5 @@
 const express = require('express')
-const infoRouter = require('./routes/info/info')
+const infoRouter = require('./routes/infoRouter/infoRouter')
 
 const app = express()
 

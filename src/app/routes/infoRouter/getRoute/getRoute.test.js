@@ -3,7 +3,7 @@ const getRoute = require('./getRoute')
 
 chai.should()
 
-describe('[route] /info -> get', () => {
+describe('[route] infoRouter -> get', () => {
 
   it('should send with html content when "accept" header is set "text/html"', done =>
     getRoute({
