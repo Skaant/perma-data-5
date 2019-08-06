@@ -4,7 +4,7 @@ const rootRoute = require('./rootRoute')
 
 const should = chai.should()
 
-describe('[route] rootRoute', () => {
+describe('[handler] rootRoute', () => {
 
   it('should send a valid html string', done =>
     rootRoute({}, {

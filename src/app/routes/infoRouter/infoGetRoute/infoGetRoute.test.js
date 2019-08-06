@@ -1,12 +1,12 @@
 const chai = require('chai')
-const getRoute = require('./getRoute')
+const infoGetRoute = require('./infoGetRoute')
 
 chai.should()
 
-describe('[route] infoRouter -> get', () => {
+describe('[handler] infoRouter -> infoGetRoute', () => {
 
   it('should send with html content when "accept" header is set "text/html"', done =>
-    getRoute({
+    infoGetRoute({
       headers: {
         accept: 'text/html'
       }
@@ -18,7 +18,7 @@ describe('[route] infoRouter -> get', () => {
     }))
 
   it('should send with json content when "accept" header is set "application/json"', done =>
-    getRoute({
+    infoGetRoute({
       headers: {
         accept: 'application/json'
       }

@@ -1,13 +1,13 @@
 const chai = require('chai')
 const { JSDOM } = require('jsdom')
-const htmlHandler = require('./htmlHandler')
+const infoGetHtml = require('./infoGetHtml')
 
 const should = chai.should()
 
-describe('[handler] infoRouter > getRoute > htmlHandler', () => {
+describe('[handler] infoRouter > ingoGetRoute > infoGetHtml', () => {
 
   it('should send a valid html string.', done =>
-    htmlHandler({}, {
+    infoGetHtml({}, {
       send: html => {
         const dom = new JSDOM(html)
         should.exist(dom.window)

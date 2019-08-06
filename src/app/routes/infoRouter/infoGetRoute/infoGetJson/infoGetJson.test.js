@@ -1,12 +1,12 @@
 const chai = require('chai')
-const jsonHandler = require('./jsonHandler')
+const infoGetJson = require('./infoGetJson')
 
 chai.should()
 
-describe('[handler] infoRouter > getRoute > jsonHandler', () => {
+describe('[handler] infoRouter > infoGetRoute > infoGetJson', () => {
 
   it('should send a valid json object', () =>
-    jsonHandler({}, {
+  infoGetJson({}, {
       json: json =>
         json.should.be.an('object')
     }))
