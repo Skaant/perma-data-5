@@ -1,10 +1,9 @@
 const express = require('express')
-const rootRoute = require('./routes/rootRoute/rootRoute')
-const infoRouter = require('./routes/infoRouter/infoRouter')
 
 const app = express()
 
-app.use('/info', infoRouter)
-app.use('/', rootRoute)
+app.use('/info', require('./routes/infoRouter/infoRouter'))
+app.use('/plant', require('./routes/plantRouter/plantRouter'))
+app.use('/', require('./routes/rootRoute/rootRoute'))
 
 module.exports = app
