@@ -1,17 +1,29 @@
 const chai = require('chai')
-const { JSDOM } = require('jsdom')
+const isValidHtml = require('../../../../../utils/tests/isValidHtml/isValidHtml')
 const infoGetHtml = require('./infoGetHtml')
 
-const should = chai.should()
+chai.should()
+const expect = chai.expect
 
 describe('[handler] infoRouter > ingoGetRoute > infoGetHtml', () => {
 
   it('should send a valid html string.', done =>
     infoGetHtml({}, {
       send: html => {
-        const dom = new JSDOM(html)
-        should.exist(dom.window)
+        isValidHtml(html).should.be.true
         done()
       }
     }))
+
+  describe('[html :]', () => {
+
+    it('should display "Config" & "Package" <h2> titles', done => 
+      infoGetHtml({}, {
+        send: html => {
+          expect(html.includes('<h2>Config</h2>')
+            && html.includes('<h2>Package</h2>')).to.be.true
+          done()
+        }
+      }))
+  })
 })

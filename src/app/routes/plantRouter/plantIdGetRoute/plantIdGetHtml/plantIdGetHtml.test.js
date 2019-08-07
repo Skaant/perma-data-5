@@ -1,21 +1,43 @@
 const chai = require('chai')
-const { JSDOM } = require('jsdom')
+const isValidHtml = require('../../../../../utils/tests/isValidHtml/isValidHtml')
 const plantIdGetHtml = require('./plantIdGetHtml')
 
-const should = chai.should()
+chai.should()
+const expect = chai.expect
 
 describe('[handler] plantRouter > plantIdGetRoute > plantIdGetHtml', () => {
 
-  it('should send a valid html string.', done =>
-    plantIdGetHtml({
+  const setup = () => ({
+    req: {
       params: {
         id: 'prunus cerasus'
       }
-    }, {
+    }
+  })
+
+  it('should send a valid html string.', done =>
+    plantIdGetHtml(
+      setup().req, {
       send: html => {
-        const dom = new JSDOM(html)
-        should.exist(dom.window)
+        isValidHtml(html).should.be.true
         done()
       }
     }))
+
+  describe('[html :]', () => {
+
+    it('should display a plant.id <h2> title', done => {
+      const { req } = setup()
+      plantIdGetHtml(
+        req, {
+        send: html => {
+          expect(
+            html.includes('<h2>'
+              + req.params.id + '</h2>'))
+            .to.be.true
+          done()
+        }
+      })
+    })
+  })
 })

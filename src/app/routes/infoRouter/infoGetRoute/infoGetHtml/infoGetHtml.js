@@ -4,7 +4,7 @@ const package = require('../../../../../../package.json')
 module.exports = 
   (req, res) =>
     res.send('<html>'
-      + '<h1>Config</h1>'
+      + '<h2>Config</h2>'
       + Object.entries(config)
         .map(([k, v]) => 
           '<p>' + k 
@@ -12,7 +12,7 @@ module.exports =
             + '</p>')
         .join('')
       + '<br/>'
-      + '<h1>Package</h1>'
+      + '<h2>Package</h2>'
       + Object.entries(package)
         .map(([k, v]) =>
           '<p>' + k 
