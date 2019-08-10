@@ -4,7 +4,7 @@ node_js:
 install:
 - npm install
 before_script:
-- echo $MONGO_CLIENT_URI > ./src/mongo/clientSecret.json
+- echo -e "{\"uri\":\""$MONGO_CLIENT_URI"\"}" > ./src/mongo/clientSecret.json
 script:
 - npm test
 cache:
