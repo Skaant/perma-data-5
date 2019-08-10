@@ -8,7 +8,7 @@ describe('[utils] mongo', () => {
   it('should exists', () => 
     mongo.should.exist)
 
-  describe('[method] get   #e2e', () => {
+  describe('[method] get   #mongodb-atlas', () => {
 
     it('should return a database connection', done => {
       mongo

@@ -13,6 +13,7 @@ const client = new MongoClient(
 /**
  * Get the MongoDB client instance & the on-usage database reference.
  * 
+ * @alias module:mongo
  * @promise { { client: MongoClient, db: Db } } - Client & instance
  */
 const get = () => 
@@ -39,6 +40,9 @@ const get = () =>
     }
   })
  
+/**
+ * @exports mongo Module for database iteraction
+ */
 module.exports = {
   get
 }

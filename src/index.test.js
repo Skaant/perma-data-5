@@ -5,7 +5,7 @@ const  app = require('./app/app')
 chai.use(chaiHttp)
 chai.should()
 
-describe('[endpoint] /', () => {
+describe('[endpoint] /   #express-start', () => {
 
   it('should respond with html content', () =>
     chai.request(app)
@@ -14,7 +14,7 @@ describe('[endpoint] /', () => {
         res.should.be.html))
 })
 
-describe('[endpoint] /info', () => {
+describe('[endpoint] /info   #express-start', () => {
 
   it('should respond with html content when "accept" header is set to "text/html"', () =>
     chai.request(app)
