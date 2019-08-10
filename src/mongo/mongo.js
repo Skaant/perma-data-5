@@ -1,14 +1,8 @@
 const { MongoClient } = require('mongodb')
-const uriResolver = require('./uriResolver/uriResolver')
-const { uri, dbName } = require('./clientConfig.json')
-const { username, password } = require('./clientSecret.json')
+const { dbName } = require('./clientConfig.json')
+const { uri } = require('./clientSecret.json')
 
-const client = new MongoClient(
-  uriResolver(uri,
-    username,
-    password), {
-  useNewUrlParser: true
-})
+const client = new MongoClient(uri)
 
 /**
  * Get the MongoDB client instance & the on-usage database reference.

@@ -3,8 +3,13 @@ node_js:
 - '10'
 install:
 - npm install
+before_script:
+- echo $MONGO_CLIENT_URI > ./src/mongo/clientSecret.json
 script:
 - npm test
 cache:
   directories:
-    - 'node_modules'
+  - node_modules
+env:
+  global:
+    secure: Host01B0pvmo40XPNzy4cG3AVOUMHk+fh7AyXaz0tiKVcHeb7GkUel5QwXdlOB9zwVpTCEvdRo+eBTOdQ5HpjS3Ity70XxonRS9Ug1VC4jewjeNhZktb4t0Sguh2fG1nyPSn/q/LJDjUUyDnSS1OYNjVsI3Dy51CV9Dnhspp5D6BwGMxgodGtiH7iAOB0C7pU1CUFyzBaNp8aueGPdUViSC7FxDSjiiVhDCd6lPqh9msHt2KttJUpH1nG4obJtY+8uri3K6PfRx/gaJ3xQbvpxfk+aDw/tsBDa2BeVqK9v5A5GF8P7rSQeA4o8ApJ4kWkJhM9u+29CmKUP72Ci4YB5gOEXH6wB/rAxB9S4JLy1Z2e3+3BVzxpH2aaML2fwJnhsMBS1IcOIomzShz4f6IB4H7b9dZI0x0ABwVKso0dSLZZRy4chitlDCX0DXxs4xjOcwAAQuD2mvmxP+VQH/NCKoDdT/gH6ANNZenqTQ2WdNnEJf/zyIY0dI6b73JVFNKfslXYtNnN/AfILFxDmMobdbzRFwkggB8rwLKgSrdz99VakPoT+pLocpPJPTLKITs6yyaaFs9yjc5bc/mFWyQ1IObFaOLjEhEeww8I7Z0IacjFwlBaNjHd2cRVQrOfRQW45jiofXi2BtqPlcprhialFd5eYYz8lMFQ+TlTFoRbuw=
