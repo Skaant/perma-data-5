@@ -11,18 +11,31 @@ Project aims balance between completeness and minimalism, between efficiency and
 * [Glossary](#glossary)
 
 ## Quick start
-*Note that most of command mentionned here are also written in `./travis.yml` for the CI/CD process workflow.*
+*Commands mentionned here are also written in `./travis.yml` for the CI/CD process workflow.*
 
 ### Installation
-* In `./` root directory, run a first `npm install`
-* In `./src/functions`, run a second `npm install` to install *Firebase* dependencies
+* First, install all dependencies with `npm install`.
 
-  * You can run `(cd ./src/functions/ && npm install)` from root
-* In order to use the *Firebase* CLI, run a global `npm install -g firebase-tools`
+### Configuration
+Before starting, you'll have to set :
+* The MongoDB "secret" file, containing connection username & password.
+
+#### Set up db.secret.json
+1. In the `./src/db` folder, create a `db.secret.json` file.
+2. Inside of it, add the following entries :
+
+```json
+{
+  "username": "<userame>",
+  "password": "<password>
+}
+```
+
+3. Go on the MongoDB Atlas instance, in the *Database Access* tab.
+4. Choose or create an user, and copy-paste its credentials in the json file.
 
 ### Local server
-* Log in using `firebase login` 
-* Then, start the server with `npm start`
+* Start the server with `npm start`
 
 ### Other scripts
 * `npm test` runs the complete Mocha/Chaï test suite

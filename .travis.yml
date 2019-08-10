@@ -3,9 +3,6 @@ node_js:
 - '10'
 install:
 - npm install
-# before_script:
-# - npm start &
-# - sleep 5
 script:
 - npm test
 cache:
