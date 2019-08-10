@@ -6,7 +6,12 @@ chai.should()
 describe('[handler] plantRouter > plantIdGetRoute > plantIdGetJson', () => {
 
   it('should send a valid json object', () =>
-    plantIdGetJson({}, {
+    plantIdGetJson({
+      params: {
+        id: 'prunus cerasus'
+      }
+    }, {
+      status: function() { console.log(this); return this },
       json: json =>
         json.should.be.an('object')
     }))

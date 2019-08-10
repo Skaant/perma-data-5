@@ -1,8 +1,26 @@
-const config = require('../../../../../../config/config.json')
-const package = require('../../../../../../package.json')
+const mongo = require('../../../../../mongo/mongo')
+const getPlantIdAggregation = require('../../../../../mongo/aggregations/getPlantIdAggregation/getPlantIdAggregation')
+const jsonRejection = require('../../../../../utils/handlers/jsonRejection/jsonRejection')
 
 module.exports =
   (req, res) =>
-    res.json({
-      _id: 'ok la plante'
-    })
+    mongo.get()
+      .then(({ db }) => {
+        db
+          .collection('data')
+          .aggregate(
+            getPlantIdAggregation(req.params.id),
+            (err, cursor) => {
+              if (err) {
+                jsonRejection(res, err)
+              }
+              cursor
+                .next()
+                .then(result => 
+                  res.json(result))
+                .catch(err =>
+                  jsonRejection(res, err))
+            })
+      })
+      .catch(err =>
+        jsonRejection(res, err))
