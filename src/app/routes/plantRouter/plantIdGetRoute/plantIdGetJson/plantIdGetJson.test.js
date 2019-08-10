@@ -11,7 +11,7 @@ describe('[handler] plantRouter > plantIdGetRoute > plantIdGetJson', () => {
         id: 'prunus cerasus'
       }
     }, {
-      status: function() { console.log(this); return this },
+      status: function() { return this },
       json: json =>
         json.should.be.an('object')
     }))

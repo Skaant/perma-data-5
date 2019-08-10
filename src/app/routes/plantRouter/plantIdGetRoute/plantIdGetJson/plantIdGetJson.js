@@ -5,7 +5,7 @@ const jsonRejection = require('../../../../../utils/handlers/jsonRejection/jsonR
 module.exports =
   (req, res) =>
     mongo.get()
-      .then(({ db }) => {
+      .then(({ db }) =>
         db
           .collection('data')
           .aggregate(
@@ -20,7 +20,6 @@ module.exports =
                   res.json(result))
                 .catch(err =>
                   jsonRejection(res, err))
-            })
-      })
+            }))
       .catch(err =>
         jsonRejection(res, err))

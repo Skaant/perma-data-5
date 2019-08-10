@@ -20,12 +20,16 @@ describe('[handler] plantRouter -> plantIdGetRoute', () => {
       }
     }))
 
-  it('should send with json content when "accept" header is set "application/json"', done =>
+  it('should send with json content when "accept" header is set "application/json" #mongodb-atlas-call', done =>
     plantIdGetRoute({
       headers: {
         accept: 'application/json'
+      },
+      params: {
+        id: 'calendula officinalis'
       }
     }, {
+      status: function() { return this },
       json: content => {
         content.should.be.an('object')
         done()
