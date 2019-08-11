@@ -27,7 +27,7 @@ describe('[handler] plantRouter -> plantIdGetRoute', () => {
       }
     }))
 
-  it.only('should call plantIdGetJson (mock) when req.headers.accept === "application/json"', done =>
+  it('should call plantIdGetJson (mock) when req.headers.accept === "application/json"', done =>
     plantIdGetRoute({
       headers: {
         accept: 'application/json'
@@ -38,7 +38,6 @@ describe('[handler] plantRouter -> plantIdGetRoute', () => {
     }, {
       status: function() { return this },
       json: content => {
-        console.log(content)
         content.should.be.an('object')
         done()
       }
