@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node ./src/index.js",
     "dev-start": "npx nodemon ./src/index.js",
-    "test": "mocha \"./**/*test.*js\" --exclude \"./**/node_modules/**\""
+    "test": "mocha \"./**/*test.*js\" --exclude \"./**/node_modules/**\" -g \"#e2e\" -i",
+    "dev-test": "mocha \"./**/*test.*js\" --exclude \"./**/node_modules/**\""
   },
   "repository": {
     "type": "git",

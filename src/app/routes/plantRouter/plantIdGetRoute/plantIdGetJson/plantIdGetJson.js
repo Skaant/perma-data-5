@@ -4,7 +4,8 @@ const jsonRejection = require('../../../../../utils/handlers/jsonRejection/jsonR
 
 module.exports =
   (req, res) =>
-    mongo.get()
+    mongo
+      .get()
       .then(({ db }) =>
         db
           .collection('data')

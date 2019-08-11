@@ -7,7 +7,7 @@
 module.exports = plantId => 
   [{
     $match: {
-      plants: {
+      p: {
         $in: [ 
           plantId
         ]
@@ -17,15 +17,15 @@ module.exports = plantId =>
     $facet: {
       data: [ {
         $project: {
-          tags: 1,
-          value: 1,
-          plants: 1,
-          sources: 1
+          tags: '$t',
+          value: '$v',
+          plants: '$p',
+          sources: '$s'
         }
       } ],
       sources: [ {
         $project: {
-          source: '$sources'
+          source: '$s'
         }
       }, {
         $unwind: '$source'

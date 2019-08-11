@@ -3,12 +3,12 @@ const chai = require('chai')
 
 chai.should()
 
-/* describe('[utils] mongo', () => {
+describe('[utils] mongo #e2e', () => {
 
   it('should exists', () => 
     mongo.should.exist)
 
-  describe('[method] get   #mongodb-atlas-call', () => {
+  describe('[method] get', () => {
 
     it('should return a database connection', done => {
       mongo
@@ -23,4 +23,4 @@ chai.should()
         })
     })
   })
-}) */
+})
