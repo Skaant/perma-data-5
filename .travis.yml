@@ -5,6 +5,7 @@ install:
 - npm install
 before_script:
 - echo -e "{\"username\":\"$MONGO_CLIENT_USERNAME\",\"password\":\"$MONGO_CLIENT_PASSWORD\"}" > ./src/mongo/clientSecret.json
+- sleep 1s
 script:
 - npm test 
 cache:
