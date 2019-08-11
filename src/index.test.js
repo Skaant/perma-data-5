@@ -23,7 +23,7 @@ describe('[endpoint] /info   #express-start', () => {
       .then(res =>
         res.should.be.html))
 
-  it('should respond with json content when "accept" header is set to "application/json"', () =>
+  it('should respond with json content when "accept" header is set to "application/json"   #mongodb-atlas-call', () =>
     chai.request(app)
       .get('/info')
       .set('accept', 'application/json')
