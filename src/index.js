@@ -1,5 +1,5 @@
 const app = require('./app/app')
 
-app.listen(3000)
+const config = require('../config/config.json')
 
-module.exports = app
+app.listen(config.port)

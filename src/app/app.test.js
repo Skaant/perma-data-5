@@ -3,9 +3,8 @@ chai.should()
 
 const app = require('./app')
 
-describe('[EXPRESS] app', () => 
+describe('[express APP] app', () => 
 
-  it('Should exist', () => {
-    app.should.exist
-  })
+  it('should exist', () =>
+    app.should.exist)
 )
