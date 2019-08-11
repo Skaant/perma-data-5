@@ -29,6 +29,7 @@
   },
   "homepage": "https://github.com/Skaant/perma-data-5#readme",
   "devDependencies": {
+    "btoa": "^1.2.1",
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
     "chai-http": "^4.3.0",
@@ -38,6 +39,7 @@
     "proxyquire": "^2.1.2"
   },
   "dependencies": {
+    "atob": "^2.1.2",
     "express": "^4.17.1",
     "mongodb": "^3.3.0-beta2"
   }
