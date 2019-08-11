@@ -5,7 +5,7 @@ chai.should()
 
 describe('[handler] infoRouter -> infoGetRoute', () => {
 
-  it('should send with html content when "accept" header is set "text/html"', done =>
+  it('should send with html content when "accept" header is set "text/html"', done => {
     infoGetRoute({
       headers: {
         accept: 'text/html'
@@ -15,9 +15,10 @@ describe('[handler] infoRouter -> infoGetRoute', () => {
         content.should.include('<html>')
         done()
       }
-    }))
+    })
+  })
 
-  it('should send with json content when "accept" header is set "application/json"', done =>
+  it('should send with json content when "accept" header is set "application/json"', done => {
     infoGetRoute({
       headers: {
         accept: 'application/json'
@@ -27,5 +28,6 @@ describe('[handler] infoRouter -> infoGetRoute', () => {
         content.should.be.an('object')
         done()
       }
-    }))
+    })
+  })
 })

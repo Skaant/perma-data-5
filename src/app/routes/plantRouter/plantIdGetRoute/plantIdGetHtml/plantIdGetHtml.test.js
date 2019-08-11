@@ -15,14 +15,15 @@ describe('[handler] plantRouter > plantIdGetRoute > plantIdGetHtml', () => {
     }
   })
 
-  it('should send a valid html string.', done =>
+  it('should send a valid html string.', done => {
     plantIdGetHtml(
       setup().req, {
       send: html => {
         isValidHtml(html).should.be.true
         done()
       }
-    }))
+    })
+  })
 
   describe('[html :]', () => {
 

@@ -1,9 +1,9 @@
 const chai = require('chai')
-const mongo = require('./mongo')
+// const mongo = require('./mongo')
 
 chai.should()
 
-describe('[utils] mongo', () => {
+/* describe('[utils] mongo', () => {
 
   it('should exists', () => 
     mongo.should.exist)
@@ -23,4 +23,4 @@ describe('[utils] mongo', () => {
         })
     })
   })
-})
+}) */
