@@ -1,5 +1,12 @@
 const chai = require('chai')
-const plantIdGetRoute = require('./plantIdGetRoute')
+const proxyquire = require('proxyquire')
+const plantIdGetRoute = proxyquire(
+  './plantIdGetRoute', {
+    './plantIdGetJson/plantIdGetJson': (req, res) =>
+      res.json({
+        plantIdGetJson: true
+      })
+  })
 
 chai.should()
 
@@ -20,7 +27,7 @@ describe('[handler] plantRouter -> plantIdGetRoute', () => {
       }
     }))
 
-  it('should send with json content when "accept" header is set "application/json" #mongodb-atlas-call', done =>
+  it.only('should call plantIdGetJson (mock) when req.headers.accept === "application/json"', done =>
     plantIdGetRoute({
       headers: {
         accept: 'application/json'
@@ -31,6 +38,7 @@ describe('[handler] plantRouter -> plantIdGetRoute', () => {
     }, {
       status: function() { return this },
       json: content => {
+        console.log(content)
         content.should.be.an('object')
         done()
       }
