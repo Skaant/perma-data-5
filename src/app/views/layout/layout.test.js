@@ -9,7 +9,13 @@ describe('[view] layout', () => {
   it('should render an html base document', () => {
     const html = 
       pug
-        .renderFile('./src/app/views/layout/layout.pug')
+        .renderFile(
+          './src/app/views/layout/layout.pug',
+          {
+            titles: {
+              page: 'layout'
+            }
+          })
     
     isValidHtml(html)
       .should.be.true

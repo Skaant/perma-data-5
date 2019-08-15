@@ -1,3 +1,4 @@
+const pug = require('pug')
 const config = require('../../../../../../config/config.json')
 const package = require('../../../../../../package.json')
 
@@ -12,6 +13,12 @@ module.exports =
               page: 'Informations',
               config: 'Run configuration',
               package: 'Stack configuration'
+            },
+            infos: {
+              config: JSON
+                .stringify(config),
+              package: JSON
+                .stringify(package)
             }
           }))
         

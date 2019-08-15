@@ -7,16 +7,13 @@ const plantIdGetHtml = proxyquire(
   })
 
 chai.should()
-const expect = chai.expect
 
 describe('[handler] plantRouter > plantIdGetRoute > plantIdGetHtml', () => {
 
   it('should send a valid html string.', done =>
     plantIdGetHtml({
-      req: {
-        params: {
-          id: 'prunus cerasus'
-        }
+      params: {
+        id: 'prunus cerasus'
       }
     }, {
       send: html => {
