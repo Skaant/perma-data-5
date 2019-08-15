@@ -1,9 +1,11 @@
 const mongo = require('../../../../../mongo/mongo')
+const pug = require('pug')
 const getPlantIdAggregation = require('../../../../../mongo/aggregations/getPlantIdAggregation/getPlantIdAggregation')
 const htmlRejection = require('../../../../../utils/handlers/htmlRejection/htmlRejection')
 
 module.exports = 
-  (req, res) => 
+  (req, res) => {
+    const { id } = req.params
     mongo
       .get()
       .then(({ db }) =>
@@ -17,15 +19,26 @@ module.exports =
               }
               cursor
                 .next()
-                .then(result => 
-                  res.send('<html>'
-                  + '<h1>Le nom de la plante</h1>'
-                  + '<p>'
-                  + JSON.stringify(result)
-                  + '</p>'
-                  + '</html>'))
+                .then(({ data, sources }) => 
+                  res
+                    .send(pug
+                      .renderFile(
+                        './src/app/views/pages/plantId/plantId.pug', 
+                        {
+                          titles: {
+                            page: id,
+                            data: 'Données',
+                            sources: 'Sources'
+                          },
+                          plant: {
+                            data: JSON
+                              .stringify(data),
+                            sources: JSON
+                              .stringify(sources)
+                          }
+                        })))
                 .catch(err =>
                   htmlRejection(res, err))
             }))
       .catch(err =>
-        htmlRejection(res, err))
+        htmlRejection(res, err))}
