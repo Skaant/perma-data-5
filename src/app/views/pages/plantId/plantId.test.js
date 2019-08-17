@@ -8,7 +8,7 @@ describe('[view] plant/:id', () => {
 
   const params = {
     titles: {
-      page: 'helianthus annuus',
+      page: 'Tournesol',
       data: 'data',
       sources: 'sources'
     },
@@ -26,7 +26,7 @@ describe('[view] plant/:id', () => {
   it('should render with titles for plant name & id', () =>
     
     expect(html)
-      .to.include('<h1>Nom de la plante</h1>')
+      .to.include('<h1>Tournesol</h1>')
       .and
       .to.include('<h2>helianthus annuus</h2>'))
 

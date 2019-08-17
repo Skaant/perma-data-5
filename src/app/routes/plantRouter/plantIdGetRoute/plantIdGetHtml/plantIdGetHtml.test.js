@@ -8,7 +8,7 @@ const plantIdGetHtml = proxyquire(
 
 chai.should()
 
-describe('[handler] plantRouter > plantIdGetRoute > plantIdGetHtml', () => {
+describe('[handler] plantRouter > plantIdGetRoute > plantIdGetHtml #e2e', () => {
 
   it('should send a valid html string.', done =>
     plantIdGetHtml({

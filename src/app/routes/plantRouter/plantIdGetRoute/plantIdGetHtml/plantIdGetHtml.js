@@ -19,14 +19,16 @@ module.exports =
               }
               cursor
                 .next()
-                .then(({ data, sources }) => 
+                .then(({ data, sources }) => {
+                  const plantName =
+                    data['name,fr'][0].value
                   res
                     .send(pug
                       .renderFile(
                         './src/app/views/pages/plantId/plantId.pug', 
                         {
                           titles: {
-                            page: id,
+                            page: plantName,
                             data: 'Données',
                             sources: 'Sources'
                           },
@@ -36,7 +38,8 @@ module.exports =
                             sources: JSON
                               .stringify(sources)
                           }
-                        })))
+                        }))
+                      })
                 .catch(err =>
                   htmlRejection(res, err))
             }))

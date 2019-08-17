@@ -16,11 +16,24 @@ module.exports = plantId =>
   }, {
     $facet: {
       data: [ {
+        $sort: {
+          w: -1
+        }
+      }, {
+        $group: {
+          _id: '$t',
+          items: {
+            $push: {
+              value: '$v',
+              source: '$s'
+            }
+          }
+        }
+      }, {
         $project: {
-          tags: '$t',
-          value: '$v',
-          plants: '$p',
-          sources: '$s'
+          _id: 0,
+          k: '$_id',
+          v: '$items'
         }
       } ],
       sources: [ {
@@ -61,6 +74,26 @@ module.exports = plantId =>
           foreignField: '_id',
           as: 'parents'
         }
+      }, {
+        $project: {
+          _id: 0,
+          k: {
+            $toString: '$_id'
+          },
+          v: {
+            title: '$title',
+            parents: '$parents'
+          }
+        }
       } ]
+    }
+  }, {
+    $project: {
+      data: {
+        $arrayToObject: '$data'
+      },
+      sources: {
+        $arrayToObject: '$sources'
+      }
     }
   }]
