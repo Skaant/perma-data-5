@@ -3,7 +3,7 @@ const proxyquire = require('proxyquire')
 const isValidHtml = require('../../../../../utils/tests/isValidHtml/isValidHtml')
 const plantIdGetHtml = proxyquire(
   './plantIdGetHtml', {
-    '../../../../../mongo/mongo': require('../../../../../mongo/_mock/mongo')
+    './provisioner': require('./provisioner/_mock/provisioner')
   })
 
 chai.should()
