@@ -25,7 +25,7 @@ module.exports = plantId =>
           items: {
             $push: {
               value: '$v',
-              source: '$s'
+              sources: '$s'
             }
           }
         }

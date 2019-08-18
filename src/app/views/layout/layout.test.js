@@ -41,7 +41,7 @@ describe('[view] layout', () => {
   it('should render a navbar, of danger color, and a "PERMA-DATA" navbar brand link', () =>
     
     expect(html)
-      .to.include('<nav class="navbar navbar-dark danger-color">')
+      .to.include('<nav class="navbar navbar-dark danger-color mb-4">')
       .and
       .to.include('<a class="navbar-brand text-white" href="/">PERMA-DATA </a>'))
 })

@@ -12,7 +12,7 @@ module.exports =
         db
           .collection('data')
           .aggregate(
-            getPlantIdAggregation(req.params.id),
+            getPlantIdAggregation(id),
             (err, cursor) => {
               if (err) {
                 htmlRejection(res, err)
@@ -33,10 +33,9 @@ module.exports =
                             sources: 'Sources'
                           },
                           plant: {
-                            data: JSON
-                              .stringify(data),
-                            sources: JSON
-                              .stringify(sources)
+                            id,
+                            data,
+                            sources
                           }
                         }))
                       })

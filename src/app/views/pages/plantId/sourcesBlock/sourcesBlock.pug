@@ -1,0 +1,18 @@
+each source, key in plant.sources
+  .row.pt-4(
+    id= key
+  )
+    .col-8.pl-0
+      ol.breadcrumb.bg-white
+        li.breadcrumb-item.font-weight-bold= source.title
+        each parent in source.parents.slice().reverse()
+          li.breadcrumb-item= parent.title
+    .col-4
+      - var rootSource = source.parents[0] || source
+      ul.text-left.teal.lighten-4.py-3
+        li
+          span.font-weight-bold Langue :&nbsp;
+          span= rootSource.lang
+        li
+          span.font-weight-bold Auteur(s) :&nbsp;
+          span= rootSource.authors

@@ -1,11 +1,13 @@
 extends ../../layout/layout.pug
 
 block content
-  h1 #{ titles.page }
-  h2 #{ plant.id }
-  div
-    h3 #{ titles.data }
-    div #{ plant.data }
-  div
-    h3 #{ titles.sources }
-    div #{ plant.sources }
+  h1.pt-4 #{ titles.page }
+  h3.font-weight-lighter.mb-4 #{ plant.id }
+  div.pt-4
+    h2 #{ titles.data }
+    div.container
+      include ./dataBlock/dataBlock
+  div.py-4
+    h2 #{ titles.sources }
+    div.container
+      include ./sourcesBlock/sourcesBlock
