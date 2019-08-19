@@ -7,7 +7,7 @@ module.exports =
       .includes('<html><head>')
     &&
     html
-      .includes('</head><body>')
+      .includes('</head><body class="text-center">')
     &&
     html
       .includes('</body></html>')

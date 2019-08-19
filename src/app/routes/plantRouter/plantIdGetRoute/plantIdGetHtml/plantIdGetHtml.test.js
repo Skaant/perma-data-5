@@ -3,7 +3,10 @@ const proxyquire = require('proxyquire')
 const isValidHtml = require('../../../../../utils/tests/isValidHtml/isValidHtml')
 const plantIdGetHtml = proxyquire(
   './plantIdGetHtml', {
-    './provisioner': require('./provisioner/_mock/provisioner')
+    './provisioner/provisioner': () => ({
+      data: {},
+      sources: {}
+    })
   })
 
 chai.should()

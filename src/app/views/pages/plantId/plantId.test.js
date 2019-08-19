@@ -9,13 +9,13 @@ describe('[view] plant/:id', () => {
   const params = {
     titles: {
       page: 'Tournesol',
-      data: 'data',
-      sources: 'sources'
+      data: 'Données',
+      sources: 'Sources'
     },
     plant: {
       id: 'helianthus annuus',
-      data: 'data',
-      sources: 'sources'
+      data: {},
+      sources: {}
     }
   }
   const html = pug
@@ -26,21 +26,25 @@ describe('[view] plant/:id', () => {
   it('should render with titles for plant name & id', () =>
     
     expect(html)
-      .to.include('<h1>Tournesol</h1>')
+      .to.include('<h1 class="pt-4">'
+        + params.titles.page + '</h1>')
       .and
-      .to.include('<h2>helianthus annuus</h2>'))
+      .to.include('<h3 class="font-weight-lighter mb-4">'
+        + params.plant.id + '</h3>'))
 
   it('should render with titles for data & sources', () =>
   
     expect(html)
-      .to.include('<h3>data</h3>')
+      .to.include('<h2>'
+        + params.titles.data + '</h2>')
       .and
-      .to.include('<h3>sources</h3>'))
+      .to.include('<h2 class="mb-4">'
+        + params.titles.sources + '</h2>'))
 
   it('should render with data & sources content', () =>
   
     expect(html)
-      .to.include('<div>data</div>')
+      .to.include('<div class="container" id="data-block">')
       .and
-      .to.include('<div>sources</div>'))
+      .to.include('<div class="container" id="sources-block">'))
 })

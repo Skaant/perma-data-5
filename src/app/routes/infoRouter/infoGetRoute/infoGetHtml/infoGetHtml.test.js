@@ -7,7 +7,7 @@ const expect = chai.expect
 
 describe('[handler] infoRouter > ingoGetRoute > infoGetHtml', () => {
 
-  it('should send a valid html string.', done => {
+  it('should send a valid html string', done => {
     infoGetHtml({}, {
       send: html => {
         isValidHtml(html)
