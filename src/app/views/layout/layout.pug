@@ -5,10 +5,7 @@ html
     include ./styles/styles
     include ./scripts/scripts
   body.text-center
-    nav.navbar.navbar-dark.danger-color.mb-4
-      a.navbar-brand.text-white(
-        href="/"
-      ) PERMA-DATA 
+    include ./navbar/navbar
     block content
     script(
       type="text/javascript",
