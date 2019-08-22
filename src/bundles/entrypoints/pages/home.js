@@ -1,3 +1,4 @@
-module.exports =
-  () =>
-    console.log('salut')
+$(document)
+  .ready(
+    () =>
+      console.log('pop'))
