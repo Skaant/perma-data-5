@@ -2,21 +2,15 @@ doctype html
 html
   head
     title PERMA-DATA - #{ titles.page }
-    link(
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
-    )
-    link(
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
-    )
-    link(
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.8/css/mdb.min.css"
-    )
+    include ./styles/styles
+    include ./scripts/scripts
   body.text-center
     nav.navbar.navbar-dark.danger-color.mb-4
       a.navbar-brand.text-white(
         href="/"
       ) PERMA-DATA 
     block content
+    script(
+      type="text/javascript",
+      src="/public/bundles/context/login.js"
+    )
