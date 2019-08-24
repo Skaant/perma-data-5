@@ -1,3 +1,4 @@
 node_modules
 .vscode
 src/db/db.secret.json
+public/bundles
