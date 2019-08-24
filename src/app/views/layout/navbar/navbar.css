@@ -1,0 +1,9 @@
+#search-form > input::placeholder {
+  color: white;
+  font-weight: 300;
+}
+
+#search-form > input:focus {
+  border-bottom: 2px white solid !important;
+  box-shadow: none;
+}

@@ -8,15 +8,14 @@ nav.navbar.navbar-dark.danger-color.mb-4
         role="status"
       )
     li.nav-item.mr-3
-      .input-group.my-0
-        input.form-control(
+      style
+        include ./navbar.css
+      #search-form.md-form.my-0
+        input.form-control.text-white.mb-0.pb-0.pt-2(
           type="text"
           placeholder="Recherche"
         )
-        .input-group-append
-          .input-group-text
-            a.fas.fa-search
-    li.nav-item.mx-3
+    li.nav-item.mr-3
       a.nav-link(
         title="Connexion"
       )
