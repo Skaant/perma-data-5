@@ -18,7 +18,7 @@ describe('[view] home', () => {
   it('should render with title & subtitle', () =>
 
     expect(html)
-      .to.include('<h1>PERMA-DATA</h1>')
+      .to.include('<h1 class="pt-4 font-weight-bold">')
       .and
-      .to.include('<h2>La communauté des cultivateurs de savoir</h2>'))
+      .to.include('<h2 class="pt-1 pb-4">'))
 })
