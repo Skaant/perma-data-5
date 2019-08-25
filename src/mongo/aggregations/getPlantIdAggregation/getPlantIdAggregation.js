@@ -1,99 +1,100 @@
 /**
  * Aggregation factory for getPlantId.
  * 
- * @param { string } - Virtual plant aggregator id
- * @returns - The aggregation pipeline.
+ * @param { string } plantId - Virtual plant aggregator id
+ * @returns - The aggregation pipeline
  */
-module.exports = plantId => 
-  [{
-    $match: {
-      p: {
-        $in: [ 
-          plantId
-        ]
-      }
-    }
-  }, {
-    $facet: {
-      data: [ {
-        $sort: {
-          w: -1
+module.exports =
+  plantId => 
+    [{
+      $match: {
+        p: {
+          $in: [ 
+            plantId
+          ]
         }
-      }, {
-        $group: {
-          _id: '$t',
-          items: {
-            $push: {
-              value: '$v',
-              sources: '$s'
+      }
+    }, {
+      $facet: {
+        data: [ {
+          $sort: {
+            w: -1
+          }
+        }, {
+          $group: {
+            _id: '$t',
+            items: {
+              $push: {
+                value: '$v',
+                sources: '$s'
+              }
             }
           }
-        }
-      }, {
-        $project: {
-          _id: 0,
-          k: '$_id',
-          v: '$items'
-        }
-      } ],
-      sources: [ {
-        $project: {
-          source: '$s'
-        }
-      }, {
-        $unwind: '$source'
-      }, {
-        $group: {
-          _id: '$_id',
-          source: {
-            $first: '$source'
+        }, {
+          $project: {
+            _id: 0,
+            k: '$_id',
+            v: '$items'
           }
-        }
-      }, {
-        $unwind: '$source'
-      }, {
-        $lookup: {
-          from: 'sources',
-          localField: 'source',
-          foreignField: '_id',
-          as: 'source'
-        }
-      }, {
-        $replaceRoot: {
-          newRoot: {
-            $arrayElemAt: [
-              '$source',
-              0
-            ]
+        } ],
+        sources: [ {
+          $project: {
+            source: '$s'
           }
-        }
-      }, {
-        $lookup: {
-          from: 'sources',
-          localField: 'parents',
-          foreignField: '_id',
-          as: 'parents'
-        }
-      }, {
-        $project: {
-          _id: 0,
-          k: {
-            $toString: '$_id'
-          },
-          v: {
-            title: '$title',
-            parents: '$parents'
+        }, {
+          $unwind: '$source'
+        }, {
+          $group: {
+            _id: '$_id',
+            source: {
+              $first: '$source'
+            }
           }
-        }
-      } ]
-    }
-  }, {
-    $project: {
-      data: {
-        $arrayToObject: '$data'
-      },
-      sources: {
-        $arrayToObject: '$sources'
+        }, {
+          $unwind: '$source'
+        }, {
+          $lookup: {
+            from: 'sources',
+            localField: 'source',
+            foreignField: '_id',
+            as: 'source'
+          }
+        }, {
+          $replaceRoot: {
+            newRoot: {
+              $arrayElemAt: [
+                '$source',
+                0
+              ]
+            }
+          }
+        }, {
+          $lookup: {
+            from: 'sources',
+            localField: 'parents',
+            foreignField: '_id',
+            as: 'parents'
+          }
+        }, {
+          $project: {
+            _id: 0,
+            k: {
+              $toString: '$_id'
+            },
+            v: {
+              title: '$title',
+              parents: '$parents'
+            }
+          }
+        } ]
       }
-    }
-  }]
+    }, {
+      $project: {
+        data: {
+          $arrayToObject: '$data'
+        },
+        sources: {
+          $arrayToObject: '$sources'
+        }
+      }
+    }]
