@@ -8,9 +8,9 @@
           li.breadcrumb-item.font-weight-bold= source.title
           each parent in source.parents.slice().reverse()
             li.breadcrumb-item= parent.title
-      .col-4
+      .col-4.amber.lighten-4.rounded-right
         - var rootSource = source.parents[0] || source
-        ul.text-left.teal.lighten-4.py-3
+        ul.text-left.py-3
           li
             span.font-weight-bold Langue :&nbsp;
             span= rootSource.lang

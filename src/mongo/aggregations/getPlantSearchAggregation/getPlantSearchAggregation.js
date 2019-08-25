@@ -11,7 +11,8 @@ module.exports =
         $or: [ {
           p: {
             $elemMatch: {
-              $regex: searchValue
+              $regex: searchValue,
+              $options: 'i'
             }
           }
         }, {
@@ -19,7 +20,8 @@ module.exports =
             t: 'name,fr'
           }, {
             v: {
-              $regex: searchValue
+              $regex: searchValue,
+              $options: 'i'
             }
           } ]
         } ]

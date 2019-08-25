@@ -1,4 +1,5 @@
 import React from 'react'
+import SearchResults from './SearchResults/SearchResults';
 
 export default ({
   searchValue,
@@ -21,8 +22,10 @@ export default ({
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div className='modal-body'>
+        <div className='modal-body border-bottom'>
           { searchValue }
+        </div>
+        <div className='modal-body'>
           {
             loadStatus ?
               (
@@ -30,7 +33,9 @@ export default ({
                     role='status'>
                   <span className='sr-only'></span>
                 </div>
-              ) : JSON.stringify(searchResults)
+              ) : (
+                <SearchResults searchResults={ searchResults }/>
+              )
           }
         </div>
       </div>

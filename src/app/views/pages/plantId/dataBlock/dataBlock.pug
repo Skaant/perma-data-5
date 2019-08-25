@@ -1,12 +1,12 @@
 #data-block.container
   each items, key in plant.data
     .row.pt-4
-      .col-4.amber.lighten-4
+      .col-4.rounded-left.amber.lighten-4
         h4.my-3= key
       .col-8.list-group.list-group-flush
         each item in items
           p.list-group-item.d-flex.justify-content-between
             span= item.value
-            span.fas.fa-quote-right.text-default.mt-1(
+            span.fas.fa-quote-right.amber-text.mt-1(
               title= item.sources.map(source => plant.sources[source].title + (plant.sources[source].parents ? (' (' + (plant.sources[source].parents[0].shortTitle || plant.sources[source].parents[0].title)  + ')') : '')).join('&#13;')
             )

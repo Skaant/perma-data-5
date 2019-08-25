@@ -10,18 +10,17 @@ module.exports =
         db
           .collection('data')
           .aggregate(
-            getPlantSearchAggregation(
-              req.params.searchValue),
-              (err, cursor) => {
-                if (err) {
-                  jsonRejection(res, err)
-                }
-                cursor
-                  .next()
-                  .then(result => 
-                    res.json(result))
-                  .catch(err =>
-                    jsonRejection(res, err))
-              }))
+            getPlantSearchAggregation(req.params.searchValue),
+            (err, cursor) => {
+              if (err) {
+                jsonRejection(res, err)
+              }
+              cursor
+                .toArray()
+                .then(results => 
+                  res.json(results))
+                .catch(err =>
+                  jsonRejection(res, err))
+            }))
       .catch(err =>
         jsonRejection(res, err))
