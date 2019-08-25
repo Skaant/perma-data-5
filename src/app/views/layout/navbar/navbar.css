@@ -1,7 +1,11 @@
+#search-form > input {
+  border-bottom-color: rgba(255, 255, 255, 0.85) !important;
+  
+}
+
 #search-form > input::placeholder {
   color: white;
   font-weight: 300;
-  border-bottom: 1px white solid !important;
 }
 
 #search-form > input:focus {

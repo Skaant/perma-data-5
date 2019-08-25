@@ -7,7 +7,8 @@
     "dev-start": "npx nodemon ./src/index.js",
     "test": "mocha \"./**/*test.*js\" --exclude \"./**/node_modules/**\" -g \"#e2e\" -i",
     "dev-test": "mocha \"./**/*test.*js\" --exclude \"./**/node_modules/**\"",
-    "buildx-login": "webpack --config ./webpack.config.js --output ./public/bundles/context/login.js ./src/bundles/entrypoints/context/login/login.js"
+    "buildx-login": "webpack --config ./webpack.config.js --output ./public/bundles/context/login.js ./src/bundles/entrypoints/context/login/login.js",
+    "buildev-main": "webpack --config ./webpack.config.js --output ./public/bundles/dev/main.js ./src/bundles/entrypoints/main/main.js"
   },
   "repository": {
     "type": "git",
@@ -51,6 +52,7 @@
     "atob": "^2.1.2",
     "express": "^4.17.1",
     "mongodb": "^3.3.0-beta2",
-    "pug": "^2.0.4"
+    "pug": "^2.0.4",
+    "redux": "^4.0.4"
   }
 }
