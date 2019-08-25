@@ -1,4 +1,7 @@
-$(document)
-  .ready(
-    () =>
-      console.log('pop'))
+import {
+  main,
+  search
+} from '../../../modules'
+
+main()
+search()

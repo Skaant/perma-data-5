@@ -10,10 +10,11 @@ nav.navbar.navbar-dark.danger-color.mb-4
     li.nav-item.mr-3
       style
         include ./navbar.css
-      #search-form.md-form.my-0
-        input.form-control.text-white.mb-0.pb-0.pt-2(
+      #search-input__form.md-form.my-0
+        input#search-input.form-control.text-white.mb-0.pb-0.pt-2(
           type="text"
           placeholder="Recherche"
+          value=""
         )
     li.nav-item.mr-3
       a.nav-link(

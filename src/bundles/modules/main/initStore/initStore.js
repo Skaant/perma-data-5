@@ -12,7 +12,8 @@ export default () =>
       (action, state) =>
         state,
       {
-        _modules: {}
+        _modules: {},
+        error: false
       }
     )
   )

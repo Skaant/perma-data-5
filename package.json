@@ -8,6 +8,7 @@
     "test": "mocha \"./**/*test.*js\" --exclude \"./**/node_modules/**\" -g \"#e2e\" -i",
     "dev-test": "mocha \"./**/*test.*js\" --exclude \"./**/node_modules/**\"",
     "buildx-login": "webpack --config ./webpack.config.js --output ./public/bundles/context/login.js ./src/bundles/entrypoints/context/login/login.js",
+    "buildp-home": "webpack --config ./webpack.config.js --output ./public/bundles/pages/home.js ./src/bundles/entrypoints/pages/home/home.js",
     "buildev-main": "webpack --config ./webpack.config.js --output ./public/bundles/dev/main.js ./src/bundles/entrypoints/main/main.js"
   },
   "repository": {
@@ -45,6 +46,8 @@
     "mock-fs": "^4.10.1",
     "nodemon": "^1.19.1",
     "proxyquire": "^2.1.2",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
     "webpack": "^4.39.2",
     "webpack-cli": "^3.3.7"
   },
