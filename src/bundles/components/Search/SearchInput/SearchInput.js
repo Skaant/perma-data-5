@@ -3,6 +3,7 @@ import React from 'react'
 export default ({
   searchValue,
   setSearchValue,
+  loadSearchResults,
   openModal
 }) => (
   <input id='search-input'
@@ -11,10 +12,10 @@ export default ({
       placeholder='Recherche'
       value={ searchValue }
       onChange={ setSearchValue }
-      onKeyPress={
-        e =>
-          e.key === 'Enter' &&
-            openModal()
-      }
-  />
+      onKeyPress={ e => {
+        if (e.key === 'Enter') {
+          loadSearchResults()
+          openModal()
+        }
+      } } />
 )

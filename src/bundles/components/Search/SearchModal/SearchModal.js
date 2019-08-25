@@ -3,6 +3,8 @@ import React from 'react'
 export default ({
   searchValue,
   setSearchValue,
+  loadStatus,
+  searchResults,
   closeModal
 }) => (
   <div id="search-modal"
@@ -21,6 +23,15 @@ export default ({
         </div>
         <div className='modal-body'>
           { searchValue }
+          {
+            loadStatus ?
+              (
+                <div className='spinner-grow'
+                    role='status'>
+                  <span className='sr-only'></span>
+                </div>
+              ) : JSON.stringify(searchResults)
+          }
         </div>
       </div>
     </div>
