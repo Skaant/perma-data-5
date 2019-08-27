@@ -10,8 +10,11 @@ export default ({
   const [password, setPassword] = useState('')
 
   const signIn = () =>
-    fetch('/login/signIn', {
-      method: 'post',
+    fetch('/auth/sign-in', {
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      method: 'put',
       body: JSON.stringify({
         email,
         password: btoa(password)

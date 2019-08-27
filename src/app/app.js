@@ -1,12 +1,18 @@
 const express = require('express')
-const path = require('path')
+const bodyParser = require('body-parser')
 const authMiddleware = require('./middlewares/authMiddleware/authMiddleware')
 
 const app = express()
 
 app.use('/public', express.static('public'))
 
-app.use(authMiddleware)
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({
+  extended: false
+}))
+// app.use(authMiddleware)
+
+app.use('/auth', require('./routes/authRouter/authRouter'))
 app.use('/info', require('./routes/infoRouter/infoRouter'))
 app.use('/plant', require('./routes/plantRouter/plantRouter'))
 app.use('/', require('./routes/rootRoute/rootRoute'))
