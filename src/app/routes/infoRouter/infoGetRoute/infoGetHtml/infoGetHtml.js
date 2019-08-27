@@ -1,23 +1,24 @@
+const pug = require('pug')
 const config = require('../../../../../../config/config.json')
 const package = require('../../../../../../package.json')
 
 module.exports = 
   (req, res) =>
-    res.send('<html>'
-      + '<h2>Config</h2>'
-      + Object.entries(config)
-        .map(([k, v]) => 
-          '<p>' + k 
-            + ': ' + v
-            + '</p>')
-        .join('')
-      + '<br/>'
-      + '<h2>Package</h2>'
-      + Object.entries(package)
-        .map(([k, v]) =>
-          '<p>' + k 
-            + ': ' + v
-            + '</p>')
-        .join('') 
-      + '</html>')
+    res
+      .send(pug
+        .renderFile(
+          './src/app/views/pages/info/info.pug',
+          {
+            titles: {
+              page: 'Informations',
+              config: 'Run configuration',
+              package: 'Stack configuration'
+            },
+            infos: {
+              config: JSON
+                .stringify(config),
+              package: JSON
+                .stringify(package)
+            }
+          }))
         

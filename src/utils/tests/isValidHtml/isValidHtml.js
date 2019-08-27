@@ -1,11 +1,13 @@
-module.exports = html => {
-  // TODO check DOCTYPE
-  const firstTag = html.slice(0, 6)
-  const lastTag = html.slice(
-    html.length - 7,
-    html.length
-  )
-  
-  return firstTag === '<html>'
-    && lastTag === '</html>'
-}
+module.exports =
+  html =>
+    html
+      .includes('<!DOCTYPE html>')
+    &&
+    html
+      .includes('<html><head>')
+    &&
+    html
+      .includes('</head><body class="text-center">')
+    &&
+    html
+      .includes('</body></html>')

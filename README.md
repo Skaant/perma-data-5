@@ -11,12 +11,10 @@ Project aims balance between completeness and minimalism, between efficiency and
 * [Glossary](#glossary)
 
 ## Quick start
-*Commands mentionned here are also written in `./travis.yml` for the CI/CD process workflow.*
 
 ### Installation
-* First, install all dependencies with `npm install`.
+* First of all, install dependencies with `npm install`.
 
-### Configuration
 Before starting, you'll have to set :
 * The MongoDB "secret" file, containing connection username & password.
 
@@ -36,9 +34,13 @@ Before starting, you'll have to set :
 
 ### Local server
 * Start the server with `npm start`
+* For the purpose of specific server development, use the nodemon-mounted application by running `npm run dev-start`
+
+*No server features actually depend on the NODE_ENV variables, while it may change in the future.*
 
 ### Other scripts
-* `npm test` runs the complete Mocha/Chaï test suite
+* `npm test` runs the Mocha/Chaï **unit testing** suite.
+The script excludes all "#e2e"-tagged tests.
 
 ## Manifest
 **PERMA-DATA** materializes strong ideas and values. Here are some of the most important ones.

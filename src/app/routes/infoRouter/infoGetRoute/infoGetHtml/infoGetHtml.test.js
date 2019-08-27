@@ -7,10 +7,11 @@ const expect = chai.expect
 
 describe('[handler] infoRouter > ingoGetRoute > infoGetHtml', () => {
 
-  it('should send a valid html string.', done => {
+  it('should send a valid html string', done => {
     infoGetHtml({}, {
       send: html => {
-        isValidHtml(html).should.be.true
+        isValidHtml(html)
+          .should.be.true
         done()
       }
     })
@@ -21,8 +22,12 @@ describe('[handler] infoRouter > ingoGetRoute > infoGetHtml', () => {
     it('should display "Config" & "Package" <h2> titles', done => {
       infoGetHtml({}, {
         send: html => {
-          expect(html.includes('<h2>Config</h2>')
-            && html.includes('<h2>Package</h2>')).to.be.true
+          expect(html)
+            .to.include(
+              '<h2>Run configuration</h2>')
+            .and
+            .to.include(
+              '<h2>Stack configuration</h2>')
           done()
         }
       })

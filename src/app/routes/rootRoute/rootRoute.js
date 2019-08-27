@@ -1,9 +1,13 @@
-const package = require('../../../../package.json')
+const pug = require('pug')
 
-module.exports = (req, res) =>
-  res.send('<html>'
-    + '<h1>PERMA-DATA</h1>'
-    + '<p>'
-    + package.description
-    + '</p>'
-    + '</html>')
+module.exports =
+  (req, res) =>
+    res
+      .send(pug
+        .renderFile(
+          './src/app/views/pages/home/home.pug',
+          {
+            titles: {
+              page: 'Accueil'
+            }
+          }))
