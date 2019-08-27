@@ -7,17 +7,14 @@ const mongo = require('../../../../mongo/mongo')
  * @param { string } password - Authorization password
  */
 module.exports = 
-  (username, password) =>
+  query =>
     new Promise((resolve, reject) =>
       mongo
         .get()
         .then(({ db }) =>
           db
             .collection('users')
-            .findOne({
-              username,
-              password
-            })
+            .findOne(query)
             .then(result =>
               resolve(result))
             .catch(err =>

@@ -1,5 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+const cookieParser = require('cookie-parser')
 const authMiddleware = require('./middlewares/authMiddleware/authMiddleware')
 
 const app = express()
@@ -10,7 +11,9 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({
   extended: false
 }))
-// app.use(authMiddleware)
+app.use(cookieParser())
+
+app.use(authMiddleware)
 
 app.use('/auth', require('./routes/authRouter/authRouter'))
 app.use('/info', require('./routes/infoRouter/infoRouter'))

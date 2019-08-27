@@ -9,16 +9,14 @@ const mongo = require('../../../../../../mongo/mongo')
  * @returns { User } Matching email user database entry
  */
 module.exports = 
-  email =>
+  query =>
     new Promise((resolve, reject) =>
       mongo
         .get()
         .then(({ db }) =>
           db
             .collection('users')
-            .findOne({
-              email
-            })
+            .findOne(query)
             .then(result =>
               resolve(result))
             .catch(err =>

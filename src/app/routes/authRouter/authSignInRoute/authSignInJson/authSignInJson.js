@@ -19,7 +19,7 @@ module.exports = (req, res, next) => {
     if (email && encryptedPassword) {
       const password =
         decryptPassword(encryptedPassword)
-      getUser(email)
+      getUser({ email })
         .then(user => {
           if (!user) {
             res
@@ -44,6 +44,13 @@ module.exports = (req, res, next) => {
                   res.cookie(
                     'auth-token',
                     token,
+                    {
+                      maxAge: 432000000
+                    }
+                  )
+                  res.cookie(
+                    'auth-email',
+                    email,
                     {
                       maxAge: 432000000
                     }
