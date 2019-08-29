@@ -41,6 +41,7 @@ export default ({ initialValue }) => {
             setSearchValue={ setSearchValueEvent }
             loadStatus={ loadStatus }
             searchResults={ searchResults }
+            loadSearchResults={ loadSearchResults }
             closeModal={ () =>
               modal.modal('hide') }/>
       </React.Fragment>

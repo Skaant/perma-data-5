@@ -1,11 +1,13 @@
 import React from 'react'
 import SearchResults from './SearchResults/SearchResults';
+import SearchModalInput from './SearchModalInput/SearchModalInput';
 
 export default ({
   searchValue,
   setSearchValue,
   loadStatus,
   searchResults,
+  loadSearchResults,
   closeModal
 }) => (
   <div id="search-modal"
@@ -22,9 +24,9 @@ export default ({
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div className='modal-body border-bottom'>
-          { searchValue }
-        </div>
+        <SearchModalInput searchValue={ searchValue }
+            setSearchValue={ setSearchValue }
+            loadSearchResults={ loadSearchResults }/>
         <div className='modal-body'>
           {
             loadStatus ?
