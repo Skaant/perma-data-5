@@ -1,9 +1,9 @@
 import {
   main,
   search,
-  login
+  preLogin
 } from '../../../modules'
 
 main()
 search()
-login()
+preLogin()

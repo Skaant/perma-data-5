@@ -9,3 +9,9 @@ block content
   div.py-4
     h2.mb-4 #{ titles.sources }
     include ./sourcesBlock/sourcesBlock
+
+block scripts
+  script(
+    type="text/javascript",
+    src="/public/bundles/pages/plantId.js"
+  )
