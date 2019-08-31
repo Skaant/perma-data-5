@@ -1,22 +1,22 @@
 const mongo = require('../../../../../../mongo/mongo')
 
 /**
- * Returns a promise that, given a query,
- *  resolves with fetched db user, if any.
+ * Returns a promise that, given an user object,
+ *  resolves by making it persists in db.
  * 
- * @param { object } query User query
+ * @param { object } user Provisioned user object
  * 
- * @returns { User } Matching query user database entry
+ * @returns { ObjectId } New entry _id
  */
 module.exports = 
-  query =>
+  user =>
     new Promise((resolve, reject) =>
       mongo
         .get()
         .then(({ db }) =>
           db
             .collection('users')
-            .findOne(query)
+            .insertOne(user)
             .then(result =>
               resolve(result))
             .catch(err =>

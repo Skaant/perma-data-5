@@ -1,4 +1,4 @@
-const decryptPassword = require('./decryptPassword/decryptPassword')
+const decryptPassword = require('../../_utils/decryptPassword/decryptPassword')
 const getUser = require('./getUser/getUser')
 const updateToken = require('./updateToken/updateToken')
 var util = require('util')

@@ -6,20 +6,36 @@ export default ({
   closeModal
 }) => {
 
+  const [mode, setMode] = useState('sign-in')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  const signIn = () =>
-    fetch('/auth/sign-in', {
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      method: 'put',
-      body: JSON.stringify({
-        email,
-        password: btoa(password)
+  const switchMode = () =>
+    setMode(
+      mode === 'sign-in' ?
+        'sign-out' : 'sign-in'
+    )
+
+  const post = () =>
+    fetch(
+      '/auth/' + mode,
+      {
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        method: 'put',
+        body: JSON.stringify({
+          email,
+          password: btoa(password)
+        })
       })
-    })
+
+  const modalLabel = mode === 'sign-in' ?
+    'Connexion' : 'Inscription'
+  const titleLabel = mode === 'sign-in' ?
+    'Déjà inscrit ?' : 'Pas encore inscrit ?'
+  const titleSwitchLabel = mode === 'sign-in' ?
+    'Non !' : 'Si !'
 
   return (
     <div id='login-modal'
@@ -29,7 +45,7 @@ export default ({
         <div className='modal-content'>
           <div className='modal-header'>
             <h5 className='modal-title'>
-              Connexion</h5>
+              { modalLabel }</h5>
             <button type='button'
                 className='close'
                 onClick={ closeModal }>
@@ -37,9 +53,14 @@ export default ({
             </button>
           </div>
           <div className='modal-body bg-danger'>
-            <div className='container'>
+            <div className='container pb-2'>
               <h3 className='row text-white mt-4 pl-2'>
-                Déjà enregistré ?</h3>
+                { titleLabel }&nbsp;
+                <a style={ {
+                    textDecoration: 'underline'
+                  } }
+                    onClick={ switchMode }>
+                  { titleSwitchLabel }</a></h3>
               <form className='row px-4'>
                 <style scoped>
                   {
@@ -57,7 +78,7 @@ export default ({
                       onChange={ e =>
                         setEmail(e.target.value) }/>
                 </div>
-                <div className='md-form col-12'>
+                <div className='md-form col-12 mt-2'>
                   <input type='password'
                       className='form-control'
                       placeholder='Mot de passe'
@@ -75,8 +96,8 @@ export default ({
               Close</button>
             <button type='button'
                 className='btn btn-danger'
-                onClick={ signIn }>
-              Connexion</button>
+                onClick={ post }>
+              { modalLabel }</button>
           </div>
         </div>
       </div>
