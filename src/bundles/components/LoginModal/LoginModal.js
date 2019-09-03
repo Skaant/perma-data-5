@@ -29,6 +29,8 @@ export default ({
           password: btoa(password)
         })
       })
+        .then(() =>
+          location.reload())
 
   const modalLabel = mode === 'sign-in' ?
     'Connexion' : 'Inscription'

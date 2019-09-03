@@ -7,6 +7,7 @@ module.exports =
         .renderFile(
           './src/app/views/pages/home/home.pug',
           {
+            user: req.user,
             titles: {
               page: 'Accueil'
             }

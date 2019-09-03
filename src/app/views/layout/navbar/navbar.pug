@@ -17,8 +17,14 @@ nav.navbar.navbar-dark.danger-color.mb-4
           value=""
         )
     li.nav-item.mr-3
-      a#login-button.nav-link(
-        title="Connexion"
-      )
-        span.fas.fa-user
-      #login-modal__anchor
+      if user
+        a#user-button.nav-link(
+          title= 'Connecté en tant que ' + user.email
+        )
+          span.fas.fa-user-check
+      else
+        a#login-button.nav-link(
+          title="Connexion"
+        )
+          span.fas.fa-user
+        #login-modal__anchor
