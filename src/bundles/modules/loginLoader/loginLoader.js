@@ -1,7 +1,7 @@
 import cookies from 'js-cookie'
 
 /**
- * Initializes the search module
+ * Initializes the login loader module
  */
 export default () => {
 

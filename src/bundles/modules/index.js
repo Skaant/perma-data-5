@@ -1,11 +1,11 @@
 import main from './main/main'
 import search from './search/search'
 import login from './login/login'
-import preLogin from './preLogin/preLogin'
+import loginLoader from './loginLoader/loginLoader'
 
 export {
   main,
   search,
   login,
-  preLogin
+  loginLoader
 }

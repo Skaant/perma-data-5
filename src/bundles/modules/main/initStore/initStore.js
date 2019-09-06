@@ -2,18 +2,17 @@ import {
   createStore
 } from 'redux'
 
-import {
-  set as setStore
-} from '../store/store'
-
-export default () =>
-  setStore(
+export default () => {
+  window.__STORE__ =
     createStore(
       (action, state) =>
         state,
       {
-        _modules: {},
         error: false
       }
     )
-  )
+
+  window.__MODULES__ = {}
+  
+  window.__ACTIONS__ = {}
+}
