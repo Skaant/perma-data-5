@@ -9,6 +9,7 @@
     "dev-test": "mocha \"./**/*test.*js\" --exclude \"./**/node_modules/**\"",
     "buildx-login": "webpack --config ./webpack.config.js --output ./public/bundles/context/login.js ./src/bundles/entrypoints/context/login/login.js",
     "buildp-home": "webpack --config ./webpack.config.js --output ./public/bundles/pages/home.js ./src/bundles/entrypoints/pages/home/home.js",
+    "buildp-plantId": "webpack --config ./webpack.config.js --output ./public/bundles/pages/plantId.js ./src/bundles/entrypoints/pages/plantId/plantId.js",
     "buildev-main": "webpack --config ./webpack.config.js --output ./public/bundles/dev/main.js ./src/bundles/entrypoints/main/main.js"
   },
   "repository": {
@@ -42,6 +43,7 @@
     "chai": "^4.2.0",
     "chai-as-promised": "^7.1.1",
     "chai-http": "^4.3.0",
+    "js-cookie": "^2.2.1",
     "mocha": "^6.1.4",
     "mock-fs": "^4.10.1",
     "nodemon": "^1.19.1",

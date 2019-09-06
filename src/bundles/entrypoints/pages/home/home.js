@@ -1,9 +1,9 @@
 import {
   main,
   search,
-  login
+  loginLoader
 } from '../../../modules'
 
 main()
 search()
-login()
+loginLoader()
