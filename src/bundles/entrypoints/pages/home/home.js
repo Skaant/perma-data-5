@@ -1,9 +1,3 @@
-import {
-  main,
-  search,
-  loginLoader
-} from '../../../modules'
+import main from '../../../modules/main/main'
 
 main()
-search()
-loginLoader()

@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom'
 import React from 'react'
-import Search from '../../components/Search/Search'
+import Search from '../../../components/Search/Search'
 
 /**
  * Initializes the search module
