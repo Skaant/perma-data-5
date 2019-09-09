@@ -2,11 +2,16 @@
 import initSearch from './initSearch/initSearch'
 import authManager from './authManager/authManager'
 
-export default () =>
-  $(document)
-    .ready(
-      () => {
+export default 
+  pageId =>
+    $(document)
+      .ready(
+        () => {
 
-        initSearch()
-        authManager()
-      })
+          window.__STATE__ = {
+            modules: {}
+          }
+
+          initSearch()
+          authManager(pageId)
+        })
