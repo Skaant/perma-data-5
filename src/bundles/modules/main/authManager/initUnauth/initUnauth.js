@@ -38,12 +38,7 @@ const initAuth =
         window.__STATE__
           .modules.login = true
 
-      // next time initializations
-      } else {
-
-        $('#status')
-          .addClass('slow')
-      }
+      }     
 
       cookies.remove('auth-token')
       cookies.remove('auth-email')
@@ -52,7 +47,7 @@ const initAuth =
         .click(() =>
           $('#login-modal')
             .modal('show'))
-
+            
       $('#status')
         .css('height', 'initial')
       

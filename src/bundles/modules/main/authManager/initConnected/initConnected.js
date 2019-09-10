@@ -3,7 +3,7 @@ import initUnauth from '../initUnauth/initUnauth'
 /**
  * Initializes the "connected" environment
  */
-const initConnected =
+const initConnected = 
   () => {
 
     $('#login-modal__button')
@@ -34,10 +34,30 @@ const initConnected =
       .removeClass('fadeOut')
       .addClass('fadeIn')
 
-    /* const hideStatus =
-      () =>
-        $('#status')
-          .css('height', 0) */
+    const authModuleStart =
+      () => {
+
+        () =>
+          $('#status')
+            .css('height', 0)
+
+        window.__STATE__.
+          modules.auth()
+      }
+
+    if (!window.__STATE__.
+      modules.auth) {
+
+        $.getScript(
+          '/public/bundles/pages/home/auth.js',
+          () => {
+
+            authModuleStart()
+          })
+    } else {
+
+      authModuleStart()
+    }
   }
 
 export default initConnected

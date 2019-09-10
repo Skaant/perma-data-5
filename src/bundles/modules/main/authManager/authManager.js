@@ -5,13 +5,14 @@ import initUnauth from './initUnauth/initUnauth'
 /**
  * Initializes the login loader module
  */
-export default () => {
+export default
+  pageId => {
 
-  const auth = cookies.get('auth-token')
+    const auth = cookies.get('auth-token')
 
-  if (auth) {
-    initConnected(initConnected)
-  } else {
-    initUnauth(initConnected)
+    if (auth) {
+      initConnected(pageId)
+    } else {
+      initUnauth()
+    }
   }
-}
