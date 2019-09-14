@@ -1,7 +1,9 @@
 extends ../../layout/layout.pug
 
 block content
-  #status
+  #status(
+    style='overflow-y: hidden'
+  )
     img(
       class= 'animated infinite heartBeat slower py-4'
       style='margin-top: 60px;'

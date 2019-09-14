@@ -7,9 +7,9 @@
     "dev-start": "npx nodemon ./src/index.js",
     "test": "mocha \"./**/*test.*js\" --exclude \"./**/node_modules/**\" -g \"#e2e\" -i",
     "dev-test": "mocha \"./**/*test.*js\" --exclude \"./**/node_modules/**\"",
-    "build-homem": "webpack --config ./webpack.config.js --output ./public/bundles/pages/home/main.js ./src/bundles/entrypoints/pages/home/main.js",
-    "build-homea": "webpack --config ./webpack.config.js --output ./public/bundles/pages/home/auth.js ./src/bundles/entrypoints/pages/home/auth.js",
-    "build-plantIdm": "webpack --config ./webpack.config.js --output ./public/bundles/pages/plantId/main.js ./src/bundles/entrypoints/pages/plantId/main.js"
+    "build-home-main": "webpack --config ./webpack.config.js --output ./public/bundles/pages/home/main.js ./src/bundles/entrypoints/pages/home/main.js",
+    "build-home-auth": "webpack --config ./webpack.config.js --output ./public/bundles/pages/home/auth.js ./src/bundles/entrypoints/pages/home/auth.js",
+    "build-plantId-main": "webpack --config ./webpack.config.js --output ./public/bundles/pages/plantId/main.js ./src/bundles/entrypoints/pages/plantId/main.js"
   },
   "repository": {
     "type": "git",

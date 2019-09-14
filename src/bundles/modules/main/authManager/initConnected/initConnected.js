@@ -34,12 +34,22 @@ const initConnected =
       .removeClass('fadeOut')
       .addClass('fadeIn')
 
+    const getUserData =
+      () =>
+        new Promise(
+          (resolve, reject) =>
+            $.get('/data/home')
+              .then(data => {
+                window.__STATE__
+                  .data = data
+                resolve()
+              }))
+
     const authModuleStart =
       () => {
 
-        () =>
-          $('#status')
-            .css('height', 0)
+        $('#status')
+          .css('height', 0)
 
         window.__STATE__.
           modules.auth()
@@ -48,15 +58,22 @@ const initConnected =
     if (!window.__STATE__.
       modules.auth) {
 
-        $.getScript(
-          '/public/bundles/pages/home/auth.js',
-          () => {
-
-            authModuleStart()
-          })
+        $.getScript('/public/bundles/pages/home/auth.js')
+          .then(() =>
+            getUserData()
+              .then(() =>
+                authModuleStart()))
     } else {
 
-      authModuleStart()
+      if (!window.__STATE__.data) {
+
+        getUserData()
+          .then(() =>
+            authModuleStart())
+
+      } else {
+        authModuleStart()
+      }
     }
   }
 
