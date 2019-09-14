@@ -14,7 +14,7 @@ export default ({
     <div className='row'
         style={ { marginBottom: '50px' } }>
       <h1 className='col-12'>
-        META-CITÉ</h1>
+        MÉTA-CITÉ</h1>
       <h2 className='col-12 lead'>
         { name || 'anonyme' }</h2>
     </div>

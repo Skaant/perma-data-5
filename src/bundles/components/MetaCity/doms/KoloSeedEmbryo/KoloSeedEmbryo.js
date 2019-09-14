@@ -14,7 +14,15 @@ export default ({
       </p>
     </div>
     <div className='row'>
-      <div className='col-12'>
+      <div className='col-12'
+          onClick={ () => {
+            window.__STATE__
+              .modules.questModal
+                .update({
+                  title: 'kakou',
+                  content: 'oki'
+                })
+          }}>
         <h6>Quête</h6>
         <p>Oki oki</p>
       </div>
