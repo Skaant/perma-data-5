@@ -1,6 +1,18 @@
 {
   "kolo-seed": {
     "name": "KOLO-SEED",
-    "summary": "A l'intérieur de cette graine, endormi, le potentiel de remplir l'espace et de le porter plus haut."
+    "summary": "A l'intérieur de cette graine, endormi, le potentiel de remplir l'espace et de le porter plus haut.",
+    "quests": [{
+      "id": "intro",
+      "title": "Le chemin de la KOLO-SEED",
+      "pages": [{
+        "content": "Quelque part,\n\nune fleur et\n\ndes milliers de **KOLO-SEEDS**."
+      }, {
+        "content": "A travers la **FRAST**,\n\n-La forêt-univers,\n\nJusque ..."
+      }, {
+        "content": "Jusque là.",
+        "summary": "Votre **KOLO-SEED** a atterit."
+      }]
+    }]
   }
 }
