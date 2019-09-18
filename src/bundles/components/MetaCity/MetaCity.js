@@ -1,14 +1,14 @@
 import React from 'react'
-import domComponents from './doms'
-import domsData from '../../../data/doms/doms.json'
+import buildingComponents from './buildings'
+import buildingsData from '../../../data/buildings/buildings.json'
+import BuildingLayout from './buildings/_layout/BuildingLayout/BuildingLayout';
 
 export default ({
-  name,
-  doms
+  buildings
 }) => (
   <div className='container animated blurIn slow'
       style={ {
-        maxWidth: '650px',
+        maxWidth: 'calc(100vh - 50px)',
         marginTop: '75px'
       } }>
     <div className='row'
@@ -16,32 +16,23 @@ export default ({
       <h1 className='col-12'>
         MÉTA-CITÉ</h1>
       <h2 className='col-12 lead'>
-        { name || 'anonyme' }</h2>
+        anonyme</h2>
     </div>
-    <div className='row'>
+    <div className='row justify-content-center'>
       {
-        doms
-          .map(dom => {
-            let provDom = Object.assign(
+        buildings
+          .map(_building => {
+            const building = Object.assign(
               {},
-              dom,
-              domsData[dom.key])
+              _building,
+              buildingsData[_building.id])
 
             return (
-              <div key={ dom.key }
-                  className='card col-12 col-md-6 px-0'>
-                <div className='card-body bg-white rounded-lg p-0 pb-3'>
-                  <h4 className='card-title font-weight-lighter py-4'>
-                    { provDom.name }</h4>
-                  { 
-                    React
-                      .createElement(
-                        domComponents[dom.key],
-                        provDom
-                      )
-                  }
-                </div>
-              </div>
+              React
+                .createElement(
+                  buildingComponents[building.id],
+                  building
+                )
             )
         })
       }

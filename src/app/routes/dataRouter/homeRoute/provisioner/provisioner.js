@@ -7,11 +7,11 @@ module.exports =
         .get()
         .then(({ client, db }) =>
           db
-            .collection('user_doms')
+            .collection('user_buildings')
             .findOne({
-              _id: userId
+              user: userId
             }))
-            .then(({ list }) => 
+            .then(({ list }) =>
               resolve(list))
         .catch(err =>
           reject(err)))

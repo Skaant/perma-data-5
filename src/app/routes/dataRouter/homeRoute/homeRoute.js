@@ -11,10 +11,10 @@ module.exports =
         403)
     }
     provisioner(req.user._id)
-      .then(doms =>
+      .then(buildings =>
         res
           .json({
-            doms
+            buildings
           }))
       .catch(err =>
         jsonRejection(res, err))}
