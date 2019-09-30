@@ -1,7 +1,9 @@
 import React from 'react'
-import QuestModal from '../../../components/QuestModal/QuestModal';
+import QuestModal from '../../../components/QuestModal/QuestModal'
+import questAction from './questAction/questAction'
 
 export default {
+  questAction,
   history: {},
   currentQuest: null,
   /**

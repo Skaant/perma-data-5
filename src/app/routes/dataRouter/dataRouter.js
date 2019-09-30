@@ -8,5 +8,9 @@ router.get(
   '/home',
   require('./homeRoute/homeRoute')
 )
+router.put(
+  '/quest',
+  require('./questRoute/questRoute')
+)
 
 module.exports = router

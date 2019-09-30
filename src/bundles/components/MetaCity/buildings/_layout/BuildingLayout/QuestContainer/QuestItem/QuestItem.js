@@ -2,7 +2,7 @@ import React from 'react'
 
 export default
   quest => (
-    <div className='row pt-3'
+    <div className='row pt-3 px-3'
         onClick={ () => {
           window.__STATE__
             .modules.questModal

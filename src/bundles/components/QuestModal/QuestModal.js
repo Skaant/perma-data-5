@@ -9,6 +9,7 @@ export default
   }) => {
 
     const _this = window.__STATE__.modules.questModal
+    const { questAction } = _this
 
     const page = pages[currentPage]
     
@@ -34,36 +35,45 @@ export default
                 </div>
               )
             }
-            {
-              !page.menu && (
-                <div className='modal-footer'>
-                  {
-                    currentPage > 0 ? (
-                      <button type='button'
-                          className='btn btn-default'
-                          onClick={ 
-                            () =>
-                              _this.goToPage(currentPage - 1) }>
-                        Précédent</button>
-                    ) : (
-                      <span></span>
-                    )
-                  }
-                  {
-                    currentPage < (pages.length - 1) ? (
-                      <button type='button'
-                          className='btn btn-danger'
+            <div className='modal-footer'>
+              {
+                currentPage > 0 ? (
+                  <button type='button'
+                      className='btn btn-default'
+                      onClick={ 
+                        () =>
+                          _this.goToPage(currentPage - 1) }>
+                    Précédent</button>
+                ) : (
+                  <span></span>
+                )
+              }
+              {
+                page.menu 
+                  && page.menu.actions
+                    .map((action, index) => (
+                      <button key={ id + '*' + currentPage + '*' + index }
+                          type='button'
+                          className={ 'btn btn-' + action.btn }
                           onClick={
                             () =>
-                              _this.goToPage(currentPage + 1) }>
-                        Suivant</button>
-                    ) : (
-                      <span></span>
-                    )
-                  }
-                </div>
-              )
-            }
+                              eval(action.script) }>
+                        { action.label }</button>
+                    ))
+              }
+              {
+                currentPage < (pages.length - 1) ? (
+                  <button type='button'
+                      className='btn btn-danger'
+                      onClick={
+                        () =>
+                          _this.goToPage(currentPage + 1) }>
+                    Suivant</button>
+                ) : (
+                  <span></span>
+                )
+              }
+            </div>
           </div>
         </div>
       </div>

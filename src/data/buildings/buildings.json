@@ -11,7 +11,14 @@
         "content": "A travers la **FRAST**,\n\n-La forêt-univers,\n\nJusque ..."
       }, {
         "content": "Jusqu'ici.",
-        "summary": "Votre **KOLO-SEED** a atterit."
+        "summary": "Votre **KOLO-SEED** a atterit.",
+        "menu": {
+          "actions": [{
+            "label": "Retourner à la MÉTA-CITÉ",
+            "script": "questAction('intro')",
+            "btn": "danger"
+          }]
+        }
       }]
     }]
   }
