@@ -18,8 +18,6 @@ module.exports =
                 .findIndex(building =>
                   building.id === 'kolo-seed'
                     && building.state === 0)
-
-              console.log(index, list)
               
               if (index === -1) {
                 reject({

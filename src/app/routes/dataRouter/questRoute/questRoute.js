@@ -13,10 +13,9 @@ module.exports =
       req.user,
       req.body
     )
-      .then(buildings =>
+      .then(result =>
         res
-          .json({
-            buildings
-          }))
+          .json(result))
       .catch(err =>
-        jsonRejection(res, err))}
+        jsonRejection(res, err))
+  }

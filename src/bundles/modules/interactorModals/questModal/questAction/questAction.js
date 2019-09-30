@@ -1,5 +1,7 @@
+
+
 export default
-  (action, props) =>
+  (action, props, callback) =>
     $.ajax(
       '/data/quest',
       {
@@ -9,4 +11,14 @@ export default
           props
         }
       })
-      .then(result => console.log(result))
+      .then(result => {
+
+        window.__STATE__
+          .data.buildings = result
+        
+        window.__STATE__
+          .modules.metaCity.update()
+
+        $('#quest-modal')
+          .modal('hide')
+      })

@@ -1,15 +1,15 @@
-import React from 'react'
-import MetaCity from "../../../components/MetaCity/MetaCity"
-import interactorModals from '../../../modules/interactorModals/interactorModals';
+import interactorModals from '../../../modules/interactorModals/interactorModals'
+import metaCity from '../../../modules/metaCity/metaCity'
 
 window.__STATE__
   .modules.auth =
-    () =>
-      window.ReactDOM
-        .render(
-          <MetaCity { ...window.__STATE__.data } />,
-          $('#app__anchor')[0]
-        )
+    () => {
+
+      window.__STATE__
+        .modules.metaCity = metaCity
+      
+      metaCity.update()
+    }
 
 interactorModals()
 
