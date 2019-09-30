@@ -1,11 +1,16 @@
 import React, { useState } from 'react'
 
 export default 
-  ({ id, title, pages }) => {
+  ({
+    // Quest properties
+    id, title, pages,
+    // questModal modules properties
+    currentPage = false
+  }) => {
 
     const _this = window.__STATE__.modules.questModal
 
-    const page = pages[_this.history[id]]
+    const page = pages[currentPage]
     
     return (
       <div id='quest-modal'
@@ -19,12 +24,12 @@ export default
                   data-dismiss='modal' aria-label='Close'>
               <span aria-hidden='true'>&times;</span></button>
             </div>
-            <div className='modal-body'>
+            <div className='modal-body py-4'>
               { page.content }
             </div>
             {
               page.summary && (
-                <div className='modal-body'>
+                <div className='modal-body border-top red text-white'>
                   { page.summary }
                 </div>
               )
@@ -33,18 +38,24 @@ export default
               !page.menu && (
                 <div className='modal-footer'>
                   {
-                    _this.history[id] > 0 ? (
+                    currentPage > 0 ? (
                       <button type='button'
-                          className='btn btn-default'>
+                          className='btn btn-default'
+                          onClick={ 
+                            () =>
+                              _this.goToPage(currentPage - 1) }>
                         Précédent</button>
                     ) : (
                       <span></span>
                     )
                   }
                   {
-                    _this.history[id] < (pages.length - 1) ? (
+                    currentPage < (pages.length - 1) ? (
                       <button type='button'
-                          className='btn btn-danger'>
+                          className='btn btn-danger'
+                          onClick={
+                            () =>
+                              _this.goToPage(currentPage + 1) }>
                         Suivant</button>
                     ) : (
                       <span></span>
