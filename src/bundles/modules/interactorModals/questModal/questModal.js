@@ -1,10 +1,12 @@
 import React from 'react'
 import QuestModal from '../../../components/QuestModal/QuestModal'
-import questAction from './questAction/questAction'
 
 export default {
-  questAction,
   history: {},
+  hide:
+    () => 
+      $('#quest-modal')
+        .modal('hide'),
   currentQuest: null,
   /**
    * Change the currently displayed quest.

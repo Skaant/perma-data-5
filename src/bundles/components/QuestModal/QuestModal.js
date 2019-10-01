@@ -9,7 +9,9 @@ export default
   }) => {
 
     const _this = window.__STATE__.modules.questModal
-    const { questAction } = _this
+    // serverAction is used as an open function for
+    //  the below `eval` statement.
+    const serverAction = window.__STATE__.modules.serverAction
 
     const page = pages[currentPage]
     
@@ -31,7 +33,9 @@ export default
             {
               page.summary && (
                 <div className='modal-body border-top red text-white'>
-                  { page.summary }
+                  <div className='w-75 mx-auto'>
+                    { page.summary }
+                  </div>
                 </div>
               )
             }

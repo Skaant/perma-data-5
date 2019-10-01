@@ -9,8 +9,8 @@ router.get(
   require('./homeRoute/homeRoute')
 )
 router.put(
-  '/quest',
-  require('./questRoute/questRoute')
+  '/action',
+  require('./serverRoute/serverRoute')
 )
 
 module.exports = router

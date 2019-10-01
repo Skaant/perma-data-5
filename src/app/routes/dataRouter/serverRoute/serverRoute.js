@@ -6,7 +6,7 @@ module.exports =
     if (!req.user) {
       jsonRejection(
         res,
-        'You must be connected in order to retrieve user home data.',
+        'You must be connected in order to retrieve action data.',
         403)
     }
     questHandlers[req.body.action](

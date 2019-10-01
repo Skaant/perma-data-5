@@ -1,9 +1,9 @@
 
 
 export default
-  (action, props, callback) =>
+  (action, props, options) =>
     $.ajax(
-      '/data/quest',
+      '/data/action',
       {
         method: 'PUT',
         data: {
@@ -19,6 +19,8 @@ export default
         window.__STATE__
           .modules.metaCity.update()
 
-        $('#quest-modal')
-          .modal('hide')
+        if (options.hideModal) {
+          $('#quest-modal')
+            .modal('hide')
+        }
       })

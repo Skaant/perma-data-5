@@ -13,11 +13,11 @@ module.exports =
             })
             .then(({ list }) => {
               
-              // Find the KOLO-SEED with initial state
+              // Find the KOLO-SEED with state ready [= 1]
               const index = list
                 .findIndex(building =>
                   building.id === 'kolo-seed'
-                    && building.state === 0)
+                    && building.state === 1)
               
               if (index === -1) {
                 reject({
@@ -26,7 +26,13 @@ module.exports =
               }
 
               // Update to next state
-              list[index].state = 1
+              list.splice(index, 1, {
+                id: 'kolo-trunk',
+                state: 0
+              }, {
+                id: 'arkeo-vault',
+                state: 0
+              })
 
               db
                 .collection('user_buildings')

@@ -4,7 +4,9 @@
     "summary": "A l'intérieur de cette graine, endormi, le potentiel de remplir l'espace et de le porter plus haut.",
     "quests": [{
       "id": "intro",
+      "conditions": "data.state === 0",
       "title": "Le chemin de la KOLO-SEED",
+      "type": "action",
       "pages": [{
         "content": "Quelque part,\n\nune fleur et\n\ndes milliers de **KOLO-SEEDS**."
       }, {
@@ -14,8 +16,24 @@
         "summary": "Votre **KOLO-SEED** a atterit.",
         "menu": {
           "actions": [{
-            "label": "Retourner à la MÉTA-CITÉ",
-            "script": "questAction('intro')",
+            "label": "Fin du voyage",
+            "script": "serverAction('intro-quest', null, { hideModal: true })",
+            "btn": "danger"
+          }]
+        }
+      }]
+    }, {
+      "id": "ready-to-pop",
+      "conditions": "data.state === 1",
+      "title": "Prête à éclore",
+      "type": "info",
+      "pages": [{
+        "content": "La KOLO-SEED est tombée quelque part.\n\nSur une impulsion elle pourrait éclore ...",
+        "summary": "Appuyez sur le bouton \"Éclore\" pour commencer à développer votre MÉTA-CITÉ.",
+        "menu": {
+          "actions": [{
+            "label": "Retourner à la KOLO-SEED",
+            "script": "_this.hide()",
             "btn": "danger"
           }]
         }
