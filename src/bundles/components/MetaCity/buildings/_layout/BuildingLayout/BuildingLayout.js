@@ -14,20 +14,22 @@ export default
 
     return (
       <div key={ id }
-          className='card col-12 col-sm-6 col-lg-4 px-0'>
-        <div className='card-body bg-white rounded-lg p-0'>
-          <h4 className='card-title font-weight-lighter p-4 mb-0'>
-            { name }</h4>
-          <p className='font-weight-light bg-light p-4 mb-0'>
-            { summary }</p>
-          { children }
-          {
-            quests && (
-              <QuestContainer quests={ quests }
-                  data={ data }/>
-            )
-          }
-          { menu }
+          className='col-12 col-sm-6 col-lg-4'>
+        <div className='card px-0'>
+          <div className='card-body bg-white rounded-lg p-0'>
+            <h4 className='card-title font-weight-lighter p-4 mb-0 text-uppercase'>
+              { name }</h4>
+            <p className='font-weight-light bg-light p-4 mb-0'>
+              { summary }</p>
+            { children }
+            {
+              quests && (
+                <QuestContainer quests={ quests }
+                    data={ data }/>
+              )
+            }
+            { menu }
+          </div>
         </div>
       </div>
     )

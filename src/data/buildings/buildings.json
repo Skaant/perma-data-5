@@ -39,5 +39,13 @@
         }
       }]
     }]
+  },
+  "kolo-trunk": {
+    "name": "KOLO-tronc",
+    "summary": "L'arbre aux formes complexes et aux symboles si simples, tout autour et à son image se développe la MÉTA-CITÉ."
+  },
+  "arkeo-vault": {
+    "name": "ARKEO-VAULT",
+    "summary": "On a inscrit sur les parois, sur la coquille de l'ancienne KOLO-SEED, les souvenirs de cette nouvelle histoire."
   }
 }
