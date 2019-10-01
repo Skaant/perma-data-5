@@ -25,7 +25,7 @@ export default
             {
               quests && (
                 <QuestContainer quests={ quests }
-                    data={ data }/>
+                    building={ data }/>
               )
             }
             { menu }

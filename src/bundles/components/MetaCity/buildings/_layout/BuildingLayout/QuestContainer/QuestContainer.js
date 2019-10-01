@@ -2,7 +2,7 @@ import React from 'react'
 import QuestItem from './QuestItem/QuestItem';
 
 export default
-  ({ quests, data }) => (
+  ({ building, quests }) => (
     <div className='container border-bottom pb-3'>
       {
         quests
@@ -13,7 +13,8 @@ export default
           .map(
             quest => (
               <QuestItem key={ quest.id }
-                { ...quest }/>
+                  building={ building }
+                  quest={ quest }/>
             ))
       }
     </div>

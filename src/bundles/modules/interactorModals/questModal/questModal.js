@@ -49,7 +49,10 @@ export default {
       if (quest
           && page >= 0
           && page <= (quest.pages.length - 1)) {
-            
+        
+        _this.history[
+          _this.currentQuest.id
+        ] = page
 
         window.ReactDOM
           .render(

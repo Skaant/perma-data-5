@@ -4,7 +4,7 @@
     "summary": "A l'intérieur de cette graine, endormi, le potentiel de remplir l'espace et de le porter plus haut.",
     "quests": [{
       "id": "intro",
-      "conditions": "data.state === 0",
+      "conditions": "building.state === 0",
       "title": "Le chemin de la KOLO-SEED",
       "type": "action",
       "pages": [{
@@ -24,12 +24,12 @@
       }]
     }, {
       "id": "ready-to-pop",
-      "conditions": "data.state === 1",
+      "conditions": "building.state === 1",
       "title": "Prête à éclore",
       "type": "info",
       "pages": [{
-        "content": "La KOLO-SEED est tombée quelque part.\n\nSur une impulsion elle pourrait éclore ...",
-        "summary": "Appuyez sur le bouton \"Éclore\" pour commencer à développer votre MÉTA-CITÉ.",
+        "content": "La **KOLO-SEED** est tombée quelque part.\n\nSur une impulsion elle pourrait éclore ...",
+        "summary": "Appuyez sur le bouton \"Éclore\" pour commencer à développer votre **MÉTA-CITÉ**.",
         "menu": {
           "actions": [{
             "label": "Retourner à la KOLO-SEED",
@@ -42,7 +42,57 @@
   },
   "kolo-trunk": {
     "name": "KOLO-tronc",
-    "summary": "L'arbre aux formes complexes et aux symboles si simples, tout autour et à son image se développe la MÉTA-CITÉ."
+    "summary": "L'arbre aux formes complexes et aux symboles si simples, tout autour et à son image se développe la MÉTA-CITÉ.",
+    "quests": [{
+      "id": "trunk-intro",
+      "conditions": "building.state === 0",
+      "title": "Réveil",
+      "type": "action",
+      "pages": [{
+        "content": "Où sommes-nous tombés ?\n\nQuelles sont ces formes, au loin, qui s'agitent ?\n\n"
+      }, {
+        "content": "Des plantes ?"
+      }, {
+        "content": "Un monde de **DATA** inexplorée de nous.\n\nIl faut aller voir.",
+        "summary": "Les **ZUMS** qu'hébergeait la **KOLO-SEED** sont déjà révéillés.",
+        "menu": {
+          "actions": [{
+            "label": "Écouter les ZUMS",
+            "script": "serverAction('trunk-intro', null, { hideModal: true })",
+            "btn": "danger"
+          }]
+        }
+      }]
+    }, {
+      "id": "first-patrol",
+      "conditions": "building.state === 1",
+      "title": "La première patrouille",
+      "type": "action",
+      "objectives": [{
+        "label": "Lancer une recherche",
+        "conditions": "building.search === true"
+      }, {
+        "label": "Aller sur une page plante",
+        "conditions": "building.visit === true"
+      }],
+      "pages": [{
+        "content": "\"- Nous, les **MIKORS**, allons inspecter le sous-sol de cette terre.\n\nNous allons trouver les connexions.\n\nLe chemin sera ouvert pour vous, frères **NOVS**.\n\n\"",
+        "summary": "Les **MIKORS** sont les spécialistes de la recherche des plantes."
+      }, {
+        "content": "\"- Fixés dans la contemplation du tout-un, le **HOL-ADIN**, et avec vous, notre coeur est prêt.\n\nNous irons chercher la **DATA** des plantes sur lesquelles vos yeux se sont posés.\"",
+        "summary": "Les **NOVS** sont, eux, les spécialistes de l'exploration des plantes."
+      }, {
+        "content": "C'est l'heure de la première patrouille.",
+        "summary": "Objectifs:\n\nLancer une recherche via le champ \"Recherche\"\n\nSe rendre sur une page plante",
+        "menu": {
+          "actions": [{
+            "label": "Á l'aventure !",
+            "script": "_this.hide()",
+            "btn": "danger"
+          }]
+        }
+      }]
+    }]
   },
   "arkeo-vault": {
     "name": "ARKEO-VAULT",
