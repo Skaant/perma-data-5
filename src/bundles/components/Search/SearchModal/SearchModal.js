@@ -3,8 +3,8 @@ import SearchResults from './SearchResults/SearchResults';
 import SearchModalInput from './SearchModalInput/SearchModalInput';
 
 export default ({
-  searchValue,
-  setSearchValue,
+  value,
+  handleValueChange,
   loadStatus,
   searchResults,
   loadSearchResults,
@@ -24,8 +24,8 @@ export default ({
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <SearchModalInput searchValue={ searchValue }
-            setSearchValue={ setSearchValue }
+        <SearchModalInput value={ value }
+            handleValueChange={ handleValueChange }
             loadSearchResults={ loadSearchResults }/>
         <div className='modal-body'>
           {

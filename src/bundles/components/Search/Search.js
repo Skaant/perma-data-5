@@ -3,15 +3,21 @@ import React,{
 } from 'react'
 import SearchInput from './SearchInput/SearchInput';
 import SearchModal from './SearchModal/SearchModal';
+import { SEARCH_VALUE_CHANGE } from '../../modules/search/_actions/search.actions';
 
-export default ({ initialValue }) => {
-
-    const [searchValue, setSearchValue] = useState(initialValue)
+export default ({ value }) => {
+  
     const [loadStatus, setLoadStatus] = useState(false)
     const [searchResults, setSearchResults] = useState([])
 
-    const setSearchValueEvent = e =>
-      setSearchValue(e.target.value)
+    const handleValueChange = 
+      value =>
+        
+        window.__STORE__
+          .dispatch({
+            type: SEARCH_VALUE_CHANGE,
+            value
+          })
     
     const loadSearchResults = () => {
       setLoadStatus(true)
@@ -31,14 +37,14 @@ export default ({ initialValue }) => {
     return (
       <React.Fragment>
         <SearchInput
-            searchValue={ searchValue }
-            setSearchValue={ setSearchValueEvent }
+            value={ value }
+            handleValueChange={ handleValueChange }
             loadSearchResults={ loadSearchResults }
             openModal={ () =>
               modal.modal('show') }/>
         <SearchModal
-            searchValue={ searchValue }
-            setSearchValue={ setSearchValueEvent }
+            value={ value }
+            handleValueChange={ handleValueChange }
             loadStatus={ loadStatus }
             searchResults={ searchResults }
             loadSearchResults={ loadSearchResults }

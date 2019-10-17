@@ -14,7 +14,7 @@ export default
 
     return (
       <div key={ id }
-          className='col-12 col-sm-6 col-lg-4'>
+            className='col-12 col-sm-6 col-xl-4'>
         <div className='card px-0'>
           <div className='card-body bg-white rounded-lg p-0'>
             <h4 className='card-title font-weight-lighter p-4 mb-0 text-uppercase'>

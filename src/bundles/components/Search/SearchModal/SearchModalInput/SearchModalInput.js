@@ -1,8 +1,8 @@
 import React from 'react'
 
 export default ({
-  searchValue,
-  setSearchValue,
+  value,
+  handleValueChange,
   loadSearchResults
 }) => (
   <div className='modal-body border-bottom bg-danger'>
@@ -11,8 +11,10 @@ export default ({
         type='text'
         className='form-control text-white mb-0 pb-0 pt-2'
         placeholder='Recherche'
-        value={ searchValue }
-        onChange={ setSearchValue }
+        value={ value }
+        onChange={ 
+          e =>
+            handleValueChange(e.target.value) }
         onKeyPress={ e => {
           if (e.key === 'Enter') {
             loadSearchResults()
