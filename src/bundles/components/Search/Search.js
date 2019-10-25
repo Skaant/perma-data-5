@@ -21,7 +21,7 @@ export default ({ value }) => {
     
     const loadSearchResults = () => {
       setLoadStatus(true)
-      $.getJSON('/plant/search/' + searchValue)
+      $.getJSON('/plant/search/' + value)
         .then(results => {
           setSearchResults(results)
           setLoadStatus(false)
