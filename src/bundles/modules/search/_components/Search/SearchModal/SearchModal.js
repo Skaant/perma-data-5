@@ -7,8 +7,7 @@ export default ({
   handleValueChange,
   loadStatus,
   searchResults,
-  loadSearchResults,
-  closeModal
+  loadSearchResults
 }) => (
   <div id="search-modal"
       className='modal fade right'>
@@ -20,7 +19,10 @@ export default ({
             Recherche</h5>
           <button type="button"
               className="close"
-              onClick={ closeModal }>
+              onClick={ () =>
+                
+                $('#search-modal')
+                  .modal('hide') }>
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
@@ -29,13 +31,17 @@ export default ({
             loadSearchResults={ loadSearchResults }/>
         <div className='modal-body'>
           {
-            loadStatus ?
-              (
+            loadStatus
+              && (
                 <div className='spinner-grow'
                     role='status'>
                   <span className='sr-only'></span>
                 </div>
-              ) : (
+              )
+          }
+          {
+            searchResults
+              && (
                 <SearchResults searchResults={ searchResults }/>
               )
           }

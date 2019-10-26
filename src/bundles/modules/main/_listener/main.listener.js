@@ -4,7 +4,7 @@ export default () => {
 
     // Compare logic
     let previous = {
-      value: ''
+      error: null
     }
 
     const store = window.__STORE__
@@ -14,13 +14,13 @@ export default () => {
 
         const next = store
           .getState()
-          .search
 
-        if (next.value !== previous.value) {
+        if (next.error
+            && next.error !== previous.error) {
 
           previous = next
           
-          renderComponent()
+          alert(next.error)
         }
       })
   }
