@@ -11,7 +11,8 @@ module.exports = userId =>
     }
   }, {
     $unwind: {
-      path: '$list'
+      path: '$list',
+      includeArrayIndex: 'index'
     }
   }, {
     $match: {
@@ -23,6 +24,13 @@ module.exports = userId =>
     }
   }, {
     $replaceRoot: {
-      newRoot: '$list'
+      newRoot: {
+        $mergeObjects: [
+          '$list',
+          {
+            index: '$index'
+          }
+        ]
+      }
     }
   }]

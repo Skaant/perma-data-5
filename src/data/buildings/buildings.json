@@ -70,10 +70,10 @@
       "type": "action",
       "objectives": [{
         "label": "Lancer une recherche",
-        "conditions": "building.search === true"
+        "conditions": "building.searches > 0"
       }, {
         "label": "Aller sur une page plante",
-        "conditions": "building.visit === true"
+        "conditions": "building.visits > 0"
       }],
       "pages": [{
         "content": "\"- Nous, les **MIKORS**, allons inspecter le sous-sol de cette terre.\n\nNous allons trouver les connexions.\n\nLe chemin sera ouvert pour vous, frères **NOVS**.\n\n\"",

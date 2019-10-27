@@ -1,4 +1,6 @@
 const getSearchBuildings = require('./getSearchBuildings/getSearchBuildings')
+const updateKoloTrunkSearches = require('./updateKoloTrunkSearches/updateKoloTrunkSearches')
+
 
 module.exports = (
   db,
@@ -14,9 +16,26 @@ module.exports = (
       db,
       userId)
 
-      .then(result =>
+      .then(result => {
 
-        resolve(result))
+        if (result['kolo-trunk']
+          && result['kolo-trunk']['state'] === 1) {
+
+          updateKoloTrunkSearches(
+            db,
+            userId,
+            result['kolo-trunk']['index']
+          )
+
+            .then(result =>
+              
+              resolve(result))
+            
+            .catch(err =>
+              
+              reject(err))
+        }
+      })
     
       .catch(err =>
         

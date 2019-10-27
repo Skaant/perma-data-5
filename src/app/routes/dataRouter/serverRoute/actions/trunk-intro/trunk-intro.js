@@ -27,6 +27,8 @@ module.exports =
 
               // Update to next state
               list[index].state = 1
+              list[index].searches = 0
+              list[index].visits = 0
 
               db
                 .collection('user_buildings')
