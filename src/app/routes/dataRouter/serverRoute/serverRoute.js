@@ -1,5 +1,5 @@
 const questHandlers = require('./actions')
-const jsonRejection = require('../../../_routes/api/_utils/error/error')
+const jsonRejection = require('../../../_routes/_routers/api/_utils/error/error')
 
 module.exports = 
   (req, res) => {

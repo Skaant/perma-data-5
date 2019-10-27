@@ -21,12 +21,12 @@ export default () => {
       searchValue: value
     })
 
-    .then(searchResults => {
+    .then(result => {
 
       store
         .dispatch({
           type: SEARCH_FETCH_RESULTS_SUCCESS,
-          searchResults
+          result
         })
 
       $('#search-modal')

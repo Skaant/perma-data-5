@@ -1,4 +1,4 @@
-const mongo = require('../../../../mongo/mongo')
+const mongo = require('../../../../../mongo/mongo')
 const error = require('../_utils/error/error')
 const searchPlants = require('./searchPlants/searchPlants')
 const updateUserBuildings = require('./updateUserBuildings/updateUserBuildings')
@@ -24,7 +24,7 @@ module.exports = (req, res) => {
         db,
         searchValue)
 
-        .then(results => {
+        .then(plants => {
 
           if (req.user) {
 
@@ -35,7 +35,7 @@ module.exports = (req, res) => {
               .then(buildings => 
                 
                 res.json({
-                  results,
+                  plants,
                   buildings
                 }))
 
@@ -46,7 +46,9 @@ module.exports = (req, res) => {
                   err))
           } else {
 
-            res.json({ results })
+            res.json({
+              plants
+             })
           }
         })
 

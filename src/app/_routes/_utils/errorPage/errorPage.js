@@ -1,5 +1,5 @@
 /**
- * @exports htmlRejection
+ * @exports errorPage
  */
 
 /**
@@ -9,16 +9,19 @@
  * @param { any } err The error [object ?] content
  * @param { number } status Status code. Default = 500.
  */
-const htmlRejection = (res, err, status = 500) => {
+module.exports = (
+  res,
+  err,
+  status = 500
+) => {
   console.error(err)
   res
     .status(status)
     .send('<html>'
       + '<h1>Error</h1>'
       + '<p>'
-        + err
+        + err.message
       + '</p>'
+      + JSON.stringify(err.stack)
       + '</html>')
 }
-
-module.exports = htmlRejection

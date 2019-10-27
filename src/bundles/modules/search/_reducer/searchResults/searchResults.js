@@ -4,10 +4,10 @@ export default (
   state = null,
   {
     type,
-    searchResults
+    result
   }
 ) => 
 
   type === SEARCH_FETCH_RESULTS_SUCCESS ?
-    searchResults
+    result.plants
     : state
