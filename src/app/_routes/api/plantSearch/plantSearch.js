@@ -1,23 +1,24 @@
-const mongo = require('../../../../../../mongo/mongo')
-const jsonRejection = require('../../../../../../utils/handlers/jsonRejection/jsonRejection')
+const mongo = require('../../../../mongo/mongo')
+const error = require('../_utils/error/error')
 const searchPlants = require('./searchPlants/searchPlants')
 const updateUserBuildings = require('./updateUserBuildings/updateUserBuildings')
 
-module.exports = (req, res) =>
+module.exports = (req, res) => {
+
+  const searchValue = req.query.searchValue
+
+  if (!searchValue) {
+
+    error(
+      res,
+      new Error('`searchValue` must be set'),
+      400)
+  }
 
   mongo
     .get()
+
     .then(({ db }) => {
-
-      const searchValue = req.params.searchValue
-
-      if (!searchValue) {
-
-        jsonRejection(
-          res,
-          new Error('`searchValue` must be set'),
-          400)
-      }
 
       searchPlants(
         db,
@@ -40,7 +41,7 @@ module.exports = (req, res) =>
 
               .catch(err => 
                 
-                jsonRejection(
+                error(
                   res,
                   err))
           } else {
@@ -51,9 +52,13 @@ module.exports = (req, res) =>
 
         .catch(err => 
           
-          jsonRejection(
+          error(
             res,
             err))
     })
+
     .catch(err =>
-      jsonRejection(res, err))
+
+      error(res, err))
+
+}

@@ -1,4 +1,5 @@
-const getPlantSearchAggregation = require('./getPlantSearchAggregation/getPlantSearchAggregation')
+const plantSearchAggregation =
+  require('./_aggregations/searchPlants/searchPlants')
 
 module.exports = (
   db,
@@ -13,7 +14,7 @@ module.exports = (
     db
       .collection('data')
       .aggregate(
-        getPlantSearchAggregation(searchValue),
+        plantSearchAggregation(searchValue),
         (err, cursor) => {
 
           if (err) {

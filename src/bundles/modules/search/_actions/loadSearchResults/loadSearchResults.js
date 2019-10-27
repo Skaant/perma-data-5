@@ -15,7 +15,11 @@ export default () => {
     .dispatch({ 
       type: SEARCH_FETCH_RESULTS_START })
 
-  $.getJSON('/plant/search/' + value)
+  $.getJSON(
+    '/api/plant-search',
+    {
+      searchValue: value
+    })
 
     .then(searchResults => {
 

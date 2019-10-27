@@ -3,8 +3,8 @@ const { Router } = require('express')
 const router = Router()
 
 router.get(
-  '/:id',
-  require('./plantIdGetRoute/plantIdGetRoute')
+  '/plant-search',
+  require('./plantSearch/plantSearch')
 )
 
 module.exports = router

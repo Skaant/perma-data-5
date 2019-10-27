@@ -1,6 +1,6 @@
 const mongo = require('../../../../../mongo/mongo')
 const getPlantIdAggregation = require('../../../../../mongo/aggregations/getPlantIdAggregation/getPlantIdAggregation')
-const jsonRejection = require('../../../../../utils/handlers/jsonRejection/jsonRejection')
+const jsonRejection = require('../../../../_routes/api/_utils/error/error')
 
 module.exports =
   (req, res) =>

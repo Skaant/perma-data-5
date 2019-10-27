@@ -1,4 +1,4 @@
-const getSearchBuildingsAggregation = require('./getSearchBuildingsAggregation/getSearchBuildingsAggregation')
+const searchBuildingsAggregation = require('./_aggregations/searchBuildings/searchBuildings')
 
 module.exports = (
   db,
@@ -13,7 +13,7 @@ module.exports = (
     db
       .collection('user_buildings')
       .aggregate(
-        getSearchBuildingsAggregation(userId),
+        searchBuildingsAggregation(userId),
         (err, cursor) => {
 
           if (err) {

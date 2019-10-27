@@ -15,6 +15,7 @@ app.use(cookieParser())
 
 app.use(authMiddleware)
 
+app.use('/api', require('./_routes/api/api'))
 app.use('/auth', require('./routes/authRouter/authRouter'))
 app.use('/info', require('./routes/infoRouter/infoRouter'))
 app.use('/plant', require('./routes/plantRouter/plantRouter'))

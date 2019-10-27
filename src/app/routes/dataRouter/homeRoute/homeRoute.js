@@ -1,6 +1,6 @@
 const provisioner = require('./provisioner/provisioner')
 const pug = require('pug')
-const jsonRejection = require('../../../../utils/handlers/jsonRejection/jsonRejection')
+const jsonRejection = require('../../../_routes/api/_utils/error/error')
 
 module.exports = 
   (req, res) => {
