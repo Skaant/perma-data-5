@@ -3,6 +3,7 @@ import React, {
 } from 'react'
 
 export default ({
+  initConnected,
   closeModal
 }) => {
 
@@ -30,7 +31,7 @@ export default ({
         })
       })
         .then(() =>
-          location.reload())
+          initConnected())
 
   const modalLabel = mode === 'sign-in' ?
     'Connexion' : 'Inscription'

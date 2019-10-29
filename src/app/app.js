@@ -15,9 +15,12 @@ app.use(cookieParser())
 
 app.use(authMiddleware)
 
+app.use('/api', require('./_routes/_routers/api/api'))
+app.get('/plant/:id', require('./_routes/plantId/plantId'))
+
 app.use('/auth', require('./routes/authRouter/authRouter'))
 app.use('/info', require('./routes/infoRouter/infoRouter'))
-app.use('/plant', require('./routes/plantRouter/plantRouter'))
-app.use('/', require('./routes/rootRoute/rootRoute'))
+app.use('/data', require('./routes/dataRouter/dataRouter'))
+app.use('/', require('./routes/rootRouter/rootRouter'))
 
 module.exports = app

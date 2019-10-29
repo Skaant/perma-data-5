@@ -1,4 +1,5 @@
 const mongo = require('../../../../../../mongo/mongo')
+const initBuildings = require('./initBuildings/initBuildings')
 
 /**
  * Returns a promise that, given an user object,
@@ -17,7 +18,9 @@ module.exports =
           db
             .collection('users')
             .insertOne(user)
-            .then(result =>
-              resolve(result))
+            .then(({ insertedId }) =>
+              initBuildings(insertedId)
+                .then(() =>
+                  resolve(result)))
             .catch(err =>
               reject(err))))

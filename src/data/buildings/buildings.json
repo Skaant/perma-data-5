@@ -1,0 +1,132 @@
+{
+  "kolo-seed": {
+    "name": "KOLO-SEED",
+    "summary": "A l'intérieur de cette graine, endormi, le potentiel de remplir l'espace et de le porter plus haut.",
+    "quests": [{
+      "id": "intro",
+      "conditions": "building.state === 0",
+      "title": "Le chemin de la KOLO-SEED",
+      "type": "action",
+      "pages": [{
+        "content": "Quelque part,\n\nune fleur et\n\ndes milliers de **KOLO-SEEDS**."
+      }, {
+        "content": "A travers la **FRAST**,\n\n-La forêt-univers,\n\nJusque ..."
+      }, {
+        "content": "Jusqu'ici.",
+        "summary": "Votre **KOLO-SEED** a atterit.",
+        "menu": {
+          "actions": [{
+            "label": "Fin du voyage",
+            "script": "serverAction('intro-quest', null, { hideModal: true })",
+            "btn": "danger"
+          }]
+        }
+      }]
+    }, {
+      "id": "ready-to-pop",
+      "conditions": "building.state === 1",
+      "title": "Prête à éclore",
+      "type": "info",
+      "pages": [{
+        "content": "La **KOLO-SEED** est tombée quelque part.\n\nSur une impulsion elle pourrait éclore ...",
+        "summary": "Appuyez sur le bouton \"Éclore\" pour commencer à développer votre **MÉTA-CITÉ**.",
+        "menu": {
+          "actions": [{
+            "label": "Retourner à la KOLO-SEED",
+            "script": "_this.hide()",
+            "btn": "danger"
+          }]
+        }
+      }]
+    }]
+  },
+  "kolo-trunk": {
+    "name": "KOLO-tronc",
+    "summary": "L'arbre aux formes complexes et aux symboles si simples, tout autour et à son image se développe la MÉTA-CITÉ.",
+    "quests": [{
+      "id": "trunk-intro",
+      "conditions": "building.state === 0",
+      "title": "Réveil",
+      "type": "action",
+      "pages": [{
+        "content": "Où sommes-nous tombés ?\n\nQuelles sont ces formes, au loin, qui s'agitent ?\n\n"
+      }, {
+        "content": "Des plantes ?"
+      }, {
+        "content": "Un monde de **DATA** inexplorée de nous.\n\nIl faut aller voir.",
+        "summary": "Les **ZUMS** qu'hébergeait la **KOLO-SEED** sont déjà révéillés.",
+        "menu": {
+          "actions": [{
+            "label": "Écouter les ZUMS",
+            "script": "serverAction('trunk-intro', null, { hideModal: true })",
+            "btn": "danger"
+          }]
+        }
+      }]
+    }, {
+      "id": "first-patrol",
+      "conditions": "building.state === 1 && (building.searches === 0 || building.visits === 0)",
+      "title": "La première patrouille",
+      "type": "action",
+      "objectives": [{
+        "label": "Lancer une recherche",
+        "conditions": "building.searches > 0"
+      }, {
+        "label": "Aller sur une page plante",
+        "conditions": "building.visits > 0"
+      }],
+      "pages": [{
+        "content": "MIKOR XAN :\n\n\"- Nous, les **MIKORS**, allons inspecter le sous-sol de cette terre.\n\nNous allons trouver les connexions.\n\nLe chemin sera ouvert pour vous, frères **NOVS**.\n\n\"",
+        "summary": "Les **MIKORS** sont les spécialistes de la recherche des plantes."
+      }, {
+        "content": "NOV XAN :\n\n\"- Fixés dans la contemplation du tout-un, le **HOL-ADIN**, et avec vous, notre coeur est prêt.\n\nNous irons chercher la **DATA** des plantes sur lesquelles vos yeux se sont posés.\"",
+        "summary": "Les **NOVS** sont, eux, les spécialistes de l'exploration des plantes."
+      }, {
+        "content": "C'est l'heure de la première patrouille.",
+        "summary": "Objectifs:\n\nLancer une recherche via le champ \"Recherche\"\n\nSe rendre sur une page plante",
+        "menu": {
+          "actions": [{
+            "label": "Á l'aventure !",
+            "script": "_this.hide()",
+            "btn": "danger"
+          }]
+        }
+      }]
+    }, {
+      "id": "first-patrol-done",
+      "conditions": "building.state === 1 && building.searches > 0 && building.visits > 0",
+      "title": "La première patrouille",
+      "type": "action",
+      "objectives": [{
+        "label": "Lancer une recherche",
+        "conditions": "true"
+      }, {
+        "label": "Aller sur une page plante",
+        "conditions": "true"
+      }],
+      "pages": [{
+        "content": "Les MIKORS ont senti,\n\nLes NOVS ont vu ..\n\nQu'éclosent leurs quartiers.",
+        "summary": "Les RAYÖNS (quartiers) des deux TRIGHBS, MIKORS et NOVS, sont sur le point de pousser.",
+        "menu": {
+          "actions": [{
+            "label": "Déclencher la croissance",
+            "script": "serverAction('first-patrol', null, { hideModal: true })",
+            "btn": "danger"
+          }]
+        }
+      }]
+    }]
+  },
+  "arkeo-vault": {
+    "name": "ARKEO-VAULT",
+    "summary": "On a inscrit sur les parois, sur la coquille de l'ancienne KOLO-SEED, les souvenirs de cette nouvelle histoire."
+  },
+  "mikor-rayon": {
+    "name": "MIKOR-RAYON",
+    "summary": "Les MIKORS scrutent le réseau mychorizien pour apercevoir les pistes de la DATA."
+  },
+  "nov-rayon": {
+    "name": "NOV-RAYON",
+    "summary": "Point de départ des expéditions NOVS, dont le but est la découverte de DATA sur les plantes."
+  }
+}
