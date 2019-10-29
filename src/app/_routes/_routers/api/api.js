@@ -7,4 +7,9 @@ router.get(
   require('./plantSearch/plantSearch')
 )
 
+router.put(
+  '/action',
+  require('./action/action')
+)
+
 module.exports = router

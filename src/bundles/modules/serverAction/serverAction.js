@@ -3,7 +3,7 @@
 export default
   (action, props, options) =>
     $.ajax(
-      '/data/action',
+      '/api/action',
       {
         method: 'PUT',
         data: {

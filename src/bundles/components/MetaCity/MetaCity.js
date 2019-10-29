@@ -11,7 +11,8 @@ export default
       <div className='container animated blurIn slow'
           style={ {
             maxWidth: 'calc(100vh - 50px)',
-            marginTop: '60px'
+            marginTop: '60px',
+            marginBottom: '40px'
           } }>
         <div className='row'
             style={ { marginBottom: '50px' } }>
