@@ -1,4 +1,6 @@
-import { SEARCH_FETCH_RESULTS_SUCCESS } from '../../_actions/search.actions'
+import {
+  SEARCH_FETCH_RESULTS_SUCCESS
+} from '../../_actions/search.actions'
 
 export default (
   state = null,

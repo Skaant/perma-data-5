@@ -2,7 +2,7 @@ import ReactDOM from 'react-dom'
 import React from 'react'
 import cookies from 'js-cookie'
 import initConnected from '../initConnected/initConnected'
-import LoginModal from '../../../../components/LoginModal/LoginModal'
+import LoginModal from '../../../auth/_components/LoginModal/LoginModal'
 
 /**
  * Initializes the "unauth" environment
