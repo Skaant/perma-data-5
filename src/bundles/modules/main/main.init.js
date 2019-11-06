@@ -5,6 +5,7 @@ import { combineReducers } from 'redux'
 import searchReducer from '../search/_reducer/search.reducer'
 import authReducer from '../auth/_reducer/login.reducer'
 import searchInit from '../search/search.init'
+import authListener from '../auth/_listener/auth.listener'
 
 export default pageId =>
 
@@ -22,4 +23,5 @@ export default pageId =>
         )
 
         searchInit()
+        authListener()
       })

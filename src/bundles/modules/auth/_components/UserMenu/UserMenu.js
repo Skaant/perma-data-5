@@ -1,17 +1,26 @@
 import React from 'react'
 
-export default ({ user }) => {
-  
-  if (!user) {
-
-    return (
-      <span className="fas fa-user"></span>
-    )
-  }
+export default ({
+  user,
+  tokenInitialCheck
+}) => {
   
   return (
     <React.Fragment>
-      <span className='fas fa-user-check'></span>
+      {
+        !user
+          && tokenInitialCheck
+          && (
+            <span className='spinner-grow text-white nav-link'
+                role='status'></span>
+          )
+      }
+      {
+        user
+          && (
+            <span className="fas fa-user-check"></span>
+          )
+      }
       <div id='todo--auth__user-modal__component'></div>
     </React.Fragment>
   )

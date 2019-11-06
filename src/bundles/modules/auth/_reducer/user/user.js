@@ -1,7 +1,6 @@
 import {
   AUTH_LOGIN_CHECK_SUCCESS,
-  AUTH_TOKEN_CHECK_SUCCESS,
-  AUTH_UNAUTH
+  AUTH_DISCONNECT
 } from '../../_actions/auth.actions'
 
 export default (
@@ -15,10 +14,9 @@ export default (
   switch (type) {
 
     case AUTH_LOGIN_CHECK_SUCCESS:
-    case AUTH_TOKEN_CHECK_SUCCESS:
       return user
 
-    case AUTH_UNAUTH:
+    case AUTH_DISCONNECT:
       return false
     
     default:

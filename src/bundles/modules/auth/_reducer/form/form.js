@@ -1,6 +1,6 @@
 import {
   AUTH_SWITCH_FORM,
-  AUTH_UPDATE_FORM_VALUES
+  AUTH_UPDATE_FORM_FIELD
 } from '../../_actions/auth.actions'
 
 export default (
@@ -25,7 +25,7 @@ export default (
         state,
         { mode })
 
-    case AUTH_UPDATE_FORM_VALUES:
+    case AUTH_UPDATE_FORM_FIELD:
       
       const {
         key,

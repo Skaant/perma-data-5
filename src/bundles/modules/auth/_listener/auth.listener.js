@@ -1,3 +1,6 @@
+import renderComponent from './renderComponent/renderComponent'
+import authInit from './_init/auth.init'
+
 export default () => {
 
     // Compare logic
@@ -13,14 +16,14 @@ export default () => {
           .auth
 
         if (!previous) {
-
-        }
-
-        if (next.value !== previous.value) {
-
-          previous = next
           
           renderComponent()
+          
+        } else {
         }
+
+        previous = next
       })
+          
+    authInit()
   }
