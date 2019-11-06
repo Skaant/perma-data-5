@@ -1,54 +1,41 @@
 import React, {
   useState
 } from 'react'
+import { AUTH_LOGIN_MODAL_CLOSE } from '../../../_actions/auth.actions';
 
 export default ({
-  initConnected,
-  closeModal
+  modalDisplay,
+  mode,
+  email,
+  pseudo,
+  password
 }) => {
 
-  const [mode, setMode] = useState('sign-in')
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const modeLabels = {
+    'sign-in': 'Connexion',
+    'sign-up': 'Créer un compte',
+    'recover-password': 'Mot de passe oublié'
+  }
 
-  const switchMode = () =>
-    setMode(
-      mode === 'sign-in' ?
-        'sign-out' : 'sign-in'
-    )
+  const label = modeLabels[mode]
 
-  const post = () =>
-    fetch(
-      '/auth/' + mode,
-      {
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        method: 'put',
-        body: JSON.stringify({
-          email,
-          password: btoa(password)
-        })
+  const store = window.__STORE__
+
+  const closeModal = () =>
+    store
+      .dispatch({
+        type: AUTH_LOGIN_MODAL_CLOSE
       })
-        .then(() =>
-          initConnected())
-
-  const modalLabel = mode === 'sign-in' ?
-    'Connexion' : 'Inscription'
-  const titleLabel = mode === 'sign-in' ?
-    'Déjà inscrit ?' : 'Pas encore inscrit ?'
-  const titleSwitchLabel = mode === 'sign-in' ?
-    'Non !' : 'Si !'
 
   return (
     <div id='login-modal'
-        className='modal fade right'>
+        className='modal fade right show'>
       <div className='modal-dialog modal-side modal-top-right mr-4'
           role='document'>
         <div className='modal-content'>
           <div className='modal-header'>
-            <h5 className='modal-title'>
-              { modalLabel }</h5>
+            <h5 className='modal-title text-danger'>
+              S'authentifier</h5>
             <button type='button'
                 className='close'
                 onClick={ closeModal }>
@@ -58,12 +45,7 @@ export default ({
           <div className='modal-body bg-danger'>
             <div className='container pb-2'>
               <h3 className='row text-white mt-4 pl-2'>
-                { titleLabel }&nbsp;
-                <a style={ {
-                    textDecoration: 'underline'
-                  } }
-                    onClick={ switchMode }>
-                  { titleSwitchLabel }</a></h3>
+                { label }</h3>
               <form className='row px-4'>
                 <style scoped>
                   {
@@ -78,29 +60,43 @@ export default ({
                       className='form-control'
                       placeholder='E-mail'
                       value={ email }
-                      onChange={ e =>
-                        setEmail(e.target.value) }/>
+                      onChange={ () => console.log('temp') }/>
                 </div>
                 <div className='md-form col-12 mt-2'>
                   <input type='password'
                       className='form-control'
                       placeholder='Mot de passe'
                       value={ password }
-                      onChange={ e =>
-                        setPassword(e.target.value) }/>
+                      onChange={ () => console.log('temp') }/>
                 </div>
               </form>
+              <ul className='text-right list-unstyled'>
+                <li>
+                  <a style={ {
+                      textDecoration: 'underline'
+                    } }
+                      onClick={ () => console.log('temp') }>
+                    { modeLabels['sign-up'] }</a>
+                </li>
+                <li>
+                  <a style={ {
+                      textDecoration: 'underline'
+                    } }
+                      onClick={ () => console.log('temp') }>
+                    { modeLabels['recover-password'] }</a>
+                </li>
+              </ul>
             </div>
           </div>
           <div className='modal-footer'>
             <button type='button'
                 className='btn btn-outline-danger'
                 onClick={ closeModal }>
-              Close</button>
+              Fermer</button>
             <button type='button'
                 className='btn btn-danger'
-                onClick={ post }>
-              { modalLabel }</button>
+                onClick={ () => console.log('temp') }>
+              Valider</button>
           </div>
         </div>
       </div>

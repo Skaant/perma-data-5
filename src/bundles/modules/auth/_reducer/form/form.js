@@ -5,8 +5,9 @@ import {
 
 export default (
   state = {
-    mode: 'signin',
+    mode: 'sign-in',
     email: '',
+    pseudo: '',
     password: ''
   },
   {

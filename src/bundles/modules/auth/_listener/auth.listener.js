@@ -1,5 +1,6 @@
 import renderComponent from './renderComponent/renderComponent'
-import authInit from './_init/auth.init'
+import initialTokenCheck from './initialTokenCheck/initialTokenCheck'
+import setBackdropClickClose from './setBackdropClickClose/setBackdropClickClose';
 
 export default () => {
 
@@ -15,15 +16,27 @@ export default () => {
           .getState()
           .auth
 
-        if (!previous) {
-          
-          renderComponent()
-          
-        } else {
+        renderComponent()
+
+        if (previous
+            && previous.modalDisplay !== next.modalDisplay) {
+         
+          if (next.modalDisplay === true) {
+            
+            $('#login-modal')
+              .modal('show')
+
+            setBackdropClickClose()
+
+          } else {
+
+            $('#login-modal')
+              .modal('hide')
+          }
         }
 
         previous = next
       })
           
-    authInit()
+    initialTokenCheck()
   }
