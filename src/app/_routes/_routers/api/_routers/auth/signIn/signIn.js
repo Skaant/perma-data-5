@@ -1,6 +1,7 @@
 const atob = require('atob')
 const mongo = require('../../../../../../mongo/mongo')
 const getUser = require('../_utils/getUser/getUser')
+const updateToken = require('../_utils/updateToken/updateToken')
 
 module.exports = (
   req,
@@ -61,28 +62,25 @@ module.exports = (
 
               } else {
 
-                res.json(user)
-
-                /* updateToken(user._id)
+                updateToken(
+                  db,
+                  user._id
+                )
                   .then(token => {
                     res.cookie(
-                      'auth-token',
+                      'auth',
                       token,
                       {
                         maxAge: 432000000
                       }
                     )
-                    res.cookie(
-                      'auth-email',
-                      email,
-                      {
-                        maxAge: 432000000
-                      }
-                    )
                     res.send({
-                      signIn: true
+                      user: {
+                        _id: user._id,
+                        pseudo: user.pseudo
+                      }
                     })
-                  }) */
+                  })
               }
             }
           })

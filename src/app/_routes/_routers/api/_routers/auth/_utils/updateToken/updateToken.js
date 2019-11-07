@@ -1,4 +1,4 @@
-const mongo = require('../../../../../mongo/mongo')
+const mongo = require('../../../../../../../mongo/mongo')
 
 /**
  * Returns a promise that creates a new token,
@@ -12,8 +12,8 @@ const mongo = require('../../../../../mongo/mongo')
  */
 module.exports = 
   (
-    _id,
-    db
+    db,
+    _id
   ) =>
     new Promise((resolve, reject) => {
       
