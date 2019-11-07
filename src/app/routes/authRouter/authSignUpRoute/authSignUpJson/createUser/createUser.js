@@ -1,4 +1,4 @@
-const mongo = require('../../../../../../mongo/mongo')
+const mongo = require('../../../../../mongo/mongo')
 const initBuildings = require('./initBuildings/initBuildings')
 
 /**
@@ -12,8 +12,7 @@ const initBuildings = require('./initBuildings/initBuildings')
 module.exports = 
   user =>
     new Promise((resolve, reject) =>
-      mongo
-        .get()
+      mongo()
         .then(({ db }) =>
           db
             .collection('users')

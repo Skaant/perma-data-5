@@ -21,6 +21,7 @@ export default ({
   const store = window.__STORE__
 
   const switchMode = mode =>
+
     store
       .dispatch({
         type: AUTH_SWITCH_FORM_MODE,
@@ -31,6 +32,7 @@ export default ({
     key,
     value
   ) => 
+
     store
       .dispatch({
         type: AUTH_UPDATE_FORM_FIELD,
@@ -39,6 +41,17 @@ export default ({
           value
         }
       })
+
+  const validation = () =>
+
+    handleFormValidation(
+      mode,
+      {
+        email,
+        pseudo,
+        password
+      }
+    )
 
   const closeModal = () =>
     store
@@ -84,7 +97,16 @@ export default ({
                           handleFieldChange(
                             'email',
                             e.target.value
-                          ) }/>
+                          ) }
+                      onKeyPress={
+                        e => {
+
+                          if (e.key === 'Enter'
+                              && mode !== 'recover-password') {
+
+                            validation()
+                          }
+                        } }/>
                 </div>
                 {
                   mode === 'sign-up'
@@ -116,7 +138,16 @@ export default ({
                                 handleFieldChange(
                                   'password',
                                   e.target.value
-                                ) }/>
+                                ) }
+                            onKeyPress={
+                              e => {
+
+                                if (e.key === 'Enter'
+                                    && mode !== 'recover-password') {
+
+                                  validation()
+                                }
+                              } }/>
                       </div>
                     )
                 }
@@ -179,14 +210,7 @@ export default ({
                 className='btn btn-danger'
                 onClick={
                   () =>
-                    handleFormValidation(
-                      mode,
-                      {
-                        email,
-                        pseudo,
-                        password
-                      }
-                    ) }>
+                    validation() }>
               Valider</button>
           </div>
         </div>

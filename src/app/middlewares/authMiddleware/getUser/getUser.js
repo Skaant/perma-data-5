@@ -1,4 +1,4 @@
-const mongo = require('../../../../mongo/mongo')
+const mongo = require('../../../mongo/mongo')
 
 /**
  * Returns a promise that resolves with fetched db user
@@ -9,8 +9,7 @@ const mongo = require('../../../../mongo/mongo')
 module.exports = 
   query =>
     new Promise((resolve, reject) =>
-      mongo
-        .get()
+      mongo()
         .then(({ db }) =>
           db
             .collection('users')

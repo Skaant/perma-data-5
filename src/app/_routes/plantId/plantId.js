@@ -1,4 +1,4 @@
-const mongo = require('../../../mongo/mongo')
+const mongo = require('../../mongo/mongo')
 const getPlant = require('./getPlant/getPlant')
 const updateUserBuildings = require('./updateUserBuildings/updateUserBuildings')
 const pug = require('pug')

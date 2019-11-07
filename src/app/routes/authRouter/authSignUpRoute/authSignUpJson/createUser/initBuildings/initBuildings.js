@@ -1,10 +1,9 @@
-const mongo = require('../../../../../../../mongo/mongo')
+const mongo = require('../../../../../../mongo/mongo')
 
 module.exports = 
   _id =>
     new Promise((resolve, reject) => {
-      mongo
-        .get()
+      mongo()
         .then(({ db }) => {
           db
             .collection('user_buildings')

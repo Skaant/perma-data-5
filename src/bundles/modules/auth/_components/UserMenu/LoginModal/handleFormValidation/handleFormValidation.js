@@ -27,7 +27,7 @@ export default (
       data: {
         email,
         pseudo,
-        password
+        password: btoa(password)
       }
     }
   )

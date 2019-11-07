@@ -1,4 +1,4 @@
-const mongo = require('../../../../../../mongo/mongo')
+const mongo = require('../../../../../mongo/mongo')
 
 /**
  * Returns a promise that creates a new token,
@@ -16,8 +16,7 @@ module.exports =
       const token = Math
         .random().toString(36).substr(2)
 
-      mongo
-        .get()
+      mongo()
         .then(({ db }) =>
           db
             .collection('users')
