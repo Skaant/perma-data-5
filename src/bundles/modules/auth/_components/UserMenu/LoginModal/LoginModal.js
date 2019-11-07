@@ -1,5 +1,6 @@
 import React from 'react'
 import { AUTH_LOGIN_MODAL_CLOSE, AUTH_SWITCH_FORM_MODE, AUTH_UPDATE_FORM_FIELD } from '../../../_actions/auth.actions';
+import handleFormValidation from './handleFormValidation/handleFormValidation';
 
 export default ({
   modalDisplay,
@@ -176,7 +177,16 @@ export default ({
               Fermer</button>
             <button type='button'
                 className='btn btn-danger'
-                onClick={ () => console.log('temp') }>
+                onClick={
+                  () =>
+                    handleFormValidation(
+                      mode,
+                      {
+                        email,
+                        pseudo,
+                        password
+                      }
+                    ) }>
               Valider</button>
           </div>
         </div>
