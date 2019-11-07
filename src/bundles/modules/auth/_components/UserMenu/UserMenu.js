@@ -1,7 +1,6 @@
 import React from 'react'
 import {
-  AUTH_LOGIN_MODAL_OPEN,
-  AUTH_LOGIN_MODAL_CLOSE
+  AUTH_LOGIN_MODAL_OPEN
 } from '../../_actions/auth.actions'
 import LoginModal from './LoginModal/LoginModal'
 

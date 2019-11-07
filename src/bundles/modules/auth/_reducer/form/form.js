@@ -1,5 +1,5 @@
 import {
-  AUTH_SWITCH_FORM,
+  AUTH_SWITCH_FORM_MODE,
   AUTH_UPDATE_FORM_FIELD
 } from '../../_actions/auth.actions'
 
@@ -19,7 +19,7 @@ export default (
 
   switch (type) {
 
-    case AUTH_SWITCH_FORM:
+    case AUTH_SWITCH_FORM_MODE:
       
       return Object.assign(
         {},
