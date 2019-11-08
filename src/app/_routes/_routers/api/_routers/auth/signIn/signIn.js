@@ -2,6 +2,7 @@ const atob = require('atob')
 const mongo = require('../../../../../../mongo/mongo')
 const getUser = require('../_utils/getUser/getUser')
 const updateToken = require('../_utils/updateToken/updateToken')
+const getUserBuildings = require('../_utils/getUserBuildings/getUserBuildings')
 
 module.exports = (
   req,
@@ -62,11 +63,20 @@ module.exports = (
 
               } else {
 
-                updateToken(
-                  db,
-                  user._id
-                )
-                  .then(token => {
+                Promise
+                  .all([
+                    updateToken(
+                      db,
+                      user._id
+                    ),
+                    getUserBuildings(
+                      db,
+                      user._id
+                    )
+                  ])
+                
+                  .then(([token, buildings]) => {
+                    
                     res.cookie(
                       'auth',
                       token,
@@ -76,21 +86,23 @@ module.exports = (
                     )
                     res.send({
                       user: {
-                        _id: user._id,
-                        pseudo: user.pseudo
+                        pseudo: user.pseudo,
+                        buildings
                       }
                     })
                   })
               }
             }
           })
-          .catch(err =>{
-            console.log(err)
+          .catch(error =>{
+
+            console
+              .error(error)
             res
               .status(400)
               .json({
                 salut: 'ok',
-                err
+                error
               })})
             })
   }

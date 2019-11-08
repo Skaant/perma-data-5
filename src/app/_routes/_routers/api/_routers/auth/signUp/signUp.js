@@ -60,7 +60,6 @@ module.exports =
                 .then(buildings => {
 
                   res.json({
-                    _id,
                     pseudo: user.pseudo,
                     buildings
                   })

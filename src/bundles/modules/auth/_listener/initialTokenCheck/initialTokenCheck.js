@@ -2,7 +2,8 @@ import cookies from 'js-cookie'
 import renderComponent from '../renderComponent/renderComponent'
 import {
   AUTH_INITIAL_TOKEN_CHECKED,
-  AUTH_LOGIN_CHECK_START
+  AUTH_LOGIN_CHECK_START,
+  AUTH_TOKEN_CHECK_SUCCESS
 } from '../../_actions/auth.actions'
 
 
@@ -18,6 +19,15 @@ export default () => {
       .dispatch({
         type: AUTH_LOGIN_CHECK_START
       })
+
+    $.get('/api/auth/check-token')
+      .then(user =>
+
+        store
+          .dispatch({
+            type: AUTH_TOKEN_CHECK_SUCCESS,
+            user
+          }))
 
   } else {
 
