@@ -1,8 +1,9 @@
 import renderComponent from './renderComponent/renderComponent'
 import initialTokenCheck from './initialTokenCheck/initialTokenCheck'
-import setBackdropClickClose from './setBackdropClickClose/setBackdropClickClose';
+import setBackdropClickClose from './setBackdropClickClose/setBackdropClickClose'
+import loadBundle from './loadBundle/loadBundle'
 
-export default () => {
+export default pageId => {
 
     // Compare logic
     let previous = null
@@ -16,6 +17,16 @@ export default () => {
           .getState()
           .auth
 
+        if (previous
+            && !previous.user
+            && next.user
+            && !next.moduleLoaded) {
+
+          previous = next
+         
+          loadBundle(pageId)
+        }
+
         renderComponent()
 
         if (previous
@@ -27,6 +38,8 @@ export default () => {
               .modal('show')
 
             setBackdropClickClose()
+
+            previous = next
 
           } else {
 

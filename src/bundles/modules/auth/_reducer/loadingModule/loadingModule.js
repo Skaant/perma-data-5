@@ -1,7 +1,7 @@
 import {
-  AUTH_LOAD_MODULE_START,
-  AUTH_LOAD_MODULE_SUCCESS,
-  AUTH_LOAD_MODULE_ERROR
+  AUTH_LOAD_BUNDLE_START,
+  AUTH_LOAD_BUNDLE_SUCCESS,
+  AUTH_LOAD_BUNDLE_ERROR
 } from '../../_actions/auth.actions'
 
 export default (
@@ -11,11 +11,11 @@ export default (
 
   switch (type) {
 
-    case AUTH_LOAD_MODULE_START:
+    case AUTH_LOAD_BUNDLE_START:
       return true
 
-    case AUTH_LOAD_MODULE_SUCCESS:
-    case AUTH_LOAD_MODULE_ERROR:
+    case AUTH_LOAD_BUNDLE_SUCCESS:
+    case AUTH_LOAD_BUNDLE_ERROR:
       return false
     
     default:
