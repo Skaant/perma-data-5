@@ -2,7 +2,7 @@ import {
   SEARCH_FETCH_RESULTS_START,
   SEARCH_FETCH_RESULTS_SUCCESS,
   SEARCH_FETCH_RESULTS_ERROR
-} from '../search.actions'
+} from '../../../_actions/search.actions'
 
 export default () => {
 

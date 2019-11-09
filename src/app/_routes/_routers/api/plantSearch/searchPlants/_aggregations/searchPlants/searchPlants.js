@@ -9,12 +9,16 @@ module.exports =
     [{
       $match: {
         $or: [ {
-          p: {
-            $elemMatch: {
-              $regex: searchValue,
-              $options: 'i'
+          $and: [ {
+            t: 'name,fr'
+          }, {
+            p: {
+              $elemMatch: {
+                $regex: searchValue,
+                $options: 'i'
+              }
             }
-          }
+          } ]
         }, {
           $and: [ {
             t: 'name,fr'

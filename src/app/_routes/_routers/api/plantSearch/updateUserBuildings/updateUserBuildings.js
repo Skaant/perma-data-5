@@ -35,6 +35,8 @@ module.exports = (
               
               reject(err))
         }
+
+        resolve(false)
       })
     
       .catch(err =>

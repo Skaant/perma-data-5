@@ -8,8 +8,6 @@ export default (
   }
 ) => {
 
-  console.log(type)
-
   switch (type) {
 
     case MAIN_LOAD_BUNDLE_SUCCESS:

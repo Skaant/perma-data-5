@@ -1,4 +1,6 @@
-import { MAIN_LOAD_BUNDLE_SUCCESS } from "../main/_actions/main.actions";
+import {
+  MAIN_LOAD_BUNDLE_SUCCESS
+} from '../main/_actions/main.actions'
 
 export default () => {
 

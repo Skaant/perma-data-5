@@ -8,8 +8,14 @@ export default (
     type,
     result
   }
-) => 
+) => {
 
-  type === SEARCH_FETCH_RESULTS_SUCCESS ?
-    result.plants
-    : state
+  switch(type) {
+
+    case SEARCH_FETCH_RESULTS_SUCCESS:
+      return result.plants
+
+    default:
+      return state
+  }
+}

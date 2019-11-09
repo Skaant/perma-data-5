@@ -1,24 +1,24 @@
-import {
-  AUTH_LOGIN_MODAL_CLOSE
-} from '../../_actions/auth.actions'
-
 // MDB-REACT ?
-export default () =>
+export default 
+  (
+    modalId,
+    actionType
+  ) =>
 
   setTimeout(
     () =>
-      $('#login-modal')
+      $(modalId)
         .on(
           'click',
           e => {
 
-            if (e.target === $('#login-modal')[0]) {
+            if (e.target === $(modalId)[0]) {
 
               e.preventDefault()
 
               window.__STORE__
                 .dispatch({
-                  type: AUTH_LOGIN_MODAL_CLOSE
+                  type: actionType
                 })
             }
           }),

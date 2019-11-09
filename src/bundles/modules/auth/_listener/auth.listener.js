@@ -1,7 +1,8 @@
 import renderComponent from './renderComponent/renderComponent'
 import initialTokenCheck from './initialTokenCheck/initialTokenCheck'
-import setBackdropClickClose from './setBackdropClickClose/setBackdropClickClose'
+import setBackdropClickClose from '../../_utils/setBackdropClickClose/setBackdropClickClose'
 import loadBundle from './loadBundle/loadBundle'
+import { AUTH_LOGIN_MODAL_CLOSE } from '../_actions/auth.actions';
 
 export default pageId => {
 
@@ -37,9 +38,10 @@ export default pageId => {
             $('#login-modal')
               .modal('show')
 
-            setBackdropClickClose()
-
-            previous = next
+            setBackdropClickClose(
+              '#login-modal',
+              AUTH_LOGIN_MODAL_CLOSE
+            )
 
           } else {
 
