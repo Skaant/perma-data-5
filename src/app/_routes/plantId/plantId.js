@@ -16,8 +16,7 @@ module.exports = (req, res) => {
       400)
   }
 
-  mongo
-    .get()
+  mongo()
 
     .then(({ db }) =>
 
@@ -55,19 +54,20 @@ module.exports = (req, res) => {
               db,
               req.user._id)
 
-              .then(() => 
+              .then(() => {
               
-                res.send(page)
-              )
+                return res.send(page)
+              })
 
               .catch(err =>
                 
                 errorPage(
                   res,
                   err))
-          }
+          } else {
 
-          return res.send(page)
+            return res.send(page)
+          }
         })
 
         .catch(err =>

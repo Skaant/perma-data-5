@@ -5,8 +5,9 @@
         h4.my-3= key
       .col-8.list-group.list-group-flush
         each item in items
-          p.list-group-item.d-flex.justify-content-between
+          p.list-group-item.d-flex
             span= item.value
-            span.fas.fa-quote-right.amber-text.mt-1(
+            span.fas.fa-quote-right.fa-xs.text-danger.ml-2.mt-1(
+              style= 'cursor: help'
               title= item.sources.map(source => plant.sources[source].title + (plant.sources[source].parents ? (' (' + (plant.sources[source].parents[0].shortTitle || plant.sources[source].parents[0].title)  + ')') : '')).join('&#13;')
             )
