@@ -1,4 +1,4 @@
-import renderComponent from "../_actions/renderComponent/renderComponent";
+import renderComponent from "./renderComponent/renderComponent";
 import setBackdropClickClose from "../../_utils/setBackdropClickClose/setBackdropClickClose";
 import { 
   SEARCH_MODAL_CLOSE
