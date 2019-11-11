@@ -9,7 +9,7 @@ module.exports =
         key: 'kolos-seed',
         xp: 0,
         quests: {
-          'kolo_seed_intro': {
+          'kolos-seed-intro': {
             opened: false
           }
         }

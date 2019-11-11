@@ -18,6 +18,8 @@ export default pageId => {
           .getState()
           .auth
 
+        console.log(previous, next)
+
         if (previous
             && !previous.user
             && next.user

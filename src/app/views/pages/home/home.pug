@@ -1,8 +1,8 @@
 extends ../../layout/layout.pug
 
 block content
-  #status(
-    style='overflow-y: hidden'
+  #summary.animated.fadeIn.slow(
+    style= 'transition: height 1s'
   )
     img(
       class= 'animated infinite heartBeat slower py-4'
@@ -10,9 +10,6 @@ block content
       src="/public/images/perma-data-logo.jpg",
       alt="perma-data logo"
     )
-  #summary.animated.fadeIn.slow(
-    style= 'transition: height 1s'
-  )
     h1.mt-4.pt-4.font-weight-bold PERMA-DATA
     h2.pt-1.pb-4 La communauté des cultivateurs de savoir
     .container.pt-4
@@ -20,10 +17,7 @@ block content
         .col-md-8.offset-md-2
           p Bonjour et bienvenue sur PERMA-DATA, un site qui regroupe
             b &nbsp;des informations sur les plantes et de nombreux outils pour la conception de jardins.
-  #app__anchor.animated.slower
-    .container
-      .row
-        .alert.alert-info.col-12= 'Chargement de l\'application ...'
+  #city__anchor
 
 block scripts
   script(
