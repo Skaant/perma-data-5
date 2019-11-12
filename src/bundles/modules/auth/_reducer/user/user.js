@@ -12,6 +12,8 @@ export default (
   }
 ) => {
 
+  console.log('user', user, type)
+
   switch (type) {
 
     case AUTH_LOGIN_CHECK_SUCCESS:

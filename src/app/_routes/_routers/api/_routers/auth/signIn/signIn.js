@@ -85,11 +85,9 @@ module.exports = (
                       }
                     )
                     res.send({
-                      user: {
                         pseudo: user.pseudo,
                         buildings
-                      }
-                    })
+                      })
                   })
               }
             }
