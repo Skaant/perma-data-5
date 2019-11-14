@@ -1,5 +1,5 @@
 import React from 'react'
-import BuildingLayout from './buildings/BuildingLayout/BuildingLayout';
+import buildingComponents from './buildings'
 
 export default ({
   pseudo,
@@ -16,8 +16,14 @@ export default ({
     <div className='row justify-content-center px-4'>
       {
         buildings.map(building => (
-          <BuildingLayout key={ building.key }/>
-        ))
+          React
+            .createElement(
+              buildingComponents[
+                building.key],
+              {
+                id: building.key,
+                ...building
+              })))
       }
     </div>
   </div>
