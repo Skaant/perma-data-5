@@ -28,7 +28,8 @@ export default building => {
           { _building.name }</h4>
         <img className='card-img-top'
             src={ `public/images/buildings/${ id }.jpg` }/>
-        <ListDisplay list={ list } />
+        <ListDisplay list={ list }
+          trighb={ _trighb } />
       </div>
     </div>
   )

@@ -13,6 +13,9 @@ module.exports =
             new: true,
             opened: false
           }
+        },
+        props: {
+          read: false
         }
       }]
 
