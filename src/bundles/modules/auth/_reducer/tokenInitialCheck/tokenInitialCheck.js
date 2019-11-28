@@ -8,6 +8,8 @@ export default (
   { type }
 ) => {
 
+  console.log(type)
+
   switch (type) {
 
     case AUTH_TOKEN_CHECK_START:

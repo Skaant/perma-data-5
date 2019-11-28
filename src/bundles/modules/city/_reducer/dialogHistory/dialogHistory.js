@@ -1,7 +1,4 @@
-import {
-  CITY_DIALOG_MODAL_OPEN,
-  CITY_DIALOG_MODAL_PAGE_CHANGE
-} from '../../_actions/homeAuth.actions'
+import { CITY_DIALOG_MODAL_OPEN, CITY_DIALOG_MODAL_PAGE_CHANGE } from "../../_actions/city.actions";
 
 export default (
   state = {},

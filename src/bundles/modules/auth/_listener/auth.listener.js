@@ -12,11 +12,12 @@ export default () => {
     .getState()
     .auth
 
-  if (next
-    && !next.tokenInitialCheck) {
+  if (!previous) {
+
+    previous = next
 
     initialTokenCheck()
-    }
+  }
 
   if (previous
       && !previous.user

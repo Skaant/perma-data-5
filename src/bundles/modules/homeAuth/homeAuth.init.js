@@ -8,6 +8,8 @@ import {
 
 export default () => {
 
+  // TRANSFORMER AU FORMAT STANDARD MODULE
+
   const store = window.__STORE__
 
   window.__MODULES__['auth-bundle'] = {

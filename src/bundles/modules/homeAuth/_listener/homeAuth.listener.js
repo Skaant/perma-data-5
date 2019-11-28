@@ -1,4 +1,4 @@
-import renderCity from './renderCity/renderCity'
+import renderCity from '../../city/_listener/renderCity/renderCity'
 
 export default
   () => {

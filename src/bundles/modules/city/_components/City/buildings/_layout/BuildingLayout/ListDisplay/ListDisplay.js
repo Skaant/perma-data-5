@@ -1,5 +1,5 @@
 import React from 'react'
-import { CITY_DIALOG_MODAL_OPEN } from '../../../../../../../homeAuth/_actions/homeAuth.actionsAuth.actions';
+import { CITY_DIALOG_MODAL_OPEN } from '../../../../../../_actions/city.actions';
 
 export default ({ list }) => (
   <ul className='list-group p-2'>

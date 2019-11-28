@@ -1,6 +1,4 @@
-import {
-  CITY_DIALOG_MODAL_OPEN
-} from '../../_actions/homeAuth.actions'
+import { CITY_DIALOG_MODAL_OPEN } from "../../_actions/city.actions";
 
 export default (
   state = {
@@ -14,13 +12,9 @@ export default (
   }
 ) => {
 
-  const globalState = window
-    .__STORE__
-    .getState()
-
   switch (type) {
 
-    case CITY_DIALOG_MODAL_OPEN:
+    /* case CITY_DIALOG_MODAL_OPEN:
       
       return {
         type: dialogType,
@@ -47,8 +41,8 @@ export default (
                 key][
                   page]
           || 0
-      }
-    
+      } */
+
     default:
       return state
   }

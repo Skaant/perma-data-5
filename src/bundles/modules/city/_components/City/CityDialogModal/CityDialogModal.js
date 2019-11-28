@@ -1,9 +1,7 @@
 import React from 'react'
-import {
-  CITY_DIALOG_MODAL_CLOSE
-} from '../../../_actions/homeAuth.actions'
 import _quests from '../buildings/_data/quests'
 import _helps from '../buildings/_data/helps'
+import { CITY_DIALOG_MODAL_CLOSE } from '../../../_actions/city.actions';
 
 export default ({
   type,

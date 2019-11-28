@@ -3,8 +3,6 @@ import ReactDOM from 'react-dom'
 import _initializer from '../../_initializer/_initializer'
 import initializerReducer from '../../_initializer/_reducer/initializer.reducer'
 import { combineReducers, createStore } from 'redux'
-import main from '../../../modules/main';
-import search from '../../../modules/search';
 
 /**
  * The *active* base of all rendered pages (for now) :
@@ -25,7 +23,13 @@ export default (
       initialize: initializerReducer
     }))
 
-  window.__REDUCERS__ = []
+  window.__REDUCERS__ = {
+    initialize: {
+      id: 'initializer',
+      reducer: initializerReducer,
+      listener: null
+    }
+  }
 
   _initializer(bundle)
 }
