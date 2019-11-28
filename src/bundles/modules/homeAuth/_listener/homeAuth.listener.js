@@ -1,41 +1,62 @@
-import renderComponent from "./renderComponent/renderComponent";
+import renderCity from './renderCity/renderCity'
 
 export default
   () => {
 
-    let previous = null
+    let previousUser = null
+    let previousHomeAuth = null
 
     const store = window.__STORE__
 
     store
       .subscribe(() => {
 
-        const next = store
+        const nextUser = store
           .getState()
           .auth
           .user
 
-        // TODO deep buildings check
-        if (next
-            && next.buildings) {
+        const nextHomeAuth = store
+          .getState()
+          .homeAuth
 
-          renderComponent()
+        // TODO deep buildings check
+        if (nextUser
+            && nextUser.buildings) {
+
+          renderCity()
         }
 
-        if (!previous
-            && next) {
+        if (!previousUser
+            && nextUser) {
 
           $('#summary')
             .addClass('d-none')
         }
 
-        if (previous
-            && !next) {
+        if (previousUser
+            && !nextUser) {
 
           $('#summary')
             .removeClass('d-none')
         }
 
-        previous = next
+        if ((!previousHomeAuth
+            || previousHomeAuth.modalDisplay)
+          && nextHomeAuth.modalDisplay) {
+
+            $('#city-dialog-modal')
+            .modal('show')
+        }
+
+        if (previousHomeAuth
+          && previousHomeAuth.modalDisplay
+          && !nextHomeAuth.modalDisplay) {
+
+            $('#city-dialog-modal')
+              .modal('hide')
+          }
+
+        previousUser = nextUser
       })
   }

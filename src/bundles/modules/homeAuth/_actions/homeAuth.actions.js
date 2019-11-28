@@ -1,1 +1,0 @@
-export const HOME_AUTH_STARTED = 'HOME_AUTH_STARTED'

@@ -44,8 +44,7 @@ export default ({
                 title={ user.email }></span>
           )
       }
-      <LoginModal modalDisplay={ modalDisplay }
-          { ...form }/>
+      <LoginModal { ...form }/>
       <div id='todo--auth__user-modal__component'></div>
     </React.Fragment>
   )

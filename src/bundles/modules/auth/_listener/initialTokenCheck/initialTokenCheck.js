@@ -1,5 +1,4 @@
 import cookies from 'js-cookie'
-import renderComponent from '../renderComponent/renderComponent'
 import {
   AUTH_INITIAL_TOKEN_CHECKED,
   AUTH_LOGIN_CHECK_START,

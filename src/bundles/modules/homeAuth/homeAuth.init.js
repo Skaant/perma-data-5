@@ -1,6 +1,6 @@
 import {
   MAIN_LOAD_BUNDLE_SUCCESS
-} from '../main/_actions/main.actions'
+} from '../../entrypoints/_bundles/main/_actions/main.actions'
 import homeAuthListener from './_listener/homeAuth.listener';
 import {
   HOME_AUTH_STARTED

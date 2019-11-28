@@ -4,7 +4,7 @@ import setBackdropClickClose from '../../_utils/setBackdropClickClose/setBackdro
 import loadBundle from './loadBundle/loadBundle'
 import { AUTH_LOGIN_MODAL_CLOSE } from '../_actions/auth.actions';
 
-export default pageId => {
+export default () => {
 
     // Compare logic
     let previous = null
@@ -25,7 +25,7 @@ export default pageId => {
 
           previous = next
          
-          loadBundle(pageId)
+          loadBundle(window.PAGE_ID)
         }
 
         renderComponent()

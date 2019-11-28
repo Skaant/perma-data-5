@@ -1,9 +1,12 @@
 import React from 'react'
-import { AUTH_LOGIN_MODAL_CLOSE, AUTH_SWITCH_FORM_MODE, AUTH_UPDATE_FORM_FIELD } from '../../../_actions/auth.actions';
-import handleFormValidation from './handleFormValidation/handleFormValidation';
+import {
+  AUTH_LOGIN_MODAL_CLOSE,
+  AUTH_SWITCH_FORM_MODE,
+  AUTH_UPDATE_FORM_FIELD
+} from '../../../_actions/auth.actions'
+import handleFormValidation from './handleFormValidation/handleFormValidation'
 
 export default ({
-  modalDisplay,
   mode,
   email,
   pseudo,
@@ -71,7 +74,7 @@ export default ({
             <button type='button'
                 className='close'
                 onClick={ closeModal }>
-              <span aria-hidden='true'>&times;</span>
+              <span aria-hidden='true'>&times</span>
             </button>
           </div>
           <div className='modal-body bg-danger'>
@@ -82,8 +85,8 @@ export default ({
                 <style scoped>
                   {
                     `.navbar.navbar-dark form .md-form input.form-control:focus {
-                        border-bottom: 2px white solid !important;
-                        box-shadow: none;
+                        border-bottom: 2px white solid !important
+                        box-shadow: none
                     }`
                   }
                 </style>
