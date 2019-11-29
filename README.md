@@ -67,7 +67,16 @@ Even for humans, there is time and attention to save with **minimalist features 
 
 Automation and continuous improvment.
 
-### #3 **Creative setting : art beyond technics**
+### #3 **Playing is learning, learning is living**
+**PERMA-DATA** implements *gamification* concepts in order to share some precious pieces of knowledge, while making it playful and delightful.
+
+Game is part and gate to the artwork.
+
+**Gamification tends to improve engagement and passive learning**.
+* Game content shows practical knowledge and helps memorization.
+* Game mechanics illustrate *patterns*.
+
+### #4 **Creative setting : art beyond technics**
 **PERMA-DATA** isn't about efficiency only, shapes does matter too. 
 
 **PERMA-DATA** stages a *deep optimistic science-fiction* artwork, with a dense living universe, where :
@@ -77,15 +86,6 @@ Automation and continuous improvment.
 * *science-fiction* stands for imagination, innovation, anticipation.
 
 **Creativity, curiosity and diversity in content and styles are encouraged**.
-
-### #4 **Playing is learning, learning is living**
-**PERMA-DATA** implements *gamification* concepts in order to share some precious pieces of knowledge, while making it playful and delightful.
-
-Game is part and gate to the artwork.
-
-**Gamification tends to improve engagement and passive learning**.
-* Game content shows practical knowledge and helps memorization.
-* Game mechanics illustrate *patterns*.
 
 ### #5. Tooling and sharing feedback
 **Feedback on plants**
@@ -154,7 +154,7 @@ Discuss game mechanics, collaborate to theory-crafting, balancing & **playfulnes
 * [Firebaseapp link](https://perma-data-3.firebaseapp.com).
 * **Concluded on:** need of better data request options & a more playful contribution experience.
 
-4. **Storytelling**, **gamification** and **features planning**
+### v4. **Storytelling**, **gamification** and **features planning**
 
 * Independant **mongo database**.
 * **React modules** rendered on diverse page anchors.
