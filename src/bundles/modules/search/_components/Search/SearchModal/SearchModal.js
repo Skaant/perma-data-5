@@ -7,7 +7,8 @@ export default ({
   handleValueChange,
   loadStatus,
   searchResults,
-  loadSearchResults
+  loadSearchResults,
+  closeModal
 }) => (
   <div id="search-modal"
       className='modal fade right'>
@@ -19,10 +20,7 @@ export default ({
             Recherche</h5>
           <button type="button"
               className="close"
-              onClick={ () =>
-                
-                $('#search-modal')
-                  .modal('hide') }>
+              onClick={ closeModal }>
             <span aria-hidden="true">&times;</span>
           </button>
         </div>

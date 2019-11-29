@@ -7,9 +7,10 @@
     "dev-start": "npx nodemon ./src/index.js",
     "test": "mocha \"./**/*test.*js\" --exclude \"./**/node_modules/**\" -g \"#e2e\" -i",
     "dev-test": "mocha \"./**/*test.*js\" --exclude \"./**/node_modules/**\"",
-    "build-home-main": "webpack --config ./webpack.config.js --output ./public/bundles/pages/home/main.js ./src/bundles/entrypoints/pages/home/main.js",
-    "build-home-auth": "webpack --config ./webpack.config.js --output ./public/bundles/pages/home/auth.js ./src/bundles/entrypoints/pages/home/auth.js",
-    "build-plantId-main": "webpack --config ./webpack.config.js --output ./public/bundles/pages/plantId/main.js ./src/bundles/entrypoints/pages/plantId/main.js"
+    "build-home-base": "webpack --config ./webpack.config.js --output ./public/bundles/pages/home/base.js ./src/bundles/entrypoints/pages/home/base/base.js",
+    "build-home-auth": "webpack --config ./webpack.config.js --output ./public/bundles/pages/home/auth.js ./src/bundles/entrypoints/pages/home/auth/auth.js",
+    "build-plantId-main": "webpack --config ./webpack.config.js --output ./public/bundles/pages/plantId/main.js ./src/bundles/entrypoints/pages/plantId/main.js",
+    "build-plantId-auth": "webpack --config ./webpack.config.js --output ./public/bundles/pages/plantId/auth.js ./src/bundles/entrypoints/pages/plantId/auth.js"
   },
   "repository": {
     "type": "git",
@@ -56,6 +57,7 @@
     "atob": "^2.1.2",
     "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.4",
+    "crypto-js": "^3.1.9-1",
     "express": "^4.17.1",
     "mongodb": "^3.3.0-beta2",
     "pug": "^2.0.4",

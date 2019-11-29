@@ -1,4 +1,4 @@
-const mongo = require('../../../../../mongo/mongo')
+const mongo = require('../../../../mongo/mongo')
 const error = require('../_utils/error/error')
 const searchPlants = require('./searchPlants/searchPlants')
 const updateUserBuildings = require('./updateUserBuildings/updateUserBuildings')
@@ -15,8 +15,7 @@ module.exports = (req, res) => {
       400)
   }
 
-  mongo
-    .get()
+  mongo()
 
     .then(({ db }) => {
 

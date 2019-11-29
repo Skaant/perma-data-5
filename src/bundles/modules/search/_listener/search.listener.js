@@ -1,11 +1,13 @@
-import renderComponent from "../_actions/renderComponent/renderComponent";
+import renderComponent from "./renderComponent/renderComponent";
+import setBackdropClickClose from "../../_utils/setBackdropClickClose/setBackdropClickClose";
+import { 
+  SEARCH_MODAL_CLOSE
+} from "../_actions/search.actions";
 
 export default () => {
 
     // Compare logic
-    let previous = {
-      value: ''
-    }
+    let previous = null
 
     const store = window.__STORE__
 
@@ -16,11 +18,28 @@ export default () => {
           .getState()
           .search
 
-        if (next.value !== previous.value) {
+        renderComponent()
 
-          previous = next
+        if (previous
+            && previous.modalDisplay !== next.modalDisplay) {
           
-          renderComponent()
+          if (next.modalDisplay === true) {
+
+            $('#search-modal')
+              .modal('show')
+
+            setBackdropClickClose(
+              '#search-modal',
+              SEARCH_MODAL_CLOSE
+            )
+
+          } else {
+
+            $('#search-modal')
+              .modal('hide')
+          }
         }
+        
+        previous = next
       })
   }

@@ -1,26 +1,27 @@
-import renderComponent from "../_actions/renderComponent/renderComponent";
-
 export default () => {
 
-    // Compare logic
-    let previous = {
-      error: null
-    }
+      // Compare logic
+      let previous = null
 
-    const store = window.__STORE__
+      const store = window.__STORE__
+  
+      store
+        .subscribe(() => {
+  
+          const next = store
+            .getState()
+            .main
 
-    store
-      .subscribe(() => {
+          if (((!previous
+                || !previous.error)
+              && next.error)
+            || (previous
+              && previous.error !== next.error)) {
+            
+            alert(next.error)
+          }
 
-        const next = store
-          .getState()
-
-        if (next.error
-            && next.error !== previous.error) {
-
+          // Update the compare logic
           previous = next
-          
-          alert(next.error)
-        }
-      })
-  }
+        })
+}

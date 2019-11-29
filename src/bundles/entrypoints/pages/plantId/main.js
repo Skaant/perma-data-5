@@ -1,3 +1,3 @@
-import main from '../../../modules/main/main'
+import mainInit from '../../../modules/main/main.init'
 
-main()
+mainInit('plant-id')

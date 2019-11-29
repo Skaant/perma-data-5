@@ -1,4 +1,4 @@
-const mongo = require('../../../../../../mongo/mongo')
+const mongo = require('../../../../../mongo/mongo')
 
 /**
  * Returns a promise that creates a new token,
@@ -11,25 +11,28 @@ const mongo = require('../../../../../../mongo/mongo')
  * @returns { string } The up-to-date token
  */
 module.exports = 
-  _id =>
+  (
+    _id,
+    db
+  ) =>
     new Promise((resolve, reject) => {
+      
       const token = Math
         .random().toString(36).substr(2)
+    
+      db
+        .collection('users')
+        .updateOne({
+          _id
+        }, {
+          $set: {
+            token
+          }
+        })
+        .then(() =>
 
-      mongo
-        .get()
-        .then(({ db }) =>
-          db
-            .collection('users')
-            .updateOne({
-              _id
-            }, {
-              $set: {
-                token
-              }
-            })
-            .then(() =>
-              resolve(token))
-            .catch(err =>
-              reject(err)))
-      })
+          resolve(token))
+        .catch(err =>
+
+          reject(err))
+  })
