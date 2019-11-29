@@ -1,11 +1,12 @@
 import React from 'react'
 import BuildingLayout from '../_layout/BuildingLayout/BuildingLayout'
-import _quests from '../_data/quests'
-import _helps from '../_data/helps'
+import kolosSeedIntroQuest from './_dialogs/kolos-seed-intro.quest';
+import organicBuildingsDialog from './_dialogs/organic-buildings.dialog';
 
 export default ({
   id,
   quests,
+  dialogs,
   ...props
 }) => (
   <BuildingLayout id={ id }
@@ -15,54 +16,36 @@ export default ({
           'kolos-seed-intro']
             .new 
               === true
-                ? [{
-                  key: 'kolos-seed-intro-quest-new',
-                  id: 'kolos-seed-intro-quest-new',
-                  type: 'quest',
-                  new: true,
-                  title: _quests[
-                    'kolos-seed-intro']
-                      .title,
-                  click: {
-                    open: 'quest',
-                    key: 'kolos-seed-intro'
-                  }
-                }]
+                ? [
+                    Object.assign(
+                    {},
+                    quests[
+                      'kolos-seed-intro'],
+                    kolosSeedIntroQuest
+                  )
+                ]
                 : []
       ),
-      {
-        key: 'kolos-seed-intro-help',
-        id: 'kolos-seed-intro-help',
-        type: 'help',
-        new: props
-          .read,
-        title: _helps[
-          'kolos-seed-intro']
-            .title,
-        click: {
-          open: 'help',
-          key: 'kolos-seed-intro'
-        }
-      },
+      Object.assign(
+        {},
+        dialogs[
+          'organic-buildings'],
+        organicBuildingsDialog
+      ),
       ...(
         quests[
           'kolos-seed-intro']
             .new 
               === false
-                ? [{
-                  key: 'kolos-seed-intro-quest',
-                  id: 'kolos-seed-intro-quest',
-                  type: 'quest',
-                  new: false,
-                  title: _quests[
-                    'kolos-seed-intro']
-                      .title,
-                  click: {
-                    open: 'quest',
-                    key: 'kolos-seed-intro'
-                  }
-                }]
-                : []
+                ? [
+                  Object.assign(
+                  {},
+                  quests[
+                    'kolos-seed-intro'],
+                  kolosSeedIntroQuest
+                )
+              ]
+              : []
       )
     ] }/>
 )

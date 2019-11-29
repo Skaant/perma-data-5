@@ -14,8 +14,10 @@ module.exports =
             opened: false
           }
         },
-        props: {
-          read: false
+        dialogs: {
+          'organic-buildings': {
+            read: false
+          }
         }
       }]
 

@@ -1,6 +1,5 @@
 import React from 'react'
 import buildingComponents from './buildings'
-import CityDialogModal from './CityDialogModal/CityDialogModal';
 
 export default ({
   pseudo,

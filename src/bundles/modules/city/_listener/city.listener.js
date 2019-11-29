@@ -41,14 +41,14 @@ export default () => {
 
   if (previousAuth
       && previousAuth.user
-      && !nextUser.user) {
+      && !nextAuth.user) {
 
     $('#summary')
       .removeClass('d-none')
   }
 
   if ((!previous
-      || previous.modalDisplay)
+      || !previous.modalDisplay)
     && next.modalDisplay) {
 
       $('#city-dialog-modal')
