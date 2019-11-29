@@ -1,4 +1,5 @@
 import renderCity from './renderCity/renderCity'
+import renderCityDialogModal from './renderCityDialogModal/renderCityDialogModal';
 
   let previous = null
   let previousAuth = null
@@ -49,7 +50,11 @@ export default () => {
 
   if ((!previous
       || !previous.modalDisplay)
-    && next.modalDisplay) {
+    && next.modalDisplay
+    && next.currentDialog) {
+
+      renderCityDialogModal(next
+        .currentDialog)
 
       $('#city-dialog-modal')
         .modal('show')

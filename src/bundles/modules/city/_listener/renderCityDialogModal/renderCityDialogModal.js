@@ -1,17 +1,17 @@
 import React from 'react'
-import CityDialogModal from '../../_components/City/CityDialogModal/CityDialogModal';
+import CityDialogModal from '../../_components/CityDialogModal/CityDialogModal';
 
 
 export default () => {
 
-  const { currentDialog } = window.__STORE__
+  const {
+    currentDialog: dialog
+  } = window.__STORE__
     .getState()
-    .homeAuth
+    .city
   
   window.ReactDOM
     .render(
-      <CityDialogModal type={ currentDialog.type }
-          key={ currentDialog.key }
-          page={ currentDialog.page }/>,
-      document.getElementById('city-dialog-modal__anchor'))
+      <CityDialogModal dialog={ dialog }/>,
+        document.getElementById('city-dialog-modal__anchor'))
 }

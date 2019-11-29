@@ -6,11 +6,11 @@ export default ({ list }) => (
     {
       list
         .map(item => (
-          <button key={ item.key }
+          <button key={ item.id }
               className={ `list-group-item font-weight-light text-left ${
-                item.new
-                  ? 'btn-danger'
-                  : ''
+                item.opened
+                  ? ''
+                  : 'btn-danger'
               }` }
               onClick={
                 () => {
@@ -20,8 +20,7 @@ export default ({ list }) => (
                     window.__STORE__
                       .dispatch({
                         type: CITY_DIALOG_MODAL_OPEN,
-                        dialogType: item.type,
-                        key: item.dialogType
+                        dialog: item
                       })
                   }
                 }

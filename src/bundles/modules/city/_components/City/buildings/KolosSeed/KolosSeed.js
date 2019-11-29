@@ -1,7 +1,7 @@
 import React from 'react'
 import BuildingLayout from '../_layout/BuildingLayout/BuildingLayout'
-import kolosSeedIntroQuest from './_dialogs/kolos-seed-intro.quest';
-import organicBuildingsDialog from './_dialogs/organic-buildings.dialog';
+import kolosSeedIntroQuest from './_dialogs/_kolos-seed-intro.quest';
+import organicBuildingsDialog from './_dialogs/_organic-buildings.dialog';
 
 export default ({
   id,
@@ -14,28 +14,36 @@ export default ({
       ...(
         quests[
           'kolos-seed-intro']
-            .new 
+            .opened 
               === true
                 ? [
                     Object.assign(
-                    {},
-                    quests[
-                      'kolos-seed-intro'],
-                    kolosSeedIntroQuest
-                  )
-                ]
+                      {},
+                      quests[
+                        'kolos-seed-intro'],
+                      kolosSeedIntroQuest
+                    )
+                  ]
                 : []
       ),
-      Object.assign(
-        {},
-        dialogs[
-          'organic-buildings'],
-        organicBuildingsDialog
-      ),
+      ...(
+        dialogs
+          && dialogs[
+            'organic-buildings']
+              ? [
+                Object.assign(
+                  {},
+                  dialogs[
+                    'organic-buildings'],
+                  organicBuildingsDialog
+                )
+              ]
+              : []
+        ),
       ...(
         quests[
           'kolos-seed-intro']
-            .new 
+            .opened 
               === false
                 ? [
                   Object.assign(
