@@ -20,7 +20,11 @@ export default ({ list }) => (
                     window.__STORE__
                       .dispatch({
                         type: CITY_DIALOG_MODAL_OPEN,
-                        dialog: item
+                        dialog: item,
+                        history: window.__STORE__
+                          .getState()
+                          .city
+                          .history
                       })
                   }
                 }

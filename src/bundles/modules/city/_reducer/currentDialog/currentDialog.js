@@ -4,14 +4,14 @@ export default (
   state = null,
   {
     type,
-    dialog
+    dialog,
+    history
   }
 ) => {
 
   switch (type) {
 
     case CITY_DIALOG_MODAL_OPEN:
-      
       return dialog
 
     default:

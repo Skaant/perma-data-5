@@ -9,8 +9,14 @@ export default ({ dialog }) => {
         type: CITY_DIALOG_MODAL_CLOSE
       })
 
-  // TEMP [0] is for page
-  const page = dialog.pages[0]
+  const page = dialog.pages[
+    window.__STORE__
+      .getState()
+      .city
+      .history[
+        dialog.id]
+          .page
+  ]
 
   return (
     <div id='city-dialog-modal'
