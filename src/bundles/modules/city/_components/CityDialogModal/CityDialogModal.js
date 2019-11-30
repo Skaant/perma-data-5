@@ -1,11 +1,10 @@
 import React from 'react'
 import { CITY_DIALOG_MODAL_CLOSE } from '../../_actions/city.actions';
-import { cpus } from 'os';
 
-export default ({ dialog }) => {
+export default ({ dialog }) => {  
 
   const closeModal = () =>
-    store
+    window.__STORE__
       .dispatch({
         type: CITY_DIALOG_MODAL_CLOSE
       })
@@ -16,11 +15,11 @@ export default ({ dialog }) => {
   return (
     <div id='city-dialog-modal'
         className='modal fade right show'>
-      <div className='modal-dialog modal-side modal-top-right mr-4'
+      <div className='modal-dialog modal-dialog-centered animated zoomInUp'
           role='document'>
         <div className='modal-content'>
           <div className='modal-header'>
-            <h5 className='modal-title text-danger'>
+            <h5 className='modal-title'>
               {
                 dialog.type === 'quest' && 'Quête : '
               }

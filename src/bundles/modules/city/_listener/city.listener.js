@@ -1,5 +1,7 @@
 import renderCity from './renderCity/renderCity'
 import renderCityDialogModal from './renderCityDialogModal/renderCityDialogModal';
+import setBackdropClickClose from '../../_utils/setBackdropClickClose/setBackdropClickClose';
+import { CITY_DIALOG_MODAL_CLOSE } from '../_actions/city.actions';
 
   let previous = null
   let previousAuth = null
@@ -58,6 +60,11 @@ export default () => {
 
       $('#city-dialog-modal')
         .modal('show')
+
+      setBackdropClickClose(
+        '#city-dialog-modal',
+        CITY_DIALOG_MODAL_CLOSE
+      )
   }
 
   if (previous
