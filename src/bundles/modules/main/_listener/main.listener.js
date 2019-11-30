@@ -12,13 +12,14 @@ export default () => {
             .getState()
             .main
 
-          if (((!previous
-                || !previous.error)
+          if ((!previous
               && next.error)
             || (previous
-              && previous.error !== next.error)) {
+              && previous.error.message !== next.error.message)) {
             
-            alert(next.error)
+            previous = next
+
+            return alert(next.error.message)
           }
 
           // Update the compare logic

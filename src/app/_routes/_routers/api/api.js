@@ -10,8 +10,8 @@ router
 
 router
   .put(
-    '/action',
-    require('./action/action')
+    '/actions',
+    require('./actions/actions')
   )
 
 router

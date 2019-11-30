@@ -1,4 +1,4 @@
-import { CITY_DIALOG_MODAL_OPEN, CITY_DIALOG_MODAL_CLOSE } from "../../_actions/city.actions";
+import { CITY_DIALOG_MODAL_OPEN, CITY_DIALOG_MODAL_CLOSE, CITY_SERVER_ACTION_SUCCESS } from "../../_actions/city.actions";
 
 export default (
   state = false,
@@ -11,9 +11,10 @@ export default (
       return true
 
     case CITY_DIALOG_MODAL_CLOSE:
+    case CITY_SERVER_ACTION_SUCCESS:
       return false
     
-      default:
-        return state
+    default:
+      return state
   }
 }

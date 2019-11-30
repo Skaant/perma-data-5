@@ -11,12 +11,16 @@
  */
 module.exports = (
   res,
-  err,
+  error,
   status = 500
 ) => {
   
-  console.error(err)
+  console.error('### Catched API error')
+  console.error(error)
   res
-    .status(status)
-    .json(err)
+    .status(
+      error.status
+        || status
+    )
+    .json({ error })
 }
