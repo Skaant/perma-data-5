@@ -9,12 +9,12 @@ export default ({
     <h1 className='font-weight-light mb-1'
         style={ { marginTop: '60px' } }>
       MÉTA-CITÉ</h1>
-    <h2 className='lead text-lowercase font-weight-lighter'
+    <h2 className='lead font-weight-lighter'
         style={ {
           marginBottom: '25px',
           letterSpacing: '0.8px'
         } }>
-      Espace DATA de { pseudo }</h2>
+      espace DATA de { pseudo }</h2>
     <div className='row justify-content-center px-4'>
       {
         buildings.map(building => (

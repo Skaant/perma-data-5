@@ -15,7 +15,7 @@ export default {
       'les graines aussi',
       null,
       null,
-      'les zums de la tribu des kolos',
+      'les zums de la tribu des KOLOS',
       's\'avancent pour prendre la place qui est leur :',
       null,
       'de cette flotte innombrable de graines,',

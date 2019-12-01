@@ -10,6 +10,8 @@ export default (
   { type }
 ) => {
 
+  console.log(type)
+
   switch (type) {
 
     case SEARCH_MODAL_OPEN:
@@ -19,7 +21,7 @@ export default (
     case SEARCH_MODAL_CLOSE:
       return false
     
-      default:
-        return state
+    default:
+      return state
   }
 }

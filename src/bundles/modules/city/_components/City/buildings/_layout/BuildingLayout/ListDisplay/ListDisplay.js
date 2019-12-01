@@ -19,7 +19,8 @@ export default ({
                   : 'btn-danger'
               }` }
               style={ {
-                letterSpacing: '0.8px'
+                letterSpacing: '0.8px',
+                fontSize: '14px'
               } }
               onClick={
                 () => {

@@ -12,9 +12,9 @@ export default
           'click',
           e => {
 
-            if (e.target === $(modalId)[0]) {
+            e.preventDefault()
 
-              e.preventDefault()
+            if (e.target === $(modalId)[0]) {
 
               window.__STORE__
                 .dispatch({

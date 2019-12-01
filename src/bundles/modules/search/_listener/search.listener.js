@@ -2,44 +2,45 @@ import renderComponent from "./renderComponent/renderComponent";
 import setBackdropClickClose from "../../_utils/setBackdropClickClose/setBackdropClickClose";
 import { 
   SEARCH_MODAL_CLOSE
-} from "../_actions/search.actions";
+} from "../_actions/search.actions"
+
+// Compare logic
+let previous = null
 
 export default () => {
 
-    // Compare logic
-    let previous = null
+  const next = window.__STORE__
+    .getState()
+    .search
 
-    const store = window.__STORE__
+  if (previous
+      && previous.modalDisplay !== next.modalDisplay) {
+    
+    if (next.modalDisplay === true) {
 
-    store
-      .subscribe(() => {
+      renderComponent()
 
-        const next = store
-          .getState()
-          .search
+      $('#search-modal')
+        .modal('show')
 
-        renderComponent()
+      setBackdropClickClose(
+        '#search-modal',
+        SEARCH_MODAL_CLOSE
+      )
 
-        if (previous
-            && previous.modalDisplay !== next.modalDisplay) {
-          
-          if (next.modalDisplay === true) {
+    } else {
 
-            $('#search-modal')
-              .modal('show')
+      $('#search-modal')
+        .modal('hide')
+    }
 
-            setBackdropClickClose(
-              '#search-modal',
-              SEARCH_MODAL_CLOSE
-            )
-
-          } else {
-
-            $('#search-modal')
-              .modal('hide')
-          }
-        }
-        
-        previous = next
-      })
+  } else if (!previous
+    || previous.value !== next.value
+    || previous.loadStatus !== next.loadStatus
+    || previous.searchResults !== next.searchResults) {
+    
+    renderComponent()
   }
+  
+  previous = next
+}
