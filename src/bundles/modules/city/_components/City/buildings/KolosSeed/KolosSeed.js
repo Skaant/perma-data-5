@@ -1,21 +1,25 @@
 import React from 'react'
 import BuildingLayout from '../_layout/BuildingLayout/BuildingLayout'
 import _kolosSeedIntroQuest from './_dialogs/_kolos-seed-intro.quest';
-import _kolosTrighbPresentationDialog from './_dialogs/_kolos-trighb-presentation.dialog';
+import _kolosTrighbPresentationStory from './_dialogs/_kolos-trighb-presentation.story';
 
 export default ({
   id,
   quests,
-  dialogs,
+  stories,
   ...props
 }) => (
   <BuildingLayout id={ id }
     list={ [
       ...(
-        quests[
+        (quests[
           'kolos-seed-intro']
             .opened 
-              === true
+              === false
+          || quests[
+            'kolos-seed-intro']
+              .valid 
+                === true)
                 ? [
                     Object.assign(
                       {},
@@ -27,25 +31,29 @@ export default ({
                 : []
       ),
       ...(
-        dialogs
-          && dialogs[
+        stories
+          && stories[
             'kolos-trighb-presentation']
               ? [
                 Object.assign(
                   {},
-                  dialogs[
+                  stories[
                     'kolos-trighb-presentation'],
-                    _kolosTrighbPresentationDialog
+                    _kolosTrighbPresentationStory
                 )
               ]
               : []
         ),
       ...(
-        quests[
+        (quests[
           'kolos-seed-intro']
             .opened 
-              === false
-                ? [
+              === true
+          && quests[
+            'kolos-seed-intro']
+              .valid 
+                === false)
+              ? [
                   Object.assign(
                   {},
                   quests[

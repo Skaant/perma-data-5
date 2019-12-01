@@ -9,8 +9,6 @@ export default () => {
   } = window.__STORE__
     .getState()
     .city
-
-  console.log(dialog)
   
   window.ReactDOM
     .render(

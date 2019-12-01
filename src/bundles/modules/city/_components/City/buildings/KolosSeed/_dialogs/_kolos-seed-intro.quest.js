@@ -21,7 +21,7 @@ export default {
       'de cette flotte d\'innombrable de graines,',
       'ce sont eux les capitaines;',
       'pionniers, conquérants',
-      'aux commandes de leurs vaisseaux à la destination incertaine.'
+      'aux commandes de leurs vaisseaux à la destination incertaine'
     ],
     tuto: [
       'Apprenez-en plus sur les KOLOS et sur la FRAST en lisant le dialogue "Des bâtiments organiques".'
@@ -31,11 +31,87 @@ export default {
       'close',
       {
         label: 'parler aux kolos',
+        display: () =>
+
+          // checking if the quest has kept in its prior state of `!opened`
+          window.__STORE__
+            .getState()
+            .auth
+            .user
+            .buildings
+              .find(building => 
+                
+                building.key === 'kolos-seed')
+                  .quests[
+                    'kolos-seed-intro']
+                      .opened === false,
         click: e => {
 
           e.preventDefault()
 
           const action = 'open-kolos-seed-intro-quest'
+
+          window.__STORE__
+            .dispatch({
+              type: CITY_SERVER_ACTION_START,
+              action
+            })
+          
+          $.ajax(
+            '/api/actions',
+            {
+              method: 'PUT',
+              data: { action }
+            }
+          )
+            .done(
+              ({
+                buildings
+              } = {
+                buildings: {}
+              }) =>
+                window.__STORE__
+                  .dispatch({
+                    type: CITY_SERVER_ACTION_SUCCESS,
+                    action,
+                    buildings
+                  }))
+
+            .fail(
+              ({
+                responseJSON: {
+                  error
+                }
+              }) =>
+                window.__STORE__
+                  .dispatch({
+                    type: MAIN_ERROR_THROWN,
+                    error
+                  })
+            )
+        }
+      },
+      {
+        label: 'décrocher la graine',
+        display: () =>
+
+          // checking if the quest has received the `valid` status
+          window.__STORE__
+            .getState()
+            .auth
+            .user
+            .buildings
+              .find(building => 
+                
+                building.key === 'kolos-seed')
+                  .quests[
+                    'kolos-seed-intro']
+                      .valid === true,
+        click: e => {
+
+          e.preventDefault()
+
+          const action = 'close-kolos-seed-intro-quest'
 
           window.__STORE__
             .dispatch({

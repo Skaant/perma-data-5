@@ -7,13 +7,18 @@ export default ({
   pageIndex,
   menu
 }) => (
-  <div className={ `modal-footer rounded-0 ${
+  <div className={ `modal-footer rounded-0 border-0 ${
     type === 'main'
       ? 'bg-white'
       : 'bg-danger'
   } type-${ type }` }>
     {
       menu
+        .filter(item =>
+          
+          !item.display
+            || item.display()
+        )
         .map(item => {
 
           if (typeof item === 'string') {
@@ -104,16 +109,16 @@ export default ({
             
             return (
               <button key={ dialogId
-                + '#'
-                + pageIndex
-                + ':'
-                + item.label }
+                    + '#'
+                    + pageIndex
+                    + ':'
+                    + item.label }
                   type='button'
                   className={ `btn ${
-                    type === 'main'
-                      ? 'btn-danger text-white'
-                      : 'btn-white text-danger'
-                  }` }
+                      type === 'main'
+                        ? 'btn-danger text-white'
+                        : 'btn-white text-danger'
+                    }` }
                   onClick={ e =>
                     item.click
                       && item.click(e) }>

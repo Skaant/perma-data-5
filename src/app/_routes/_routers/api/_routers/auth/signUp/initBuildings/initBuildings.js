@@ -10,7 +10,8 @@ module.exports =
         xp: 0,
         quests: {
           'kolos-seed-intro': {
-            opened: false
+            opened: false,
+            valid: false
           }
         }
       }]
