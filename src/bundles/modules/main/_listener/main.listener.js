@@ -1,28 +1,24 @@
+
+
+// Compare logic
+let previous = null
+
 export default () => {
 
-      // Compare logic
-      let previous = null
+  const next = window.__STORE__
+    .getState()
+    .main
 
-      const store = window.__STORE__
-  
-      store
-        .subscribe(() => {
-  
-          const next = store
-            .getState()
-            .main
+  if ((!previous
+      && next.error)
+    || (previous
+      && previous.error.message !== next.error.message)) {
+    
+    previous = next
 
-          if ((!previous
-              && next.error)
-            || (previous
-              && previous.error.message !== next.error.message)) {
-            
-            previous = next
+    return alert(next.error.message)
+  }
 
-            return alert(next.error.message)
-          }
-
-          // Update the compare logic
-          previous = next
-        })
+  // Update the compare logic
+  previous = next
 }

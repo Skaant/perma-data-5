@@ -1,3 +1,6 @@
+import { CITY_SERVER_ACTION_START, CITY_SERVER_ACTION_SUCCESS } from "../../../../../_actions/city.actions";
+import { MAIN_ERROR_THROWN } from "../../../../../../main/_actions/main.actions";
+
 export default {
   id: 'kolos-trighb-presentation',
   type: 'story',
@@ -70,7 +73,7 @@ export default {
 
           e.preventDefault()
 
-          const action = 'open-kolos-trighb-presentation-dialog'
+          const action = 'open-kolos-trighb-presentation-story'
 
           window.__STORE__
             .dispatch({

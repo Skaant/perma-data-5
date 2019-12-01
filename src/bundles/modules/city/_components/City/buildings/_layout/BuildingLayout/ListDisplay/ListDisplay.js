@@ -19,10 +19,11 @@ export default ({
         .map(item => (
           <button key={ item.id }
               className={ `list-group-item font-weight-light text-left pr-3 ${
-                // HIGHLIGHTS COLOR for !opened
-                item.opened
-                  ? ''
-                  : 'btn-danger'
+                // HIGHLIGHTS COLOR for !opened || valid
+                (!item.opened
+                  || item.valid)
+                  ? 'btn-danger'
+                  : ''
               }` }
               style={ {
                 letterSpacing: '0.8px',
@@ -65,10 +66,11 @@ export default ({
                 item.type
               ]
             } float-right ml-2 rounded-circle ${
-              // HIGHLIGHT COLORS for !opened
-              item.opened
-                ? 'bg-danger text-white'
-                : 'bg-white text-danger'
+              // HIGHLIGHT COLORS for !opened || valid
+                (!item.opened
+                  || item.valid)
+                ? 'bg-white text-danger'
+                : 'bg-danger text-white'
             }` }
               style={ {
                 padding: '10px 8px 8px 8px'
