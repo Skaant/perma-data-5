@@ -1,5 +1,6 @@
 import React from 'react'
 import { CITY_DIALOG_MODAL_CLOSE } from '../../_actions/city.actions';
+import Menu from './Menu/Menu';
 
 export default ({ dialog }) => {  
 
@@ -9,15 +10,8 @@ export default ({ dialog }) => {
         type: CITY_DIALOG_MODAL_CLOSE
       })
 
-  const historyPageIndex = window.__STORE__
-    .getState()
-    .city
-    .history[
-      dialog.id]
-        .page
-
   const page = dialog.pages[
-    historyPageIndex]
+    dialog.page]
 
   return (
     <div id='city-dialog-modal'
@@ -31,7 +25,7 @@ export default ({ dialog }) => {
                 dialog.type === 'quest' && 'Quête : '
               }
               {
-                dialog.type === 'dialog' && 'Dialogue : '
+                dialog.type === 'story' && 'Histoire : '
               }
               { dialog.title }</h5>
             <button type='button'
@@ -73,6 +67,8 @@ export default ({ dialog }) => {
                               + index }/>
                           ))
                   }
+                  <br/>
+                  <br/>
                 </div>
               </div>
             )
@@ -105,54 +101,23 @@ export default ({ dialog }) => {
             )
           }
           {
-            page.menu
-              && page.menu.length > 0
+            page.mainMenu
+              && page.mainMenu.length > 0
               && (
-                <div className='modal-footer'>
-                  {
-                    page.menu
-                      .map(item => {
-
-                        if (typeof item === 'string') {
-
-                          switch (item) {
-
-                            case 'close':
-
-                              return (
-                                <button key={ item }
-                                    type='button'
-                                    className='btn btn-outline-danger'
-                                    onClick={
-                                      () =>
-                                        window.__STORE__
-                                          .dispatch({
-                                            type: CITY_DIALOG_MODAL_CLOSE
-                                          })}>
-                                  Fermer
-                                </button>
-                              )
-                          }
-                        } else {
-                          
-                          return (
-                            <button key={ dialog.id
-                              + '#'
-                              + historyPageIndex
-                              + ':'
-                              + item.label }
-                                type='button'
-                                className='btn btn-danger'
-                                onClick={ e =>
-                                  item.click
-                                    && item.click(e) }>
-                              { item.label }
-                            </button>
-                          )
-                        }
-                      })
-                  }
-                </div>
+                <Menu type='main'
+                    dialogId={ dialog.id }
+                    pageIndex={ dialog.page }
+                    menu={ page.mainMenu }/>
+              )
+          }
+          {
+            page.altMenu
+              && page.altMenu.length > 0
+              && (
+                <Menu type='alt'
+                    dialogId={ dialog.id }
+                    pageIndex={ dialog.page }
+                    menu={ page.altMenu }/>
               )
           }
         </div>

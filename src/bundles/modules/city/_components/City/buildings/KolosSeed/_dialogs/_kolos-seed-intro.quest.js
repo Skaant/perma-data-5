@@ -1,4 +1,4 @@
-import { CITY_DIALOG_MODAL_CLOSE, CITY_SERVER_ACTION_START, CITY_SERVER_ACTION_SUCCESS } from "../../../../../_actions/city.actions";
+import { CITY_SERVER_ACTION_START, CITY_SERVER_ACTION_SUCCESS } from "../../../../../_actions/city.actions";
 import { MAIN_ERROR_THROWN } from "../../../../../../main/_actions/main.actions";
 
 export default {
@@ -15,10 +15,10 @@ export default {
       'les graines aussi',
       null,
       null,
-      'les zums de la tribu des KOLOS',
+      'les ZUMS de la tribu des KOLOS',
       's\'avancent pour prendre la place qui est leur :',
       null,
-      'de cette flotte innombrable de graines,',
+      'de cette flotte d\'innombrable de graines,',
       'ce sont eux les capitaines;',
       'pionniers, conquérants',
       'aux commandes de leurs vaisseaux à la destination incertaine.'
@@ -26,7 +26,7 @@ export default {
     tuto: [
       'Apprenez-en plus sur les KOLOS et sur la FRAST en lisant le dialogue "Des bâtiments organiques".'
     ],
-    menu: [
+    mainMenu: [
       // Call to a "template" "close" button
       'close',
       {

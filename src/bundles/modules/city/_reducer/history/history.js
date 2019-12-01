@@ -5,7 +5,7 @@ export default (
   { 
     type,
     dialog,
-    page
+    newPage
   }
 ) => {
 
@@ -20,7 +20,8 @@ export default (
           state,
           {
             [dialog.id]: {
-              page: 0
+              page: dialog.page
+                || 0
             }
           })
       }
@@ -35,17 +36,16 @@ export default (
         {
           [dialog.id]: Object.assign(
             {},
-            state,
+            dialog,
             {
-              [dialog.id]: {
-                page
-              }
+              page: newPage
             }
           )
         }
       )
     
-      default:
-        return state
+    default:
+      
+      return state
   }
 }

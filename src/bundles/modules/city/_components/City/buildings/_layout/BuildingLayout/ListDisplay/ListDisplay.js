@@ -18,7 +18,7 @@ export default ({
       list
         .map(item => (
           <button key={ item.id }
-              className={ `list-group-item font-weight-light text-left ${
+              className={ `list-group-item font-weight-light text-left pr-3 ${
                 // HIGHLIGHTS COLOR for !opened
                 item.opened
                   ? ''
@@ -36,11 +36,25 @@ export default ({
                     window.__STORE__
                       .dispatch({
                         type: CITY_DIALOG_MODAL_OPEN,
-                        dialog: item,
-                        history: window.__STORE__
-                          .getState()
-                          .city
-                          .history
+                        dialog: Object.assign(
+                          {},
+                          item,
+                          {
+                            // TODO should it be isolated ?
+                            page: window.__STORE__
+                              .getState()
+                              .city
+                              .history[
+                                item.id]
+                              ? window.__STORE__
+                                .getState()
+                                .city
+                                .history[
+                                  item.id]
+                                    .page
+                              : 0
+                          }
+                        )
                       })
                   }
                 }
@@ -50,7 +64,7 @@ export default ({
               dialogsTypeIcon[
                 item.type
               ]
-            } float-right mr-1 ml-2 rounded-circle ${
+            } float-right ml-2 rounded-circle ${
               // HIGHLIGHT COLORS for !opened
               item.opened
                 ? 'bg-danger text-white'

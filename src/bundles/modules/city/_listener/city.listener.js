@@ -51,7 +51,9 @@ export default () => {
   }
 
   if ((!previous
-      || !previous.modalDisplay)
+      || !previous.modalDisplay
+      || previous.currentDialog.page
+        !== next.currentDialog.page)
     && next.modalDisplay
     && next.currentDialog) {
 
