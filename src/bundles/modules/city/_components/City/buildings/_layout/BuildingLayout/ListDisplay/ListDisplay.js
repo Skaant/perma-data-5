@@ -1,8 +1,14 @@
 import React from 'react'
 import { CITY_DIALOG_MODAL_OPEN } from '../../../../../../_actions/city.actions';
 
-export default ({ list }) => (
-  <ul className='list-group p-2'>
+export default ({
+  title,
+  list
+}) => (
+  <ul className='list-group'>
+    <h4 className='card-title text-uppercase font-weight-light text-left pt-4 pb-3 px-4 list-group-item'>
+      { title }
+    </h4>
     {
       list
         .map(item => (
@@ -12,6 +18,9 @@ export default ({ list }) => (
                   ? ''
                   : 'btn-danger'
               }` }
+              style={ {
+                letterSpacing: '0.8px'
+              } }
               onClick={
                 () => {
 

@@ -15,21 +15,28 @@ export default building => {
     _building.trighb]
   
   return (
-    <div className='card m-3'
-        style={ { 
-          width: '300px',
-          maxWidth: '90%'
-        } }>
-      <div className='card-body p-0'>
-        <h4 className='card-title text-uppercase font-weight-light text-left mt-4 px-4'>
-          <span className={ 
-            `px-2 py-1 ${ _trighb.color } mr-2` }>
-            { _trighb.name }</span>
-          { _building.name }</h4>
-        <img className='card-img-top'
+    <div style={ { 
+        width: '300px',
+        maxWidth: '90%'
+      } }>
+      <img className='card-img-top'
             src={ `public/images/buildings/${ id }.jpg` }/>
-        <ListDisplay list={ list }
-          trighb={ _trighb } />
+      <div className='card m-3'>
+        <div className='card-body p-0'>
+          <ListDisplay list={ list }
+            trighb={ _trighb }
+            title={ (
+              <React.Fragment>
+                <span className='mr-2 font-weight-bolder'
+                    style={ {
+                      color: '#'
+                        + _trighb.color
+                    } }>
+                  { _trighb.name }</span>
+                { _building.name }
+              </React.Fragment>
+            ) }/>
+        </div>
       </div>
     </div>
   )

@@ -5,14 +5,16 @@ export default ({
   pseudo,
   buildings
 }) => (
-  <div>
-    <h1 className='font-weight-light'
+  <div className='container'>
+    <h1 className='font-weight-light mb-1'
         style={ { marginTop: '60px' } }>
       MÉTA-CITÉ</h1>
-    <h2 className='lead'
-        style={ { marginBottom: '25px' } }>
-      Espace DATA de
-      <b> { pseudo }</b></h2>
+    <h2 className='lead text-lowercase font-weight-lighter'
+        style={ {
+          marginBottom: '25px',
+          letterSpacing: '0.8px'
+        } }>
+      Espace DATA de { pseudo }</h2>
     <div className='row justify-content-center px-4'>
       {
         buildings.map(building => (
