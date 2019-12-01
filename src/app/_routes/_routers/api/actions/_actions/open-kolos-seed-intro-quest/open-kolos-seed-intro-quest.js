@@ -49,7 +49,7 @@ module.exports =
                 {},
                 building,
                 {
-                  dialogs: {
+                  stories: {
                     ['kolos-trighb-presentation']: {
                       opened: false
                     }

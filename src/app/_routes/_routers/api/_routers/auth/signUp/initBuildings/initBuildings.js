@@ -8,13 +8,8 @@ module.exports =
       const buildings = [{
         key: 'kolos-seed',
         xp: 0,
-        /* quests: {
+        quests: {
           'kolos-seed-intro': {
-            opened: false
-          }
-        }, */
-        dialogs: {
-          'organic-buildings': {
             opened: false
           }
         }

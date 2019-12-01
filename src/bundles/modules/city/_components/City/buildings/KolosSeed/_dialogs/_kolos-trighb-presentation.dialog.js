@@ -1,5 +1,5 @@
 export default {
   'id': 'kolos-trighb-presentation',
-  'type': 'dialogue',
+  'type': 'story',
   'title': 'Bienvenue à la tribu KOLOS'
 }
