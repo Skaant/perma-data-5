@@ -16,6 +16,9 @@ export default
 
             if (e.target === $(modalId)[0]) {
 
+              $(modalId)
+                .off('click')
+
               window.__STORE__
                 .dispatch({
                   type: actionType
