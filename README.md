@@ -6,9 +6,7 @@ Project aims balance between completeness and minimalism, between efficiency and
 ## Table of contents
 * [Quick start](#quick-start)
 * [Manifest](#perma-data-manifest)
-* [History](#versions-history)
-* [Developers : stack and features](#developers--stack-and-features)
-* [Glossary](#glossary)
+* [Patterns](#patterns)
 
 ## Quick start
 
@@ -110,62 +108,16 @@ Exchange about the creative strategy & universe content.
 
 Discuss game mechanics, collaborate to theory-crafting, balancing & **playfulness**.
 
-## Versions history
+## Patterns
 
-### v1. **PERMA-DATA** is then only a one-dimension mind map browser
+### _middlewares
+`_middlewares` is located in the `server/app` folder.
 
-* It's basically a super simple Wikipedia, with a more strongly enforced relation-based navigation.
-* Features a single page **React** application
-* Displays key-identified *concept* page
-* *Concepts* describe (collaborative) data in strongly-typed categories :
+This pattern only describes the *middleware* nature of its contained folders and files.
 
-  * Keywords
-  * Relationships (to others concepts)
-  * Context
-  * Inputs
-  * Outputs
-  * Functions
-* [FR] [permadata, l'application (open source) qui va enterrer wikipédia](https://www.youtube.com/watch?v=JhJ8msf3gII)
-  * *permadata, the (open source) application which will burrow wikipedia*
-  * Demonstrate (data and page addition, routing and browsing) features
+### _routes
+`_routes` is located in the `server/app` folder.
 
-### v2. Basic **plant search** and **extract-oriented data** display
+This pattern describes the `server`'s routes-tree architecture.
 
-* Features a single page [create-react-app] application.
-* Data is displayed in category containers. Categories in the following :
-  * Culture conditions & maintenance,
-  * Multiplication,
-  * Shape, height, physiology,
-  * Functions in garden,
-  * Uses and production,
-  * *Inserts*, are highlighted sections of a book page,
-  * *Categories are strongly based on Bill Mollison & David Holmgren's book* Permaculture 1 *plant catalog appendix data types.*
-* In database, data is stored as "sections" (now extracts or atoms).
-* [Firebaseapp link](https://perma-plant-data.firebaseapp.com)
-* *Pro-tip: search for* "rosmarinus".
-* **Concluded on:** need of a better data display and edit, ... and homepage.
-
-### v3. *plant-data-extract* structure and complete **contributor area**
-
-* **Server-side rendered** pages with static data.
-* **React** modules on dynamic parts and **authenticated areas** (contributor & inventory).
-* *contributor area requires manual right edition, ask me in any case*.
-* *Pro-tip: search for* "symphytum".
-* [Firebaseapp link](https://perma-data-3.firebaseapp.com).
-* **Concluded on:** need of better data request options & a more playful contribution experience.
-
-### v4. **Storytelling**, **gamification** and **features planning**
-
-* Independant **mongo database**.
-* **React modules** rendered on diverse page anchors.
-* "Window **store**" and **application lifecycle**.
-* Integrated **creative content** and **level design** elements.
-* *Create an account simply by clicking* "s'authentifier" *and then* "s'enregistrer".
-* [FR] [Firebaseapp link](https://perma-data-4.firebaseapp.com/).
-  * EN localization for creative content won't be available until v5 or later.
-* **Concluded on:** need a **more modular structure**, a better **delivery workflow** and a more **content-oriented UX strategy**.
-
-# Developers : stack and features
-Stack is built upon various technologies, answering different problematics.
-
-# Glossary
+`<picture>`

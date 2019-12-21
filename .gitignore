@@ -1,5 +1,5 @@
 node_modules
 .vscode
-src/db/db.secret.json
+server/mongo/clientConfig.json
 public/bundles
 src/app/_routes/_routers/api/_routers/auth/_utils/passwordEncryptSecretKey.js
