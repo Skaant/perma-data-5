@@ -1,22 +1,95 @@
 extends ../../layout/layout.pug
 
 block content
-  #summary.animated.fadeIn.slow(
-    style= 'transition: height 1s'
-  )
-    img(
-      class= 'animated infinite heartBeat slower py-4'
-      style='margin-top: 60px'
-      src="/public/images/perma-data-logo.jpg",
-      alt="perma-data logo"
-    )
-    h1.mt-4.pt-4.font-weight-bold PERMA-DATA
-    h2.pt-1.pb-4 La communauté des cultivateurs de savoir
-    .container.pt-4
-      .row
-        .col-md-8.offset-md-2
-          p Bonjour et bienvenue sur PERMA-DATA, un site qui regroupe
-            b &nbsp;des informations sur les plantes et de nombreux outils pour la conception de jardins.
+  .container-fluid
+
+    .row.justify-content-center
+      .col-12.col-md-10.jumbotron.text-center
+        img.w-100(
+          src='/public/images/pages/home/infinite-frast.jpg'
+        )
+        h1.mx-auto.mb-4.pt-4.font-epic.font-weight-bold(
+          style='margin-top: 30px'
+        ) PERMA-DATA
+        h2.mx-auto.mb-3.pt-1.font-weight-lighter La communauté des cultivateurs de savoir
+
+    .row.bg-white.justify-content-center.z-depth-1
+      .col-12.col-md-8
+        p.font-weight-lighter(
+          style='margin-top: 90px; margin-bottom: 60px; font-size: 1.4rem'
+        )
+          span Bonjour et bienvenue sur&nbsp;
+          b.font-epic PERMA-DATA,
+          br
+          span un site qui regroupe
+          br
+          span de nombreux outils pour la conception de jardins et
+          br
+          span d'innombrables informations sur les plantes.
+
+    .row.my-4.pt-2.justify-content-center
+      .col-12.col-md-10.card(
+        style='padding: 60px 60px 30px 60px'
+      )
+        h2.font-weight-lighter.text-center.font-epic(
+          style='margin: 45px 45px 15px 45px'
+        ) Cherchez une plante
+        .md-form.row.justify-content-center
+          input.form-control.col-12.col-md-6.text-center.font-weight-light(
+            style='font-size: 1.2rem; font-family: Roboto, sans-serif'
+            type='text'
+            placeholder='Commencer par taper le début de son nom'
+          )
+
+    .row.my-4.pt-2.justify-content-center
+      .col-12.col-md-4.mb-4.pb-2
+        .card
+          .mx-auto(
+            style='margin-top: 60px; margin-bottom: 60px'
+          )
+            img.w-100(
+              src='public/images/logo.jpg'
+            )
+      .col-12.col-md-8
+        .card.pb-4
+          p.font-weight-lighter(
+            style='margin: 60px; font-size: 2rem'
+          ) Il y a tellement de choses à découvrir
+            br
+            span sur&nbsp;
+            b.font-epic PERMA-DATA&nbsp;
+            span :
+          ul(
+            style='margin: 0 60px 45px'
+          )
+            li.mb-3
+              a.font-weight-lighter.text-dark(
+                style='font-size: 1.4rem; text-decoration: underline'
+                href='#zums'
+              ) Immergez-vous dans l'univers épique des &nbsp;
+                b.font-epic ZUMS
+            li.mb-3
+              a.font-weight-lighter.text-dark(
+                style='font-size: 1.4rem; text-decoration: underline'
+                href='#customize'
+              ) Personnalisez vos recherches
+            li.mb-3
+              a.font-weight-lighter.text-dark(
+                style='font-size: 1.4rem; text-decoration: underline'
+                href='#zums'
+              ) Gérez votre stock et vos cultures
+            li.mb-3
+              a.font-weight-lighter.text-dark(
+                style='font-size: 1.4rem; text-decoration: underline'
+                href='#zums'
+              ) Alimentez la base-de-données avec vos trouvailles botaniques
+            li
+              a.font-weight-lighter.text-dark(
+                style='font-size: 1.4rem; text-decoration: underline'
+                href='#zums'
+              ) Contribuez au développement de l'outil
+            
+
   #city__anchor
 
 block scripts

@@ -1,8 +1,7 @@
 const pug = require('pug')
 
 module.exports =
-  (req, res) =>{
-    console.log('hi ho')
+  (req, res) =>
     res
       .send(pug
         .renderFile(
@@ -12,4 +11,4 @@ module.exports =
             titles: {
               page: 'Accueil'
             }
-          }))}
+          }))

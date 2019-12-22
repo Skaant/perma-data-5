@@ -1,5 +1,5 @@
-nav.navbar.navbar-dark.danger-color.mb-4.pt-2
-  a.navbar-brand.text-white(
+nav.navbar.z-depth-0.mb-4.pt-2
+  a.navbar-brand.text-white.font-epic(
     href="/"
   ) PERMA-DATA 
   ul.navbar-nav.ml-auto.nav-flex-icons
@@ -11,13 +11,13 @@ nav.navbar.navbar-dark.danger-color.mb-4.pt-2
       style
         include ./navbar.css
       #search-input__form.md-form.my-0
-        input#search-input.form-control.text-white.mb-0.pb-0.pt-2(
+        input#search-input.form-control.mb-0.pb-0.pt-2.text-white(
           type="text"
           placeholder="Recherche"
           value=""
         )
     li.nav-item.mr-3.mt-1
-      #auth__user-menu__anchor.text-white
-        .spinner-grow.nav-link(
+      #auth__user-menu__anchor
+        .spinner-grow.nav-link.text-white(
           role="status"
         )
