@@ -81,12 +81,12 @@ block content
             li.mb-3
               a.font-weight-lighter.text-dark(
                 style='font-size: 1.4rem; text-decoration: underline'
-                href='#provision'
+                href='#contribute'
               ) Alimentez la base-de-données avec vos trouvailles botaniques
             li
               a.font-weight-lighter.text-dark(
                 style='font-size: 1.4rem; text-decoration: underline'
-                href='#contribute'
+                href='#develop'
               ) Contribuez au développement de l'outil
 
     .row.my-4.py-2.justify-content-center
@@ -113,7 +113,7 @@ block content
         h2.text-center.font-epic(
           style='margin: 90px 45px 15px 45px'
         ) L'épopée ZUM
-        p(
+        p.text-right(
           style='margin-top: 60px; font-size: 1.4rem'
         )
           span " L'histoire des&nbsp;
@@ -123,7 +123,7 @@ block content
           br
           span de la couronne du&nbsp;
           b.font-epic SOLN :
-        p(
+        p.text-right(
           style='margin-top: 30px; margin-bottom: 60px; font-size: 1.4rem'
         )
           span "&nbsp;
@@ -203,7 +203,7 @@ block content
             b.font-epic PERMA-DATA&nbsp;
             span en fonction
             br
-            span de vos objectifs d'utilisation ...
+            span de vos objectifs d'utilisation :
   
     #search.row.mb-4.justify-content-center
       .col-12.col-md-8
@@ -241,7 +241,7 @@ block content
             src='public/images/pages/home/miko-network.jpg'
           )
 
-    .row.bg-white.justify-content-center.z-depth-1
+    #manage.row.bg-white.justify-content-center.z-depth-1
       .col-12.col-md-8.container
         h2.text-center.font-epic(
           style='margin: 90px 45px 15px 45px'
@@ -269,6 +269,152 @@ block content
               span ses plantes connues et
               br
               span votre récolte abondante.
+
+    #contribute.row.my-4.pt-2.justify-content-center
+      .col-12.col-md-10.card(
+        style='padding: 60px 60px 30px 60px'
+      )
+        .row.justify-content-center
+          .col-12.col-md-6
+            h2.text-center.font-epic(
+              style='margin: 60px 45px 15px 45px'
+            ) Agradation continue
+            p.font-weight-lighter(
+              style='margin-top: 30px; margin-bottom: 45px; font-size: 1.4rem'
+            )
+              span Sur&nbsp;
+              b.font-epic PERMA-DATA
+              span ,
+              br
+              span c'est la communauté qui ajoute les données.
+          .col-12.col-md-4.text-right.font-weight-lighter(
+            style='margin-top: 30px; margin-bottom: 45px; font-size: 1.2rem'
+          )
+            p
+              span Commencez à jouer maintenant et
+              br
+              span découvrez les&nbsp;
+              b.font-epic ESKRATS
+              span .
+            p(
+              style='margin-top: 30px'
+            )
+              span Oh, cette tribu
+              br
+              span est l'experte de la collecte et de la
+              br
+              span synthèse de la&nbsp;
+              b.font-epic DATA
+              span .
+              
+    #manage.row.bg-white.justify-content-center.z-depth-1
+      .col-12.col-md-8.container
+        h2.text-center.font-epic(
+          style='margin: 90px 45px 15px 45px'
+        ) Allez-y, c'est gratuit !
+        .row(
+          style='margin-top: 90px; margin-bottom: 60px'
+        )
+          .col-12.col-md-6
+            button.btn.btn-outline-dark.w-100.font-weight-light.p-3(
+              type='button'
+              style='border-color: #7cb342 !important; letter-spacing: 3px'
+            ) Connectez-vous
+          .col-12.col-md-6
+            button.btn.btn-light.w-100.text-white.font-weight-light.p-3(
+              type='button'
+              style='background-color: #7cb342 !important; letter-spacing: 3px'
+            ) Créez un compte
+              
+    .row.mt-4.py-2.justify-content-center
+      .col-12.col-md-8.mb-4
+        .card.px-4.pt-2.pb-4
+          p.text-right.px-4.font-weight-lighter(
+            style='margin-top: 30px; margin-bottom: 30px; font-size: 1.4rem'
+          )
+            span Tout ceci est déjà fantastique,
+            br
+            span nous le savons,
+            br
+            span mais il existe encore de nombreuses autres
+            br
+            span tribus dans l'univers de&nbsp;
+            b.font-epic PERMA-DATA&nbsp;
+            span !
+          .row.justify-content-center(
+            style='margin-bottom: 30px'
+          )
+            img.w-75(
+              src='public/images/pages/home/all-trighbs-converge.jpg'
+            )
+          p.font-weight-lighter.px-4(
+            style='font-size: 1.4rem'
+          )
+            span Et il se pourrait que vous
+            br
+            span participiez à en créer de nouvelles ...
+            
+    #develop.row.my-4.py-2.justify-content-center
+      .col-12.col-md-10.card.container(
+        style='padding: 60px 60px 45px 60px'
+      )
+        h2.text-center.font-epic(
+          style='margin: 45px 45px 60px 45px'
+        ) Open-source et collaboratif
+        .row.text-center.justify-content-center
+          .col-12
+            p.font-weight-lighter.px-4(
+              style='font-size: 1.4rem'
+            )
+              span Oui, vous pouvez contribuer à la conception et au développement de&nbsp;
+              b.font-epic PERMA-DATA
+              span .
+        .row.justify-content-center(
+          style='margin-top: 30px'
+        )
+          .col-12.col-md-8
+            a.btn.btn-light.text-white.w-100.font-weight-light.p-3(
+              href='https://github.com/Skaant/perma-data-5'
+              target='_blank'
+              type='button'
+              style='background-color: #7cb342 !important; letter-spacing: 3px'
+            ) Lien vers le GitHub
+
+    .row.bg-white.justify-content-center.z-depth-1
+      .col-12.col-md-8.container
+        .row.justify-content-center
+          .col-12.font-weight-lighter.px-4(
+              style='margin-top: 90px; margin-bottom: 60px; font-size: 1.4rem'
+            )
+            p
+              b.font-epic PERMA-DATA&nbsp;
+              span est, et sera, toujours en cours de
+              br
+              span de développement et d'amélioration continue.
+            p.font-weight-lighter(
+              style='font-size: 1.4rem; margin-top: 30px'
+            )
+              span Nous vous tiendrons informés !
+
+    .row
+      .col-12(
+        style='margin-top: 30px'
+      )
+        h5.pr-2.text-right.text-white.font-weight-lighter(
+          style='font-size: 1rem'
+        ) développé par 
+          a.text-white(
+            href='https://www.linkedin.com/in/romaric-ruga-507244a1/'
+            style='text-decoration: underline'
+          ) Romaric Ruga&nbsp;
+          span , alias&nbsp;
+          a.text-white(
+            href='https://imrok.fr'
+            style='text-decoration: underline'
+          )
+            b.font-epic IMROK
+
+        
         
           
             
