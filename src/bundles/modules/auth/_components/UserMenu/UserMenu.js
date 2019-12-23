@@ -27,7 +27,7 @@ export default ({
         !user
           && tokenInitialCheck
           && (
-            <span className="fas fa-user mt-2"
+            <span className="fas fa-user mt-2 text-white"
                 style={ { cursor: 'pointer' } }
                 title="S'authentifier"
                 onClick={
@@ -40,7 +40,7 @@ export default ({
       {
         user
           && (
-            <span className="fas fa-user-check"
+            <span className="fas fa-user-check text-white"
                 title={ user.email }></span>
           )
       }

@@ -1,0 +1,1 @@
+module.exports = 'la nature déteste le vide'

@@ -9,10 +9,10 @@ import { INITALIZER_BUNDLE_REGISTERED } from './_actions/initializer.actions'
  * @param {string} bundleId - The bundle id, *for the sake of **dispatch**.
  * @param {array} modules - The module list, **also dispatched**.
  * 
- * @emit *INITALIZER_BUNDLE_REGISTERED*
+ * @emit `INITALIZER_BUNDLE_REGISTERED`
  */
 export default ({
-  bundleId,
+  id: bundleId,
   modules
 }) => {
 
@@ -37,6 +37,6 @@ export default ({
   store.dispatch({
     type: INITALIZER_BUNDLE_REGISTERED,
     bundleId,
-    moduleIds: Object.keys(modules)
+    modulesId: Object.keys(modules)
   })
 }

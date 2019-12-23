@@ -1,0 +1,26 @@
+nav.navbar.z-depth-0.pt-2(
+  style='margin-bottom: 45px'
+)
+  a.navbar-brand.text-white.font-epic(
+    href='/'
+    style='font-size: 1.4rem'
+  ) PERMA-DATA 
+  ul.navbar-nav.ml-auto.nav-flex-icons
+    li.nav-item.d-none
+      .spinner-grow.text-white(
+        role="status"
+      )
+    li.nav-item.mr-4
+      style
+        include ./navbar.css
+      #search-input__form.md-form.my-0
+        input#search-input.form-control.mb-0.pb-0.pt-2.text-white(
+          type="text"
+          placeholder="Trouvez des plantes"
+          value=""
+        )
+    li.nav-item.mr-3.mt-1
+      #auth__user-menu__anchor
+        .spinner-grow.nav-link.text-white(
+          role="status"
+        )
