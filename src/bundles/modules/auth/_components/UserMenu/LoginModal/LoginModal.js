@@ -33,15 +33,15 @@ export default ({
 
   const handleFieldChange = (
     key,
-    value
-  ) => 
+    event
+  ) =>
 
     store
       .dispatch({
         type: AUTH_UPDATE_FORM_FIELD,
         field: {
           key,
-          value
+          value: event.target.value
         }
       })
 
@@ -96,11 +96,13 @@ export default ({
                       placeholder='E-mail'
                       value={ email }
                       onChange={
-                        e =>
+                        event =>
+
                           handleFieldChange(
                             'email',
-                            e.target.value
-                          ) }
+                            event
+                          )
+                      }
                       onKeyPress={
                         e => {
 
@@ -109,7 +111,8 @@ export default ({
 
                             validation()
                           }
-                        } }/>
+                        }
+                      }/>
                 </div>
                 {
                   mode === 'sign-up'
@@ -120,11 +123,13 @@ export default ({
                             placeholder='Pseudo'
                             value={ pseudo }
                             onChange={
-                              e =>
+                              event =>
+
                                 handleFieldChange(
                                   'pseudo',
-                                  e.target.value
-                                ) }/>
+                                  event
+                                )
+                            }/>
                       </div>
                     )
                 }
@@ -137,11 +142,13 @@ export default ({
                             placeholder='Mot de passe'
                             value={ password }
                             onChange={
-                              e =>
+                              event =>
+
                                 handleFieldChange(
                                   'password',
-                                  e.target.value
-                                ) }
+                                  event
+                                )
+                            }
                             onKeyPress={
                               e => {
 

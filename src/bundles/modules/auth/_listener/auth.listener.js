@@ -17,22 +17,37 @@ export default () => {
     previous = next
 
     initialTokenCheck()
-  }
+  
+  } else if (previous
+    && !previous.tokenInitialCheck
+    && next.tokenInitialCheck
+    && !next.user) {
 
-  if (previous
+    previous = next
+
+    renderComponent()
+
+  } else if (previous
       && !previous.user
       && next.user
       && !next.moduleLoaded) {
 
     previous = next
-    
+
     loadBundle(window.PAGE_ID)
-  }
 
-  renderComponent()
+  } else if (previous
+      && !previous.moduleLoaded
+      && next.moduleLoaded) {
 
-  if (previous
+    previous = next
+
+    renderComponent()
+
+  } else if (previous
       && previous.modalDisplay !== next.modalDisplay) {
+    
+    previous = next
     
     if (next.modalDisplay === true) {
       
@@ -49,7 +64,11 @@ export default () => {
       $('#login-modal')
         .modal('hide')
     }
-  }
 
-  previous = next
+  } else {
+    
+    previous = next
+
+    renderComponent()
+  }
 }

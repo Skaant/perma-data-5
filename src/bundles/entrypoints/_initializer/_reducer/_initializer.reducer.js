@@ -2,8 +2,8 @@ import { INITALIZER_BUNDLE_REGISTERED } from "../_actions/initializer.actions";
 
 export default (
   state = {
-    bundleIds: [],
-    moduleIds: []
+    bundlesId: [],
+    modulesId: []
   }, {
     type,
     ...action
@@ -11,8 +11,8 @@ export default (
 ) => {
 
   const { 
-    bundleIds,
-    moduleIds
+    bundlesId,
+    modulesId
    } = state
 
   switch (type) {
@@ -21,16 +21,18 @@ export default (
 
       const {
         bundleId: _bundleId,
-        modulesIds: _modulesIds
+        modulesId: _modulesId
       } = action
 
       return {
-        bundleIds: bundleIds
-          .slice()
-          .push(_bundleId),
-        modulesIds: moduleIds
-          .slice()
-          .concat(_modulesIds)
+        bundlesId: [
+          ...bundlesId,
+          _bundleId
+        ],
+        modulesId: [
+          ...modulesId,
+          ..._modulesId
+        ]
       }
 
     default:
