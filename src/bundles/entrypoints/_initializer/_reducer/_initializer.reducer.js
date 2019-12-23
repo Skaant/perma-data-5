@@ -10,6 +10,11 @@ export default (
   }
 ) => {
 
+  const { 
+    bundleIds,
+    moduleIds
+   } = state
+
   switch (type) {
 
     case INITALIZER_BUNDLE_REGISTERED:
@@ -25,7 +30,7 @@ export default (
           .push(_bundleId),
         modulesIds: moduleIds
           .slice()
-          .push(_modulesIds)
+          .concat(_modulesIds)
       }
 
     default:
