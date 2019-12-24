@@ -23,9 +23,9 @@ export default () => {
   if ((!previous
       && next.notifications.length > 0)
     || (previous
-      && previous.notifications.length !== next.notifications.length
       && next.notifications[0]
-      && previous.notifications[0] !== next.notifications[0])) {
+      && (previous.notifications.length !== next.notifications.length
+        || previous.notifications[0] !== next.notifications[0]))) {
     
     previous = next
 

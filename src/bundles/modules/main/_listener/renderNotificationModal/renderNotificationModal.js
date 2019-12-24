@@ -14,12 +14,22 @@ export default () => {
   const notifications = main.notifications
   const notification = notifications[0]
 
-  const handleClose = () => {
+  const handleClose = id => {
+
+    const runtimeNotifications = store
+      .getState()
+      .main
+      .notifications
+
+    if (runtimeNotifications.length > 0
+      && runtimeNotifications[0].id === id) {
     
-    store
-      .dispatch({
-        type: MAIN_NOTIFICATIONS_SHIFT
-      })
+      store
+        .dispatch({
+          type: MAIN_NOTIFICATIONS_SHIFT,
+          id
+        })
+    }
 
     if (notification.callback) {
       
@@ -41,7 +51,10 @@ export default () => {
     .render(
       <NotificationModal
         notification={ notification }
-        closeModal={ handleClose } />,
+        closeModal={ 
+          () =>
+
+            handleClose(notification.id) } />,
       $('#notification-modal_anchor')[0])
 
   $('#notification-modal')
@@ -49,13 +62,19 @@ export default () => {
 
   setBackdropClickClose(
     '#notification-modal',
-    MAIN_NOTIFICATIONS_SHIFT
+    MAIN_NOTIFICATIONS_SHIFT,
+    {
+      id: notification.id
+    }
   )
 
   if (notification.timeout) {
 
     setTimeout(
-      handleClose,
+      // A control in `handleClose` avoid a double call.
+      () =>
+      
+        handleClose(notification.id),
       notification.timeout
     )
   }

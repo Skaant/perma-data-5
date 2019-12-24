@@ -11,14 +11,14 @@ export default ({
       <div className='modal-content'>
         <div className='modal-body py-0'>
           <div className='row'>
-            <div className='col-12 col-md-4 py-4'>
+            <div className='col-12 col-lg-4 py-4'>
               <h5 className='modal-title h1 font-weight-lighter m-4'>
                 {
                   notification.title
                     || 'Nouvelle notification !'
                 }</h5>
             </div>
-            <div className='col-12 col-md-8 p-4 text-white'
+            <div className='col-12 col-lg-8 p-4 text-white'
               style={ {
                 backgroundColor: '#7cb342'
               } }>
