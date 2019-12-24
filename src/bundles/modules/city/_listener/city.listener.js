@@ -2,11 +2,12 @@ import renderCity from './renderCity/renderCity'
 import renderCityDialogModal from './renderCityDialogModal/renderCityDialogModal';
 import setBackdropClickClose from '../../_utils/setBackdropClickClose/setBackdropClickClose';
 import { CITY_DIALOG_MODAL_CLOSE } from '../_actions/city.actions';
+import unmountCityElements from './unmountCityElements/unmountCityElements';
 
-  let previous = null
-  let previousAuth = null
+let previous = null
+let previousAuth = null
 
-  const store = window.__STORE__
+const store = window.__STORE__
 
 export default () => {
 
@@ -17,6 +18,14 @@ export default () => {
   const nextAuth = store
     .getState()
     .auth
+
+  if ((!previousAuth
+      || !previousAuth.user)
+      && nextAuth.user) {
+
+    $('#home-base')
+      .addClass('d-none')
+  }
 
   // TODO deep buildings check
   if (nextAuth
@@ -32,22 +41,16 @@ export default () => {
       pseudo,
       buildings
     })
-  } 
-
-  if ((!previousAuth
-      || !previousAuth.user)
-      && nextAuth.user) {
-
-    $('#summary')
-      .addClass('d-none')
   }
 
   if (previousAuth
       && previousAuth.user
       && !nextAuth.user) {
 
-    $('#summary')
+    $('#home-base')
       .removeClass('d-none')
+
+    unmountCityElements()
   }
 
   if ((!previous
