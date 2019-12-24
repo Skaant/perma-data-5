@@ -20,19 +20,40 @@ export default ({
             </div>
             <div className='col-12 col-lg-8 p-4 text-white'
               style={ {
-                backgroundColor: '#7cb342'
+                backgroundColor: '#7cb342',
+                fontSize: '1.2rem'
               } }>
               <button type="button"
                   className="close"
                   onClick={ closeModal }>
                 <span aria-hidden="true">&times;</span>
               </button>
-              <p className='mx-4'
-                  style={ {
-                    fontSize: '1.4rem',
-                    marginTop: '75px'
-                  } }>
-                { notification.content }</p>
+              {
+                typeof notification.content === 'string'
+                  ? (
+                    <p className='m-4'>
+                      { notification.content }</p>
+                  )
+                  : notification.content
+                    .map((
+                      line,
+                      index
+                    ) => (
+                      <p key={ notification.title
+                            + '_'
+                            + notification.id
+                            + '_'
+                            + index }
+                          className={ 'mx-4 mb-1'
+                            + (index === 0
+                              ? ' mt-4'
+                              : '') }>
+                        { line
+                          || (
+                            <span>&nbsp;</span>
+                          ) }</p>
+                    ))
+              }
             </div>
           </div>
         </div>

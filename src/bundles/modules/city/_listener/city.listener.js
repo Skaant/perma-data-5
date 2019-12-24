@@ -15,6 +15,7 @@ export default () => {
     .getState()
     .city
 
+  // TODO move to the `mainAuth.listener`
   const nextAuth = store
     .getState()
     .auth

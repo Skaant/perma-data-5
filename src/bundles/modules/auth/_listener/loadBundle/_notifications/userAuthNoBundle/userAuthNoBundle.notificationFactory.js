@@ -3,6 +3,10 @@ import notificationFactory from "../../../../../main/_reducer/notifications/_uti
 export default () =>
 
   notificationFactory({
-    title: 'Connexion réussie ...',
-    content: 'L\'application est en train de charger'
+    title: 'Connexion réussie',
+    content: [
+      'L\'application est en train de charger ...',
+      '',
+      'Selon votre connexion cela peut prendre quelques secondes.'
+    ]
   })

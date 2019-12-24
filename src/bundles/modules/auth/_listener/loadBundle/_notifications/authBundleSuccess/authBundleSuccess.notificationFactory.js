@@ -1,9 +1,15 @@
 import notificationFactory from "../../../../../main/_reducer/notifications/_utils/notificationFactory/notificationFactory";
 
-export default () => 
+export default user => 
 
   notificationFactory({
     title: 'Application chargée !',
-    content: 'À vous de jouer !',
-    timeout: 5000
+    content: [
+      user.pseudo
+        + ',',
+      'Encore bienvenu·e sur PERMA-DATA.',
+      '',
+      'Fermez ce message pour accéder l\'application.'
+    ],
+    timeout: 0
   })
