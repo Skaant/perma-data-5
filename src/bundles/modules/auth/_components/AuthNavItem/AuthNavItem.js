@@ -2,7 +2,6 @@ import React from 'react'
 import {
   AUTH_LOGIN_MODAL_OPEN
 } from '../../_actions/auth.actions'
-import LoginModal from './LoginModal/LoginModal'
 
 export default ({
   tokenInitialCheck,
@@ -40,12 +39,16 @@ export default ({
       {
         user
           && (
-            <span className="fas fa-user-check text-white"
+            /**
+             * `id='auth-user-menu'` is used as an anchor to
+             *  render `UserMenu`. */
+            <span  id='auth-user-menu'
+                className="fas fa-user-check text-white"
                 title={ user.email }></span>
           )
       }
-      <LoginModal { ...form }/>
-      <div id='todo--auth__user-modal__component'></div>
+      <div id='login-modal_anchor'></div>
+      <div id='user-panel_anchor'></div>
     </React.Fragment>
   )
 }

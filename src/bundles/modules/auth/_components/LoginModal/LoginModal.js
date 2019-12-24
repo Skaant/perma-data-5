@@ -3,7 +3,7 @@ import {
   AUTH_LOGIN_MODAL_CLOSE,
   AUTH_SWITCH_FORM_MODE,
   AUTH_UPDATE_FORM_FIELD
-} from '../../../_actions/auth.actions'
+} from '../../_actions/auth.actions'
 import handleFormValidation from './handleFormValidation/handleFormValidation'
 
 export default ({
@@ -14,9 +14,9 @@ export default ({
 }) => {
 
   const modeLabels = {
-    'sign-in': 'Connexion',
-    'sign-up': 'Créer un compte',
-    'recover-password': 'Mot de passe oublié'
+    'sign-in': 'Connectez-vous !',
+    'sign-up': 'Créez un compte',
+    'recover-password': 'Mot de passe oublié ?'
   }
 
   const label = modeLabels[mode]
@@ -64,23 +64,31 @@ export default ({
 
   return (
     <div id='login-modal'
-        className='modal fade right show'>
-      <div className='modal-dialog modal-side modal-top-right mr-4'
-          role='document'>
+        className='modal fade show'>
+      <div className='modal-dialog'
+          role='document'
+          style={ {
+            marginTop: '60px'
+          } }>
         <div className='modal-content'>
-          <div className='modal-header'>
-            <h5 className='modal-title text-danger'>
-              S'authentifier</h5>
+          <div className='modal-header'
+              style={ {
+                backgroundColor: '#7cb342'
+              } }>
+            <h1 className='modal-title text-white'
+                style={ {
+                  margin: '60px 45px 30px'
+                } }>
+                <b className='font-epic'>
+                  { label }</b></h1>
             <button type='button'
                 className='close'
                 onClick={ closeModal }>
               <span aria-hidden='true'>&times;</span>
             </button>
           </div>
-          <div className='modal-body bg-danger'>
+          <div className='modal-body z-depth-1'>
             <div className='container pb-2'>
-              <h3 className='row text-white mt-4 pl-2'>
-                { label }</h3>
               <form className='row px-4 my-4'>
                 <style scoped>
                   {
@@ -92,7 +100,7 @@ export default ({
                 </style>
                 <div className='md-form col-12 my-2'>
                   <input type='email'
-                      className='form-control'
+                      className='form-control font-weight-light'
                       placeholder='E-mail'
                       value={ email }
                       onChange={
@@ -119,7 +127,7 @@ export default ({
                     && (
                       <div className='md-form col-12 my-2'>
                         <input type='text'
-                            className='form-control'
+                            className='form-control font-weight-light'
                             placeholder='Pseudo'
                             value={ pseudo }
                             onChange={
@@ -138,7 +146,7 @@ export default ({
                     && (
                       <div className='md-form col-12 my-2'>
                         <input type='password'
-                            className='form-control'
+                            className='form-control font-weight-light'
                             placeholder='Mot de passe'
                             value={ password }
                             onChange={
@@ -211,17 +219,20 @@ export default ({
               </ul>
             </div>
           </div>
-          <div className='modal-footer'>
+          <div className='modal-footer'
+              style={ {
+                backgroundColor: '#7cb342'
+              } }>
             <button type='button'
-                className='btn btn-outline-danger'
-                onClick={ closeModal }>
-              Fermer</button>
-            <button type='button'
-                className='btn btn-danger'
+                className='btn btn-white'
                 onClick={
                   () =>
                     validation() }>
               Valider</button>
+            <button type='button'
+                className='btn btn-outline-white'
+                onClick={ closeModal }>
+              Fermer</button>
           </div>
         </div>
       </div>

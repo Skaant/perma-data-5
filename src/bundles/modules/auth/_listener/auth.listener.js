@@ -1,8 +1,8 @@
-import renderComponent from './renderComponent/renderComponent'
+import renderAuthNavItem from './renderAuthNavItem/renderAuthNavItem'
 import initialTokenCheck from './initialTokenCheck/initialTokenCheck'
-import setBackdropClickClose from '../../_utils/setBackdropClickClose/setBackdropClickClose'
 import loadBundle from './loadBundle/loadBundle'
-import { AUTH_LOGIN_MODAL_CLOSE } from '../_actions/auth.actions'
+import renderLoginModal from './renderLoginModal/renderLoginModal'
+import unmountLoginModal from './unmountLoginModal/unmountLoginModal'
 
 let previous = null
 
@@ -25,7 +25,7 @@ export default () => {
 
     previous = next
 
-    renderComponent()
+    renderAuthNavItem()
 
   } else if (previous
       && !previous.user
@@ -37,27 +37,24 @@ export default () => {
     loadBundle(window.PAGE_ID)
 
   } else if (previous
-      && !previous.moduleLoaded
-      && next.moduleLoaded) {
+      && ((!previous.moduleLoaded
+          && next.moduleLoaded)
+        || (!previous.user
+          && previous.moduleLoaded
+          && next.user))) {
 
     previous = next
 
-    renderComponent()
+    renderAuthNavItem()
+
+    unmountLoginModal()
 
   } else if (previous
-      && previous.modalDisplay !== next.modalDisplay) {
+      && previous.loginModalDisplay !== next.loginModalDisplay) {
     
-    previous = next
-    
-    if (next.modalDisplay === true) {
+    if (next.loginModalDisplay === true) {
       
-      $('#login-modal')
-        .modal('show')
-
-      setBackdropClickClose(
-        '#login-modal',
-        AUTH_LOGIN_MODAL_CLOSE
-      )
+      renderLoginModal()
 
     } else {
 
@@ -65,10 +62,17 @@ export default () => {
         .modal('hide')
     }
 
-  } else {
+  } else if (previous
+    && previous.form.mode !== next.form.mode) {
     
     previous = next
 
-    renderComponent()
-  }
+    renderLoginModal()
+
+  } /* else {
+    
+    previous = next
+
+    renderAuthNavItem()
+  } */
 }

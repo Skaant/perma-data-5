@@ -2,7 +2,7 @@ import {
   AUTH_LOGIN_CHECK_START,
   AUTH_LOGIN_CHECK_SUCCESS,
   AUTH_LOGIN_CHECK_ERROR
-} from '../../../../_actions/auth.actions'
+} from '../../../_actions/auth.actions'
 
 export default (
   mode,
