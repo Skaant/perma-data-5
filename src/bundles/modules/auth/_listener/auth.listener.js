@@ -27,6 +27,13 @@ export default () => {
 
     renderAuthNavItem()
 
+  } else if (previous.user
+    && !next.user) {
+
+    previous = next
+
+    renderAuthNavItem()
+
   } else if (previous
       && !previous.user
       && next.user

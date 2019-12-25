@@ -1,5 +1,4 @@
 import React from 'react'
-import { MAIN_AUTH_USER_MODAL_CLOSE } from '../../_actions/mainAuth.actions'
 import { AUTH_DISCONNECT } from '../../../auth/_actions/auth.actions'
 
 export default ({
@@ -14,20 +13,17 @@ export default ({
           marginTop: '60px'
         } }>
       <div className='modal-content'>
-        <div className='modal-header'
-            style={ {
-              backgroundColor: '#7cb342'
-            } }>
+        <div className='modal-header z-depth-2'>
           <div className='container'>
             <div className='row'>
-              <h1 className='h5 text-white font-weight-lighter'
+              <h1 className='h5 font-weight-lighter'
                   style={ {
                     margin: '60px 45px 0'
                   } }>
                 Menu utilisateur de :</h1>
             </div>
             <div className='row'>
-              <h2 className='modal-title text-white h1'
+              <h2 className='modal-title h1'
                   style={ {
                     margin: '0 45px 30px'
                   } }>
@@ -41,10 +37,13 @@ export default ({
             <span aria-hidden='true'>&times;</span>
           </button>
         </div>
-        <div className='modal-body'>
+        <div className='modal-body'
+            style={ {
+              backgroundColor: '#7cb342'
+            } }>
           <div className='row justify-content-right px-4'>
             <div className='col-12 col-md-6 py-3'>
-              <button className='btn w-100 p-3'
+              <button className='btn btn-white w-100 p-3'
                   type='button'
                   onClick={
                     () =>
@@ -55,17 +54,15 @@ export default ({
                         })
                   }
                   style={ {
-                    backgroundColor: '#7cb342',
                     letterSpacing: '3px'
                   } }>
                 Déconnexion</button>
             </div>
             <div className='col-12 col-md-6 py-3'>
-              <button className='btn w-100 p-3'
+              <button className='btn btn-outline-white w-100 p-3'
                   type='button'
                   onClick={ closeModal }
                   style={ {
-                    border: '#7cb342 solid 2px',
                     letterSpacing: '3px'
                   } }>
                 Fermer</button>
