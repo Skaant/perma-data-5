@@ -76,6 +76,8 @@ export default () => {
         .modal('hide')
     }
 
+    previous = next
+
   } else if (previous
     && previous.form.mode !== next.form.mode) {
     
