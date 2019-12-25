@@ -4,7 +4,8 @@ export default (
   notification
 ) => {
 
-  if (state[0].id === id) {
+  if (state[0]
+    && state[0].id === id) {
 
     return [
       notification,

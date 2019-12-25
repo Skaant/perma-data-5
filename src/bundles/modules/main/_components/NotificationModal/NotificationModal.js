@@ -29,30 +29,25 @@ export default ({
                 <span aria-hidden="true">&times;</span>
               </button>
               {
-                typeof notification.content === 'string'
-                  ? (
-                    <p className='m-4'>
-                      { notification.content }</p>
-                  )
-                  : notification.content
-                    .map((
-                      line,
-                      index
-                    ) => (
-                      <p key={ notification.title
-                            + '_'
-                            + notification.id
-                            + '_'
-                            + index }
-                          className={ 'mx-4 mb-1'
-                            + (index === 0
-                              ? ' mt-4'
-                              : '') }>
-                        { line
-                          || (
-                            <span>&nbsp;</span>
-                          ) }</p>
-                    ))
+                notification
+                  .content.map((
+                    line,
+                    index
+                  ) => (
+                    <p key={ notification.title
+                          + '_'
+                          + notification.id
+                          + '_'
+                          + index }
+                        className={ 'mx-4 mb-1'
+                          + (index === 0
+                            ? ' mt-4'
+                            : '') }>
+                      { line
+                        || (
+                          <span>&nbsp;</span>
+                        ) }</p>
+                  ))
               }
             </div>
           </div>

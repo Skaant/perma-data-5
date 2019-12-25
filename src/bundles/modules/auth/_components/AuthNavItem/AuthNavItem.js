@@ -47,7 +47,7 @@ export default ({
                 style={ {
                   cursor: 'pointer'
                 } }
-                title={ 'Menu utilisateur : '
+                title={ 'Menu utilisateur de : '
                   + user.pseudo }
                 onClick={
                   () =>

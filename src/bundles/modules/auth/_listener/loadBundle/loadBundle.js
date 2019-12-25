@@ -49,7 +49,7 @@ export default (
                     notification: authBundleSuccessNotification
                   }),
               timestampDifference > 1500
-                ? 0
+                ? 1
                 : (1500 - timestampDifference)
             )
           })

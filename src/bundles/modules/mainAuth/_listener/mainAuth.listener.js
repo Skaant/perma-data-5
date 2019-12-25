@@ -1,4 +1,5 @@
 import renderUserModal from "./renderUserModal/renderUserModal"
+import unmountUserModal from "./unmountUserModal/unmountUserModal"
 
 // Compare logic
 let previous = null
@@ -16,5 +17,13 @@ export default () => {
       && next.userModalDisplay)) {
 
     renderUserModal()
+
+  } else if (previous
+    && previous.userModalDisplay
+    && !next.userModalDisplay) {
+
+    unmountUserModal()
   }
+
+  previous = next
 }
