@@ -6,8 +6,11 @@ html(
     title PERMA-DATA - #{ titles.page }
     include ./styles/styles
     include ./scripts/scripts
+    style
+      include ../_styles/commons.css
   body.light-green.darken-1
     include ./navbar/navbar
     block content
-    #anchor__quest-modal
+    #notification-modal_anchor
+    #error-modal_anchor
     block scripts

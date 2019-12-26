@@ -2,8 +2,12 @@
 export default 
   (
     modalId,
-    actionType
-  ) =>
+    actionType,
+    dispatchProps
+  ) => {
+
+  $(modalId)
+    .off('click')
 
   setTimeout(
     () =>
@@ -21,9 +25,11 @@ export default
 
               window.__STORE__
                 .dispatch({
-                  type: actionType
+                  type: actionType,
+                  ...dispatchProps
                 })
             }
           }),
     1
   )
+}
