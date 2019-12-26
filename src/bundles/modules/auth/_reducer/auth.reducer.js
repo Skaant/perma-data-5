@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 import tokenInitialCheck from './tokenInitialCheck/tokenInitialCheck'
 import user from './user/user'
-import loginModalDisplay from './loginModalDisplay/loginModalDisplay'
+import modalDisplay from './modalDisplay/modalDisplay'
 import form from './form/form'
 import checkingToken from './checkingToken/checkingToken'
 import checkingLogin from './checkingLogin/checkingLogin'
@@ -12,7 +12,7 @@ export default
   combineReducers({
     tokenInitialCheck,
     user,
-    loginModalDisplay,
+    modalDisplay,
     form,
     checkingToken,
     checkingLogin,

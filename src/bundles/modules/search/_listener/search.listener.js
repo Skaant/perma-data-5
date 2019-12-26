@@ -1,13 +1,12 @@
-import renderSearchModal from "./renderSearchModal/renderSearchModal";
-import unmountSearchModal from "./unmountSearchModal/unmountSearchModal";
-import renderSearchNavItem from "./renderSearchNavItem/renderSearchNavItem";
+import renderComponent from "./renderComponent/renderComponent";
+import setBackdropClickClose from "../../_utils/setBackdropClickClose/setBackdropClickClose";
+import { 
+  SEARCH_MODAL_CLOSE
+} from "../_actions/search.actions"
 
 // Compare logic
 let previous = null
 
-/**
- * The `search` listener
- */
 export default () => {
 
   const next = window.__STORE__
@@ -15,40 +14,33 @@ export default () => {
     .search
 
   if (previous
-      && previous.loginModalDisplay !== next.loginModalDisplay) {
+      && previous.modalDisplay !== next.modalDisplay) {
     
     if (next.modalDisplay === true) {
 
-      renderSearchModal(true)
+      renderComponent()
+
+      $('#search-modal')
+        .modal('show')
+
+      setBackdropClickClose(
+        '#search-modal',
+        SEARCH_MODAL_CLOSE
+      )
 
     } else {
 
-      unmountSearchModal()
+      $('#search-modal')
+        .modal('hide')
     }
-
-    previous = next
 
   } else if (!previous
-    || previous.value !== next.value) {
+    || previous.value !== next.value
+    || previous.loadStatus !== next.loadStatus
+    || previous.searchResults !== next.searchResults) {
     
-    renderSearchNavItem()
-
-    if (previous
-      && previous.loginModalDisplay) {
-  
-      renderSearchModal() 
-    }
-  
-    previous = next
-
-  }  else if (previous
-    && previous.loadStatus
-    && !next.loadStatus) {
-  
-    renderSearchModal()
-  
-    previous = next
+    renderComponent()
   }
-
+  
   previous = next
 }

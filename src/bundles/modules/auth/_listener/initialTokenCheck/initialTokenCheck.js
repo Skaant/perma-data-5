@@ -1,8 +1,8 @@
 import cookies from 'js-cookie'
 import {
   AUTH_INITIAL_TOKEN_CHECKED,
-  AUTH_TOKEN_CHECK_SUCCESS,
-  AUTH_TOKEN_CHECK_START
+  AUTH_LOGIN_CHECK_START,
+  AUTH_TOKEN_CHECK_SUCCESS
 } from '../../_actions/auth.actions'
 
 
@@ -16,7 +16,7 @@ export default () => {
 
     store
       .dispatch({
-        type: AUTH_TOKEN_CHECK_START
+        type: AUTH_LOGIN_CHECK_START
       })
 
     $.get('/api/auth/check-token')
