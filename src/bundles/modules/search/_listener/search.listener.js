@@ -32,18 +32,16 @@ export default () => {
     || previous.value !== next.value) {
     
     renderSearchNavItem()
+
+    if (previous
+      && previous.loginModalDisplay) {
+  
+      renderSearchModal() 
+    }
   
     previous = next
 
-  } else if (previous
-    && previous.loginModalDisplay
-    && previous.value !== next.value) {
-
-    renderSearchModal()
-  
-    previous = next
-    
-  } else if (previous
+  }  else if (previous
     && previous.loadStatus
     && !next.loadStatus) {
   

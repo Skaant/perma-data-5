@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'day roman';
-  src: url('../fonts/DAYROM__.ttf');
+  src: url('/public/fonts/DAYROM__.ttf');
 }
 
 .font-epic {
