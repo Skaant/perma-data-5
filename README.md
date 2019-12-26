@@ -120,4 +120,4 @@ This pattern only describes the *middleware* nature of its contained folders and
 
 This pattern describes the `server`'s routes-tree architecture.
 
-`<picture>`
+![alt](https://raw.githubusercontent.com/Skaant/perma-data-5/master/doc/images/_routers.pattern.jpg)
