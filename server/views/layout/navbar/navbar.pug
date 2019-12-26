@@ -1,6 +1,4 @@
-nav.navbar.z-depth-0.pt-2(
-  style='margin-bottom: 45px'
-)
+nav.navbar.z-depth-0.pt-2.mb-4.pb-3
   a.navbar-brand.text-white.font-epic(
     href='/'
     style='font-size: 1.4rem'
@@ -11,9 +9,7 @@ nav.navbar.z-depth-0.pt-2(
         role="status"
       )
     li.nav-item.mr-4
-      style
-        include ./navbar.css
-      #search-input__form.md-form.my-0
+      #search-nav-item.md-form.my-0
         input#search-input.form-control.mb-0.pb-0.pt-2.text-white(
           type="text"
           placeholder="Trouvez des plantes"

@@ -5,10 +5,10 @@ import {
 import { MAIN_AUTH_USER_MODAL_OPEN } from '../../../mainAuth/_actions/mainAuth.actions'
 
 export default ({
+  checkingLogin,
+  checkingToken,
   tokenInitialCheck,
-  user,
-  modalDisplay,
-  form
+  user
 }) => {
 
   const store = window.__STORE__
@@ -17,7 +17,8 @@ export default ({
     <React.Fragment>
       {
         !user
-          && !tokenInitialCheck
+          && (checkingLogin
+            || checkingToken)
           && (
             <span className='spinner-grow text-white nav-link'
                 role='status'></span>
@@ -25,7 +26,8 @@ export default ({
       }
       {
         !user
-          && tokenInitialCheck
+          && !(checkingLogin
+            || checkingToken)
           && (
             <span className="fas fa-user mt-2 text-white"
                 style={ {

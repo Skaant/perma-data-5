@@ -1,3 +1,4 @@
+import cookies from 'js-cookie'
 import renderAuthNavItem from './renderAuthNavItem/renderAuthNavItem'
 import initialTokenCheck from './initialTokenCheck/initialTokenCheck'
 import loadBundle from './loadBundle/loadBundle'
@@ -18,8 +19,9 @@ export default () => {
 
     initialTokenCheck()
   
-  } else if (previous
-    && !previous.tokenInitialCheck
+  } else if (((previous
+        && !previous.tokenInitialCheck)
+      || !previous)
     && next.tokenInitialCheck
     && !next.user) {
 
@@ -29,6 +31,9 @@ export default () => {
 
   } else if (previous.user
     && !next.user) {
+
+    cookies
+      .remove('auth')
 
     previous = next
 
@@ -59,7 +64,7 @@ export default () => {
     unmountLoginModal()
 
   } else if (previous
-      && previous.loginModalDisplay !== next.loginModalDisplay) {
+    && previous.loginModalDisplay !== next.loginModalDisplay) {
     
     if (next.loginModalDisplay === true) {
       
@@ -67,9 +72,10 @@ export default () => {
 
     } else {
 
-      $('#login-modal')
-        .modal('hide')
+      unmountLoginModal()
     }
+
+    previous = next
 
   } else if (previous
     && previous.form.mode !== next.form.mode) {

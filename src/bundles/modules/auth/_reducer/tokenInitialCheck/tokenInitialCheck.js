@@ -1,6 +1,5 @@
 import {
-  AUTH_INITIAL_TOKEN_CHECKED,
-  AUTH_TOKEN_CHECK_START
+  AUTH_TOKEN_CHECK_SUCCESS, AUTH_INITIAL_TOKEN_CHECKED
 } from '../../_actions/auth.actions'
 
 export default (
@@ -10,8 +9,8 @@ export default (
 
   switch (type) {
 
-    case AUTH_TOKEN_CHECK_START:
     case AUTH_INITIAL_TOKEN_CHECKED:
+    case AUTH_TOKEN_CHECK_SUCCESS:
       return true
 
     default:
