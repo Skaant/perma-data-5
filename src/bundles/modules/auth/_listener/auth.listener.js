@@ -1,3 +1,4 @@
+import cookies from 'js-cookie'
 import renderAuthNavItem from './renderAuthNavItem/renderAuthNavItem'
 import initialTokenCheck from './initialTokenCheck/initialTokenCheck'
 import loadBundle from './loadBundle/loadBundle'
@@ -18,8 +19,9 @@ export default () => {
 
     initialTokenCheck()
   
-  } else if (previous
-    && !previous.tokenInitialCheck
+  } else if (((previous
+        && !previous.tokenInitialCheck)
+      || !previous)
     && next.tokenInitialCheck
     && !next.user) {
 
@@ -29,6 +31,9 @@ export default () => {
 
   } else if (previous.user
     && !next.user) {
+
+    cookies
+      .remove('auth')
 
     previous = next
 

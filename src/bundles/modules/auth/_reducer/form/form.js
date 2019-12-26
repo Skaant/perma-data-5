@@ -1,6 +1,7 @@
 import {
   AUTH_SWITCH_FORM_MODE,
-  AUTH_UPDATE_FORM_FIELD
+  AUTH_UPDATE_FORM_FIELD,
+  AUTH_LOGIN_MODAL_OPEN
 } from '../../_actions/auth.actions'
 
 export default (
@@ -12,13 +13,14 @@ export default (
   },
   {
     type,
-    mode,
+    mode = 'sign-in',
     field
   }
 ) => {
 
   switch (type) {
 
+    case AUTH_LOGIN_MODAL_OPEN:
     case AUTH_SWITCH_FORM_MODE:
       
       return Object.assign(
