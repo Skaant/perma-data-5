@@ -1,7 +1,7 @@
 extends ../../layout/layout.pug
 
 block content
-  #home-base.container-fluid
+  .container-fluid
 
     .row.justify-content-center
       .col-12.col-md-10.jumbotron.text-center
@@ -34,7 +34,7 @@ block content
         h2.text-center.font-epic(
           style='margin: 45px 45px 15px 45px'
         ) Trouvez des plantes
-        #home-search_anchor.md-form.row.justify-content-center
+        .md-form.row.justify-content-center
           input.form-control.col-12.col-md-6.text-center.font-weight-light(
             style='font-size: 1.2rem; font-family: Roboto, sans-serif'
             type='text'
@@ -97,12 +97,12 @@ block content
           style='margin: 45px 45px 60px 45px'
         ) Commencez à améliorer
         .row
-          .col-12.col-md-6.home-btn-sign-in
+          .col-12.col-md-6
             button.btn.btn-outline-dark.w-100.font-weight-light.p-3(
               type='button'
               style='border-color: #7cb342 !important; letter-spacing: 3px'
             ) Connectez-vous
-          .col-12.col-md-6.home-btn-sign-up
+          .col-12.col-md-6
             button.btn.btn-light.w-100.text-white.font-weight-light.p-3(
               type='button'
               style='background-color: #7cb342 !important; letter-spacing: 3px'
@@ -205,7 +205,7 @@ block content
             br
             span de vos objectifs d'utilisation :
   
-    #search.row.mb-4.justify-content-center.pb-2
+    #search.row.mb-4.justify-content-center
       .col-12.col-md-8
         .card.container(
           style='padding: 60px 60px 45px 60px'
@@ -220,9 +220,9 @@ block content
               p
                 span La tribu des&nbsp;
                 b.font-epic MIKORIS&nbsp;
-                span sont les spécialistes de la recherche d'informations
-                br
-                span sur les plantes.
+                span sont les spécialistes de 
+                br 
+                span la recherche d'informations sur les plantes.
               p(
                 style='margin-top: 30px'
               )
@@ -270,7 +270,7 @@ block content
               br
               span votre récolte abondante.
 
-    #contribute.row.my-4.py-2.justify-content-center
+    #contribute.row.my-4.pt-2.justify-content-center
       .col-12.col-md-10.card(
         style='padding: 60px 60px 30px 60px'
       )
@@ -315,19 +315,19 @@ block content
         .row(
           style='margin-top: 90px; margin-bottom: 60px'
         )
-          .col-12.col-md-6.home-btn-sign-in
+          .col-12.col-md-6
             button.btn.btn-outline-dark.w-100.font-weight-light.p-3(
               type='button'
               style='border-color: #7cb342 !important; letter-spacing: 3px'
             ) Connectez-vous
-          .col-12.col-md-6.home-btn-sign-up
+          .col-12.col-md-6
             button.btn.btn-light.w-100.text-white.font-weight-light.p-3(
               type='button'
               style='background-color: #7cb342 !important; letter-spacing: 3px'
             ) Créez un compte
               
     .row.mt-4.py-2.justify-content-center
-      .col-12.col-md-8
+      .col-12.col-md-8.mb-4
         .card.px-4.pt-2.pb-4
           p.text-right.px-4.font-weight-lighter(
             style='margin-top: 30px; margin-bottom: 30px; font-size: 1.4rem'
@@ -354,7 +354,7 @@ block content
             br
             span participiez à en créer de nouvelles ...
             
-    #develop.row.my-4.pb-2.justify-content-center
+    #develop.row.my-4.py-2.justify-content-center
       .col-12.col-md-10.card.container(
         style='padding: 60px 60px 45px 60px'
       )
@@ -412,7 +412,12 @@ block content
           )
             b.font-epic IMROK
 
-  #home-auth
+        
+        
+          
+            
+
+  #city__anchor
 
 block scripts
   script(
