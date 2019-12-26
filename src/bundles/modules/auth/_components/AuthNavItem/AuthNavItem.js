@@ -2,6 +2,7 @@ import React from 'react'
 import {
   AUTH_LOGIN_MODAL_OPEN
 } from '../../_actions/auth.actions'
+import { MAIN_AUTH_USER_MODAL_OPEN } from '../../../mainAuth/_actions/mainAuth.actions'
 
 export default ({
   tokenInitialCheck,
@@ -27,10 +28,13 @@ export default ({
           && tokenInitialCheck
           && (
             <span className="fas fa-user mt-2 text-white"
-                style={ { cursor: 'pointer' } }
+                style={ {
+                  cursor: 'pointer'
+                } }
                 title="S'authentifier"
                 onClick={
                   () =>
+
                     store.dispatch({
                       type: AUTH_LOGIN_MODAL_OPEN
                     }) }></span>
@@ -39,16 +43,22 @@ export default ({
       {
         user
           && (
-            /**
-             * `id='auth-user-menu'` is used as an anchor to
-             *  render `UserMenu`. */
-            <span  id='auth-user-menu'
-                className="fas fa-user-check text-white"
-                title={ user.email }></span>
+            <span className="fas fa-user-check text-white"
+                style={ {
+                  cursor: 'pointer'
+                } }
+                title={ 'Menu utilisateur de : '
+                  + user.pseudo }
+                onClick={
+                  () =>
+                  
+                    store.dispatch({
+                      type: MAIN_AUTH_USER_MODAL_OPEN
+                    }) }></span>
           )
       }
       <div id='login-modal_anchor'></div>
-      <div id='user-panel_anchor'></div>
+      <div id='user-modal_anchor'></div>
     </React.Fragment>
   )
 }

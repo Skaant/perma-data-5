@@ -27,6 +27,13 @@ export default () => {
 
     renderAuthNavItem()
 
+  } else if (previous.user
+    && !next.user) {
+
+    previous = next
+
+    renderAuthNavItem()
+
   } else if (previous
       && !previous.user
       && next.user
@@ -34,7 +41,9 @@ export default () => {
 
     previous = next
 
-    loadBundle(window.PAGE_ID)
+    loadBundle(
+      window.PAGE_ID,
+      next.user)
 
   } else if (previous
       && ((!previous.moduleLoaded
