@@ -1,4 +1,5 @@
-import renderAuthButtons from "./renderAuthButtons/renderAuthButtons"
+import activateAuthButtons from "./activateAuthButtons/activateAuthButtons"
+import renderHomeSearch from "./renderHomeSearch/renderHomeSearch"
 
 // Compare logic
 let previousAuth = null
@@ -14,7 +15,14 @@ export default () => {
 
   if (!previousAuth) {
 
-    renderAuthButtons()
+    activateAuthButtons()
+
+  }
+  
+  if (!previousSearch
+    || previousSearch.value !== nextSearch.value) {
+
+    renderHomeSearch()
   }
   
   previousAuth = nextAuth

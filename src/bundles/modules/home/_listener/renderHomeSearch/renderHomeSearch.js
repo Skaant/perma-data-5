@@ -1,5 +1,5 @@
 import React from 'react'
-import SearchNavItem from '../../_components/SearchNavItem/SearchNavItem'
+import HomeSearch from '../../_components/HomeSearch/HomeSearch'
 
 export default () => {
 
@@ -10,6 +10,6 @@ export default () => {
   
   window.ReactDOM
     .render(
-      <SearchNavItem { ...search }/>,
-      $('#search-nav-item')[0])
+      <HomeSearch { ...search }/>,
+      $('#home-search_anchor')[0])
 }
