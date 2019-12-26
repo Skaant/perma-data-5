@@ -3,7 +3,9 @@ import { SEARCH_MODAL_CLOSE } from '../../_actions/search.actions'
 import SearchModal from '../../_components/SearchModal/SearchModal'
 import setBackdropClickClose from '../../../_utils/setBackdropClickClose/setBackdropClickClose'
 
-export default () => {
+export default (
+  openModal = false
+) => {
 
   const { 
     search
@@ -15,11 +17,14 @@ export default () => {
       <SearchModal { ...search } />,
       $('#search-modal_anchor')[0])
 
-  $('#search-modal')
-    .modal('show')
+  if (openModal) {
 
-  setBackdropClickClose(
-    '#search-modal',
-    SEARCH_MODAL_CLOSE
-  )
+    $('#search-modal')
+      .modal('show')
+
+    setBackdropClickClose(
+      '#search-modal',
+      SEARCH_MODAL_CLOSE
+    )
+  }
 }

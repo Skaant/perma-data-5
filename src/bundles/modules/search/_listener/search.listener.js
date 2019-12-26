@@ -5,6 +5,9 @@ import renderSearchNavItem from "./renderSearchNavItem/renderSearchNavItem";
 // Compare logic
 let previous = null
 
+/**
+ * The `search` listener
+ */
 export default () => {
 
   const next = window.__STORE__
@@ -12,11 +15,11 @@ export default () => {
     .search
 
   if (previous
-      && previous.modalDisplay !== next.modalDisplay) {
+      && previous.loginModalDisplay !== next.loginModalDisplay) {
     
     if (next.modalDisplay === true) {
 
-      renderSearchModal()
+      renderSearchModal(true)
 
     } else {
 
@@ -32,6 +35,14 @@ export default () => {
   
     previous = next
 
+  } else if (previous
+    && previous.loginModalDisplay
+    && previous.value !== next.value) {
+
+    renderSearchModal()
+  
+    previous = next
+    
   } else if (previous
     && previous.loadStatus
     && !next.loadStatus) {

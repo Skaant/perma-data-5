@@ -19,24 +19,43 @@ export default ({
   return (
     <div id="search-modal"
         className='modal fade right'>
-      <div className='modal-dialog modal-side modal-top-right mr-4'
-          role='document'>
+      <div className='modal-dialog'
+          role='document'
+          style={ {
+            marginTop: '60px'
+          } }>
         <div className='modal-content'>
-          <div className='modal-header'>
-            <h5 className='modal-title'>
-              Recherche</h5>
+          <div className='modal-header z-depth-2'>
+            <div className='container'>
+              <div className='row'>
+                <h1 className='h2 font-weight-lighter'
+                    style={ {
+                      margin: '60px 45px 0'
+                    } }>
+                  Trouvez des plantes :</h1>
+              </div>
+              <div className='row'
+                  style={ {
+                    margin: '10px 45px 30px'
+                  } }>
+                <SearchModalInput value={ value }/>
+              </div>
+            </div>
             <button type="button"
                 className="close"
                 onClick={ closeModal }>
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <SearchModalInput value={ value }/>
-          <div className='modal-body'>
+          <div className='modal-body px-4 pt-3 pb-1'
+              // From the `modal-body`, should be moved to `SearchResults`
+              style={ {
+                backgroundColor: '#7cb342'
+              } }>
             {
               loadStatus
                 && (
-                  <div className='spinner-grow'
+                  <div className='spinner-grow text-white'
                       role='status'>
                     <span className='sr-only'></span>
                   </div>

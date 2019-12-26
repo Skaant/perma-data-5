@@ -7,6 +7,20 @@
   font-family: 'day roman';
 }
 
+#search-input {
+  border-bottom-color: rgba(255, 255, 255, 0.85) !important;
+}
+
+#search-input::placeholder {
+  color: white;
+  font-weight: 300;
+}
+
+#search-input:focus {
+  border-bottom: 2px white solid !important;
+  box-shadow: none;
+}
+
 .md-form input[type="text"]:focus {
   box-shadow: 0 1px 0 0 rgb(124, 179, 66) !important;
   border-bottom: 1px solid rgb(124, 179, 66) !important;
