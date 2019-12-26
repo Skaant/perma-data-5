@@ -59,7 +59,7 @@ export default () => {
     unmountLoginModal()
 
   } else if (previous
-      && previous.loginModalDisplay !== next.loginModalDisplay) {
+    && previous.loginModalDisplay !== next.loginModalDisplay) {
     
     if (next.loginModalDisplay === true) {
       
@@ -67,9 +67,10 @@ export default () => {
 
     } else {
 
-      $('#login-modal')
-        .modal('hide')
+      unmountLoginModal()
     }
+
+    previous = next
 
   } else if (previous
     && previous.form.mode !== next.form.mode) {

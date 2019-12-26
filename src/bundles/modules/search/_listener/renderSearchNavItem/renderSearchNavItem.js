@@ -1,15 +1,15 @@
 import React from 'react'
-import Search from '../../_components/Search/Search'
+import SearchNavItem from '../../_components/SearchNavItem/SearchNavItem'
 
 export default () => {
 
   const { 
-    search: props
+    search
   } = window.__STORE__
     .getState()
   
   window.ReactDOM
     .render(
-      <Search { ...props }/>,
+      <SearchNavItem { ...search }/>,
       $('#search-input__form')[0])
 }
