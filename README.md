@@ -111,10 +111,66 @@ Every client bundle has its own `npm run` command :
 
 ### Patterns
 
-#### \_middlewares
-`_middlewares` is located in the `server/app` folder.
+* **global**
+  * [\_utils](#_utils)
+* server
+  * [\_middlewares](#_middlewares)
+  * [\_routes](#_routes)
+* client
 
-This pattern only describes the *middleware* nature of its contained folders and files.
+#### \_utils
+`_utils` is a **global** pattern.
+
+**Happens :** when some logic is shared between two or more consumers,
+
+**Behaviour :** the logic folder has to be located in an `_utils/` folder, **in the most specific shared parent folder**.
+
+> The folder tree pattern : `childrenA` and `childrenB` consumes `sharedLogic` service
+
+```
+parent
++-- \_utils
+|   +-- sharedLogic
+|   |   +-- sharedLogic.js
++-- childrenA
+|   +-- childrenA.js
++-- childrenB
+|   +-- childrenB.js
+```
+
+#### \_middlewares
+`_middlewares` is a **server** pattern.
+
+**Happens :** in the `server/app` folder,
+
+**Behaviour 1 :** group all the middlewares used by the server on the same root.
+
+> The folder tree pattern
+
+```
+_middlewares
++-- a
+|   +-- a.middleware.js
++-- b
+|   +-- b.middleware.js
+```
+
+**Behaviour 2 :** all the `.middleware` module file expose a factory which return a middleware handler.
+
+> The file code pattern
+
+```javascript
+// The file
+module.exports =
+  () =>
+  
+    (req, res, next) => {
+  
+      // the middleware logic here ...
+  
+      next()
+    }
+```
 
 #### \_routes
 `_routes` is located in the `server/app` folder.
