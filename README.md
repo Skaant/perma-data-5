@@ -35,35 +35,51 @@ Development and hosting aims for the lowest energetic and financial costs.
 To enforces its low consumption orientation (*principle 3*) and save user time and attention, application remains as simple as possible.
 
 #### #5. Playing is learning
-A gamification layer has been added to make data crawling more interesting, and playful.
+As part of shaping data (*principle 6*), a gamification layer has been added to make and the learning more playful and the data crawling more interesting.
 
 #### #6. A fantastic universe
+The story of the **PERMA-DATA** game (*principle 5*) takes place between a near future and up to the end of universe : an ideal setup for imaginating tomorrow's solutions.
 
-#### #7. A philosophical tale
+#### #7. Art for the soul
+Illustrating this very universe (*principle 6*), creativity and aesthetics are also a support for sharing knowledge better.
 
-#### #8. Research tool
+#### #8. A philosophical tale
+Universe (*principle 6*) and art (*principle 7*) seres as an image/metaphor of way more abstract concepts.
+
+#### #9. Research tool
+Sourced and verfied [**plant data**], that you can contribute to enlarge by your work (*principle 10*).
 
 #### #9. Gardening tool
+Inventory your genetics, manage plants growing in your garden, get tips and send feedback (*principle 9*).
 
-#### #10. Community tool
+#### #11. Community tool
+Gardening (*principle **) is also sharing. We are giving an pleasant interface to chat and visualize tasks.
 
-#### #11. Collaborative development
+#### #12. Collaborative development
+The application is open-source, ready for user and developer interactions.
 
-#### #12. Continous improvement
+#### #13. Implementation of shared patterns
+Patterns are defined not to obfuscate architecture but to define a common language, easing design exchanges and code refactoring.
+
+#### #14. Continous improvement
 The application will never stop improving in term of reliability and features.
 
 ## Development
 **PERMA-DATA** is built on a composite stack :
 
 * **Server :** `node` + `express`
+
   * `pugjs` template engine
   * `mongo` database
+  
 * **Client :** `jquery` + `react` [**bundles**]
+
   * `redux` state management
 
 The design promotes use of code **patterns** to enforce a scallable architecture. Please refer to [the dedicated section](#patterns) of this document to learn more.
 
 ### Quick start
+*Partially deprecated, to review.*
 
 #### Installation
 * First of all, install dependencies with `npm install`.
