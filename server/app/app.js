@@ -23,16 +23,8 @@ app.use(authMiddleware())
 // ROUTES TREE
 
 app.use(
-  '/api',
-  require('./_routes/_routers/api/api.router'))
-
-app.get(
-  '/plant/:id',
-  require('./_routes/plantIdHandler/plantId.handler'))
-
-app.get(
   '/',
-  require('./_routes/homeHandler/home.handler'))
+  require('./_root/_root.router'))
 
 
 module.exports = app
