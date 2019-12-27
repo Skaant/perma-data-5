@@ -7,9 +7,9 @@
 
 ### Table of contents
 * [What is PERMA-DATA ?](#what-is-perma-data-)
- * [Principles](#principles)
+  * [Principles](#principles)
 * [Development](#development)
- * [Quick start](#quick-start)
+  * [Quick start](#quick-start)
 * [Patterns](#patterns)
 
 ## What is PERMA-DATA ?
