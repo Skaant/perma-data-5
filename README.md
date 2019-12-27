@@ -115,7 +115,7 @@ Every client bundle has its own `npm run` command :
   * [\_utils](#_utils)
 * **server**
   * [\_middlewares](#_middlewares)
-  * [\_routes](#_routes)
+  * [\_root](#_root)
 * **client**
 
 #### \_utils
@@ -228,7 +228,7 @@ module.exports =
    
     // the handler logic here ...
  
-    res
+    return res
       .send()
     // or other method
   }
