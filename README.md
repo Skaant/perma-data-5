@@ -178,7 +178,8 @@ module.exports =
 **Behaviour 1 :** contains all server's routes, ordered through :
 
 * multiple `handler`(s), at the folder root,
-* multiple `router`(s), in an optional `_routers` folder.
+* multiple `router`(s), in an optional `_routers` folder,
+* a `.router` file to bind handlers and routers from the root.
 
 ```
 _root
@@ -187,6 +188,48 @@ _root
 |   |   +-- <router>.router.js
 +-- <handler>
 |   +-- <handler>.handler.js
++-- _root.router.js
 ```
 
-**Behaviour 2 :** 
+**Behaviour 2 :** a `.router` file exposes an `express.Router()` which :
+
+* `.use(path, <router>)`, to bind sub-routers to path,
+* `.<method>(path, <handler>)` to bind handlers to method and path.
+
+> `.router` file code pattern
+
+```javascript
+const { Router } = require('express')
+
+const router = Router()
+
+router
+  .use(
+    '<path>',
+    require('./_routers/<router>/<router>.router')
+  )
+
+router
+  .put(
+    '/<path>',
+    require('./<handler>/<handler>.handler')
+  )
+
+module.exports = router
+```
+
+**Behaviour 3 :** a `.handler` file exposes a handler signature and return the `express.res` (can be encapsulated in a `Promise`).
+
+> The `handler` file code pattern
+
+```javascript
+module.exports =
+  (req, res) => {
+   
+    // the handler logic here ...
+ 
+    res
+      .send()
+    // or other method
+  }
+```
