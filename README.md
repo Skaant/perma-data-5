@@ -84,7 +84,7 @@ The design promotes use of code **patterns** to enforce a scallable architecture
 * First of all, install dependencies with `npm install`.
 * *You may also need to install* `webpack` *globally*.
 
-**You'll have then to request @Skaant to obtain a mongo "user" to provision the** `server/mongo/clientSecret.json` file with login and password :
+**You'll have then to** request @Skaant to obtain mongo credentials to provision the `server/mongo/clientSecret.json` file with `login` and `password` :
 
 ```json
 {
@@ -94,8 +94,8 @@ The design promotes use of code **patterns** to enforce a scallable architecture
 ```
 
 #### Local server
-* Start the server with `npm run dev-start`
-* The `npm start` script is reserved for production
+* Start the server with `npm run dev-start`,
+* `npm start` *is reserved for production*.
 
 #### Client bundles
 Every client bundle has its own `npm run` command :
