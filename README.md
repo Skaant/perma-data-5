@@ -112,14 +112,18 @@ Every client bundle has its own `npm run` command :
 ### Patterns
 
 * **global**
-  * [\_utils](#_utils)
+  * [`_utils/`](#_utils)
 * **server**
-  * [\_middlewares](#_middlewares)
-  * [\_root](#_root)
+  * [`_middlewares/` & middlewares](#_middlewares--middlewares)
+  * [`_root/` & routers](#_root--routers)
+  * server actions
+  * mongo aggregation
 * **client**
+  * 
+  * notification
 
-#### \_utils
-`_utils` is a **global** pattern.
+#### `_utils/`
+`_utils/` is a **global** pattern.
 
 **Happens :** when some logic is shared between two or more consumers,
 
@@ -136,7 +140,7 @@ Every client bundle has its own `npm run` command :
 |   +-- <children>.js
 ```
 
-#### \_middlewares
+#### `_middlewares/` & middlewares
 `_middlewares` is a **server** pattern.
 
 **Happens :** in the `server/app` folder,
@@ -168,7 +172,7 @@ module.exports =
     }
 ```
 
-#### \_root
+#### `_root/` & routers
 `_root` is a **server** pattern.
 
 **Happens :** located in the `server/app` folder,
