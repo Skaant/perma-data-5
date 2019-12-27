@@ -220,7 +220,7 @@ module.exports = router
 
 **Behaviour 3 :** a `.handler` file exposes a handler signature and return the `express.res` (can be encapsulated in a `Promise`).
 
-> The `handler` file code pattern
+> `.handler` file code pattern
 
 ```javascript
 module.exports =
