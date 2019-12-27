@@ -10,7 +10,7 @@
   * [Principles](#principles)
 * [Development](#development)
   * [Quick start](#quick-start)
-* [Patterns](#patterns)
+  * [Patterns](#patterns)
 
 ## What is PERMA-DATA ?
 
@@ -113,10 +113,10 @@ Every client bundle has its own `npm run` command :
 
 * **global**
   * [\_utils](#_utils)
-* server
+* **server**
   * [\_middlewares](#_middlewares)
   * [\_routes](#_routes)
-* client
+* **client**
 
 #### \_utils
 `_utils` is a **global** pattern.
@@ -125,17 +125,15 @@ Every client bundle has its own `npm run` command :
 
 **Behaviour :** the logic folder has to be located in an `_utils/` folder, **in the most specific shared parent folder**.
 
-> The folder tree pattern : `childrenA` and `childrenB` consumes `sharedLogic` service
+> The folder tree pattern : `children`s consume the `sharedLogic`'s service.
 
 ```
-parent
+<parent>
 +-- \_utils
 |   +-- sharedLogic
 |   |   +-- sharedLogic.js
-+-- childrenA
-|   +-- childrenA.js
-+-- childrenB
-|   +-- childrenB.js
++-- <children>
+|   +-- <children>.js
 ```
 
 #### \_middlewares
@@ -149,10 +147,8 @@ parent
 
 ```
 _middlewares
-+-- a
-|   +-- a.middleware.js
-+-- b
-|   +-- b.middleware.js
++-- <middleware>
+|   +-- <middleware>.middleware.js
 ```
 
 **Behaviour 2 :** all the `.middleware` module file expose a factory which return a middleware handler.
@@ -172,9 +168,25 @@ module.exports =
     }
 ```
 
-#### \_routes
-`_routes` is located in the `server/app` folder.
+#### \_root
+`_root` is a **server** pattern.
 
-This pattern describes the `server`'s routes-tree architecture.
+**Happens :** located in the `server/app` folder,
 
-![\_routes pattern diagram](https://raw.githubusercontent.com/Skaant/perma-data-5/master/doc/images/_routers.pattern.jpg)
+![\_root pattern diagram](https://raw.githubusercontent.com/Skaant/perma-data-5/master/doc/images/_root.pattern.jpg)
+
+**Behaviour 1 :** contains all server's routes, ordered through :
+
+* multiple `handler`(s), at the folder root,
+* multiple `router`(s), in an optional `_routers` folder.
+
+```
+_root
++-- _routers
+|   +-- <router>
+|   |   +-- <router>.router.js
++-- <handler>
+|   +-- <handler>.handler.js
+```
+
+**Behaviour 2 :** 
