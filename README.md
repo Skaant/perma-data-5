@@ -79,37 +79,35 @@ The application will never stop improving in term of reliability and features.
 The design promotes use of code **patterns** to enforce a scallable architecture. Please refer to [the dedicated section](#patterns) of this document to learn more.
 
 ### Quick start
-*Partially deprecated, to review.*
 
 #### Installation
 * First of all, install dependencies with `npm install`.
+* *You may also need to install* `webpack` *globally*.
 
-Before starting, you'll have to set :
-* The MongoDB "secret" file, containing connection username & password.
-
-#### Set up db.secret.json
-1. In the `./src/db` folder, create a `db.secret.json` file.
-2. Inside of it, add the following entries :
+**You'll have then to request @Skaant to obtain a mongo "user" to provision the** `server/mongo/clientSecret.json` file with login and password :
 
 ```json
 {
-  "username": "<userame>",
-  "password": "<password>
+  "login": "",
+  "password": ""
 }
 ```
 
-3. Go on the MongoDB Atlas instance, in the *Database Access* tab.
-4. Choose or create an user, and copy-paste its credentials in the json file.
-
 #### Local server
-* Start the server with `npm start`
-* For the purpose of specific server development, use the nodemon-mounted application by running `npm run dev-start`
+* Start the server with `npm run dev-start`
+* The `npm start` script is reserved for production
 
-*No server features actually depend on the NODE_ENV variables, while it may change in the future.*
+#### Client bundles
+Every client bundle has its own `npm run` command :
 
-#### Other scripts
-* `npm test` runs the Mocha/Chaï **unit testing** suite.
-The script excludes all "#e2e"-tagged tests.
+```json
+{
+  "build-home-base": "webpack --config ./webpack.config.js --output ./public/bundles/pages/home/base.js ./src/bundles/entrypoints/pages/home/base/base.js",
+  "build-home-auth": "webpack --config ./webpack.config.js --output ./public/bundles/pages/home/auth.js ./src/bundles/entrypoints/pages/home/auth/auth.js",
+  "build-plantId-main": "webpack --config ./webpack.config.js --output ./public/bundles/pages/plantId/main.js ./src/bundles/entrypoints/pages/plantId/main.js",
+  "build-plantId-auth": "webpack --config ./webpack.config.js --output ./public/bundles/pages/plantId/auth.js ./src/bundles/entrypoints/pages/plantId/auth.js"
+}
+```
 
 ### Patterns
 
