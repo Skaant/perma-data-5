@@ -78,16 +78,17 @@ export default () => {
     previous = next
 
   } else if (previous
-    && previous.form.mode !== next.form.mode) {
+    && JSON
+      .stringify(previous.form)
+      !== JSON
+        .stringify(next.form)) {
     
     previous = next
 
     renderLoginModal()
 
-  } /* else {
+  } else {
     
     previous = next
-
-    renderAuthNavItem()
-  } */
+  }
 }

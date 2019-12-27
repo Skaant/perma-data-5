@@ -11,5 +11,5 @@ export default user =>
       '',
       'Fermez ce message pour accéder l\'application.'
     ],
-    timeout: 0
+    timeout: 5000
   })

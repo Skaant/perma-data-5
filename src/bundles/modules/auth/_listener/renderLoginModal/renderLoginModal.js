@@ -6,14 +6,13 @@ import { AUTH_LOGIN_MODAL_CLOSE } from '../../_actions/auth.actions'
 export default () => {
 
   const { 
-    auth: props
+    auth
   } = window.__STORE__
     .getState()
   
   window.ReactDOM
     .render(
-      <LoginModal { ...props
-        .form }/>,
+      <LoginModal { ...auth.form }/>,
       document
         .getElementById('login-modal_anchor'))
 
