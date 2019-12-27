@@ -47,10 +47,10 @@ Illustrating this very universe (*principle 6*), creativity and aesthetics are a
 Universe (*principle 6*) and art (*principle 7*) seres as an image/metaphor of way more abstract concepts.
 
 #### #9. Research tool
-Sourced and verfied [**plant data**], that you can contribute to enlarge by your work (*principle 10*).
+Sourced and verfied [**plant data**], that you can contribute to enlarge by your work (*principle 11*).
 
-#### #9. Gardening tool
-Inventory your genetics, manage plants growing in your garden, get tips and send feedback (*principle 9*).
+#### #10. Gardening tool
+Inventory your genetics, manage plants growing in your garden, get tips and send feedback (*principle 11*).
 
 #### #11. Community tool
 Gardening (*principle **) is also sharing. We are giving an pleasant interface to chat and visualize tasks.
@@ -61,7 +61,7 @@ The application is open-source, ready for user and developer interactions.
 #### #13. Implementation of shared patterns
 Patterns are defined not to obfuscate architecture but to define a common language, easing design exchanges and code refactoring.
 
-#### #14. Continous improvement
+#### #14. Continuous improvement
 The application will never stop improving in term of reliability and features.
 
 ## Development
@@ -84,11 +84,11 @@ The design promotes use of code **patterns** to enforce a scallable architecture
 * First of all, install dependencies with `npm install`.
 * *You may also need to install* `webpack` *globally*.
 
-**You'll have then to** request @Skaant to obtain mongo credentials to provision the `server/mongo/clientSecret.json` file with `login` and `password` :
+**You'll have then to** request @Skaant to obtain mongo credentials to provision the `server/mongo/clientSecret.json` file with `username` and `password` :
 
 ```json
 {
-  "login": "",
+  "username": "",
   "password": ""
 }
 ```
