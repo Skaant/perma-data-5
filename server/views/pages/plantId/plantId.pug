@@ -1,17 +1,22 @@
 extends ../../layout/layout.pug
 
 block content
-  h1.pt-4 #{ titles.page }
-  h3.font-weight-lighter.mb-4 #{ plant.id }
-  div.pt-4
-    h2 #{ titles.data }
-    include ./dataBlock/dataBlock
-  div.py-4
-    h2.mb-4 #{ titles.sources }
-    include ./sourcesBlock/sourcesBlock
+  .container
+    h1.font-epic.pt-4(
+      style='margin: 45px 60px 15px'
+    )= titles.page
+    h2.font-weight-lighter.mb-4.h3(
+      style='margin: 0 60px 30px'
+    )= plant.id
+    div.pt-4
+      h2 #{ titles.data }
+      include ./dataBlock/dataBlock
+    div.py-4
+      h2.mb-4 #{ titles.sources }
+      include ./sourcesBlock/sourcesBlock
 
-block scripts
-  script(
-    type="text/javascript",
-    src="/public/bundles/pages/plantId/main.js"
-  )
+  block scripts
+    script(
+      type="text/javascript",
+      src="/public/bundles/pages/plantId/base.js"
+    )

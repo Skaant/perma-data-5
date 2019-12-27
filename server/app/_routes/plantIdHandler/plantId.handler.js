@@ -34,7 +34,7 @@ module.exports = (req, res) => {
             
           const page = pug
             .renderFile(
-              './src/app/views/pages/plantId/plantId.pug', 
+              './server/views/pages/plantId/plantId.pug', 
               {
                 titles: {
                   page: plantName,
