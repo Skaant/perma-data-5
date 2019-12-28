@@ -197,7 +197,7 @@ module.exports =
    * The root [**router**] is `_routes`.
 2. Define [**router**] and [**route**] file format.
 
-![\_root pattern diagram](https://raw.githubusercontent.com/Skaant/perma-data-5/master/doc/images/_root.pattern.jpg)
+![\_routes pattern diagram](https://raw.githubusercontent.com/Skaant/perma-data-5/master/doc/images/_routes.pattern.jpg)
 
 **Implementation 1 :** contains all server's routes, ordered through :
 
