@@ -24,7 +24,7 @@ app.use(authMiddleware())
 
 app.use(
   '/',
-  require('./_root/_root.router'))
+  require('./_routes/_routes.router'))
 
 
 module.exports = app
