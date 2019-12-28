@@ -1,5 +1,5 @@
 # PERMA-DATA
-**first release :** `0.5.1`
+**first release to come:** `0.5.1`
 
 ![PERMA-DATA logo: data and grow symbols + heart butterflies](https://raw.githubusercontent.com/Skaant/perma-data-5/master/doc/images/perma-data-logo.jpg)
 
@@ -105,8 +105,11 @@ Every client bundle has its own `npm run` command :
   * server actions
   * mongo aggregation
 * **client**
-  * 
-  * notification
+  * layout
+  * bootstraping & bundles
+  * `_initializer` & modules (actions, reducers, listeners, components)
+  * modals
+  * notifications
 
 #### `_utils/`
 `_utils/` is a **global** pattern.
@@ -149,7 +152,9 @@ This pattern adresses more the shared logic location, than the abstraction conce
 
 **Implementation 1 :** The `server/app/folder` figures the dedicated folder for all middlewares.
 
-> Folder tree pattern
+**Test :** the `.middleware` location.
+
+> `_middlewares` folder tree pattern
 
 ```
 _middlewares
@@ -158,6 +163,8 @@ _middlewares
 ```
 
 **Implementation 2 :** all the `.middleware` module file expose a factory which return a middleware handler.
+
+**Test :** the `.middleware` file format.
 
 > `.middleware` file code pattern
 
@@ -183,34 +190,50 @@ module.exports =
 2. How to enforce a common interface for route (and router) files ?
 
 **Solutions :**
-1. Group routes as stated :
-  * Folders and [**router**] files as path nodes,
-  * Route files as [**route**] endpoints,
-  * The root [**router**] is `_routes`.
+1. Define routes tree as stated :
+
+   * Folders and [**router**] files as path nodes,
+   * Route files as [**route**] endpoints,
+   * The root [**router**] is `_routes`.
 2. Define [**router**] and [**route**] file format.
 
 ![\_root pattern diagram](https://raw.githubusercontent.com/Skaant/perma-data-5/master/doc/images/_root.pattern.jpg)
 
 **Implementation 1 :** contains all server's routes, ordered through :
 
-* multiple `handler`(s), at the folder root,
-* multiple `router`(s), in an optional `_routers` folder,
-* a `.router` file to bind handlers and routers from the root.
+* Multiple [**handler**]s at the `<router>/` folder root,
+* Multiple [**router**]s in an optional `_routers/` folder, also at the `<router>/` folder root,
+* A `.router` file to bind handlers and routers, down to this recursive structure.
+
+**Tests :**
+* `_routes/` location,
+* `<handler>/` 1..1 `<handler>.handler.js` composition,
+* `<router>/` :
+  * 1..1 `<router>.router.js`,
+  * 0..* `<handler>/`,
+  * 0..1 `_routers/` 1..* `<router>/` composition
+
+> `_routes/` folder tree pattern
 
 ```
 _routes
 +-- _routers
 |   +-- <router>
 |   |   +-- <router>.router.js
-+-- <handler>
-|   +-- <handler>.handler.js
+|   |   +-- _routers // _routers recursion ...   
+|   |   +-- <handlerB>
+|   |   |   +-- <handlerB>.handler.js
++-- <handlerA>
+|   +-- <handlerA>.handler.js
 +-- _routes.router.js
 ```
 
 **Implementation 2 :** a `.router` file exposes an `express.Router()` which :
 
-* `.use(path, <router>)`, to bind sub-routers to path,
-* `.<method>(path, <handler>)` to bind handlers to method and path.
+* `router.use(path, <router>)`, to bind sub-routers to path,
+* `router.<method>(path, <handler>)` to bind handlers to method and path.
+
+**Test :** the `.router` file format.
 
 > `.router` file code pattern
 
@@ -235,6 +258,8 @@ module.exports = router
 ```
 
 **Implementation 3 :** a `.handler` file exposes a handler signature and return the `express.res` (can be encapsulated in a `Promise`).
+
+**Test :** the `.handler` file format.
 
 > `.handler` file code pattern
 
