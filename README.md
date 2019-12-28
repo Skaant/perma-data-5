@@ -18,51 +18,37 @@
 
 Our main concern is to make data available for everybody, while ensuring its quality and maintainability.
 
-**PERMA-DATA** manifest can be found below, sumed up as a list of principles.
+The **PERMA-DATA** [manifest](/wiki/Manifest) details objectives and key features. It is here sumed up as a list of principles, but more information can be found on its main wiki page.
 
 ### Principles
 
-#### #1. Gather and abstract plant data
-Extract [**plant data**] from different supports, and then, break it in an atomic and interoperable format.
+1. **Gather and abstract plant data :** Extract [**plant data**] from different supports, and then, break it in an atomic and interoperable format.
 
-#### #2. Shapes plant data for user
-From this raw and numerous atomic [**plant data**] (*principle 1*), build a user-friendly interface to display consistent data views.
+2. **Shapes plant data for user :** From this raw and numerous atomic [**plant data**] (*principle 1*), build a user-friendly interface to display consistent data views.
 
-#### #3. Eco-responsible infrastructure
-Development and hosting aims for the lowest energetic and financial costs.
+3. **Eco-responsible infrastructure :** Development and hosting aims for the lowest energetic and financial costs.
 
-#### #4. Minimalist features and workflows
-To enforces its low consumption orientation (*principle 3*) and save user time and attention, application remains as simple as possible.
+4. **Minimalist features and workflows :** To enforces its low consumption orientation (*principle 3*) and save user time and attention, application remains as simple as possible.
 
-#### #5. Playing is learning
-As part of shaping data (*principle 6*), a gamification layer has been added to make and the learning more playful and the data crawling more interesting.
+5. **Playing is learning :** As part of shaping data (*principle 6*), a gamification layer has been added to make and the learning more playful and the data crawling more interesting.
 
-#### #6. A fantastic universe
-The story of the **PERMA-DATA** game (*principle 5*) takes place between a near future and up to the end of universe : an ideal setup for imaginating tomorrow's solutions.
+6. **A fantastic universe :** The story of the **PERMA-DATA** game (*principle 5*) takes place between a near future and up to the end of universe : an ideal setup for imaginating tomorrow's solutions.
 
-#### #7. Art for the soul
-Illustrating this very universe (*principle 6*), creativity and aesthetics are also a support for sharing knowledge better.
+7. **Art for the soul :** Illustrating this very universe (*principle 6*), creativity and aesthetics are also a support for sharing knowledge better.
 
-#### #8. A philosophical tale
-Universe (*principle 6*) and art (*principle 7*) seres as an image/metaphor of way more abstract concepts.
+8. **A philosophical tale :** Universe (*principle 6*) and art (*principle 7*) seres as an image/metaphor of way more abstract concepts.
 
-#### #9. Research tool
-Sourced and verfied [**plant data**], that you can contribute to enlarge by your work (*principle 11*).
+9. **Research tool :** Sourced and verfied [**plant data**], that you can contribute to enlarge by your work (*principle 11*).
 
-#### #10. Gardening tool
-Inventory your genetics, manage plants growing in your garden, get tips and send feedback (*principle 11*).
+10. **Gardening tool :** Inventory your genetics, manage plants in your garden, get tips and send feedback (*principle 11*).
 
-#### #11. Community tool
-Gardening (*principle **) is also sharing. We are giving an pleasant interface to chat and visualize tasks.
+11. **Community tool :** Gardening (*principle 10*) is also sharing. We are giving an pleasant interface to chat and visualize tasks.
 
-#### #12. Collaborative development
-The application is open-source, ready for user and developer interactions.
+12. **Collaborative development:** The application is open-source, ready for user and developer interactions.
 
-#### #13. Implementation of shared patterns
-Patterns are defined not to obfuscate architecture but to define a common language, easing design exchanges and code refactoring.
+13. **Implementation of shared patterns :** Patterns are defined not to obfuscate architecture but to define a common language, easing design exchanges and code refactoring.
 
-#### #14. Continuous improvement
-The application will never stop improving in term of reliability and features.
+14. **Continuous improvement :** The application will never stop improving in term of reliability and features.
 
 ## Development
 **PERMA-DATA** is built on a composite stack :
@@ -125,29 +111,45 @@ Every client bundle has its own `npm run` command :
 #### `_utils/`
 `_utils/` is a **global** pattern.
 
-**Happens :** when some logic is shared between two or more consumers,
+**Occurence :** two or more modules use the same logic.
 
-**Behaviour :** the logic folder has to be located in an `_utils/` folder, **in the most specific shared parent folder**.
+**Problem :** as the DRY principle states it, we should find a way to share the logic code between this two consumers.
 
-> The folder tree pattern : `children`s consume the `sharedLogic`'s service.
+This pattern adresses more the shared logic location, than the abstraction concept itself.
+
+**Solution :** put the logic at the top of the consumers common path.
+
+**Implementation :** the logic code folder has to be located in a dedicated `_utils/` folder, **in the most specific shared parent folder**.
+
+> Folder tree pattern : `children`s consume the `sharedLogic`'s service.
 
 ```
 <parent>
-+-- \_utils
++-- _utils
 |   +-- sharedLogic
 |   |   +-- sharedLogic.js
-+-- <children>
-|   +-- <children>.js
++-- <childrenA>
+|   +-- <childrenA>.js
++-- <childrenB>
+|   +-- <childrenB>.js
 ```
 
 #### `_middlewares/` & middlewares
 `_middlewares` is a **server** pattern.
 
-**Happens :** in the `server/app` folder,
+**Occurence :** a new middleware has to be developped/integrated.
 
-**Behaviour 1 :** group all the middlewares used by the server on the same root.
+**Problems :**
+1. Where to put this new middleware ?
+2. How to enforce a common interface for middleware files ?
 
-> The folder tree pattern
+**Solutions :**
+1. Group all the middlewares used by the server app in the same folder.
+2. Define a middleware file format.
+
+**Implementation 1 :** The `server/app/folder` figures the dedicated folder for all middlewares.
+
+> Folder tree pattern
 
 ```
 _middlewares
@@ -155,12 +157,11 @@ _middlewares
 |   +-- <middleware>.middleware.js
 ```
 
-**Behaviour 2 :** all the `.middleware` module file expose a factory which return a middleware handler.
+**Implementation 2 :** all the `.middleware` module file expose a factory which return a middleware handler.
 
-> The file code pattern
+> `.middleware` file code pattern
 
 ```javascript
-// The file
 module.exports =
   () =>
   
@@ -172,14 +173,25 @@ module.exports =
     }
 ```
 
-#### `_root/` & routers
-`_root` is a **server** pattern.
+#### `_routes/` & routers
+`_routes` is a **server** pattern.
 
-**Happens :** located in the `server/app` folder,
+**Occurence :** a new route has to be developped.
+
+**Problems :**
+1. Where to put this new route to keep a file tree as close as the route tree ?
+2. How to enforce a common interface for route (and router) files ?
+
+**Solutions :**
+1. Group routes as stated :
+  * Folders and [**router**] files as path nodes,
+  * Route files as [**route**] endpoints,
+  * The root [**router**] is `_routes`.
+2. Define [**router**] and [**route**] file format.
 
 ![\_root pattern diagram](https://raw.githubusercontent.com/Skaant/perma-data-5/master/doc/images/_root.pattern.jpg)
 
-**Behaviour 1 :** contains all server's routes, ordered through :
+**Implementation 1 :** contains all server's routes, ordered through :
 
 * multiple `handler`(s), at the folder root,
 * multiple `router`(s), in an optional `_routers` folder,
@@ -195,7 +207,7 @@ _root
 +-- _root.router.js
 ```
 
-**Behaviour 2 :** a `.router` file exposes an `express.Router()` which :
+**Implementation 2 :** a `.router` file exposes an `express.Router()` which :
 
 * `.use(path, <router>)`, to bind sub-routers to path,
 * `.<method>(path, <handler>)` to bind handlers to method and path.
@@ -222,7 +234,7 @@ router
 module.exports = router
 ```
 
-**Behaviour 3 :** a `.handler` file exposes a handler signature and return the `express.res` (can be encapsulated in a `Promise`).
+**Implementation 3 :** a `.handler` file exposes a handler signature and return the `express.res` (can be encapsulated in a `Promise`).
 
 > `.handler` file code pattern
 
