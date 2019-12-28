@@ -42,7 +42,7 @@ The **PERMA-DATA** [manifest](/wiki/Manifest) details objectives and key feature
 
 10. **Gardening tool :** Inventory your genetics, manage plants in your garden, get tips and send feedback (*principle 11*).
 
-11. **Community tool :** Gardening (*principle 10*) is also sharing. We are giving an pleasant interface to chat and visualize tasks.
+11. **Community tool :** Gardening (*principle 10*) is also sharing. We are giving a pleasant interface to chat and visualize tasks for your gardener crew.
 
 12. **Collaborative development:** The application is open-source, ready for user and developer interactions.
 
@@ -198,13 +198,13 @@ module.exports =
 * a `.router` file to bind handlers and routers from the root.
 
 ```
-_root
+_routes
 +-- _routers
 |   +-- <router>
 |   |   +-- <router>.router.js
 +-- <handler>
 |   +-- <handler>.handler.js
-+-- _root.router.js
++-- _routes.router.js
 ```
 
 **Implementation 2 :** a `.router` file exposes an `express.Router()` which :
