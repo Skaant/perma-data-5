@@ -4,10 +4,13 @@ const { uri, dbName } = require('./clientConfig.json')
 const { username, password } = require('./clientSecret.json')
 
 const client = new MongoClient(
-  uriResolver(uri,
+  uriResolver(
+    uri,
     username,
-    password), {
-  useNewUrlParser: true
+    password
+  ), {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
 })
 
 /**
@@ -16,27 +19,31 @@ const client = new MongoClient(
  * @alias module:mongo
  * @promise { { client: MongoClient, db: Db } } - Client & instance
  */
-module.exports =
-  () => 
-    new Promise((resolve, reject) => {
-      if (!client.isConnected()) {
-        client.connect(err => {
-          if (err) {
-            reject(err)
-          }
-          if (client.isConnected()) {
-            resolve({
-              client,
-              db: client
-                .db(dbName)
-            })
-          }
-        })
-      } else {
+module.exports = () =>
+
+  new Promise((resolve, reject) => {
+
+    if (!client.isConnected()) {
+
+      client.connect(err => {
+
+        if (err) {
+          reject(err)
+        }
+
         resolve({
           client,
           db: client
             .db(dbName)
         })
-      }
-    })
+      })
+
+    } else {
+
+      resolve({
+        client,
+        db: client
+          .db(dbName)
+      })
+    }
+  })
