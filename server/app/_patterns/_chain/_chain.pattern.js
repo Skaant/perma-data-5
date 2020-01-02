@@ -1,6 +1,8 @@
+const { PATTERN_TYPE_SERVER } = require('../../../../_patterns/_pattern/_enums/patternType/patternType.enum')
+
 module.exports = {
-  type: 'server',
-  id: 'chain',
+  type: PATTERN_TYPE_SERVER,
+  id: '_chain',
   name: 'handler chained process',
   description: [
     'Describes a chain of async steps in : control, query, transform.'
@@ -23,5 +25,8 @@ module.exports = {
     }
   },
   processor: '_aggragater',
-  instances: '*.aggregation'
+  instances: {
+    path: './server/app',
+    key: /.aggregation.js/
+  }
 }

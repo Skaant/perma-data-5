@@ -2,7 +2,7 @@ const fs = require('fs')
 
 const recursiveDirReader = (
   dirPath,
-  fileSearchKey
+  key
 ) => {
     
   const dirents = fs
@@ -26,29 +26,28 @@ const recursiveDirReader = (
             + '/'
             + name
         
-          if (dirent.isDirectory())
+          if (dirent.isDirectory()
+              && dirent.name !== 'node_modules')
 
             return [
               ...files,
               ...recursiveDirReader(
                 path,
-                fileSearchKey
+                key
               )
             ]
 
           if (name
-              .includes('.'
-                + fileSearchKey
-                + '.js'))
+              .match(key))
 
             return [
               ...files,
               {
                 name : name
-                  .split('.'
-                    + fileSearchKey)[0],
+                  .split(key)[0],
                 path,
-                data: require('../../../' + path)
+                content: require('../../'
+                  + path)
               }
             ]
 

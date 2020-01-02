@@ -1,6 +1,8 @@
+const { PATTERN_TYPE_SERVER } = require('../../../../_patterns/_pattern/_enums/patternType/patternType.enum')
+
 module.exports = {
-  type: 'server',
-  id: 'aggregation',
+  type: PATTERN_TYPE_SERVER,
+  id: '_aggregation',
   name: 'mongo aggregation query',
   description: [
     'Describes a mongo aggregation query as a composition of a mongo aggregation stages pipeline.',
@@ -16,5 +18,8 @@ module.exports = {
     }
   },
   processor: '_aggragater',
-  instances: '*.aggregation'
+  instances: {
+    path: './server/app',
+    key: /.aggregation.js/
+  }
 }
