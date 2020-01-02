@@ -1,123 +1,151 @@
-# perma-data-5
-**PERMA-DATA** is a **plant database**, a **collaborative tool**, a **game** and a **rich creative universe** !
+# PERMA-DATA
+**first release to come:** `0.5.1`
 
-Project aims balance between completeness and minimalism, between efficiency and economy.
+![PERMA-DATA logo: data and grow symbols + heart butterflies](https://raw.githubusercontent.com/Skaant/perma-data-5/master/doc/images/perma-data-logo.jpg)
 
-## Table of contents
-* [Quick start](#quick-start)
-* [Manifest](#perma-data-manifest)
-* [Patterns](#patterns)
+**PERMA-DATA** is a **plant database**, a **collaborative tool**, a **game** and a **rich creative universe**.
 
-## Quick start
+### Table of contents
+* [What is PERMA-DATA ?](#what-is-perma-data-)
+  * [Principles](#principles)
+* [Development](#development)
+  * [Quick start](#quick-start)
+  * [Patterns](#patterns)
 
-### Installation
+## What is PERMA-DATA ?
+
+**PERMA-DATA** is being developped to agregate [**plant data**] from various but consistent sources.
+
+Our main concern is to make data available for everybody, while ensuring its quality and maintainability.
+
+The **PERMA-DATA** [manifest](/wiki/Manifest) details objectives and key features. It is here sumed up as a list of principles, but more information can be found on its main wiki page.
+
+### Principles
+
+1. **Gather and abstract plant data :** Extract [**plant data**] from different supports, and then, break it in an atomic and interoperable format.
+
+2. **Shapes plant data for user :** From this raw and numerous atomic [**plant data**] (*principle 1*), build a user-friendly interface to display consistent data views.
+
+3. **Eco-responsible infrastructure :** Development and hosting aims for the lowest energetic and financial costs.
+
+4. **Minimalist features and workflows :** To enforces its low consumption orientation (*principle 3*) and save user time and attention, application remains as simple as possible.
+
+5. **Playing is learning :** As part of shaping data (*principle 6*), a gamification layer has been added to make and the learning more playful and the data crawling more interesting.
+
+6. **A fantastic universe :** The story of the **PERMA-DATA** game (*principle 5*) takes place between a near future and up to the end of universe : an ideal setup for imaginating tomorrow's solutions.
+
+7. **Art for the soul :** Illustrating this very universe (*principle 6*), creativity and aesthetics are also a support for sharing knowledge better.
+
+8. **A philosophical tale :** Universe (*principle 6*) and art (*principle 7*) seres as an image/metaphor of way more abstract concepts.
+
+9. **Research tool :** Sourced and verfied [**plant data**], that you can contribute to enlarge by your work (*principle 11*).
+
+10. **Gardening tool :** Inventory your genetics, manage plants in your garden, get tips and send feedback (*principle 11*).
+
+11. **Community tool :** Gardening (*principle 10*) is also sharing. We are giving a pleasant interface to chat and visualize tasks for your gardener crew.
+
+12. **Collaborative development:** The application is open-source, ready for user and developer interactions.
+
+13. **Implementation of shared patterns :** Patterns are defined not to obfuscate architecture but to define a common language, easing design exchanges and code refactoring.
+
+14. **Continuous improvement :** The application will never stop improving in term of reliability and features.
+
+## Development
+**PERMA-DATA** is built on a composite stack :
+
+* **Server :** `node` + `express`
+
+  * `pugjs` template engine
+  * `mongo` database
+  
+* **Client :** `jquery` + `react` [**bundles**]
+
+  * `redux` state management
+
+The design promotes use of code **patterns** to enforce a scallable architecture. Please refer to [the dedicated section](#patterns) of this document to learn more.
+
+### Quick start
+
+#### Installation
 * First of all, install dependencies with `npm install`.
+* *You may also need to install* `webpack` *globally*.
 
-Before starting, you'll have to set :
-* The MongoDB "secret" file, containing connection username & password.
-
-#### Set up db.secret.json
-1. In the `./src/db` folder, create a `db.secret.json` file.
-2. Inside of it, add the following entries :
+**You'll have then to** request @Skaant to obtain mongo credentials to provision the `server/mongo/clientSecret.json` file with `username` and `password` :
 
 ```json
 {
-  "username": "<userame>",
-  "password": "<password>
+  "username": "",
+  "password": ""
 }
 ```
 
-3. Go on the MongoDB Atlas instance, in the *Database Access* tab.
-4. Choose or create an user, and copy-paste its credentials in the json file.
+#### Local server
+* Start the server with `npm run dev-start`,
+* `npm start` *is reserved for production*.
 
-### Local server
-* Start the server with `npm start`
-* For the purpose of specific server development, use the nodemon-mounted application by running `npm run dev-start`
+#### Client bundles
+Every client bundle has its own `npm run` command :
 
-*No server features actually depend on the NODE_ENV variables, while it may change in the future.*
+```json
+{
+  "build-home-base": "webpack --config ./webpack.config.js --output ./public/bundles/pages/home/base.js ./src/bundles/entrypoints/pages/home/base/base.js",
+  "build-home-auth": "webpack --config ./webpack.config.js --output ./public/bundles/pages/home/auth.js ./src/bundles/entrypoints/pages/home/auth/auth.js",
+  "build-plantId-main": "webpack --config ./webpack.config.js --output ./public/bundles/pages/plantId/main.js ./src/bundles/entrypoints/pages/plantId/main.js",
+  "build-plantId-auth": "webpack --config ./webpack.config.js --output ./public/bundles/pages/plantId/auth.js ./src/bundles/entrypoints/pages/plantId/auth.js"
+}
+```
 
-### Other scripts
-* `npm test` runs the Mocha/Chaï **unit testing** suite.
-The script excludes all "#e2e"-tagged tests.
+### Patterns
 
-## Manifest
-**PERMA-DATA** materializes strong ideas and values. Here are some of the most important ones.
+* **global**
+* [_pattern](#_pattern)
 
-### #1 Gather, formalize, store, synthetize and display plant data
-**PERMA-DATA** is first about **gathering** *plant data* from different *sources*, and **displaying** it in a ergonomic way.
+* **server**
+* [_aggregation](#_aggregation)
+* [_chain](#_chain)
 
-*Plant data* can be about culture, production, functions and uses, transformation, conservation, multiplication, history, and a whole lot of different concerns.
+* **client**
 
-Both (the tremendous amount of *data* extracted from sources like books, videos, users' feedback, etc) and (the need for an user to find efficiently and economicaly relevant data) **force us to focus on data atomization and agregation**.
+#### _aggregation
 
-### #2 **Save energy, save time : optimize**
-**PERMA-DATA** aims for optimization.
+*mongo aggregation query*
 
-Physicaly and financialy, there is a lot of costs that should be kept as small as possible :
-* Reduction of bandwidth usage (client & server), API calls, CPU-milliseconds (simpler logical operations).
-* Reduction of development time, code complexity, technical debt (standards, technology intelligence, documentation, refactorables).
-* Reduction of provider's features *financial cost* (progressive implementation).
-* Reduction of inherent energy consumption sources leak ()
+**Type :** `PATTERN_TYPE_SERVER`
 
-Even for humans, there is time and attention to save with **minimalist features and workflows** :
-* Reduction of users' time spent and interaction needed to fulfill tasks on the application (automation).
-* Reduction of time required to acquire skills and vision for both users and developers.
+Describes a mongo aggregation query as a composition of a mongo aggregation stages pipeline.
 
-Automation and continuous improvment.
+Describes a facet-specific mongo aggregation query as a multiple paralleled mongo aggregation stages pipelines.
 
-### #3 **Playing is learning, learning is living**
-**PERMA-DATA** implements *gamification* concepts in order to share some precious pieces of knowledge, while making it playful and delightful.
+**Instances :** `./server/app (...) /.aggregation.js/`
 
-Game is part and gate to the artwork.
 
-**Gamification tends to improve engagement and passive learning**.
-* Game content shows practical knowledge and helps memorization.
-* Game mechanics illustrate *patterns*.
+#### _chain
 
-### #4 **Creative setting : art beyond technics**
-**PERMA-DATA** isn't about efficiency only, shapes does matter too. 
+*handler chained process*
 
-**PERMA-DATA** stages a *deep optimistic science-fiction* artwork, with a dense living universe, where :
-* *deep* stands for long-term projection (from a close future **to the end of universe**).
-* *deep* also stands for conceptual investigation (absolute, abstraction, infinity, oneness-wholeness).
-* *optimistic* stands for strong positive values like : symbiosis (integration, bio-mimetics), benevolence, collective consciousness.
-* *science-fiction* stands for imagination, innovation, anticipation.
+**Type :** `PATTERN_TYPE_SERVER`
 
-**Creativity, curiosity and diversity in content and styles are encouraged**.
+Describes a chain of async steps in : control, query, transform.
 
-### #5. Tooling and sharing feedback
-**Feedback on plants**
-* Add your own data to improve reliability and precision with geographical, climatic and growth contexts
-* Improve sourcing and format
-* Simply share your thoughts on data, or globally on plants.
+**Instances :** `./server/app (...) /.aggregation.js/`
 
-**Feedback on gardens and lists**
-* Share seeds lists from your inventory and plants lists from your gardens.
-* Participate to the community gardens to-do list.
 
-### #6 Collaborative development
-**PERMA-DATA** is fully **open-source**.
+#### _pattern
 
-It exposes a developer-oriented API. Code is heavily documented with tests, wiki and README.
-Creators, designers and developers can add their content features and see their work on the live application.
+*code patterns*
 
-### #7 Improve universe
-Exchange about the creative strategy & universe content.
-* Submit **your ideas & art** for alternate *formulation trees*.
-* As every individual has its own sensibility, *formulation trees* are here to help each one to find what's the most understandable, meaningful & suiting content for itself.
+**Type :** `PATTERN_TYPE_GLOBAL`
 
-Discuss game mechanics, collaborate to theory-crafting, balancing & **playfulness**.
+Describes a code pattern which can be reproduced across the project.
 
-## Patterns
+Patterns are enforced to standardize logic, files and tests.
 
-### _middlewares
-`_middlewares` is located in the `server/app` folder.
+**Instances :** `. (...) /.pattern.js/`
 
-This pattern only describes the *middleware* nature of its contained folders and files.
 
-### _routes
-`_routes` is located in the `server/app` folder.
 
-This pattern describes the `server`'s routes-tree architecture.
+### Glossary
 
-`<picture>`
+* pattern
+  * instances
+* plant data
