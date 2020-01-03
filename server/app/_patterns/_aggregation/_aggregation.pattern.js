@@ -4,10 +4,12 @@ module.exports = {
   type: PATTERN_TYPE_SERVER,
   id: '_aggregation',
   name: 'mongo aggregation query',
-  description: [
-    'Describes a mongo aggregation query as a composition of a mongo aggregation stages pipeline.',
-    'Describes a facet-specific mongo aggregation query as a multiple paralleled mongo aggregation stages pipelines.'
-  ],
+  description: {
+    summary: [
+      'Describes a mongo aggregation query as a composition of a mongo aggregation stages pipeline.',
+      'Describes a facet-specific mongo aggregation query as a multiple paralleled mongo aggregation stages pipelines.'
+    ]
+  },
   connections: {
     'mongo': {
       description: '_aggregation is consuming _mongo.'

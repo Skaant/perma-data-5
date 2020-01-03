@@ -25,6 +25,21 @@ const recursiveDirReader = (
           const path = dirPath
             + '/'
             + name
+
+          if (name
+            .match(key))
+
+            return [
+              ...files,
+              {
+                name : name
+                  .split(key)[0],
+                path,
+                content: !dirent.isDirectory()
+                  && require('../../'
+                    + path)
+              }
+            ]
         
           if (dirent.isDirectory()
               && dirent.name !== 'node_modules')
@@ -35,20 +50,6 @@ const recursiveDirReader = (
                 path,
                 key
               )
-            ]
-
-          if (name
-              .match(key))
-
-            return [
-              ...files,
-              {
-                name : name
-                  .split(key)[0],
-                path,
-                content: require('../../'
-                  + path)
-              }
             ]
 
           return files
