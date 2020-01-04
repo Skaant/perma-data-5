@@ -8,12 +8,12 @@ module.exports = {
     summary: 'Describes middleware functions and their unique folder.',
     occurence: 'a new middleware has to be developped/integrated.',
     problem: [
-      '1. Where to put this new middleware ?',
-      '2. How to enforce a common interface for middleware files ?'
+      'Where to put this new middleware ?',
+      'How to enforce a common interface for middleware files ?'
     ],
     solution: [
-      '1. Group all the middlewares used by the server app in the same folder.',
-      '2. Define a middleware file format.'
+      'Group all the middlewares used by the server app in the same folder.',
+      'Define a middleware file format.'
     ],
     implementation: [
       `

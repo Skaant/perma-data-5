@@ -160,17 +160,17 @@ Describes a chain of async steps in : control, query, transform.
 
 Describes middleware functions and their unique folder.
 
-**occurence:** a new middleware has to be developped/integrated.
+**Occurence:** a new middleware has to be developped/integrated.
 
-**problem 0:** 1. Where to put this new middleware ?
+**Problem 0:** 1. Where to put this new middleware ?
 
-**problem 1:** 2. How to enforce a common interface for middleware files ?
+**Problem 1:** 2. How to enforce a common interface for middleware files ?
 
-**solution 0:** 1. Group all the middlewares used by the server app in the same folder.
+**Solution 0:** 1. Group all the middlewares used by the server app in the same folder.
 
-**solution 1:** 2. Define a middleware file format.
+**Solution 1:** 2. Define a middleware file format.
 
-**implementation 0:** 
+**Implementation 0:** 
 The `server/app/folder` figures the dedicated folder for all middlewares.
 
 **Test :** the `.middleware` files location.
@@ -184,7 +184,7 @@ _middlewares
 ```
 
 
-**implementation 1:** 
+**Implementation 1:** 
 all the `.middleware` module file expose a factory which return a middleware handler.
 
 **Test :** the `.middleware` file format.
@@ -217,25 +217,25 @@ module.exports =
 
 Describes a recursive route and router files tree.
 
-**occurence:** a new route has to be developped.
+**Occurence:** a new route has to be developped.
 
-**problem 0:** 1. Where to put this new route to keep a file tree as close as the route tree ?
+**Problem 0:** 1. Where to put this new route to keep a file tree as close as the route tree ?
 
-**problem 1:** 2. How to enforce a common interface for route (and router) files ?
+**Problem 1:** 2. How to enforce a common interface for route (and router) files ?
 
-**solution 0:** 1. Define routes tree as stated :
+**Solution 0:** 1. Define routes tree as stated :
 
 * Folders and [**router**] files as path nodes,
 * Route files as [**route**] endpoints,
 * The root [**router**] is `_routes`.
 
 
-**solution 1:** 2. Define [**router**] and [**route**] file format.
+**Solution 1:** 2. Define [**router**] and [**route**] file format.
 
-**solution 2:** 
+**Solution 2:** 
 ![_routes pattern diagram](https://raw.githubusercontent.com/Skaant/perma-data-5/master/doc/images/_routes.pattern.jpg)
 
-**implementation 0:** 
+**Implementation 0:** 
 contains all server's routes, ordered through :
 
 * Multiple [**handler**]s at the `<router>/` folder root,
@@ -266,7 +266,7 @@ _routes
 ```
 
 
-**implementation 1:** 
+**Implementation 1:** 
 a `.router` file exposes an `express.Router()` which :
 
 * `router.use(path, <router>)`, to bind sub-routers to path,
@@ -297,7 +297,7 @@ module.exports = router
 ```
 
 
-**implementation 2:** 
+**Implementation 2:** 
 a `.handler` file exposes a handler signature and return the `express.res` (can be encapsulated in a `Promise`).
 
 **Test :** the `.handler` file format.
@@ -336,13 +336,13 @@ module.exports =
 
 Define a set of shared values.
 
-**occurence:** two or more modules will have to communicate on the same values.
+**Occurence:** two or more modules will have to communicate on the same values.
 
-**problem:** the values must be from the same referencial.
+**Problem:** the values must be from the same referencial.
 
-**solution:** define a module exposing a set of values.
+**Solution:** define a module exposing a set of values.
 
-**implementation:** the shared values module must be located in a dedicated `_enums` folder.
+**Implementation:** the shared values module must be located in a dedicated `_enums` folder.
 
 Folder should be at the top of the consumers' common folder tree.
 
@@ -386,15 +386,15 @@ Patterns are enforced to standardize logic, files and tests.
 
 Define a shared logic folder.
 
-**occurence:** two or more modules use the same logic.
+**Occurence:** two or more modules use the same logic.
 
-**problem:** as the DRY principle states it, we should find a way to share the logic code between this two consumers.
+**Problem:** as the DRY principle states it, we should find a way to share the logic code between this two consumers.
 
 This pattern adresses more the shared logic location, than the abstraction concept itself.
 
-**solution:** put the logic at the top of the consumers common path.
+**Solution:** put the logic at the top of the consumers common path.
 
-**implementation:** the logic code folder has to be located in a dedicated `_utils/` folder.
+**Implementation:** the logic code folder has to be located in a dedicated `_utils/` folder.
 
 Folder should be at the top of the consumers' common folder tree.
 

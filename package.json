@@ -9,7 +9,8 @@
     "build-home-base": "webpack --config ./webpack.config.js --output ./public/bundles/pages/home/base.js ./src/bundles/entrypoints/pages/home/base/base.js",
     "build-home-auth": "webpack --config ./webpack.config.js --output ./public/bundles/pages/home/auth.js ./src/bundles/entrypoints/pages/home/auth/auth.js",
     "build-plantId-base": "webpack --config ./webpack.config.js --output ./public/bundles/pages/plantId/base.js ./src/bundles/entrypoints/pages/plantId/base/base.js",
-    "build-plantId-auth": "webpack --config ./webpack.config.js --output ./public/bundles/pages/plantId/auth.js ./src/bundles/entrypoints/pages/plantId/auth/auth.js"
+    "build-plantId-auth": "webpack --config ./webpack.config.js --output ./public/bundles/pages/plantId/auth.js ./src/bundles/entrypoints/pages/plantId/auth/auth.js",
+    "doc": "node ./doc/_readme/documentor/documentor.js"
   },
   "repository": {
     "type": "git",

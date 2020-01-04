@@ -11,7 +11,8 @@ const descriptionRenderer = (
     : !Array
       .isArray(description[type])
       ? '**'
-        + type
+        + type[0].toUpperCase()
+        + type.slice(1)
         + ':** '
         + description[type]
 
@@ -22,7 +23,8 @@ const descriptionRenderer = (
         ) =>
          
           '**'
-            + type
+            + type[0].toUpperCase()
+            + type.slice(1)
             + ' '
             + index
             + ':** '
