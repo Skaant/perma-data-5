@@ -138,9 +138,9 @@ Describes a facet-specific mongo aggregation query as a multiple paralleled mong
 
 **Type :** `PATTERN_TYPE_SERVER`
 
-Describes a chain of async steps in : control, query, transform.
+Describes a chain of async steps in : `control`, `query`, `transform`.
 
-
+**Occurence:** in an `.handler` file
 
 
 
@@ -152,6 +152,29 @@ Describes a chain of async steps in : control, query, transform.
 
 
 
+#### _enum
+
+*enumeration*
+
+**Type :** `PATTERN_TYPE_GLOBAL`
+
+Define a set of shared values.
+
+**Occurence:** two or more modules will have to communicate on the same values.
+
+**Problem:** the values must be from the same referencial.
+
+**Solution:** define a module exposing a set of values.
+
+**Implementation:** the shared values module must be located in a dedicated `_enums` folder.
+
+Folder should be at the top of the consumers' common folder tree.
+
+**Instances :** `. (...) /.enum.js/`
+
+* ./_patterns/_pattern/_enums/patternType/patternType.enum.js
+* ./_patterns/_pattern/_enums/patternRelation/patternRelation.enum.js
+
 #### _middlewares
 
 *middlewares folder and files*
@@ -162,15 +185,15 @@ Describes middleware functions and their unique folder.
 
 **Occurence:** a new middleware has to be developped/integrated.
 
-**Problem 0:** 1. Where to put this new middleware ?
+**Problem 1:** Where to put this new middleware ?
 
-**Problem 1:** 2. How to enforce a common interface for middleware files ?
+**Problem 2:** How to enforce a common interface for middleware files ?
 
-**Solution 0:** 1. Group all the middlewares used by the server app in the same folder.
+**Solution 1:** Group all the middlewares used by the server app in the same folder.
 
-**Solution 1:** 2. Define a middleware file format.
+**Solution 2:** Define a middleware file format.
 
-**Implementation 0:** 
+**Implementation 1:** 
 The `server/app/folder` figures the dedicated folder for all middlewares.
 
 **Test :** the `.middleware` files location.
@@ -184,7 +207,7 @@ _middlewares
 ```
 
 
-**Implementation 1:** 
+**Implementation 2:** 
 all the `.middleware` module file expose a factory which return a middleware handler.
 
 **Test :** the `.middleware` file format.
@@ -209,6 +232,48 @@ module.exports =
 * ./server/app/_middlewares/log/log.middleware.js
 * ./server/app/_middlewares/auth/auth.middleware.js
 
+#### _pattern
+
+*code patterns*
+
+**Type :** `PATTERN_TYPE_GLOBAL`
+
+Describes a code pattern which can be reproduced across the project.
+
+Patterns enforce logic, files and tests standardization.
+
+**These are project's keystones.**
+
+**Occurence 1:** 
+Whenever a logic is shared across the code, we have two choices :
+* `_utils` exposes a single function called from different sub-folders,
+* `_pattern`, while more strict in syntax, exposes a whole framework to manage :
+      * **iterations,** the basic of a pattern is the repetition of the same logic,
+      * **processor,** is what digest iteration and can be either a module or simply a way for code to call it,
+      * **generality,** extending `_utils`, `_pattern` allow its iterations to hold their own logic,
+which means that they can be activated is certain conditions,
+      * **folder organization,**
+      * **tests**, for iterations and processor.
+
+**Problem:** 
+The same way `_utils` does it, `_pattern` implements the DRY principle.
+
+At some point a logic is repeted but it also requires a higher generality for its iterations to be specialized.
+
+**Solution 1:** A standard `*.pattern.js` file is specified at the top root of folders shared tree which describes the logic for humans and digesters (documentor and tests).
+
+
+
+**Instances :** `. (...) /.pattern.js/`
+
+* ./_patterns/_utils/_utils.pattern.js
+* ./_patterns/_pattern/_pattern.pattern.js
+* ./_patterns/_enum/_enum.pattern.js
+* ./server/app/_patterns/_routes/_routes.pattern.js
+* ./server/app/_patterns/_middlewares/_middlewares.pattern.js
+* ./server/app/_patterns/_chain/_chain.pattern.js
+* ./server/app/_patterns/_aggregation/_aggregation.pattern.js
+
 #### _routes
 
 *server routes tree*
@@ -219,23 +284,23 @@ Describes a recursive route and router files tree.
 
 **Occurence:** a new route has to be developped.
 
-**Problem 0:** 1. Where to put this new route to keep a file tree as close as the route tree ?
+**Problem 1:** 1. Where to put this new route to keep a file tree as close as the route tree ?
 
-**Problem 1:** 2. How to enforce a common interface for route (and router) files ?
+**Problem 2:** 2. How to enforce a common interface for route (and router) files ?
 
-**Solution 0:** 1. Define routes tree as stated :
+**Solution 1:** 1. Define routes tree as stated :
 
 * Folders and [**router**] files as path nodes,
 * Route files as [**route**] endpoints,
 * The root [**router**] is `_routes`.
 
 
-**Solution 1:** 2. Define [**router**] and [**route**] file format.
+**Solution 2:** 2. Define [**router**] and [**route**] file format.
 
-**Solution 2:** 
+**Solution 3:** 
 ![_routes pattern diagram](https://raw.githubusercontent.com/Skaant/perma-data-5/master/doc/images/_routes.pattern.jpg)
 
-**Implementation 0:** 
+**Implementation 1:** 
 contains all server's routes, ordered through :
 
 * Multiple [**handler**]s at the `<router>/` folder root,
@@ -266,7 +331,7 @@ _routes
 ```
 
 
-**Implementation 1:** 
+**Implementation 2:** 
 a `.router` file exposes an `express.Router()` which :
 
 * `router.use(path, <router>)`, to bind sub-routers to path,
@@ -297,7 +362,7 @@ module.exports = router
 ```
 
 
-**Implementation 2:** 
+**Implementation 3:** 
 a `.handler` file exposes a handler signature and return the `express.res` (can be encapsulated in a `Promise`).
 
 **Test :** the `.handler` file format.
@@ -328,56 +393,6 @@ module.exports =
 * ./server/app/_routes/plantId/plantId.handler.js
 * ./server/app/_routes/home/home.handler.js
 
-#### _enum
-
-*enumeration*
-
-**Type :** `PATTERN_TYPE_GLOBAL`
-
-Define a set of shared values.
-
-**Occurence:** two or more modules will have to communicate on the same values.
-
-**Problem:** the values must be from the same referencial.
-
-**Solution:** define a module exposing a set of values.
-
-**Implementation:** the shared values module must be located in a dedicated `_enums` folder.
-
-Folder should be at the top of the consumers' common folder tree.
-
-**Instances :** `. (...) /.enum.js/`
-
-* ./_patterns/_pattern/_enums/patternType/patternType.enum.js
-
-#### _pattern
-
-*code patterns*
-
-**Type :** `PATTERN_TYPE_GLOBAL`
-
-Describes a code pattern which can be reproduced across the project.
-
-Patterns are enforced to standardize logic, files and tests.
-
-
-
-
-
-
-
-
-
-**Instances :** `. (...) /.pattern.js/`
-
-* ./_patterns/_utils/_utils.pattern.js
-* ./_patterns/_pattern/_pattern.pattern.js
-* ./_patterns/_enum/_enum.pattern.js
-* ./server/app/_patterns/_routes/_routes.pattern.js
-* ./server/app/_patterns/_middlewares/_middlewares.pattern.js
-* ./server/app/_patterns/_chain/_chain.pattern.js
-* ./server/app/_patterns/_aggregation/_aggregation.pattern.js
-
 #### _utils
 
 *utilities folder*
@@ -390,7 +405,7 @@ Define a shared logic folder.
 
 **Problem:** as the DRY principle states it, we should find a way to share the logic code between this two consumers.
 
-This pattern adresses more the shared logic location, than the abstraction concept itself.
+This pattern adresses more the shared logic location, than the abstraction concept itself, **which is more relevant to `_pattern`**.
 
 **Solution:** put the logic at the top of the consumers common path.
 

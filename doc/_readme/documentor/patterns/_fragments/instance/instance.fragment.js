@@ -26,7 +26,7 @@ const descriptionRenderer = (
             + type[0].toUpperCase()
             + type.slice(1)
             + ' '
-            + index
+            + (index + 1)
             + ':** '
             + section)
         .join('\n\n')

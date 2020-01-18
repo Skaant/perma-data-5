@@ -46,6 +46,13 @@ module.exports = () =>
                 document,
                 ...types
               } = patterns
+                .sort((
+                  { name: aName },
+                  { name: bName }
+                ) => 
+                
+                  aName
+                    .localeCompare(bName))
                 .reduce(
                   ({
                     instances,
@@ -57,6 +64,8 @@ module.exports = () =>
                     path,
                     content
                   }) => {
+
+                    console.log(name)
 
                     const fragment = instanceFragment({
                       path,

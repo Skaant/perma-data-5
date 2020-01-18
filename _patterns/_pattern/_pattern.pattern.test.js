@@ -41,11 +41,11 @@ describe(
                   'path',
                   () => {
 
-                    const expectedPath = '_patterns/'
+                    const expectedPath = new RegExp('_patterns/\w*'
                       + name
                       + '/'
                       + name
-                      + '.pattern.js'
+                      + '.pattern.js')
 
                     it(
                       'should be formed with `'
@@ -54,7 +54,7 @@ describe(
                       () =>
                       
                         path
-                          .should.contain(expectedPath))
+                          .should.match(expectedPath))
                   })
 
                 describe(
