@@ -41,6 +41,8 @@ module.exports = () =>
 
               err && reject(err)
 
+              console.log('# patterns : ')
+
               const {
                 instances,
                 document,
@@ -65,7 +67,8 @@ module.exports = () =>
                     content
                   }) => {
 
-                    console.log(name)
+                    console.log('  * ' 
+                      + name)
 
                     const fragment = instanceFragment({
                       path,

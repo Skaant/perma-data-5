@@ -32,7 +32,9 @@ patternsDocumentor()
                 err
                   ? console.log(err)
 
-                  : console.log('readme built')
+                  : console.log(`
+
+README built !`)
             )
         }
       )
