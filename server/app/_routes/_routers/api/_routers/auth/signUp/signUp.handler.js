@@ -2,79 +2,70 @@ const atob = require('atob')
 const mongo = require('../../../../../../../mongo/mongo')
 const createUser = require('./createUser/createUser')
 const initBuildings = require('./initBuildings/initBuildings')
+const _mainChain = require('./_chains/_main/signUp.main.chain')
 
-module.exports = 
-  (
-    req,
-    res
-  ) => {
+module.exports = (
+  req,
+  res
+) => {
 
-    if (!req.body
-        || !req.body.email
-        || !req.body.password) {
+  /**
+   * Prototype of the future `_chains` processor
+   */
+  const processor = _mainChain
+    .reduce(
+      (
+        acc,
+        chainLink
+      ) =>
 
-      res
-        .status(400)
-        .send({
-          error: 'You must provide an email & a password.'
-        })
+        acc
+          && acc
+            .then(data =>
+              
+              chainLink(data))
+            
+            .catch(err => {
 
-    } else {
+              const splitErr = err
+                .split(': ')
 
-      const {
-        email,
-        pseudo = 'anonymex',
-        password: encryptedPassword
-      } = req.body
-
-      const user = {
-        email,
-        pseudo,
-        password: atob(encryptedPassword),
-        token: Math
-          .random().toString(36).substr(2)
-      }
-
-      mongo()
-
-        .then(({ db }) => {
-
-          createUser(
-            db,
-            user
-          )
-            .then(_id => {
-
-              res.cookie(
-                'auth',
-                user.token,
-                {
-                  maxAge: 432000000
-                }
-              )
-
-              initBuildings(
-                db,
-                _id
-              )
-                .then(buildings => {
-
-                  res.json({
-                    pseudo: user.pseudo,
-                    buildings
-                  })
-                })
-                .catch(error => {
-
-                  res
-                    .status(500)
-                    .json({ error })
-                })
-            })
-            .catch(error =>
               res
-                .status(500)
-                .send({ error }))
-            })
-    }
+                .status(splitErr[0])
+                .send({
+                  message: splitErr[1]
+                })
+
+              acc = false
+            }),
+      Promise
+        .resolve({
+          req,
+          res
+        })
+    )
+            initBuildings(
+              db,
+              _id
+            )
+              .then(buildings => {
+
+                res.json({
+                  pseudo: user.pseudo,
+                  buildings
+                })
+              })
+              .catch(error => {
+
+                res
+                  .status(500)
+                  .json({ error })
+              })
+          })
+          .catch(error =>
+            res
+              .status(500)
+              .send({ error }))
+          })
   }
+}
