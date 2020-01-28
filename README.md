@@ -104,7 +104,7 @@ Every client bundle has its own `npm run` command :
 
 * **server**
 * [_aggregation](#_aggregation)
-* [_chain](#_chain)
+* [_chains](#_chains)
 * [_middlewares](#_middlewares)
 * [_routes](#_routes)
 
@@ -132,21 +132,23 @@ Describes a facet-specific mongo aggregation query as a multiple paralleled mong
 
 
 
-#### _chain
+#### _chains
 
-*handler chained process*
+*handler chained processes*
 
 **Type :** `PATTERN_TYPE_SERVER`
 
-Describes a chain of async steps in : `control`, `query`, `transform`.
+Describes chains of promises (chain links) of types : `_controllers`, `_dbcalls` and `_switches`.
 
-**Occurence:** in an `.handler` file
+**Occurence:** In an `.handler` file, to order the process of answering request.
 
+Standardizes the server lifecycle, after the middlewares, from the handler, up to the response `send` method.
 
+**Problem:** Handlers can result in a long suit of instructions, difficult to read and to maintain.
 
+**Solution:** Create an array of standard operations (`_controllers`, `_dbcalls`), meant to be conditionnally (`_switches`) executed to prepare the response's body.
 
-
-
+**Implementation:** **Composition of `[_chainLinks`]**.
 
 **Instances :** `./server/app (...) /.chain.js/`
 
@@ -271,7 +273,7 @@ At some point a logic is repeted but it also requires a higher generality for it
 * ./_patterns/_enum/_enum.pattern.js
 * ./server/app/_patterns/_routes/_routes.pattern.js
 * ./server/app/_patterns/_middlewares/_middlewares.pattern.js
-* ./server/app/_patterns/_chain/_chain.pattern.js
+* ./server/app/_patterns/_chains/_chains.pattern.js
 * ./server/app/_patterns/_aggregation/_aggregation.pattern.js
 
 #### _routes
