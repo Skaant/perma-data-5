@@ -1,5 +1,5 @@
 import React from 'react'
-import LoginModal from '../../_components/LoginModal/LoginModal'
+import LoginModal from '../../_components/UserMenu/LoginModal/LoginModal'
 import setBackdropClickClose from '../../../_utils/setBackdropClickClose/setBackdropClickClose'
 import { AUTH_LOGIN_MODAL_CLOSE } from '../../_actions/auth.actions'
 

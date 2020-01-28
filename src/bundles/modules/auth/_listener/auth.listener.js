@@ -1,4 +1,5 @@
 import renderComponent from './renderComponent/renderComponent'
+import renderLoginModal from './renderLoginModal/renderLoginModal'
 import initialTokenCheck from './initialTokenCheck/initialTokenCheck'
 import setBackdropClickClose from '../../_utils/setBackdropClickClose/setBackdropClickClose'
 import loadBundle from './loadBundle/loadBundle'
