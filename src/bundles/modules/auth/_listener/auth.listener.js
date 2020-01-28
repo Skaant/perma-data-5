@@ -1,9 +1,8 @@
-import cookies from 'js-cookie'
-import renderAuthNavItem from './renderAuthNavItem/renderAuthNavItem'
+import renderComponent from './renderComponent/renderComponent'
 import initialTokenCheck from './initialTokenCheck/initialTokenCheck'
+import setBackdropClickClose from '../../_utils/setBackdropClickClose/setBackdropClickClose'
 import loadBundle from './loadBundle/loadBundle'
-import renderLoginModal from './renderLoginModal/renderLoginModal'
-import unmountLoginModal from './unmountLoginModal/unmountLoginModal'
+import { AUTH_LOGIN_MODAL_CLOSE } from '../_actions/auth.actions'
 
 let previous = null
 
@@ -19,25 +18,14 @@ export default () => {
 
     initialTokenCheck()
   
-  } else if (((previous
-        && !previous.tokenInitialCheck)
-      || !previous)
+  } else if (previous
+    && !previous.tokenInitialCheck
     && next.tokenInitialCheck
     && !next.user) {
 
     previous = next
 
-    renderAuthNavItem()
-
-  } else if (previous.user
-    && !next.user) {
-
-    cookies
-      .remove('auth')
-
-    previous = next
-
-    renderAuthNavItem()
+    renderComponent()
 
   } else if (previous
       && !previous.user
@@ -46,33 +34,35 @@ export default () => {
 
     previous = next
 
-    loadBundle(
-      window.PAGE_ID,
-      next.user)
+    loadBundle(window.PAGE_ID)
 
   } else if (previous
-      && ((!previous.moduleLoaded
-          && next.moduleLoaded)
-        || (!previous.user
-          && previous.moduleLoaded
-          && next.user))) {
+      && !previous.moduleLoaded
+      && next.moduleLoaded) {
 
     previous = next
 
-    renderAuthNavItem()
-
-    unmountLoginModal()
+    renderComponent()
 
   } else if (previous
-    && previous.loginModalDisplay !== next.loginModalDisplay) {
+      && previous.modalDisplay !== next.modalDisplay) {
     
-    if (next.loginModalDisplay === true) {
+    previous = next
+    
+    if (next.modalDisplay === true) {
       
-      renderLoginModal()
+      $('#login-modal')
+        .modal('show')
+
+      setBackdropClickClose(
+        '#login-modal',
+        AUTH_LOGIN_MODAL_CLOSE
+      )
 
     } else {
 
-      unmountLoginModal()
+      $('#login-modal')
+        .modal('hide')
     }
 
     previous = next

@@ -1,14 +1,15 @@
 import main from '../../../../../modules/main'
 import search from '../../../../../modules/search'
-import auth from '../../../../../modules/auth'
-import home from '../../../../../modules/home'
+import auth from '../../../../../modules/auth';
 
 export default {
   id: 'home-base',
   modules: [
+    /** Le module `main` */
     main,
+    /** Le module `search` */
     search,
-    auth,
-    home
+    /** Le module `auth` */
+    auth
   ]
 }

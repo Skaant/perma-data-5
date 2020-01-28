@@ -1,5 +1,5 @@
 import {
-  SEARCH_FETCH_RESULTS_SUCCESS, SEARCH_FETCH_RESULTS_START
+  SEARCH_FETCH_RESULTS_SUCCESS
 } from '../../_actions/search.actions'
 
 export default (
@@ -11,9 +11,6 @@ export default (
 ) => {
 
   switch(type) {
-
-    case SEARCH_FETCH_RESULTS_START:
-      return null
 
     case SEARCH_FETCH_RESULTS_SUCCESS:
       return result.plants

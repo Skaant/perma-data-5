@@ -10,4 +10,4 @@ export default ({
     .render(
       <City pseudo={ pseudo }
           buildings={ buildings }/>,
-      document.getElementById('home-auth'))
+      document.getElementById('city__anchor'))
