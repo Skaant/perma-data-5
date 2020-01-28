@@ -1,5 +1,3 @@
-const atob = require('atob')
-
 module.exports = ({
   req,
   res
@@ -40,16 +38,7 @@ module.exports = ({
 
     resolve({
       req,
-      res,
-      user: {
-        email,
-        pseudo,
-        password: atob(password),
-        token: Math
-          .random()
-          .toString(36)
-          .substr(2)
-      }
+      res
     })
   }
 )
