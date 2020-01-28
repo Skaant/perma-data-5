@@ -28,18 +28,13 @@ module.exports = (req, res) => {
           data,
           sources
         }) => {
-
-          const plantName =
-            data['name,fr'][0].value
             
           const page = pug
             .renderFile(
-              './src/app/views/pages/plantId/plantId.pug', 
+              './server/views/pages/plantId/plantId.pug', 
               {
                 titles: {
-                  page: plantName,
-                  data: 'Données',
-                  sources: 'Sources'
+                  page: data['name,fr'][0].value
                 },
                 plant: {
                   id: plantId,

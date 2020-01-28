@@ -1,17 +1,49 @@
 extends ../../layout/layout.pug
 
 block content
-  h1.pt-4 #{ titles.page }
-  h3.font-weight-lighter.mb-4 #{ plant.id }
-  div.pt-4
-    h2 #{ titles.data }
-    include ./dataBlock/dataBlock
-  div.py-4
-    h2.mb-4 #{ titles.sources }
-    include ./sourcesBlock/sourcesBlock
+  .container-fluid
 
-block scripts
-  script(
-    type="text/javascript",
-    src="/public/bundles/pages/plantId/main.js"
-  )
+    .row.justify-content-center
+      .col-12.col-md-8.jumbotron
+        if (plant.data['name,fr'] && plant.data['name,fr'][0] && plant.id)
+          h2.float-right.font-weight-lighter.mb-4.h3(
+            style='margin: 0 60px; font-size: 1.2rem'
+          )= plant.id
+        h1.text-center.font-epic.pt-4(
+          style='margin: 60px auto 15px'
+        )= (plant.data['name,fr'] && plant.data['name,fr'][0] && plant.data['name,fr'][0].value || plant.id)
+    
+    .row.justify-content-center.mt-4.pt-2
+      .col-12.col-md-10.jumbotron
+        h2.font-weight-lighter.m-4.pl-4 Données
+        include ./dataBlock/dataBlock
+
+    .row.my-4.py-2.justify-content-center
+      .col-12.col-md-8.card.container(
+        style='padding: 60px 60px 45px 60px'
+      )
+        h2.text-center.font-epic(
+          style='margin: 45px 45px 60px 45px'
+        ) Plus d'informations
+        .row
+          .col-12.col-md-6.home-btn-sign-in
+            button.btn.btn-outline-dark.w-100.font-weight-light.p-3(
+              type='button'
+              style='border-color: #7cb342 !important; letter-spacing: 3px'
+            ) Connectez-vous
+          .col-12.col-md-6.home-btn-sign-up
+            button.btn.btn-light.w-100.text-white.font-weight-light.p-3(
+              type='button'
+              style='background-color: #7cb342 !important; letter-spacing: 3px'
+            ) Créez un compte
+    
+    .row
+      .col-12.col-md-10.jumbotron
+        h2 Sources
+        include ./sourcesBlock/sourcesBlock
+
+  block scripts
+    script(
+      type="text/javascript",
+      src="/public/bundles/pages/plantId/base.js"
+    )

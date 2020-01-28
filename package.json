@@ -5,12 +5,12 @@
   "scripts": {
     "start": "node ./server/server.js",
     "dev-start": "npx nodemon ./server/server.js",
-    "test": "mocha \"./**/*test.*js\" --exclude \"./**/node_modules/**\" -g \"#e2e\" -i",
-    "dev-test": "mocha \"./**/*test.*js\" --exclude \"./**/node_modules/**\"",
+    "test": "mocha \"./**/*.test.*js\" --exclude \"./**/node_modules/**\"",
     "build-home-base": "webpack --config ./webpack.config.js --output ./public/bundles/pages/home/base.js ./src/bundles/entrypoints/pages/home/base/base.js",
     "build-home-auth": "webpack --config ./webpack.config.js --output ./public/bundles/pages/home/auth.js ./src/bundles/entrypoints/pages/home/auth/auth.js",
-    "build-plantId-main": "webpack --config ./webpack.config.js --output ./public/bundles/pages/plantId/main.js ./src/bundles/entrypoints/pages/plantId/main.js",
-    "build-plantId-auth": "webpack --config ./webpack.config.js --output ./public/bundles/pages/plantId/auth.js ./src/bundles/entrypoints/pages/plantId/auth.js"
+    "build-plantId-base": "webpack --config ./webpack.config.js --output ./public/bundles/pages/plantId/base.js ./src/bundles/entrypoints/pages/plantId/base/base.js",
+    "build-plantId-auth": "webpack --config ./webpack.config.js --output ./public/bundles/pages/plantId/auth.js ./src/bundles/entrypoints/pages/plantId/auth/auth.js",
+    "doc": "node ./doc/_readme/documentor/documentor.js"
   },
   "repository": {
     "type": "git",
@@ -34,10 +34,10 @@
   },
   "homepage": "https://github.com/Skaant/perma-data-5#readme",
   "devDependencies": {
-    "@babel/core": "^7.7.7",
-    "@babel/preset-env": "^7.7.7",
-    "@babel/preset-react": "^7.7.4",
-    "@babel/register": "^7.7.7",
+    "@babel/core": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "@babel/preset-react": "^7.8.3",
+    "@babel/register": "^7.8.3",
     "babel-loader": "^8.0.6",
     "btoa": "^1.2.1",
     "chai": "^4.2.0",
@@ -50,7 +50,7 @@
     "proxyquire": "^2.1.3",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "webpack": "^4.41.4",
+    "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10"
   },
   "dependencies": {
@@ -59,9 +59,9 @@
     "cookie-parser": "^1.4.4",
     "crypto-js": "^3.1.9-1",
     "express": "^4.17.1",
-    "mongodb": "^3.4.1",
+    "mongodb": "^3.5.1",
     "pug": "^2.0.4",
-    "redux": "^4.0.4",
+    "redux": "^4.0.5",
     "serve-favicon": "^2.5.0"
   }
 }

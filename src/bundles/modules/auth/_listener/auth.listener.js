@@ -65,10 +65,20 @@ export default () => {
         .modal('hide')
     }
 
-  } else {
+    previous = next
+
+  } else if (previous
+    && JSON
+      .stringify(previous.form)
+      !== JSON
+        .stringify(next.form)) {
     
     previous = next
 
-    renderComponent()
+    renderLoginModal()
+
+  } else {
+    
+    previous = next
   }
 }
