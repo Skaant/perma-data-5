@@ -1,11 +1,12 @@
 const chai = require('chai')
-const _pattern = require('./_chain.pattern')
+const _pattern = require('./_chains.pattern')
 const recursiveDirReader = require('../../../../_utils/recursiveDirReader/recursiveDirReader')
 
 chai.should()
 
-describe.only(
-  '_chain',
+describe(
+  _pattern
+    .id,
   () => {
 
     describe(
@@ -42,7 +43,7 @@ describe.only(
                   'path',
                   () => {
 
-                    const expectedPath = new RegExp('_chains/'
+                    const expectedPath = new RegExp('_chain/'
                       + name
                       + '/'
                       + name
