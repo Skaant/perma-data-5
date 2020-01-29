@@ -18,23 +18,27 @@ module.exports = (
 
           acc
             && acc
-              .then(data =>
+              .then(data =>{
+
+                console.log(Objet.keys(data))
                 
-                chainLink(data))
+                return chainLink(data)})
               
-              .catch(err => {
+              .catch(({
+                message,
+                ...err
+              }) => {
 
-                if (err
-                  .message[3] === ':') {
+                if (message[3] === ':') {
 
-                  const splitErr = err
-                    .message
+                  const splitErr = message
                     .split(': ')
 
                   res
                     .status(splitErr[0])
                     .send({
-                      message: splitErr[1]
+                      message: splitErr[1],
+                      ...err
                     })
 
                 } else {
@@ -42,8 +46,8 @@ module.exports = (
                   res
                     .status(500)
                     .send({
-                      message: err
-                        .message
+                      message,
+                      ...err
                     })
                 }
 
