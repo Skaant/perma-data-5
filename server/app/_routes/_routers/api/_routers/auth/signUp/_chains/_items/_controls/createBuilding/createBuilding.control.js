@@ -1,6 +1,4 @@
-const atob = require('atob')
-
-module.exports = data =>
+module.exports = () =>
 
   new Promise(resolve => {
 
@@ -16,7 +14,6 @@ module.exports = data =>
     }]
 
     resolve({
-      ...data,
       buildings
     })
   }

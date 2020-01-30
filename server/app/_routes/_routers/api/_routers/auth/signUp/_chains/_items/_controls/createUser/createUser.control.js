@@ -1,13 +1,10 @@
 const atob = require('atob')
 
 module.exports = ({
-  req,
-  res
+  body
 }) =>
 
   new Promise(resolve => {
-
-    const { body } = req
 
     const {
       email,
@@ -16,8 +13,6 @@ module.exports = ({
     } = body
 
     resolve({
-      req,
-      res,
       user: {
         email,
         pseudo,

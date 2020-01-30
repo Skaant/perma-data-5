@@ -1,6 +1,5 @@
 module.exports = ({
-  req,
-  res
+  req
 }) =>
 
   new Promise((
@@ -37,8 +36,7 @@ module.exports = ({
     }
 
     resolve({
-      req,
-      res
+      body
     })
   }
 )

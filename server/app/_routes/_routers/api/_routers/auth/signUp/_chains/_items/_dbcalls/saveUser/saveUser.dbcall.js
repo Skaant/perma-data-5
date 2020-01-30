@@ -1,8 +1,7 @@
 const mongo = require('../../../../../../../../../../../mongo/mongo')
 
 module.exports = ({
-  user,
-  ...data
+  user
 }) =>
 
   new Promise(
@@ -24,8 +23,7 @@ module.exports = ({
               user: {
                 _id: insertedId,
                 ...user
-              },
-              ...data
+              }
             }))
 
           .catch(err =>

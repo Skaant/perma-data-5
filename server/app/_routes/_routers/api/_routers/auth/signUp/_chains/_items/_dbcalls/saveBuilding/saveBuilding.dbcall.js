@@ -1,8 +1,7 @@
 const mongo = require('../../../../../../../../../../../mongo/mongo')
 
 module.exports = ({
-  user,
-  ...data
+  user
 }) =>
 
   new Promise(
@@ -23,11 +22,7 @@ module.exports = ({
           })
           .then(() =>
 
-            resolve({
-              user,
-              ...data,
-              buildings
-            }))
+            resolve())
 
           .catch(err =>
 
