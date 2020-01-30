@@ -1,38 +1,47 @@
-module.exports = (
+const recursive = (
   chain,
   data
 ) =>
+  
+  new Promise((
+    resolve,
+    reject
+  ) => {
 
-  new Promise(
-    (
-      resolve,
-      reject
-    ) =>
+  if (chain[0]) {
 
-    resolve(
-      chain
-        .reduce(
-          (
-            acc,
-            chainLink
-          ) =>
+    chain[0](data)
+      .then(_data => {
 
-            acc
-              && acc
-                .then(data => 
-                  
-                  chainLink(Object
-                    .assign(
-                      {},
-                      acc,
-                      data
-                    )))
-                
-                .catch(err =>
-                  
-                  reject(err)),
-          Promise
-            .resolve(data)
+        const nextData = Object
+          .assign(
+            {},
+            data,
+            _data
+          )
+        
+        recursive(
+          chain
+            .slice(1),
+          nextData
         )
-    )
-  )
+          .then(data =>
+            
+            resolve(data))
+
+          .catch(err =>
+            
+            reject(err))
+      })
+
+      .catch(err =>
+        
+        reject(err))
+  
+  } else {
+
+    resolve(data)
+  }
+})
+
+module.exports = recursive

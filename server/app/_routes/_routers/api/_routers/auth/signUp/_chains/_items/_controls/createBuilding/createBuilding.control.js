@@ -3,10 +3,10 @@ module.exports = () =>
   new Promise(resolve => {
 
     const buildings = [{
-      key: 'kolos-seed',
+      key: 'kolos-rayon',
       xp: 0,
       quests: {
-        'kolos-seed-intro': {
+        'kolos-rayon-intro': {
           opened: false,
           valid: false
         }

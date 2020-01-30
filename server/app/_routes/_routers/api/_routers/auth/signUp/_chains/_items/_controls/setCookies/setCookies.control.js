@@ -1,5 +1,6 @@
 module.exports = ({
-  res
+  res,
+  user
 }) =>
 
   new Promise(resolve => {

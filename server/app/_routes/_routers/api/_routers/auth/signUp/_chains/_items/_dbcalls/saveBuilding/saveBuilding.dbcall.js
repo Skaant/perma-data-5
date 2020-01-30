@@ -1,7 +1,8 @@
 const mongo = require('../../../../../../../../../../../mongo/mongo')
 
 module.exports = ({
-  user
+  user,
+  buildings
 }) =>
 
   new Promise(

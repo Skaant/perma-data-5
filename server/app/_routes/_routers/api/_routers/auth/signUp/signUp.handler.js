@@ -6,22 +6,32 @@ module.exports = (
   res
 ) => 
 
-_chainsProcessor(
-  _mainChain,
-  {
-    req,
-    res
-  }
-)
-  .then(data => 
-    
-    res
-      .json(data))
+  _chainsProcessor(
+    _mainChain,
+    {
+      req,
+      res
+    }
+  )
+    .then(data => 
 
-  .catch(err =>
-    
-    res
-      .status(err
-        .code
-        || 500)
-      .send(err))
+      res
+        .json({
+          user: {
+            _id: data
+              .user
+              ._id,
+            pseudo: data
+              .user
+              .pseudo
+          },
+          buildings: data.buildings
+        }))
+
+    .catch(err => 
+
+      res
+        .status(err
+          .code
+          || 500)
+        .send(err))
