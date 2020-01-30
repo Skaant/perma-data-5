@@ -1,18 +1,17 @@
 import React from 'react'
 import _trighbs from '../../_data/trighbs.json'
-import _buildings from '../../_data/buildings'
 import ListDisplay from './ListDisplay/ListDisplay.js';
 
 export default building => {
 
   const {
     id,
-    list
+    list,
+    data
   } = building
 
-  const _building = _buildings[id]
   const _trighb = _trighbs[
-    _building.trighb]
+    data.trighb]
   
   return (
     <div style={ { 
@@ -33,7 +32,7 @@ export default building => {
                         + _trighb.color
                     } }>
                   { _trighb.name }</span>
-                { _building.name }
+                { data.name }
               </React.Fragment>
             ) }/>
         </div>

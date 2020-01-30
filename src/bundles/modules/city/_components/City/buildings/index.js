@@ -1,5 +1,5 @@
-import KolosSeed from './KolosSeed/KolosSeed'
+import KolosRayon from './KolosRayon/KolosRayon'
 
 export default {
-  'kolos-seed': KolosSeed
+  'kolos-rayon': KolosRayon
 }

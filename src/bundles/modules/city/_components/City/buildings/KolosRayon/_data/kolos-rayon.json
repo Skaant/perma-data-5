@@ -1,5 +1,10 @@
 {
   "trighb": "kolos",
-  "name": "graine",
+  "name": "tronc",
+  "experience": [{
+    "name": "Graine"
+  }, {
+    "name": "Pousse"
+  }],
   "flavour": "A l'intérieur de cette graine, endormie : la conscience; le potentiel de remplir l'espace et de le porter plus haut."
 }

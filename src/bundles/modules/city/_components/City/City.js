@@ -17,15 +17,16 @@ export default ({
       espace DATA de { pseudo }</h2>
     <div className='row justify-content-center px-4'>
       {
-        buildings.map(building => (
-          React
-            .createElement(
-              buildingComponents[
-                building.key],
-              {
-                id: building.key,
-                ...building
-              })))
+        buildings
+          .map(building => (
+            React
+              .createElement(
+                buildingComponents[
+                  building.key],
+                {
+                  id: building.key,
+                  ...building
+                })))
       }
     </div>
     <div id='city-dialog-modal__anchor'></div>
