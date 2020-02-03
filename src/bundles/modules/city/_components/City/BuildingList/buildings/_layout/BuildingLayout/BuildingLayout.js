@@ -1,6 +1,6 @@
 import React from 'react'
-import _trighbs from '../../_data/trighbs.json'
-import ListDisplay from './ListDisplay/ListDisplay.js';
+import _trighbs from '../../../_data/trighbs.data.json'
+import ListDisplay from './ListDisplay/ListDisplay.js.js';
 
 export default building => {
 

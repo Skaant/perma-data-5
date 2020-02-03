@@ -3,7 +3,7 @@ import notificationFactory from "../../../../../main/_reducer/notifications/_uti
 export default user => 
 
   notificationFactory({
-    title: 'Application chargée !',
+    title: 'Chargement réussi !',
     content: [
       user.pseudo
         + ',',

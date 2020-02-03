@@ -1,5 +1,5 @@
-import { CITY_SERVER_ACTION_START, CITY_SERVER_ACTION_SUCCESS } from "../../../../../_actions/city.actions";
-import { MAIN_ERROR_THROWN } from "../../../../../../main/_actions/main.actions";
+import { CITY_SERVER_ACTION_START, CITY_SERVER_ACTION_SUCCESS } from "../../../../../../_actions/city.actions";
+import { MAIN_ERROR_THROWN } from "../../../../../../../main/_actions/main.actions";
 
 export default {
   id: 'kolos-seed-intro',

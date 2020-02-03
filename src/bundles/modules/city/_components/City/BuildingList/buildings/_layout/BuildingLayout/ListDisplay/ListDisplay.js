@@ -1,5 +1,5 @@
 import React from 'react'
-import { CITY_DIALOG_MODAL_OPEN } from '../../../../../../_actions/city.actions';
+import { CITY_DIALOG_MODAL_OPEN } from '../../../../../../../_actions/city.actions';
 
 const dialogsTypeIcon = {
   quest: 'fas fa-flag',

@@ -3,7 +3,7 @@ import notificationFactory from "../../../../../main/_reducer/notifications/_uti
 export default () =>
 
   notificationFactory({
-    title: 'Connexion réussie',
+    title: 'Connecté !',
     content: [
       'L\'application est en train de charger ...',
       '',

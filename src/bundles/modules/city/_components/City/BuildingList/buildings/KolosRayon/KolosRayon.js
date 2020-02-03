@@ -2,7 +2,7 @@ import React from 'react'
 import BuildingLayout from '../_layout/BuildingLayout/BuildingLayout'
 import _kolosRayonIntroQuest from './_dialogs/_kolos-rayon-intro.quest';
 import _kolosTrighbPresentationStory from './_dialogs/_kolos-trighb-presentation.story';
-import _data from './_data/kolos-rayon.json'
+import _data from './_data/kolos-rayon.json.js'
 
 export default ({
   id,
