@@ -3,6 +3,7 @@
   src: url('/public/fonts/DAYROM__.ttf');
 }
 
+.text-epic,
 .font-epic {
   font-family: 'day roman';
 }

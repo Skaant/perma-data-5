@@ -1,5 +1,6 @@
 import React from 'react'
 import trighbsData from '../_data/trighbs.data.json'
+import buildingsData from './buildings/_data'
 
 export default ({
   buildings
@@ -21,7 +22,7 @@ export default ({
               ) => {
 
                 const trighb = building
-                  .key
+                  .id
                   .split('-')[0]
 
                 if (!acc[trighb]) {
@@ -40,7 +41,8 @@ export default ({
               },
               {}
             )
-          ) // Object entries
+          )
+          // Object entries
           .sort((
             a,
             b
@@ -48,20 +50,27 @@ export default ({
           
             trighbsIndex[b[0]]
               - trighbsIndex[a[0]])
+
           .map(([
             trighb,
             buildings
           ]) => (
             <div key={ trighb }
                 className='col-12 col-md-6'>
-              <h3>
-                { trighb }</h3>
+              <h2 className='text-white text-epic text-uppercase'>
+                { trighb }</h2>
               {
                 buildings
-                  .map(building =>
+                  .map(_building => {
+
+                    const building = {
+                      ..._building,
+                      ...buildingsData[_building.id]
+                    }
                     
-                    building
-                      .name)
+                    return building
+                      .name
+                  })
                   .join(', ')
               }
             </div>
