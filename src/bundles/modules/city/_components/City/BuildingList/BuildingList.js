@@ -62,19 +62,26 @@ export default ({
                 { trighb }</h2>
               {
                 buildings
-                  .map(_building => {
+                  .map(building => {
 
-                    const building = {
-                      ..._building,
-                      ...buildingsData[_building.id]
+                    const buildingData = buildingsData[building.id]
+                    
+                    for (
+                      const quest
+                        in building.quests
+                    ) {
+
+                      building
+                        .quests[quest.id] = buildingData
+                          .quests[quest.id]
                     }
                     
                     return buildingComponents[building.id]({
                       key: building.id,
-                      ...building
+                      ...building,
+                      ...buildingData
                     })
                   })
-                  .join(', ')
               }
             </div>
           ))

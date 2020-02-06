@@ -227,6 +227,7 @@ export default ({
                 className='btn btn-white'
                 onClick={
                   () =>
+                  
                     validation() }>
               Valider</button>
             <button type='button'

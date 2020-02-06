@@ -17,14 +17,12 @@ module.exports = (
 
       res
         .json({
-          user: {
-            _id: data
-              .user
-              ._id,
-            pseudo: data
-              .user
-              .pseudo
-          },
+          _id: data
+            .user
+            ._id,
+          pseudo: data
+            .user
+            .pseudo,
           buildings: data.buildings
         }))
 

@@ -13,7 +13,7 @@ export default {
       flavour: "Ça y est, elle a germé la flamme qui maintiendra unies toutes les âmes de la CITÉ. "
     }
   },
-  quests: [
+  quests: {
     tuto1Quest
-  ]
+  }
 }

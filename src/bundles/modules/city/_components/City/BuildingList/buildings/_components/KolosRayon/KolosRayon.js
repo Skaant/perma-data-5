@@ -11,15 +11,15 @@ export default ({
       data={ data }
       list={ [
         ...(
-          (
-            quests['intro']
+          (quests['tuto1Quest']
+            && (quests['tuto1Quest']
               .opened === false
-            || quests['intro']
-              .valid === true)
+            || quests['tuto1Quest']
+              .valid === true))
               ? [
                   Object.assign(
                     {},
-                    quests['intro'],
+                    quests['tuto1Quest'],
                     _kolosRayonIntroQuest
                   )
                 ]
@@ -41,23 +41,22 @@ export default ({
                 : []
           ),
         ...(
-          (quests[
-            'kolos-rayon-intro']
+          (quests['tuto1Quest']
+            && quests['tuto1Quest']
               .opened 
                 === true
-            && quests[
-              'kolos-rayon-intro']
-                .valid 
-                  === false)
-                ? [
-                    Object.assign(
-                    {},
-                    quests[
-                      'kolos-rayon-intro'],
-                    _kolosRayonIntroQuest
-                  )
-                ]
-                : []
+            && quests['tuto1Quest']
+              .valid 
+                === false)
+              ? [
+                  Object.assign(
+                  {},
+                  quests[
+                    'tuto1Quest'],
+                  _kolosRayonIntroQuest
+                )
+              ]
+              : []
         )
       ] }/>
 )

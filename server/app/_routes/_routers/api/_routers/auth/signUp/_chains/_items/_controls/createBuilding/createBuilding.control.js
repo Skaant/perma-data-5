@@ -6,7 +6,7 @@ module.exports = () =>
       id: 'kolos-rayon',
       xp: 0,
       quests: {
-        'kolos-rayon-intro': {
+        'tuto1Quest': {
           opened: false,
           valid: false
         }

@@ -6,9 +6,9 @@
  */
 export default () => {
 
-  window.ReactDOM
+  /* window.ReactDOM
     .unmountComponentAtNode(document
-      .getElementById('city-dialog-modal__anchor'))
+      .getElementById('city-dialog-modal__anchor')) */
   
   window.ReactDOM
     .unmountComponentAtNode(document
