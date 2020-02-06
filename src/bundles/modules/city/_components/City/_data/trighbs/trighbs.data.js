@@ -1,4 +1,4 @@
-{
+export default {
   "kolos": {
     "color": "6CEEA3"
   },

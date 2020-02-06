@@ -1,13 +1,14 @@
 import React from 'react'
-import BuildingLayout from '../_layout/BuildingLayout/BuildingLayout'
+import BuildingLayout from '../../_layout/BuildingLayout/BuildingLayout'
 
 export default ({
   id,
   quests,
-  stories
+  stories,
+  ...data
 }) => (
   <BuildingLayout id={ id }
-      data={ _data }
+      data={ data }
       list={ [
         ...(
           (

@@ -1,6 +1,7 @@
 import React from 'react'
-import trighbsData from '../_data/trighbs.data.json'
+import trighbsData from '../_data/trighbs/trighbs.data'
 import buildingsData from './buildings/_data'
+import buildingComponents from './buildings/_components/index'
 
 export default ({
   buildings
@@ -68,8 +69,10 @@ export default ({
                       ...buildingsData[_building.id]
                     }
                     
-                    return building
-                      .name
+                    return buildingComponents[building.id]({
+                      key: building.id,
+                      ...building
+                    })
                   })
                   .join(', ')
               }

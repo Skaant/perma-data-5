@@ -1,6 +1,6 @@
 import React from 'react'
-import _trighbs from '../../../_data/trighbs.data.json'
-import ListDisplay from './ListDisplay/ListDisplay.js.js';
+import ListDisplay from './ListDisplay/ListDisplay';
+import trighbsData from '../../../../_data/trighbs/trighbs.data.js';
 
 export default building => {
 
@@ -10,8 +10,7 @@ export default building => {
     data
   } = building
 
-  const _trighb = _trighbs[
-    data.trighb]
+  const trighb = trighbsData[data.trighb]
   
   return (
     <div style={ { 
@@ -23,15 +22,15 @@ export default building => {
       <div className='card m-3'>
         <div className='card-body p-0'>
           <ListDisplay list={ list }
-            trighb={ _trighb }
+            trighb={ trighb }
             title={ (
               <React.Fragment>
                 <span className='mr-2 font-weight-bolder'
                     style={ {
                       color: '#'
-                        + _trighb.color
+                        + trighb.color
                     } }>
-                  { _trighb.name }</span>
+                  { trighb.name }</span>
                 { data.name }
               </React.Fragment>
             ) }/>
