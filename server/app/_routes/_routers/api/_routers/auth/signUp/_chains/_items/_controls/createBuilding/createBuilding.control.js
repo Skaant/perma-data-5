@@ -7,8 +7,7 @@ module.exports = () =>
       xp: 0,
       quests: {
         'tuto1Quest': {
-          opened: false,
-          valid: false
+          status: 'NEW'
         }
       }
     }]

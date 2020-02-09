@@ -1,6 +1,6 @@
 export default {
   id: 'tuto1Quest',
-  type: 'quest',
+  type: 'QUEST',
   title: 'Il faut lancer une graine',
   content: () =>
 

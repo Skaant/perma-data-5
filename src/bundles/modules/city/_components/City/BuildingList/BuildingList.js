@@ -65,21 +65,39 @@ export default ({
                   .map(building => {
 
                     const buildingData = buildingsData[building.id]
+
+                    const dialogs = {}
                     
                     for (
-                      const quest
-                        in building.quests
+                      const typeKey
+                        of [
+                          'quests',
+                          'stories'
+                        ]
                     ) {
 
-                      building
-                        .quests[quest.id] = buildingData
-                          .quests[quest.id]
+                      dialogs[typeKey] = {}
+
+                      Object
+                        .entries(building[typeKey]
+                          || [])
+                        
+                        .forEach(([
+                          id,
+                          dialog
+                        ]) =>
+                          
+                          dialogs[typeKey][id] = {
+                            ...dialog,
+                            ...buildingData[typeKey][id]
+                          })
                     }
                     
                     return buildingComponents[building.id]({
                       key: building.id,
                       ...building,
-                      ...buildingData
+                      ...buildingData,
+                      ...dialogs
                     })
                   })
               }

@@ -5,7 +5,7 @@ export default ({
   pseudo,
   buildings
 }) => (
-  <div className='container'>
+  <div className='container-fluid'>
     <div className='row justify-content-center px-4'>
       <div className='col-12 col-md-6 text-white'>
         <h1 className='font-weight-light mb-1 font-epic'
