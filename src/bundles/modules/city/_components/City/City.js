@@ -7,15 +7,17 @@ export default ({
 }) => (
   <div className='container-fluid'>
     <div className='row justify-content-center px-4'>
-      <div className='col-12 col-md-6 text-white'>
-        <h1 className='font-weight-light mb-1 font-epic'
-            style={ { marginTop: '60px' } }>
-          MÉTA-CITÉ</h1>
-        <h2 className='lead font-weight-lighter mt-2'
+      <div className='col-12 col-md-6 text-white text-center'>
+        <h1 className='font-weight-light mb-5 display-2 my-3'
             style={ {
-              letterSpacing: '0.8px'
+              marginTop: '60px'
             } }>
-          Espace <span className='font-epic'>DATA</span> de { pseudo }</h2>
+          <span className='font-epic'>
+            MÉTA-CITÉ</span>&nbsp;
+          de&nbsp;
+          <span className='font-epic text-uppercase'>
+            { pseudo }</span>
+        </h1>
       </div>
       <BuildingList buildings={ buildings }/>
     </div>

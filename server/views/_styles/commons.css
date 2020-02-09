@@ -8,6 +8,10 @@
   font-family: 'day roman';
 }
 
+.text-green {
+  color: #7cb342 
+}
+
 #search-input {
   border-bottom-color: rgba(255, 255, 255, 0.85) !important;
 }

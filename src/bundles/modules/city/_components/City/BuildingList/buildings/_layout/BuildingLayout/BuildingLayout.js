@@ -1,5 +1,5 @@
 import React from 'react'
-import ListDisplay from './ListDisplay/ListDisplay';
+import DialogsList from './DialogsList/DialogsList';
 import trighbsData from '../../../../_data/trighbs/trighbs.data.js'
 
 export default building => {
@@ -27,30 +27,23 @@ export default building => {
   
   return (
     <div>
-      <div className='card'>
+      <div className='card mb-5'>
         <div className='card-body p-0 container'>
           <div className='row'>
-            <div className='col-12 col-md-6 pr-0'>
+            <div className='col-12 col-md-6'>
               <img className='card-img-top'
                   src={ `public/images/buildings/${ id }.jpg` }/>
             </div>
             <div className='col-12 col-md-6'>
-              <h5 className='small text-uppercase text-muted mr-2 mt-2 mb-0'>
-                { trighb }{
-                  (level
-                    || level.name)
-                    && ('-'
-                      + name) }
-                <span className='float-right'>
-                  NIVEAU { levelCapIndex }</span>
-              </h5>
+              <span className='small float-right text-muted font-weight-light h6 mt-1 mr-2'>
+                NIVEAU { levelCapIndex }</span>
               <h4 className='card-title text-uppercase font-weight-light text-left pt-4 pb-3 px-4 mb-0'>
-                  { level
-                    && level.name
-                    || name } NIV. { levelCapIndex - 1 }
+                { level
+                  && level.name
+                  || name }
                 </h4>
               <ul className='list-group'>
-                <ListDisplay list={ dialogs }
+                <DialogsList list={ dialogs }
                     trighb={ trighbData }
                     title={ (
                       <React.Fragment>

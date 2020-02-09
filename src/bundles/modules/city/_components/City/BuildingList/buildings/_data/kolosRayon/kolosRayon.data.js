@@ -5,7 +5,7 @@ export default {
   name: "nexus",
   levels: {
     '0': {
-      name: "Graine",
+      name: "Graine intrépide",
       flavour: "A l'intérieur de cette graine, endormie : la conscience; le potentiel de remplir l'espace et de le porter plus haut.",
     },
     '100': {

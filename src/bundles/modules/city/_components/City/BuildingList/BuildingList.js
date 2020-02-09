@@ -58,8 +58,10 @@ export default ({
           ]) => (
             <div key={ trighb }
                 className='col-12 col-md-6'>
-              <h2 className='text-white text-epic text-uppercase'>
-                { trighb }</h2>
+              <h2 className='text-white text-uppercase m-4'>
+                Tribu&nbsp;
+                <b className='font-epic'>
+                  { trighb }</b></h2>
               {
                 buildings
                   .map(building => {

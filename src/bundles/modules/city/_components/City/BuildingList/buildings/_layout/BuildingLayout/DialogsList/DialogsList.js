@@ -55,10 +55,10 @@ export default ({ list }) =>
     })
     .map(item => (
       <button key={ item.id }
-          className={ `list-group-item font-weight-light text-left pr-3 ${
+          className={ `list-group-item font-weight-light text-left pr-3 py-3 rounded-0 ${
             // HIGHLIGHTS COLOR for !opened || valid
             item.status !== 'CURRENT'
-              ? 'btn-danger'
+              ? 'light-green darken-1 text-white'
               
               : ''
           }` }
@@ -103,20 +103,16 @@ export default ({ list }) =>
           dialogsTypeIcon[
             item.type
           ]
-        } float-right ml-2 rounded-circle ${
+        } ${
           // HIGHLIGHT COLORS for !opened || valid
             item.status === 'CURRENT'
-              ? 'bg-white text-danger'
+              ? 'text-green'
 
-              : 'bg-danger text-white'
+              : 'text-white'
         }` }
-          style={ {
-            padding: '10px 8px 8px 8px'
-          } }
           title={ item.type }
           aria-hidden='true'></span>
-        <p className='mb-0 mt-1'>
-          { item.title }
-        </p>
+        <span className='mb-0 mt-1 ml-2'>
+          { item.title }</span>
       </button>
     ))
