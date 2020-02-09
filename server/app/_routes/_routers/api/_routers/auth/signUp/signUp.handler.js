@@ -17,9 +17,6 @@ module.exports = (
 
       res
         .json({
-          _id: data
-            .user
-            ._id,
           pseudo: data
             .user
             .pseudo,
