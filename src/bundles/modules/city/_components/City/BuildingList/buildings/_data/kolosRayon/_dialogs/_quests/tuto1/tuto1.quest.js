@@ -6,6 +6,9 @@ export default {
   type: 'QUEST',
   title: 'Le grand départ',
   pages: [{
+    open: () =>
+
+      console.log('dispatch server action'),
     content: () =>
 
       (
