@@ -20,26 +20,27 @@ export default ({ dialog }) => {
       <div className='modal-dialog modal-dialog-centered animated zoomInUp'
           role='document'>
         <div className='modal-content'>
-          <div className='modal-header bg-danger text-white'>
-            <h5 className='modal-title'>
+          <div className='modal-header border-0'>
+            <h5 className='modal-title h2 font-weight-light text-green mt-2'>
               {
                 dialog.type === 'QUEST'
                   && (
-                    <span className='fas fa-glass-martini'></span>
+                    <span className='fas fa-glass-martini mx-3'
+                        title='Quête'></span>
                   )
               }
               {
                 dialog.type === 'story'
                   && (
-                    <span className='fab fa-readme'></span>
+                    <span className='fab fa-readme mx-3'
+                        title='Histoire'></span>
                   )
               }
-              { dialog.title }</h5>
+            </h5>
             <button type='button'
                 className='close'
                 onClick={ closeModal }>
-              <span className='text-white'
-                  aria-hidden='true'>&times;</span>
+              <span aria-hidden='true'>&times;</span>
             </button>
           </div>
           {
@@ -53,54 +54,24 @@ export default ({ dialog }) => {
                 </div>
               )
           }
+          <div className='modal-body p-5'
+              style={ {
+                fontSize: '1.2rem'
+              } }>
+            <h1 className='font-weight-lighter mb-5'>
+              { dialog.title }</h1>
+            {
+              page.content()
+            }
+          </div>
           {
-            page.content()
-          }
-          {
-            page.tuto && (
-              <div className='modal-body bg-danger text-white pt-4'>
-                <h6 className='text-uppercase small mt-2'>
-                  tutoriel :</h6>
-                <div className='w-75 mx-auto pt-3'>
-                  { 
-                    page.tuto
-                      .map((line, index) =>
-                        line
-                          ? (
-                            <p key={ dialog.id
-                              + '#'
-                              + index }>
-                              { line }
-                            </p>
-                          )
-                          : (
-                            <br key={ dialog.id
-                              + '#'
-                              + index }/>
-                          ))
-                  }
-                </div>
-              </div>
-            )
-          }
-          {
-            page.mainMenu
-              && page.mainMenu.length > 0
+            page.menu
+              && page.menu.length > 0
               && (
                 <Menu type='main'
                     dialogId={ dialog.id }
                     pageIndex={ dialog.page }
-                    menu={ page.mainMenu }/>
-              )
-          }
-          {
-            page.altMenu
-              && page.altMenu.length > 0
-              && (
-                <Menu type='alt'
-                    dialogId={ dialog.id }
-                    pageIndex={ dialog.page }
-                    menu={ page.altMenu }/>
+                    menu={ page.menu }/>
               )
           }
         </div>

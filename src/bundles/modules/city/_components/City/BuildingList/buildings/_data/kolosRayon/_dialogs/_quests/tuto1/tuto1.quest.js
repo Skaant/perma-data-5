@@ -1,4 +1,5 @@
 import React from 'react'
+import { DIALOG_PAGE_NEXT } from '../../../../../../../../../../dialog/_actions/dialog.actions'
 
 export default {
   id: 'tuto1Quest',
@@ -14,14 +15,14 @@ export default {
             Dans&nbsp;
             <b className='text-epic'>PERMA-DATA</b>
             , chaque gamme d'outils est représentée par une tribu de&nbsp;
-            <b>ZUMS</b>
+            <b className='text-epic'>ZUMS</b>
             ,
             <br/>
             ces êtres fantastiques qui sont allés au-delà des limites de l'univers et sont revenus.</p>
           <p>
             Les&nbsp;
-            <b className='text-epic'>KOLOS</b>&nbsp;
-            , ceux qui voyagent à travers la
+            <b className='text-epic'>KOLOS</b>
+            , ceux qui voyagent à travers la&nsp;
             <b className='text-epic'>KOLOS-SEED</b>
             , ont des outils pour superviser et découvrir des améliorations pour toutes les autres tribus.
           </p>
@@ -36,10 +37,17 @@ export default {
             , qui vous seront également bientôt révélés, permettent de trouver encore d'avantage d'informations sur les plantes !
           </p>
           <p>
-            Partez maintenant, ...
+            Partez maintenant,&nbsp;
             <b>décrochez la graine !</b>
           </p>
         </React.Fragment>
-      )
+      ),
+    menu: [
+      'close',
+      {
+        type: 'main',
+        label: 'Décrocher la graine'
+      }
+    ]
   }]
 }

@@ -12,6 +12,20 @@
   color: #7cb342 
 }
 
+.btn-green {
+  background-color: #7cb342 !important;
+}
+
+.btn-green:hover {
+  background-color: #388e3c !important;
+}
+
+.btn-outline-green {
+  border: 2px solid #7cb342 !important;
+  background-color: transparent !important;
+  color: #7cb342 !important;
+}
+
 #search-input {
   border-bottom-color: rgba(255, 255, 255, 0.85) !important;
 }

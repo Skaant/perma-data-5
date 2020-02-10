@@ -88,7 +88,7 @@ export default ({ list }) =>
                             item.id]
                           ? window.__STORE__
                             .getState()
-                            .city
+                            .dialog
                             .history[
                               item.id]
                                 .page

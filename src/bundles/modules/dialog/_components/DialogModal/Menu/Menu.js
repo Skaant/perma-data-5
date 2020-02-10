@@ -1,5 +1,5 @@
 import React from 'react'
-import { DIALOG_MODAL_PAGE_CHANGE, DIALOG_MODAL_CLOSE } from '../../../_actions/dialog.actions';
+import { DIALOG_MODAL_PAGE_CHANGE, DIALOG_MODAL_CLOSE, DIALOG_PAGE_PREVIOUS, DIALOG_PAGE_NEXT } from '../../../_actions/dialog.actions';
 
 export default ({
   type,
@@ -36,7 +36,7 @@ export default ({
                       type='button'
                       className={ `btn ${
                         type === 'main'
-                          ? 'btn-outline-danger'
+                          ? 'btn-outline-green'
                           : 'btn-outline-white'
                       }` }
                       onClick={
@@ -67,11 +67,10 @@ export default ({
                         () =>
                           window.__STORE__
                             .dispatch({
-                              type: DIALOG_MODAL_PAGE_CHANGE,
+                              type: DIALOG_PAGE_PREVIOUS,
                               dialog: {
                                 id: dialogId
-                              },
-                              newPage: pageIndex - 1
+                              }
                             })}>
                     Précédent
                   </button>
@@ -95,11 +94,10 @@ export default ({
                           () =>
                             window.__STORE__
                               .dispatch({
-                                type: CITY_DIALOG_MODAL_PAGE_CHANGE,
+                                type: DIALOG_PAGE_NEXT,
                                 dialog: {
                                   id: dialogId
-                                },
-                                newPage: pageIndex + 1
+                                }
                               })}>
                       Suivant
                     </button>
@@ -116,8 +114,8 @@ export default ({
                   type='button'
                   className={ `btn ${
                       type === 'main'
-                        ? 'btn-danger text-white'
-                        : 'btn-white text-danger'
+                        ? 'btn-green text-white'
+                        : 'btn-white text-green'
                     }` }
                   onClick={ e =>
                     item.click

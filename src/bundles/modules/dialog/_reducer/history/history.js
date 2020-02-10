@@ -1,4 +1,4 @@
-import { DIALOG_MODAL_OPEN, DIALOG_MODAL_PAGE_CHANGE } from "../../_actions/dialog.actions";
+import { DIALOG_MODAL_OPEN, DIALOG_PAGE_NEXT, DIALOG_PAGE_PREVIOUS } from "../../_actions/dialog.actions";
 
 export default (
   state = {},
@@ -28,7 +28,7 @@ export default (
       
       return state
 
-    case DIALOG_MODAL_PAGE_CHANGE:
+    case DIALOG_PAGE_PREVIOUS:
 
       return Object.assign(
         {},
@@ -36,13 +36,33 @@ export default (
         {
           [dialog.id]: Object.assign(
             {},
-            dialog,
+            state[dialog.id],
             {
-              page: newPage
+              page: state[dialog.id]
+                .page
+                  - 1
             }
           )
         }
       )
+
+      case DIALOG_PAGE_NEXT:
+  
+        return Object.assign(
+          {},
+          state,
+          {
+            [dialog.id]: Object.assign(
+              {},
+              state[dialog.id],
+              {
+                page: state[dialog.id]
+                  .page
+                    + 1
+              }
+            )
+          }
+        )
     
     default:
       
