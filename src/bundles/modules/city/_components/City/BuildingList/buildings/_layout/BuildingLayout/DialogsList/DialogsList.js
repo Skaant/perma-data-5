@@ -2,7 +2,7 @@ import React from 'react'
 import { CITY_DIALOG_MODAL_OPEN } from '../../../../../../../_actions/city.actions';
 
 const dialogsTypeIcon = {
-  QUEST: 'fas fa-flag',
+  QUEST: 'fas fa-glass-martini',
   STORY: 'fab fa-readme'
 }
 
@@ -98,6 +98,18 @@ export default ({ list }) =>
               }
             }
           }>
+        {
+          item.status === 'NEW'
+            && (
+              <span className='fas fa-exclamation-circle mr-1'></span>
+            )
+        }
+        {
+          item.status === 'VALIDATED'
+            && (
+              <span className='fas fa-check-circle mr-1'></span>
+            )
+        }
         <span className={ `${
           // pick the right icon for dialog type
           dialogsTypeIcon[

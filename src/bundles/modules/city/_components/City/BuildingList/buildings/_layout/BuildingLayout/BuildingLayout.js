@@ -31,18 +31,18 @@ export default building => {
         <div className='card-body p-0 container'>
           <div className='row'>
             <div className='col-12 col-md-6'>
-              <img className='card-img-top'
+              <img className='card-img-top mb-4'
                   src={ `public/images/buildings/${ id }.jpg` }/>
             </div>
             <div className='col-12 col-md-6'>
-              <span className='small float-right text-muted font-weight-light h6 mt-1 mr-2'>
+              <span className='small float-right text-muted font-weight-light h6 mt-2 mr-3'>
                 NIVEAU { levelCapIndex }</span>
               <h4 className='card-title text-uppercase font-weight-light text-left pt-4 pb-3 px-4 mb-0'>
                 { level
                   && level.name
                   || name }
                 </h4>
-              <ul className='list-group'>
+              <ul className='list-group p-2'>
                 <DialogsList list={ dialogs }
                     trighb={ trighbData }
                     title={ (
