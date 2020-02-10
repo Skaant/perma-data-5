@@ -10,8 +10,9 @@ export default ({ dialog }) => {
         type: DIALOG_MODAL_CLOSE
       })
 
-  const page = dialog.pages[
-    dialog.page]
+  const page = dialog
+    .pages[dialog
+      .page]
 
   return (
     <div id='city-dialog-modal'
@@ -22,10 +23,16 @@ export default ({ dialog }) => {
           <div className='modal-header bg-danger text-white'>
             <h5 className='modal-title'>
               {
-                dialog.type === 'quest' && 'Quête : '
+                dialog.type === 'QUEST'
+                  && (
+                    <span className='fas fa-glass-martini'></span>
+                  )
               }
               {
-                dialog.type === 'story' && 'Histoire : '
+                dialog.type === 'story'
+                  && (
+                    <span className='fab fa-readme'></span>
+                  )
               }
               { dialog.title }</h5>
             <button type='button'
@@ -37,41 +44,17 @@ export default ({ dialog }) => {
           </div>
           {
             page.image
-                || dialog.image
-                && (
-                  <div className='modal-body px-0'>
-                    <img src={ `/public/images/dialogs/${
-                        page.image
-                        || dialog.image }`}/>
-                  </div>
-                )
+              || dialog.image
+              && (
+                <div className='modal-body px-0'>
+                  <img src={ `/public/images/dialogs/${
+                      page.image
+                      || dialog.image }`}/>
+                </div>
+              )
           }
           {
-            page.text && (
-              <div className='modal-body'>
-                <div className='w-75 mx-auto'>
-                  { 
-                    page.text
-                      .map((line, index) =>
-                        line
-                          ? (
-                            <p key={ dialog.id
-                              + '#'
-                              + index }>
-                              { line }
-                            </p>
-                          )
-                          : (
-                            <br key={ dialog.id
-                              + '#'
-                              + index }/>
-                          ))
-                  }
-                  <br/>
-                  <br/>
-                </div>
-              </div>
-            )
+            page.content()
           }
           {
             page.tuto && (

@@ -53,6 +53,7 @@ export default ({ list }) =>
 
       bScore - aScore
     })
+    // TODO : rename `item` to `dialog`
     .map(item => (
       <button key={ item.id }
           className={ `list-group-item font-weight-light text-left pr-3 py-3 rounded-0 ${
@@ -82,7 +83,7 @@ export default ({ list }) =>
                         // TODO should it be isolated ?
                         page: window.__STORE__
                           .getState()
-                          .city
+                          .dialog
                           .history[
                             item.id]
                           ? window.__STORE__
@@ -116,11 +117,11 @@ export default ({ list }) =>
             item.type
           ]
         } ${
-          // HIGHLIGHT COLORS for !opened || valid
-            item.status === 'CURRENT'
-              ? 'text-green'
+          // HIGHLIGHT COLORS for 'NEW' or 'VALIDATED'
+          item.status === 'CURRENT'
+            ? 'text-green'
 
-              : 'text-white'
+            : 'text-white'
         }` }
           title={ item.type }
           aria-hidden='true'></span>

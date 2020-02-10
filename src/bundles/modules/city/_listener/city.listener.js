@@ -27,7 +27,6 @@ export default () => {
         .pseudo,
       buildings
     })
-
   }
 
   previous = next
