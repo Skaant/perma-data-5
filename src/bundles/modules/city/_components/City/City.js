@@ -21,6 +21,5 @@ export default ({
       </div>
       <BuildingList buildings={ buildings }/>
     </div>
-    <div id='city-dialog-modal__anchor'></div>
   </div>
 )

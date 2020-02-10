@@ -1,5 +1,5 @@
 import React from 'react'
-import { CITY_DIALOG_MODAL_CLOSE } from '../../_actions/city.actions';
+import { DIALOG_MODAL_CLOSE } from '../../_actions/dialog.actions';
 import Menu from './Menu/Menu';
 
 export default ({ dialog }) => {  
@@ -7,7 +7,7 @@ export default ({ dialog }) => {
   const closeModal = () =>
     window.__STORE__
       .dispatch({
-        type: CITY_DIALOG_MODAL_CLOSE
+        type: DIALOG_MODAL_CLOSE
       })
 
   const page = dialog.pages[

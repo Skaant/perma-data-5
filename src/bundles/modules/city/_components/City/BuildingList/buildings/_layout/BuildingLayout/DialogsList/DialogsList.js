@@ -1,5 +1,5 @@
 import React from 'react'
-import { CITY_DIALOG_MODAL_OPEN } from '../../../../../../../_actions/city.actions';
+import { DIALOG_MODAL_OPEN } from '../../../../../../../../dialog/_actions/dialog.actions';
 
 const dialogsTypeIcon = {
   QUEST: 'fas fa-glass-martini',
@@ -74,7 +74,7 @@ export default ({ list }) =>
 
                 window.__STORE__
                   .dispatch({
-                    type: CITY_DIALOG_MODAL_OPEN,
+                    type: DIALOG_MODAL_OPEN,
                     dialog: Object.assign(
                       {},
                       item,

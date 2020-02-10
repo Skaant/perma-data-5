@@ -1,5 +1,5 @@
 import React from 'react'
-import { CITY_DIALOG_MODAL_PAGE_CHANGE, CITY_DIALOG_MODAL_CLOSE } from '../../../_actions/city.actions';
+import { DIALOG_MODAL_PAGE_CHANGE, DIALOG_MODAL_CLOSE } from '../../../_actions/dialog.actions';
 
 export default ({
   type,
@@ -43,7 +43,7 @@ export default ({
                         () =>
                           window.__STORE__
                             .dispatch({
-                              type: CITY_DIALOG_MODAL_CLOSE
+                              type: DIALOG_MODAL_CLOSE
                             })}>
                     Fermer
                   </button>
@@ -67,7 +67,7 @@ export default ({
                         () =>
                           window.__STORE__
                             .dispatch({
-                              type: CITY_DIALOG_MODAL_PAGE_CHANGE,
+                              type: DIALOG_MODAL_PAGE_CHANGE,
                               dialog: {
                                 id: dialogId
                               },

@@ -111,6 +111,10 @@ Un objet de type `user`.
 
 ### Objects
 
+#### `bundle`
+
+#### `module`
+
 #### `user`
 
 ```json

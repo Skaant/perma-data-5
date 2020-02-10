@@ -1,4 +1,4 @@
-import { CITY_DIALOG_MODAL_OPEN, CITY_DIALOG_MODAL_PAGE_CHANGE } from "../../_actions/city.actions";
+import { DIALOG_MODAL_OPEN, DIALOG_MODAL_PAGE_CHANGE } from "../../_actions/dialog.actions";
 
 export default (
   state = {},
@@ -11,7 +11,7 @@ export default (
 
   switch (type) {
 
-    case CITY_DIALOG_MODAL_OPEN:
+    case DIALOG_MODAL_OPEN:
 
       if (!state[dialog.id]) {
 
@@ -28,7 +28,7 @@ export default (
       
       return state
 
-    case CITY_DIALOG_MODAL_PAGE_CHANGE:
+    case DIALOG_MODAL_PAGE_CHANGE:
 
       return Object.assign(
         {},
