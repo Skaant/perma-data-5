@@ -8,7 +8,7 @@ module.exports = types => {
 
   const instanceToLineLink = name =>
 
-    `* [${ name }](#${ name })`
+    `   * [${ name }](#${ name })`
   
   return `
 * **global**

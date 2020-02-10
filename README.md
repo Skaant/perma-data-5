@@ -98,18 +98,18 @@ Every client bundle has its own `npm run` command :
 ### Patterns
 
 * **global**
-* [_enum](#_enum)
-* [_pattern](#_pattern)
-* [_utils](#_utils)
+   * [_enum](#_enum)
+   * [_pattern](#_pattern)
+   * [_utils](#_utils)
 
 * **server**
-* [_aggregation](#_aggregation)
-* [_chains](#_chains)
-* [_middlewares](#_middlewares)
-* [_routes](#_routes)
+   * [_aggregation](#_aggregation)
+   * [_chains](#_chains)
+   * [_middlewares](#_middlewares)
+   * [_routes](#_routes)
 
 * **client**
-* [_data](#_data)
+   * [_data](#_data)
 #### _aggregation
 
 *mongo aggregation query*
