@@ -15,7 +15,7 @@ module.exports = {
   connections: {},
   processor: false,
   instances: {
-    path: '',
+    path: './src',
     key: /_data/
   }
 }
