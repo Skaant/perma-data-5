@@ -32,6 +32,9 @@ export default () => {
   } else if (previous.user
     && !next.user) {
 
+    $('#home-base')
+      .removeClass('d-none')
+
     cookies
       .remove('auth')
 
@@ -46,9 +49,7 @@ export default () => {
 
     previous = next
 
-    loadBundle(
-      window.PAGE_ID,
-      next.user)
+    loadBundle(window.PAGE_ID)
 
   } else if (previous
       && ((!previous.moduleLoaded
@@ -60,6 +61,9 @@ export default () => {
     previous = next
 
     renderAuthNavItem()
+
+    $('#home-base')
+      .addClass('d-none')
 
     unmountLoginModal()
 

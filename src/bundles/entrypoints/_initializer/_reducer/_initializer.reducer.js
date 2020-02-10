@@ -2,8 +2,8 @@ import { INITALIZER_BUNDLE_REGISTERED } from "../_actions/initializer.actions";
 
 export default (
   state = {
-    bundlesId: [],
-    modulesId: []
+    bundles: [],
+    modules: []
   }, {
     type,
     ...action
@@ -11,8 +11,8 @@ export default (
 ) => {
 
   const { 
-    bundlesId,
-    modulesId
+    bundles,
+    modules
    } = state
 
   switch (type) {
@@ -20,18 +20,18 @@ export default (
     case INITALIZER_BUNDLE_REGISTERED:
 
       const {
-        bundleId: _bundleId,
-        modulesId: _modulesId
+        id: _bundle,
+        modules: _modules
       } = action
 
       return {
-        bundlesId: [
-          ...bundlesId,
-          _bundleId
+        bundles: [
+          ...bundles,
+          _bundle
         ],
-        modulesId: [
-          ...modulesId,
-          ..._modulesId
+        modules: [
+          ...modules,
+          ..._modules
         ]
       }
 

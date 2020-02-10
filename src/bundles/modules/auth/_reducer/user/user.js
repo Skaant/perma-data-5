@@ -3,14 +3,14 @@ import {
   AUTH_DISCONNECT,
   AUTH_TOKEN_CHECK_SUCCESS
 } from '../../_actions/auth.actions'
-import { CITY_SERVER_ACTION_SUCCESS } from '../../../city/_actions/city.actions';
+import { INITALIZER_BUNDLE_REGISTERED } from '../../../../entrypoints/_initializer/_actions/initializer.actions';
 
 export default (
   state = false,
   {
     type,
-    user,
-    buildings
+    bundle,
+    user
   }
 ) => {
 
@@ -18,26 +18,25 @@ export default (
 
     case AUTH_LOGIN_CHECK_SUCCESS:
     case AUTH_TOKEN_CHECK_SUCCESS:
+
       return user
 
-    case CITY_SERVER_ACTION_SUCCESS:
-      
-      return Object.assign(
-        {},
-        state,
-        {
-          buildings: state.buildings
-            .map(building =>
+    case INITALIZER_BUNDLE_REGISTERED:
 
-              buildings[building.key]
-                || building)
-        }
-      )
+      const {
+        buildings,
+        ...data
+      } = state
+        || {}
+
+      return data
 
     case AUTH_DISCONNECT:
+
       return false
     
     default:
+
       return state
   }
 }

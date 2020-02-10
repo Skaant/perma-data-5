@@ -3,10 +3,7 @@ import { MAIN_NOTIFICATIONS_NEW, MAIN_NOTIFICATIONS_REPLACE } from "../../../mai
 import userAuthNoBundleNotificationFactory from "./_notifications/userAuthNoBundle/userAuthNoBundle.notificationFactory";
 import authBundleSuccessNotificationFactory from "./_notifications/authBundleSuccess/authBundleSuccess.notificationFactory";
 
-export default (
-  pageId,
-  user  
-) =>
+export default pageId =>
 
   setTimeout(
     () => {
@@ -35,7 +32,12 @@ export default (
          */
         .then(() => {
 
-            const authBundleSuccessNotification = authBundleSuccessNotificationFactory(user)
+            const {
+              auth
+            } = window.__STORE__
+              .getState()
+
+            const authBundleSuccessNotification = authBundleSuccessNotificationFactory(auth.user)
             
             const timestampDifference = Date.now() - userAuthNoBundleNotificationTimestamp
 
