@@ -3,6 +3,7 @@ import { DIALOG_MODAL_CLOSE } from '../../_actions/dialog.actions';
 import Menu from './Menu/Menu';
 import dialogTypeIconEnum from '../../../_enums/dialogTypeIcon/dialogTypeIcon.enum';
 import dialogTypeLabelEnum from '../../../_enums/dialogTypeLabel/dialogTypeLabel.enum';
+import Interactors from './Interactors/Interactors';
 
 export default ({ dialog }) => {  
 
@@ -22,19 +23,6 @@ export default ({ dialog }) => {
       <div className='modal-dialog modal-dialog-centered animated zoomInUp'
           role='document'>
         <div className='modal-content'>
-          <div className='modal-header border-0'>
-            <h5 className='modal-title h2 font-weight-light text-green-hover mt-2'>
-              <span className={ `fas ${
-                    dialogTypeIconEnum[dialog.type]
-                  } mx-3` }
-                  title={ dialogTypeLabelEnum[dialog.type] }></span>
-            </h5>
-            <button type='button'
-                className='close'
-                onClick={ closeModal }>
-              <span aria-hidden='true'>&times;</span>
-            </button>
-          </div>
           {
             page.image
               || dialog.image
@@ -46,10 +34,21 @@ export default ({ dialog }) => {
                 </div>
               )
           }
-          <div className='modal-body p-5'
+          <div className='modal-body px-5 pt-4 pb-5 shadow'
               style={ {
                 fontSize: '1.2rem'
               } }>
+            <button type='button'
+                className='close'
+                onClick={ closeModal }>
+              <span aria-hidden='true'>&times;</span>
+            </button>
+            <h5 className='modal-title h2 font-weight-light text-green-hover mt-2 my-4'>
+              <span className={ `fas fa-lg ${
+                    dialogTypeIconEnum[dialog.type]
+                  } mx-3` }
+                  title={ dialogTypeLabelEnum[dialog.type] }></span>
+            </h5>
             <h1 className='font-weight-lighter mb-5'>
               { dialog.title }</h1>
             {
@@ -57,13 +56,21 @@ export default ({ dialog }) => {
             }
           </div>
           {
+            page.interactors
+              && page.interactors.length > 0
+              && (
+                <Interactors dialogId={ dialog.id }
+                    pageIndex={ dialog.page }
+                    interactors={ page.interactors } />
+              )
+          }
+          {
             page.menu
               && page.menu.length > 0
               && (
-                <Menu type='main'
-                    dialogId={ dialog.id }
+                <Menu dialogId={ dialog.id }
                     pageIndex={ dialog.page }
-                    menu={ page.menu }/>
+                    menu={ page.menu } />
               )
           }
         </div>

@@ -1,17 +1,12 @@
 import React from 'react'
-import { DIALOG_MODAL_PAGE_CHANGE, DIALOG_MODAL_CLOSE, DIALOG_PAGE_PREVIOUS, DIALOG_PAGE_NEXT } from '../../../_actions/dialog.actions';
+import { DIALOG_MODAL_CLOSE, DIALOG_PAGE_PREVIOUS, DIALOG_PAGE_NEXT } from '../../../_actions/dialog.actions';
 
 export default ({
-  type,
   dialogId,
   pageIndex,
   menu
 }) => (
-  <div className={ `modal-footer rounded-0 border-0 ${
-    type === 'main'
-      ? 'bg-white'
-      : 'bg-danger'
-  } type-${ type }` }>
+  <div className='modal-footer rounded-0 border-0 bg-white justify-content-start pb-0 pt-1'>
     {
       menu
         .filter(item =>
@@ -34,11 +29,7 @@ export default ({
                       + '::'
                       + item }
                       type='button'
-                      className={ `btn ${
-                        type === 'main'
-                          ? 'btn-outline-green'
-                          : 'btn-outline-white'
-                      }` }
+                      className='btn shadow-none btn-lg p-4'
                       onClick={
                         () =>
                           window.__STORE__
@@ -58,11 +49,7 @@ export default ({
                     + '::'
                     + item  }
                       type='button'
-                      className={ `btn ${
-                        type === 'main'
-                          ? 'btn-outline-danger'
-                          : 'btn-outline-white'
-                      }` }
+                      className='btn shadow-none btn-lg p-4'
                       onClick={
                         () =>
                           window.__STORE__
@@ -85,11 +72,7 @@ export default ({
                       + '::'
                       + item  }
                         type='button'
-                        className={ `btn ${
-                          type === 'main'
-                            ? 'btn-danger'
-                            : 'btn-white text-danger'
-                        }` }
+                        className='btn shadow-none btn-lg p-4'
                         onClick={
                           () =>
                             window.__STORE__
@@ -113,7 +96,7 @@ export default ({
                     + item.label }
                   type='button'
                   className={ `btn ${
-                      type === 'main'
+                      item.type === 'main'
                         ? 'btn-green text-white'
                         : 'btn-white text-green'
                     }` }

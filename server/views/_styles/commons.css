@@ -18,6 +18,10 @@
   cursor: pointer;
 }
 
+.btn-lg {
+  letter-spacing: 2.5px;
+}
+
 .btn-green {
   background-color: #7cb342 !important;
 }

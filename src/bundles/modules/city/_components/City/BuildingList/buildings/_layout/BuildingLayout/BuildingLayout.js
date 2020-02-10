@@ -31,7 +31,7 @@ export default building => {
         <div className='card-body p-0 container'>
           <div className='row'>
             <div className='col-12 col-md-6'>
-              <img className='card-img-top mb-4'
+              <img className='card-img-top my-4'
                   src={ `public/images/buildings/${ id }.jpg` }/>
             </div>
             <div className='col-12 col-md-6'>
