@@ -1,10 +1,7 @@
 import React from 'react'
 import { DIALOG_MODAL_OPEN } from '../../../../../../../../dialog/_actions/dialog.actions';
-
-const dialogsTypeIcon = {
-  QUEST: 'fas fa-glass-martini',
-  STORY: 'fab fa-readme'
-}
+import dialogTypeLabelEnum from '../../../../../../../../_enums/dialogTypeLabel/dialogTypeLabel.enum';
+import dialogTypeIconEnum from '../../../../../../../../_enums/dialogTypeIcon/dialogTypeIcon.enum';
 
 export default ({ list }) =>
 
@@ -59,10 +56,11 @@ export default ({ list }) =>
           className={ `list-group-item font-weight-light text-left pr-3 py-3 rounded-0 ${
             // HIGHLIGHTS COLOR for !opened || valid
             item.status !== 'CURRENT'
-              ? 'light-green darken-1 text-white'
+              ? 'btn-green text-white'
               
               : ''
           }` }
+          title={ dialogTypeLabelEnum[item.type] }
           style={ {
             letterSpacing: '0.8px',
             fontSize: '14px'
@@ -113,9 +111,7 @@ export default ({ list }) =>
         }
         <span className={ `${
           // pick the right icon for dialog type
-          dialogsTypeIcon[
-            item.type
-          ]
+          dialogTypeIconEnum[item.type]
         } ${
           // HIGHLIGHT COLORS for 'NEW' or 'VALIDATED'
           item.status === 'CURRENT'

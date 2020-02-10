@@ -22,7 +22,7 @@ export default {
           <p>
             Les&nbsp;
             <b className='text-epic'>KOLOS</b>
-            , ceux qui voyagent à travers la&nsp;
+            , ceux qui voyagent à travers la&nbsp;
             <b className='text-epic'>KOLOS-SEED</b>
             , ont des outils pour superviser et découvrir des améliorations pour toutes les autres tribus.
           </p>

@@ -1,6 +1,8 @@
 import React from 'react'
 import { DIALOG_MODAL_CLOSE } from '../../_actions/dialog.actions';
 import Menu from './Menu/Menu';
+import dialogTypeIconEnum from '../../../_enums/dialogTypeIcon/dialogTypeIcon.enum';
+import dialogTypeLabelEnum from '../../../_enums/dialogTypeLabel/dialogTypeLabel.enum';
 
 export default ({ dialog }) => {  
 
@@ -21,21 +23,11 @@ export default ({ dialog }) => {
           role='document'>
         <div className='modal-content'>
           <div className='modal-header border-0'>
-            <h5 className='modal-title h2 font-weight-light text-green mt-2'>
-              {
-                dialog.type === 'QUEST'
-                  && (
-                    <span className='fas fa-glass-martini mx-3'
-                        title='Quête'></span>
-                  )
-              }
-              {
-                dialog.type === 'story'
-                  && (
-                    <span className='fab fa-readme mx-3'
-                        title='Histoire'></span>
-                  )
-              }
+            <h5 className='modal-title h2 font-weight-light text-green-hover mt-2'>
+              <span className={ `fas ${
+                    dialogTypeIconEnum[dialog.type]
+                  } mx-3` }
+                  title={ dialogTypeLabelEnum[dialog.type] }></span>
             </h5>
             <button type='button'
                 className='close'

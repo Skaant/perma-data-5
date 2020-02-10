@@ -8,8 +8,14 @@
   font-family: 'day roman';
 }
 
-.text-green {
+.text-green,
+.text-green-hover {
   color: #7cb342 
+}
+
+.text-green-hover:hover {
+  color: #388e3c;
+  cursor: pointer;
 }
 
 .btn-green {
