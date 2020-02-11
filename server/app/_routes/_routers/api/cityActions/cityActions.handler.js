@@ -13,11 +13,10 @@ module.exports = (
       res
     }
   )
-    .then(({ user, type }) => {
+    .then(data => 
 
-      return res
-        .json({user, type})  
-    })
+      res
+        .json(Object.keys(data)))
 
     .catch(err => {
 

@@ -10,28 +10,55 @@ const recursive = (
 
   if (chain[0]) {
 
-    chain[0](data)
+    chain[0]
+      .action(data)
+
+      // the `_data` type depends on the chain item `type`
       .then(_data => {
 
-        const nextData = Object
-          .assign(
-            {},
-            data,
-            _data
-          )
-        
-        recursive(
-          chain
-            .slice(1),
-          nextData
-        )
-          .then(data =>
-            
-            resolve(data))
+        switch (chain[0].type) {
 
-          .catch(err =>
+          // `_data` is an effective data object
+          case 'control':
+          case 'dbaccess':
+
+            const nextData = Object
+              .assign(
+                {},
+                data,
+                _data
+              )
             
-            reject(err))
+            return recursive(
+              chain
+                .slice(1),
+              nextData
+            )
+            
+              .then(data =>
+                
+                resolve(data))
+
+              .catch(err =>
+                
+                reject(err))
+
+          case 'switch':
+            
+            // `_data` is a new chain
+            return recursive(
+              _data,
+              data
+            )
+
+              .then(data =>
+                
+                resolve(data))
+
+              .catch(err =>
+                
+                reject(err))
+        }
       })
 
       .catch(err =>
@@ -39,6 +66,8 @@ const recursive = (
         reject(err))
   
   } else {
+
+    console.log(Object.keys(data))
 
     resolve(data)
   }
