@@ -35,8 +35,6 @@ module.exports = ({
       reject(Error('400: `body.password` is required'))
     }
 
-    resolve({
-      body
-    })
+    resolve({ body })
   }
 )

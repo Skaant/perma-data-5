@@ -10,8 +10,8 @@ router
 
 router
   .put(
-    '/actions',
-    require('./actions/actions.handler')
+    '/city-actions',
+    require('./cityActions/cityActions.handler')
   )
 
 router
