@@ -13,17 +13,27 @@ module.exports = (
       res
     }
   )
-    .then(({ user }) => {
-
-      console.log(user)
+    .then(({ user, type }) => {
 
       return res
-        .json(user)  
+        .json({user, type})  
     })
 
-    .catch(err => 
+    .catch(err => {
+
+      console.error(err.message.slice(0, 3))
 
       res
-        .status(err.code
-          || 500)
-        .send(err))
+        .status(
+          err.message[3] === ':'
+            ? parseInt(err
+              .message
+              .slice(0, 3))
+          
+            : 500
+        )
+        .send({
+          message: err.message,
+          stack: err.stack
+        })
+    })

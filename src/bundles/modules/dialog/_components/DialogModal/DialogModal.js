@@ -14,8 +14,19 @@ export default ({ dialog }) => {
       })
 
   const page = dialog
-    .pages[dialog
-      .page]
+    .pages[dialog.page]
+
+  // Triggers the method to be called on page opening
+  if (page.open) {
+
+    setTimeout(
+      () =>
+
+        page
+          .open(),
+      1
+    )
+  }
 
   return (
     <div id='city-dialog-modal'

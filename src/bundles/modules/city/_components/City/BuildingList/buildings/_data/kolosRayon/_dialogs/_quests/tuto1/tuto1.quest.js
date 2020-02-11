@@ -1,4 +1,5 @@
 import React from 'react'
+import { CITY_SERVER_ACTION_START } from '../../../../../../../../../_actions/city.actions'
 
 export default {
   id: 'tuto1Quest',
@@ -92,9 +93,14 @@ export default {
     ]
   },
   {
-    open: () =>
+    open: () => {
 
-      console.log('dispatch server action'),
+      window.__STORE__
+        .dispatch({
+          type: CITY_SERVER_ACTION_START,
+          actionType: 'tuto1QuestRead'
+        })
+    },
     content: () =>
 
       (
