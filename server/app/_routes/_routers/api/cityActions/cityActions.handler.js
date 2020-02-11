@@ -16,7 +16,9 @@ module.exports = (
     .then(data => 
 
       res
-        .json(Object.keys(data)))
+        .json({
+          user: data.user
+        }))
 
     .catch(err => {
 
