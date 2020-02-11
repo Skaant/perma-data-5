@@ -33,7 +33,7 @@ export default {
             Encore, les&nbsp;
             <b className='text-epic'>NOVS</b>
             , qui vous seront également bientôt révélés, permettent de trouver encore&nbsp;
-            <b>plus d'informations sur les pages plantes</b>&nbsp;
+            <b>plus d'informations sur les pages-plantes</b>&nbsp;
             que vous visitez !
           </p>
         </React.Fragment>
@@ -43,6 +43,55 @@ export default {
     ]
   }, 
   {
+    content: () =>
+
+      (
+        <React.Fragment>
+          <p>
+            Mais regardez, voilà comment s'organise le voyage des&nbsp;
+            <b className='font-epic'>KOLOS</b>
+            :
+          </p>
+          <p>
+            Lorsqu'une région est devenue trop "facile", certains, parmis les plus courageux des&nbsp;
+            <b className='font-epic'>ZUMS</b>
+            , décident de partir pour inoculer d'autres terres.
+          </p>
+          <p>
+            Bien qu'ils ignorent tout de leur future destination, ils sont confiant.
+          </p>
+          <p>
+            Ils savent qu'ils ne peuvent tomber que dans la&nbsp;
+            <b className='font-epic'>FRAST</b>
+            –&nbsp;la forêt-univers, le terrain d'expérimentation de la grande conscience collective.
+          </p>
+          <img src='public/images/dialogs/kolo-seed-intro.jpg'
+              className='w-100 mb-2 mt-4'/>
+          <p className='small text-muted text-right font-weight-light mb-5'>
+            Des ZUMS devant des graines intrépides en fin de croissance, peu avant le grand départ.
+          </p>
+          <p>
+            La tribu des&nbsp;
+            <b className='font-epic'>KOLOS</b>&nbsp;
+            attend patiemment que ses&nbsp;
+            <b>graines intrépides</b>&nbsp;
+            arrivent à maturité.
+          </p>
+          <p>
+            Quand elles sont prêtes, ils n'hésitent pas à décrocher ces vaisseaux du tronc qui les a vu naître.
+          </p>
+          <p>
+            <b>C'est le grand départ.</b>
+          </p>
+        </React.Fragment>
+      )
+    ,
+    menu: [
+      'previous',
+      'next'
+    ]
+  },
+  {
     open: () =>
 
       console.log('dispatch server action'),
@@ -50,10 +99,19 @@ export default {
 
       (
         <React.Fragment>
-          <p></p>
           <p>
-            Partez maintenant,&nbsp;
-            <b>décrochez la graine !</b>
+            Le moment est venu pour vous.
+          </p>
+          <p>
+            Lancez-vous sans plus attendre dans l'aventure&nbsp;
+            <b className='font-epic'>PERMA-DATA</b>&nbsp;
+            et découvrez les&nbsp;
+            <b>nombreuses fonctionnalités de l'application</b>&nbsp;
+            à mesure que se développent vos tribus&nbsp;
+            <b className='font-epic'>ZUMS</b>.
+          </p>
+          <p>
+            Allez-y, que pousse cette civilisation du futur !
           </p>
         </React.Fragment>
       ),

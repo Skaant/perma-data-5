@@ -26,6 +26,11 @@
   background-color: #7cb342 !important;
 }
 
+.modal-content img + p.small {
+  font-size: 0.8rem;
+  letter-spacing: 0.35px;
+}
+
 .btn-green:hover {
   background-color: #388e3c !important;
 }
