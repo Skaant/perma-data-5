@@ -29,7 +29,7 @@ const recursive = (
                 _data
               )
             
-            return recursive(
+            recursive(
               chain
                 .slice(1),
               nextData
@@ -43,10 +43,12 @@ const recursive = (
                 
                 reject(err))
 
+            break
+
           case 'switch':
             
             // `_data` is a new chain
-            return recursive(
+            recursive(
               _data,
               data
             )
@@ -58,6 +60,8 @@ const recursive = (
               .catch(err =>
                 
                 reject(err))
+                
+            break
         }
       })
 
@@ -66,8 +70,6 @@ const recursive = (
         reject(err))
   
   } else {
-
-    console.log(Object.keys(data))
 
     resolve(data)
   }
