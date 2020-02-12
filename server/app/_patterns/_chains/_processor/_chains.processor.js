@@ -20,7 +20,7 @@ const recursive = (
 
           // `_data` is an effective data object
           case 'control':
-          case 'dbaccess':
+          case 'dbcall':
 
             const nextData = Object
               .assign(

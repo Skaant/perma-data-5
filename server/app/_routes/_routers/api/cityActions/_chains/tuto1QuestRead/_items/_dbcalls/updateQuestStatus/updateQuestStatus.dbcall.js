@@ -14,28 +14,28 @@ module.exports = {
         reject
       ) =>
       
-      mongo()
+        mongo()
 
-        .then(({ db }) =>
+          .then(({ db }) =>
 
-          db
-            .collection('user_buildings')
+            db
+              .collection('user_buildings')
 
-            .updateOne(
-              {
-                user: user._id
-              },
-              {
-                $set: {
-                  buildings: nextBuildings
-                }
-              })
+              .updateOne(
+                {
+                  user: user._id
+                },
+                {
+                  $set: {
+                    buildings: nextBuildings
+                  }
+                })
 
-            .then(() =>
-              
-              resolve())
+              .then(() =>
+                
+                resolve())
 
-            .catch(err =>
-              
-              reject(err))))
+              .catch(err =>
+                
+                reject(err))))
 }

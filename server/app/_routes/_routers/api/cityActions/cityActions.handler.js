@@ -13,14 +13,12 @@ module.exports = (
       res
     }
   )
-    .then(data => {
-
-      console.log(data)
+    .then(data =>
 
       res
         .json({
           nextBuildings: data.nextBuildings
-        })})
+        }))
 
     .catch(err => {
 
