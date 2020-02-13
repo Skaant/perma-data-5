@@ -7,9 +7,9 @@ const saveBuildingDbCall = require('../_items/_dbcalls/saveBuilding/saveBuilding
 
 module.exports = [
   reqBodyControl,
-  createUserControl,
+  /* createUserControl,
   saveUserDbCall,
   setCookiesControl,
   createBuildingControl,
-  saveBuildingDbCall
+  saveBuildingDbCall */
 ]
