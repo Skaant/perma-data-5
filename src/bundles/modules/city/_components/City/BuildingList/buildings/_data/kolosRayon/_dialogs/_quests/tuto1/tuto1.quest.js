@@ -88,8 +88,8 @@ export default {
       )
     ,
     menu: [
-      'previous',
-      'next'
+      'next',
+      'previous'
     ]
   },
   {

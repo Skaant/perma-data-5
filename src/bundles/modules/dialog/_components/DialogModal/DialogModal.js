@@ -45,7 +45,7 @@ export default ({ dialog }) => {
                 </div>
               )
           }
-          <div className='modal-body px-5 pt-4 pb-5 shadow'
+          <div className='modal-body px-5 pt-4'
               style={ {
                 fontSize: '1.2rem'
               } }>

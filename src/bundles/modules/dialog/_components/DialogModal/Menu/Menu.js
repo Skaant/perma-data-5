@@ -6,7 +6,7 @@ export default ({
   pageIndex,
   menu
 }) => (
-  <div className='modal-footer rounded-0 border-0 bg-white justify-content-start pb-0 pt-1'>
+  <div className='modal-footer rounded-0 border-0 bg-white justify-content-start'>
     {
       menu
         .filter(item =>
@@ -29,7 +29,7 @@ export default ({
                       + '::'
                       + item }
                       type='button'
-                      className='btn shadow-none btn-lg p-4'
+                      className='btn btn-outline-green mr-2'
                       onClick={
                         () =>
                           window.__STORE__
@@ -49,7 +49,7 @@ export default ({
                     + '::'
                     + item  }
                       type='button'
-                      className='btn shadow-none btn-lg p-4'
+                      className='btn btn-outline-green mr-2 btn-lg'
                       onClick={
                         () =>
                           window.__STORE__
@@ -72,7 +72,7 @@ export default ({
                       + '::'
                       + item  }
                         type='button'
-                        className='btn shadow-none btn-lg p-4'
+                        className='btn btn-green btn-lg mr-2'
                         onClick={
                           () =>
                             window.__STORE__
@@ -95,10 +95,10 @@ export default ({
                     + ':'
                     + item.label }
                   type='button'
-                  className={ `btn ${
-                      item.type === 'main'
-                        ? 'btn-green text-white'
-                        : 'btn-white text-green'
+                  className={ `btn bt-lg mr-2 ${
+                      item.outline
+                        ? 'btn-outline-green'
+                        : 'btn-green'
                     }` }
                   onClick={ e =>
                     item.click
