@@ -1,110 +1,71 @@
 import React from 'react'
-import trighbsData from '../_data/trighbs/trighbs.data'
 import buildingsData from './buildings/_data'
 import buildingComponents from './buildings/_components/index'
+import orderByTrighb from './orderByTrighb/orderByTrighb'
 
 export default ({
   buildings
 }) => {
 
-  const trighbsIndex = Object
-    .keys(trighbsData)
-
   return (
     <React.Fragment>
       {
-        Object
-          .entries(buildings
-            // to order by trighb
-            .reduce(
+        orderByTrighb(buildings)
+
+          // Iterates through trighbs to [TODO :] `TrighbHub`
+          .map(
+            ({ trighb, buildings }) =>
+            
               (
-                acc,
-                building
-              ) => {
+                <div key={ trighb }
+                    className='col-12 col-md-6'>
+                  <h2 className='text-white text-uppercase m-4'>
+                    Tribu&nbsp;
+                    <b className='font-epic'>
+                      { trighb }</b></h2>
+                  {
+                    buildings.map(building => {
 
-                const trighb = building
-                  .id
-                  .split('-')[0]
+                      const buildingData = buildingsData[building.id]
 
-                if (!acc[trighb]) {
+                      const dialogs = {}
+                      
+                      for (
+                        const typeKey
+                          of [
+                            'quests',
+                            'stories'
+                          ]
+                      ) {
 
-                  acc[trighb] = [
-                    building
-                  ]
-                  
-                } else {
+                        dialogs[typeKey] = {}
 
-                  acc[trighb]
-                    .push(building)
-                }
-
-                return acc
-              },
-              {}
-            )
-          )
-          // Object entries
-          .sort((
-            a,
-            b
-          ) =>
-          
-            trighbsIndex[b[0]]
-              - trighbsIndex[a[0]])
-
-          .map(([
-            trighb,
-            buildings
-          ]) => (
-            <div key={ trighb }
-                className='col-12 col-md-6'>
-              <h2 className='text-white text-uppercase m-4'>
-                Tribu&nbsp;
-                <b className='font-epic'>
-                  { trighb }</b></h2>
-              {
-                buildings
-                  .map(building => {
-
-                    const buildingData = buildingsData[building.id]
-
-                    const dialogs = {}
-                    
-                    for (
-                      const typeKey
-                        of [
-                          'quests',
-                          'stories'
-                        ]
-                    ) {
-
-                      dialogs[typeKey] = {}
-
-                      Object
-                        .entries(building[typeKey]
-                          || [])
-                        
-                        .forEach(([
-                          id,
-                          dialog
-                        ]) =>
+                        Object
+                          .entries(building[typeKey]
+                            || [])
                           
-                          dialogs[typeKey][id] = {
-                            ...dialog,
-                            ...buildingData[typeKey][id]
-                          })
-                    }
-                    
-                    return buildingComponents[building.id]({
-                      key: building.id,
-                      ...building,
-                      ...buildingData,
-                      ...dialogs
+                          .forEach(([
+                            id,
+                            dialog
+                          ]) =>
+                            
+                            dialogs[typeKey][id] = {
+                              ...dialog,
+                              ...buildingData[typeKey][id]
+                            })
+                      }
+                      
+                      return buildingComponents[building.id]({
+                        key: building.id,
+                        ...building,
+                        ...buildingData,
+                        ...dialogs
+                      })
                     })
-                  })
-              }
-            </div>
-          ))
+                  }
+                </div>
+              )
+            )
       }
     </React.Fragment>
   )
