@@ -98,18 +98,18 @@ Every client bundle has its own `npm run` command :
 ### Patterns
 
 * **global**
-* [_enum](#_enum)
-* [_pattern](#_pattern)
-* [_utils](#_utils)
+   * [_enum](#_enum)
+   * [_pattern](#_pattern)
+   * [_utils](#_utils)
 
 * **server**
-* [_aggregation](#_aggregation)
-* [_chains](#_chains)
-* [_middlewares](#_middlewares)
-* [_routes](#_routes)
+   * [_aggregation](#_aggregation)
+   * [_chains](#_chains)
+   * [_middlewares](#_middlewares)
+   * [_routes](#_routes)
 
 * **client**
-
+   * [_data](#_data)
 #### _aggregation
 
 *mongo aggregation query*
@@ -152,7 +152,30 @@ Standardizes the server lifecycle, after the middlewares, from the handler, up t
 
 **Instances :** `./server/app (...) /.chain.js/`
 
+* ./server/app/_routes/_routers/api/_routers/auth/signUp/_chains/_main/signUp.main.chain.js
 
+#### _data
+
+*hard coded data*
+
+**Type :** `PATTERN_TYPE_CLIENT`
+
+Stores static data to be bundled.
+
+**Occurence:** A component, or a logic, start consuming data which must be configurable for the future.
+
+**Problem:** Data and logic should be separed.
+
+**Solution:** Use a `_data` folder and fill `.json` or `.js` files with data to be extracted.
+
+**Implementation:** In the consumer folder (or higher for multiple consumers), create the `_data` folder and some `.json` files to store data. `.js` files should be only used when storing functions.
+
+**Instances :** `./src (...) /_data/`
+
+* ./src/_patterns/_data
+* ./src/_dep_data
+* ./src/bundles/modules/city/_components/City/_data
+* ./src/bundles/modules/city/_components/City/BuildingList/buildings/_data
 
 #### _enum
 
@@ -271,6 +294,7 @@ At some point a logic is repeted but it also requires a higher generality for it
 * ./_patterns/_utils/_utils.pattern.js
 * ./_patterns/_pattern/_pattern.pattern.js
 * ./_patterns/_enum/_enum.pattern.js
+* ./src/_patterns/_data/_data.pattern.js
 * ./server/app/_patterns/_routes/_routes.pattern.js
 * ./server/app/_patterns/_middlewares/_middlewares.pattern.js
 * ./server/app/_patterns/_chains/_chains.pattern.js
@@ -439,6 +463,37 @@ Folder should be at the top of the consumers' common folder tree.
 * ./server/app/_routes/_routers/api/_utils
 * ./server/app/_routes/_routers/api/_routers/auth/_utils
 
+
+### API
+
+All API routes are prefixed with `/api/`.
+
+#### `/auth/{ mode }`
+
+Where `mode = { 'sign-in', 'sign-up', 'recover-password' }`.
+
+##### Returns
+
+Un objet de type `user`.
+
+### Objects
+
+#### `user`
+
+```json
+{
+  "pseudo": "<string>",
+  "buildings": "<array of [building]>"
+}
+```
+
+#### `building`
+
+#### `dialogs`
+
+#### `dialog:quest`
+
+#### `dialog:story`
 
 ### Glossary
 

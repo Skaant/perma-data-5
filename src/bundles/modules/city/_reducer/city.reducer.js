@@ -1,11 +1,9 @@
 import { combineReducers } from 'redux'
-import modalDisplay from './modalDisplay/modalDisplay'
-import currentDialog from './currentDialog/currentDialog'
-import history from './history/history'
+import buildings from './buildings/buildings'
+import serverAction from './serverAction/serverAction'
 
 export default 
   combineReducers({
-    modalDisplay,
-    currentDialog,
-    history
+    buildings,
+    serverAction
   })

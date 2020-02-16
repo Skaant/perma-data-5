@@ -8,9 +8,8 @@ module.exports = () =>
 
     if (token) {
 
-      getUser({
-        token
-      })
+      getUser(token)
+      
         .then(user => {
 
           if (!user) {
@@ -27,6 +26,7 @@ module.exports = () =>
 
           console
             .error(error)
+
           next()
         })
     } else {

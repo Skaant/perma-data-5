@@ -13,6 +13,7 @@ import { INITALIZER_BUNDLE_REGISTERED } from './_actions/initializer.actions'
  */
 export default ({
   id: bundleId,
+  init,
   modules
 }) => {
 
@@ -37,6 +38,12 @@ export default ({
   store.dispatch({
     type: INITALIZER_BUNDLE_REGISTERED,
     bundleId,
-    modulesId: Object.keys(modules)
+    modules: modules
+      .map(({ id }) => id),
+    ...(
+      init
+        ? init()
+        
+        : {})
   })
 }

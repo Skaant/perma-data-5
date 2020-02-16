@@ -1,35 +1,30 @@
 import renderCity from './renderCity/renderCity'
-import renderCityDialogModal from './renderCityDialogModal/renderCityDialogModal';
-import setBackdropClickClose from '../../_utils/setBackdropClickClose/setBackdropClickClose';
-import { CITY_DIALOG_MODAL_CLOSE } from '../_actions/city.actions';
+import { CITY_SERVER_ACTION_SUCCESS, CITY_SERVER_ACTION_ERROR } from '../_actions/city.actions';
 
-  let previous = null
-  let previousAuth = null
+let previous = null
 
-  const store = window.__STORE__
+const store = window.__STORE__
 
 export default () => {
 
-  const next = store
+  const {
+    city: next,
+    auth
+  } = store
     .getState()
-    .city
-
-  const nextAuth = store
-    .getState()
-    .auth
 
   // TODO deep buildings check
-  if (nextAuth
-      && nextAuth.user
-      && nextAuth.user.buildings) {
+  if (next
+    && next.buildings) {
 
     const {
-      pseudo,
       buildings
-     } = nextAuth.user
+     } = next
 
     renderCity({
-      pseudo,
+      pseudo: auth
+        .user
+        .pseudo,
       buildings
     })
   } 
@@ -42,41 +37,36 @@ export default () => {
       .addClass('d-none')
   }
 
-  if (previousAuth
-      && previousAuth.user
-      && !nextAuth.user) {
-
-    $('#summary')
-      .removeClass('d-none')
-  }
-
   if ((!previous
-      || !previous.modalDisplay
-      || previous.currentDialog.page
-        !== next.currentDialog.page)
-    && next.modalDisplay
-    && next.currentDialog) {
+      || !previous.serverAction)
+    && next.serverAction) {
 
-      renderCityDialogModal(next
-        .currentDialog)
+    $.post(
+      '/api/city-actions',
+      {
+        type: next
+          .serverAction
+          .type
+      }
+    )
 
-      $('#city-dialog-modal')
-        .modal('show')
+      .done(data => {
 
-      setBackdropClickClose(
-        '#city-dialog-modal',
-        CITY_DIALOG_MODAL_CLOSE
-      )
-  }
+        window.__STORE__
+          .dispatch({
+            type: CITY_SERVER_ACTION_SUCCESS,
+            data
+          })
+      })
 
-  if (previous
-    && previous.modalDisplay
-    && !next.modalDisplay) {
-
-      $('#city-dialog-modal')
-        .modal('hide')
+      .fail(error =>
+        
+        window.__STORE__
+          .dispatch({
+            type: CITY_SERVER_ACTION_ERROR,
+            error
+          }))
   }
 
   previous = next
-  previousAuth = nextAuth
 }

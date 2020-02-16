@@ -25,7 +25,6 @@ module.exports = (
 
             res
               .json({
-                _id,
                 pseudo,
                 buildings
               })

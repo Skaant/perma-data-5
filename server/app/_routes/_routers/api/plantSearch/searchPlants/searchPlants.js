@@ -15,12 +15,16 @@ module.exports = (
       .collection('data')
       .aggregate(
         plantSearchAggregation(searchValue),
-        (err, cursor) => {
+        (
+          err,
+          cursor
+        ) => {
 
           if (err) {
 
             reject(res, err)
           }
+          
           cursor
             .toArray()
             .then(results =>

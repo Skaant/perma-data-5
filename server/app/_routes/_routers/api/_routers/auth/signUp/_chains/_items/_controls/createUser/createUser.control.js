@@ -1,32 +1,31 @@
 const atob = require('atob')
+const ControlChainItem = require('../../../../../../../../../../_patterns/_chains/_classes/ControlChainItem/ControlChainItem')
 
-module.exports = ({
-  req,
-  res
-}) =>
+module.exports = new ControlChainItem(
+  __filename,
+  ({
+    body
+  }) =>
 
-  new Promise(resolve => {
+    new Promise(resolve => {
 
-    const { body } = req
-
-    const {
-      email,
-      pseudo,
-      password
-    } = body
-
-    resolve({
-      req,
-      res,
-      user: {
+      const {
         email,
         pseudo,
-        password: atob(password),
-        token: Math
-          .random()
-          .toString(36)
-          .substr(2)
-      }
-    })
-  }
+        password
+      } = body
+
+      resolve({
+        user: {
+          email,
+          pseudo,
+          password: atob(password),
+          token: Math
+            .random()
+            .toString(36)
+            .substr(2)
+        }
+      })
+    }
+  )
 )

@@ -9,9 +9,9 @@ router
   )
 
 router
-  .put(
-    '/actions',
-    require('./actions/actions.handler')
+  .post(
+    '/city-actions',
+    require('./cityActions/cityActions.handler')
   )
 
 router

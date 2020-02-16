@@ -85,9 +85,9 @@ module.exports = (
                       }
                     )
                     res.send({
-                        pseudo: user.pseudo,
-                        buildings
-                      })
+                      pseudo: user.pseudo,
+                      buildings
+                    })
                   })
               }
             }

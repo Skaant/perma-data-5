@@ -67,7 +67,7 @@ module.exports = () =>
                     content
                   }) => {
 
-                    console.log('  * ' 
+                    console.log(' * ' 
                       + name)
 
                     const fragment = instanceFragment({

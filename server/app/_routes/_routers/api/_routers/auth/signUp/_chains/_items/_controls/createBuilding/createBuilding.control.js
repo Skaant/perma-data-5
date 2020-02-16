@@ -1,23 +1,25 @@
-const atob = require('atob')
+const ControlChainItem = require('../../../../../../../../../../_patterns/_chains/_classes/ControlChainItem/ControlChainItem')
 
-module.exports = data =>
+module.exports = new ControlChainItem(
+  __filename,
+  () =>
 
-  new Promise(resolve => {
+    new Promise(resolve => {
 
-    const buildings = [{
-      key: 'kolos-seed',
-      xp: 0,
-      quests: {
-        'kolos-seed-intro': {
-          opened: false,
-          valid: false
+      const buildings = {
+        'kolos-rayon': {
+          xp: 0,
+          quests: {
+            'tuto1Quest': {
+              status: 'NEW'
+            }
+          }
         }
       }
-    }]
 
-    resolve({
-      ...data,
-      buildings
-    })
-  }
+      resolve({
+        buildings
+      })
+    }
+  )
 )

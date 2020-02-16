@@ -1,4 +1,3 @@
-import renderComponent from './renderComponent/renderComponent'
 import renderLoginModal from './renderLoginModal/renderLoginModal'
 import initialTokenCheck from './initialTokenCheck/initialTokenCheck'
 import setBackdropClickClose from '../../_utils/setBackdropClickClose/setBackdropClickClose'
@@ -26,7 +25,20 @@ export default () => {
 
     previous = next
 
-    renderComponent()
+    renderAuthNavItem()
+
+  } else if (previous.user
+    && !next.user) {
+
+    $('#home-base')
+      .removeClass('d-none')
+
+    cookies
+      .remove('auth')
+
+    previous = next
+
+    renderAuthNavItem()
 
   } else if (previous
       && !previous.user
@@ -43,7 +55,12 @@ export default () => {
 
     previous = next
 
-    renderComponent()
+    renderAuthNavItem()
+
+    $('#home-base')
+      .addClass('d-none')
+
+    unmountLoginModal()
 
   } else if (previous
       && previous.modalDisplay !== next.modalDisplay) {
