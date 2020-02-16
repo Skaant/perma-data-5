@@ -1,9 +1,9 @@
+const ControlChainItem = require('../../../../../../../../../../app/_patterns/_chains/_classes/ControlChainItem/ControlChainItem')
 /** cityActions _chains index */
 const cityActionsChains = require('../../../../')
 
-module.exports = {
-  type: 'control',
-  action: ({
+module.exports = new ControlChainItem(
+  __filename,({
     req
   }) =>
 
@@ -34,4 +34,4 @@ module.exports = {
       resolve({ type })
     }
   )
-}
+)

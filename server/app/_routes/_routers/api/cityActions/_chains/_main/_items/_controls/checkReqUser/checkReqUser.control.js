@@ -1,6 +1,8 @@
-module.exports = {
-  type: 'control',
-  action: ({
+const ControlChainItem = require('../../../../../../../../../../app/_patterns/_chains/_classes/ControlChainItem/ControlChainItem')
+
+module.exports = new ControlChainItem(
+  __filename,
+  ({
     req
   }) =>
 
@@ -26,4 +28,4 @@ module.exports = {
       resolve({ user })
     }
   )
-}
+)

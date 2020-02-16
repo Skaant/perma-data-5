@@ -1,7 +1,10 @@
-module.exports = {
-  name: 'checkQuestStatus',
-  type: 'control',
-  action: ({ user }) =>
+const ControlChainItem = require('../../../../../../../../../../app/_patterns/_chains/_classes/ControlChainItem/ControlChainItem')
+
+module.exports = new ControlChainItem(
+  __filename,
+  ({
+    user
+  }) =>
 
     new Promise((
       resolve,
@@ -9,10 +12,7 @@ module.exports = {
     ) => {
 
       const kolosRayon = user
-        .buildings
-        .find(building =>
-          
-          building.id === 'kolos-rayon')
+        .buildings['kolos-rayon']
 
       if (!kolosRayon) {
 
@@ -35,4 +35,4 @@ module.exports = {
       resolve({})
     }
   )
-}
+)

@@ -43,12 +43,12 @@ export default () => {
       }
     )
 
-      .done(data => {
+      .done(({ nextBuildings }) => {
 
         window.__STORE__
           .dispatch({
             type: CITY_SERVER_ACTION_SUCCESS,
-            data
+            nextBuildings
           })
       })
 

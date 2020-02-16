@@ -1,16 +1,20 @@
 import renderDialogModal from './renderDialogModal/renderDialogModal';
 import setBackdropClickClose from '../../_utils/setBackdropClickClose/setBackdropClickClose';
 import { DIALOG_MODAL_CLOSE } from '../_actions/dialog.actions';
+import { render } from 'pug';
 
 let previous = null
+let previousCity = null
 
 const store = window.__STORE__
 
 export default () => {
 
-  const next = store
+  const {
+    dialog: next,
+    city: nextCity
+  } = store
     .getState()
-    .dialog
 
   if ((!previous
       || !previous.modalDisplay
@@ -39,5 +43,14 @@ export default () => {
         .modal('hide')
   }
 
+  if ((!previousCity && nextCity
+    || (previousCity.buildings
+      !== nextCity.buildings))) {
+
+    renderDialogModal(next
+      .currentDialog)
+  }
+
   previous = next
+  previousCity = nextCity
 }

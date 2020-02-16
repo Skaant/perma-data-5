@@ -1,9 +1,9 @@
 const mongo = require('../../../../../../../../../../mongo/mongo')
+const DbcallChainItem = require('../../../../../../../../../../app/_patterns/_chains/_classes/DbcallChainItem/DbcallChainItem')
 
-module.exports = {
-  name: 'updateQuestStatus.dbcall.js',
-  type: 'dbcall',
-  action: ({
+module.exports = new DbcallChainItem(
+  __filename,
+  ({
     user,
     nextBuildings
   }) =>
@@ -27,7 +27,19 @@ module.exports = {
                 },
                 {
                   $set: {
-                    buildings: nextBuildings
+                    ...Object.entries(nextBuildings)
+
+                      .reduce((
+                        acc,
+                        [ id, building ]
+                      ) => {
+                      
+                        acc[`buildings.${ id }`] = building
+                        
+                        return acc
+                      },
+                      {})
+
                   }
                 })
 
@@ -38,4 +50,4 @@ module.exports = {
               .catch(err =>
                 
                 reject(err))))
-}
+)

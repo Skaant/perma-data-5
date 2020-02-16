@@ -7,7 +7,8 @@ export default (
   {
     type,
     bundleId,
-    buildings = {}
+    buildings = {},
+    nextBuildings
   }
 ) => {
 
@@ -16,8 +17,8 @@ export default (
     case CITY_SERVER_ACTION_SUCCESS:
 
       return {
-        state,
-        ...buildings
+        ...state,
+        ...nextBuildings
       }
 
     case INITALIZER_BUNDLE_REGISTERED:

@@ -22,8 +22,6 @@ module.exports = (
 
     .catch(err => {
 
-      console.error(err.message.slice(0, 3))
-
       res
         .status(
           err.message[3] === ':'
