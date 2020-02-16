@@ -1,20 +1,25 @@
-module.exports = () =>
+const ControlChainItem = require('../../../../../../../../../../_patterns/_chains/_classes/ControlChainItem/ControlChainItem')
 
-  new Promise(resolve => {
+module.exports = new ControlChainItem(
+  __filename,
+  () =>
 
-    const buildings = {
-      'kolos-rayon': {
-        xp: 0,
-        quests: {
-          'tuto1Quest': {
-            status: 'NEW'
+    new Promise(resolve => {
+
+      const buildings = {
+        'kolos-rayon': {
+          xp: 0,
+          quests: {
+            'tuto1Quest': {
+              status: 'NEW'
+            }
           }
         }
       }
-    }
 
-    resolve({
-      buildings
-    })
-  }
+      resolve({
+        buildings
+      })
+    }
+  )
 )

@@ -1,3 +1,5 @@
+const ChainItemTypeEnum = require('../_enums/ChainItemType/ChainItemType.enum')
+
 const recursive = (
   chain,
   data
@@ -19,8 +21,10 @@ const recursive = (
         switch (chain[0].type) {
 
           // `_data` is an effective data object
-          case 'control':
-          case 'dbcall':
+          case ChainItemTypeEnum
+              .CONTROL:
+          case ChainItemTypeEnum
+              .DBCALL:
 
             const nextData = Object
               .assign(
@@ -44,10 +48,11 @@ const recursive = (
                 reject(err))
 
             break
-
-          case 'switch':
             
-            // `_data` is a new chain
+          // `_data` is a new chain
+          case ChainItemTypeEnum
+              .SWITCH:
+
             recursive(
               _data,
               data

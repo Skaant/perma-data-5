@@ -9,7 +9,7 @@ export default (
   state = false,
   {
     type,
-    bundle,
+    bundleId,
     user
   }
 ) => {
@@ -23,13 +23,21 @@ export default (
 
     case INITALIZER_BUNDLE_REGISTERED:
 
-      const {
-        buildings,
-        ...data
-      } = state
-        || {}
+      if (bundleId
+        .includes('-auth')) {
 
-      return data
+        const {
+          buildings,
+          ...data
+        } = state
+          || {}
+    
+        return data
+
+      } else {
+
+        return state
+      }
 
     case AUTH_DISCONNECT:
 

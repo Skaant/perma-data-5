@@ -37,7 +37,7 @@ export default ({
 
   store.dispatch({
     type: INITALIZER_BUNDLE_REGISTERED,
-    id: bundleId,
+    bundleId,
     modules: modules
       .map(({ id }) => id),
     ...(

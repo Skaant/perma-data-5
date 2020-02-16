@@ -1,19 +1,25 @@
-module.exports = ({
-  res,
-  user
-}) =>
+const ControlChainItem = require('../../../../../../../../../../_patterns/_chains/_classes/ControlChainItem/ControlChainItem')
 
-  new Promise(resolve => {
+module.exports = new ControlChainItem(
+  __filename,
+  ({
+    res,
+    user
+  }) =>
 
-    res.cookie(
-      'auth',
-      user.token,
-      {
-        maxAge: 432000000
-      }
-    )
+    new Promise(resolve => {
 
-    resolve({
-      res
-    })
-  })
+      res.cookie(
+        'auth',
+        user.token,
+        {
+          maxAge: 432000000
+        }
+      )
+
+      resolve({
+        res
+      })
+    }
+  )
+)

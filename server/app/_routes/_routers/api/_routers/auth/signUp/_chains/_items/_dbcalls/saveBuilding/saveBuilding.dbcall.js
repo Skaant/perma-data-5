@@ -1,30 +1,35 @@
 const mongo = require('../../../../../../../../../../../mongo/mongo')
+const DbcallChainItem = require('../../../../../../../../../../_patterns/_chains/_classes/DbcallChainItem/DbcallChainItem')
 
-module.exports = ({
-  user,
-  buildings
-}) =>
+module.exports = new DbcallChainItem(
+  __filename,
+  ({
+    user,
+    buildings
+  }) =>
 
-  new Promise(
-    (
-      resolve,
-      reject
-    ) =>
-    
-    mongo()
+    new Promise(
+      (
+        resolve,
+        reject
+      ) =>
+      
+      mongo()
 
-      .then(({ db }) =>
+        .then(({ db }) =>
 
-        db
-          .collection('user_buildings')
-          .insertOne({
-            user: user._id,
-            buildings 
-          })
-          .then(() =>
+          db
+            .collection('user_buildings')
+            .insertOne({
+              user: user._id,
+              buildings 
+            })
+            .then(() =>
 
-            resolve())
+              resolve())
 
-          .catch(err =>
+            .catch(err =>
 
-            reject(err))))
+              reject(err)))
+    )
+)

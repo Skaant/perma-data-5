@@ -6,7 +6,8 @@ export default (
   state = false,
   {
     type,
-    buildings
+    bundleId,
+    buildings = {}
   }
 ) => {
 
@@ -20,8 +21,14 @@ export default (
       }
 
     case INITALIZER_BUNDLE_REGISTERED:
+
+      if (bundleId
+        .includes('-auth')) {
       
-      return buildings
+        return buildings
+      }
+
+      return state
 
     case AUTH_DISCONNECT:
       
