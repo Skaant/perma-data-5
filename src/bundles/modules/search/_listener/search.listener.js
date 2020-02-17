@@ -34,7 +34,7 @@ export default () => {
     renderSearchNavItem()
 
     if (previous
-      && previous.loginModalDisplay) {
+      && previous.searchModalDisplay) {
   
       renderSearchModal() 
     }
