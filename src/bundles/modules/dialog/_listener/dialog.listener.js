@@ -1,7 +1,6 @@
 import renderDialogModal from './renderDialogModal/renderDialogModal';
 import setBackdropClickClose from '../../_utils/setBackdropClickClose/setBackdropClickClose';
-import { DIALOG_MODAL_CLOSE } from '../_actions/dialog.actions';
-import { render } from 'pug';
+import { DIALOG_MODAL_CLOSE } from '../_actions/dialog.actions'
 
 let previous = null
 let previousCity = null
@@ -43,9 +42,9 @@ export default () => {
         .modal('hide')
   }
 
-  if ((!previousCity && nextCity
-    || (previousCity.buildings
-      !== nextCity.buildings))) {
+  if (next.modalDisplay
+    && previousCity.buildings
+      !== nextCity.buildings) {
 
     renderDialogModal(next
       .currentDialog)
