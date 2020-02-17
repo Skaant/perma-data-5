@@ -22,10 +22,10 @@ module.exports = new ControlChainItem(
 
       nextBuildings['kolos-rayon']
         .stories = {
-          seedOverFrast: {
+          seedOverFrastStory: {
             status: 'NEW'
           },
-          kolosXan: {
+          kolosXanStory: {
             status: 'NEW'
           }
         }
