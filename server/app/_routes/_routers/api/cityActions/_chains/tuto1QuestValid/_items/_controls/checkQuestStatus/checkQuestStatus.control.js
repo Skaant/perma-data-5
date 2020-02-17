@@ -27,9 +27,9 @@ module.exports = new ControlChainItem(
         reject(new Error('400: pas de quête `tuto1Quest`'))
       }
 
-      if (quest.status !== 'NEW') {
+      if (quest.status !== 'VALIDATED') {
 
-        reject(new Error('400: `tuto1Quest` doit être au `status = \'NEW\'`'))
+        reject(new Error('400: `tuto1Quest` doit être au `status = \'VALIDATED\'`'))
       }
 
       resolve({})

@@ -130,7 +130,12 @@ export default {
             label: 'Décrocher la graine',
             click: () =>
 
-              console.log('dispatch city actions')
+              dialog
+                && window.__STORE__
+                  .dispatch({
+                    type: CITY_SERVER_ACTION_START,
+                    actionType: 'tuto1QuestValid'
+                  })
           }
         ]
         

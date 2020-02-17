@@ -1,4 +1,7 @@
 import tuto1Quest from "./_dialogs/_quests/tuto1/tuto1.quest";
+import tuto2Quest from "./_dialogs/_quests/tuto2/tuto2.quest";
+import seedOverFrastStory from "./_dialogs/_stories/seedOverFrast/seedOverFrast.story";
+import kolosXanStory from "./_dialogs/_stories/kolosXan/kolosXan.story";
 
 export default {
   trighb: "kolos",
@@ -15,6 +18,11 @@ export default {
     }
   },
   quests: {
-    tuto1Quest
+    tuto1Quest,
+    tuto2Quest
+  },
+  stories: {
+    seedOverFrastStory,
+    kolosXanStory
   }
 }
