@@ -99,7 +99,10 @@ export default ({ list }) =>
                             .history[
                               item.id]
                                 .page
-                          : 0
+                          : (item.status === 'VALIDATED'
+                            ? (item.pages.length - 1)
+
+                            : 0)
                       }
                     )
                   })

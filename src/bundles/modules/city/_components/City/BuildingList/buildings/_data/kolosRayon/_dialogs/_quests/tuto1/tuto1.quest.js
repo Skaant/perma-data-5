@@ -93,13 +93,14 @@ export default {
     ]
   },
   {
-    open: () => {
+    open: dialog => {
 
-      window.__STORE__
-        .dispatch({
-          type: CITY_SERVER_ACTION_START,
-          actionType: 'tuto1QuestRead'
-        })
+      dialog.status === 'NEW'
+        && window.__STORE__
+          .dispatch({
+            type: CITY_SERVER_ACTION_START,
+            actionType: 'tuto1QuestRead'
+          })
     },
     content: () =>
 

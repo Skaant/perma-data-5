@@ -23,7 +23,7 @@ export default ({ dialog }) => {
       () =>
 
         page
-          .open(),
+          .open(dialog),
       1
     )
   }
@@ -35,6 +35,7 @@ export default ({ dialog }) => {
           role='document'>
         <div className='modal-content'>
           {
+            // TO DEPRECIATE ?
             page.image
               || dialog.image
               && (
@@ -54,11 +55,23 @@ export default ({ dialog }) => {
                 onClick={ closeModal }>
               <span aria-hidden='true'>&times;</span>
             </button>
-            <h5 className='modal-title h2 font-weight-light text-green-hover mt-2 my-4'>
-              <span className={ `fas fa-lg ${
+            <h5 className='modal-title h2 font-weight-light mt-2 my-4'>
+              <span className={ `fas ${
+                    dialog.status === 'VALIDATED'
+                      ? 'fa-3x ml-3 my-4'
+
+                      : 'fa-lg mx-3'
+                  } ${
                     dialogTypeIconEnum[dialog.type]
-                  } mx-3` }
+                  }  text-green-hover` }
                   title={ dialogTypeLabelEnum[dialog.type] }></span>
+              {
+                dialog.status === 'VALIDATED'
+                  && (
+                    <span className='fas fa-3x fa-check-circle text-green-hover'
+                        title={ dialogTypeLabelEnum[dialog.type] }></span>
+                  )
+              }
             </h5>
             <h1 className='font-weight-lighter mb-5'>
               { dialog.title }</h1>
