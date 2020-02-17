@@ -15,9 +15,9 @@ export default () => {
     .search
 
   if (previous
-      && previous.loginModalDisplay !== next.loginModalDisplay) {
+      && previous.searchModalDisplay !== next.searchModalDisplay) {
     
-    if (next.modalDisplay === true) {
+    if (next.searchModalDisplay === true) {
 
       renderSearchModal(true)
 

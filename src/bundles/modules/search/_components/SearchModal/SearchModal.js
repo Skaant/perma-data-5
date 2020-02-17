@@ -1,7 +1,7 @@
 import React from 'react'
 import SearchResults from './SearchResults/SearchResults';
 import SearchModalInput from './SearchModalInput/SearchModalInput';
-import { AUTH_LOGIN_MODAL_CLOSE } from '../../../auth/_actions/auth.actions';
+import { SEARCH_MODAL_CLOSE } from '../../_actions/search.actions';
 
 export default ({
   value,
@@ -13,7 +13,7 @@ export default ({
 
     window.__STORE__
       .dispatch({
-        type: AUTH_LOGIN_MODAL_CLOSE
+        type: SEARCH_MODAL_CLOSE
       })
   
   return (
