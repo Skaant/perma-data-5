@@ -72,7 +72,7 @@ export default ({ dialog }) => {
                 dialog.status === 'VALIDATED'
                   && (
                     <span className='fas fa-3x fa-check-circle text-green-hover'
-                        title={ dialogTypeLabelEnum[dialog.type] }></span>
+                        title='Valide'></span>
                   )
               }
             </h5>
