@@ -5,7 +5,10 @@ import dialogTypeIconEnum from '../../../../../../../../_enums/dialogTypeIcon/di
 import dialogStatusLabelEnum from '../../../../../../../../_enums/dialogStatusLabel/dialogStatusLabel.enum';
 import dialogStatusIconEnum from '../../../../../../../../_enums/dialogStatusIcon/dialogStatusIcon.enum';
 
-export default ({ list }) =>
+export default ({
+  buildingId,
+  list
+}) =>
 
   list
     /** ORDERING #1 : setting scores */
@@ -83,28 +86,10 @@ export default ({ list }) =>
                 window.__STORE__
                   .dispatch({
                     type: DIALOG_MODAL_OPEN,
-                    dialog: Object.assign(
-                      {},
-                      item,
-                      {
-                        // TODO should it be isolated ?
-                        page: window.__STORE__
-                          .getState()
-                          .dialog
-                          .history[
-                            item.id]
-                          ? window.__STORE__
-                            .getState()
-                            .dialog
-                            .history[
-                              item.id]
-                                .page
-                          : (item.status === 'VALIDATED'
-                            ? (item.pages.length - 1)
-
-                            : 0)
-                      }
-                    )
+                    dialog: {
+                      buildingId,
+                      ...item,
+                    }
                   })
               }
             }

@@ -122,14 +122,19 @@ export default {
           </p>
         </React.Fragment>
       ),
-    interactors: [
-      {
-        label: 'Décrocher la graine',
-        click: () =>
+    interactors: dialog =>
+    
+      dialog.status === 'VALIDATED'
+        ? [
+          {
+            label: 'Décrocher la graine',
+            click: () =>
 
-          console.log('dispatch city actions')
-      }
-    ],
+              console.log('dispatch city actions')
+          }
+        ]
+        
+        : [],
     menu: [
       'previous'
     ]

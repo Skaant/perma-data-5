@@ -16,6 +16,9 @@ export default ({ dialog }) => {
   const page = dialog
     .pages[dialog.page]
 
+  const interactors = page.interactors
+    && page.interactors(dialog)
+
   // Triggers the method to be called on page opening
   if (page.open) {
 
@@ -80,12 +83,12 @@ export default ({ dialog }) => {
             }
           </div>
           {
-            page.interactors
-              && page.interactors.length > 0
+            interactors
+              && interactors.length > 0
               && (
                 <Interactors dialogId={ dialog.id }
                     pageIndex={ dialog.page }
-                    interactors={ page.interactors } />
+                    interactors={ interactors } />
               )
           }
           {

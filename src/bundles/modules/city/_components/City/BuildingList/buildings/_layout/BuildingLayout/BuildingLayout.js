@@ -43,7 +43,8 @@ export default building => {
                   || name }
                 </h4>
               <ul className='list-group p-2'>
-                <DialogsList list={ dialogs }
+                <DialogsList buildingId={ id }
+                    list={ dialogs }
                     trighb={ trighbData }
                     title={ (
                       <React.Fragment>
