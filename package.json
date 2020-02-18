@@ -6,8 +6,10 @@
     "start": "node ./server/server.js",
     "dev-start": "npx nodemon ./server/server.js",
     "test": "mocha \"./**/*.test.*js\" --exclude \"./**/node_modules/**\"",
-    "build-home-base": "webpack --config ./webpack.config.js --output ./public/bundles/pages/home/base.js ./src/bundles/entrypoints/pages/home/base/base.js",
-    "build-home-auth": "webpack --config ./webpack.config.js --output ./public/bundles/pages/home/auth.js ./src/bundles/entrypoints/pages/home/auth/auth.js",
+    "build-home-base": "webpack --config ./webpack.config.js --output ./public/bundles/pages/home/base.js ./src/bundles/entrypoints/pages/home/base/base.js --mode production --watch true",
+    "build-home-base-prod": "webpack --config ./webpack.config.js --output ./public/bundles/pages/home/base.js ./src/bundles/entrypoints/pages/home/base/base.js --mode production",
+    "build-home-auth": "webpack --config ./webpack.config.js --output ./public/bundles/pages/home/auth.js ./src/bundles/entrypoints/pages/home/auth/auth.js --mode production --watch true",
+    "build-home-auth-prod": "webpack --config ./webpack.config.js --output ./public/bundles/pages/home/auth.js ./src/bundles/entrypoints/pages/home/auth/auth.js --mode production",
     "build-plantId-base": "webpack --config ./webpack.config.js --output ./public/bundles/pages/plantId/base.js ./src/bundles/entrypoints/pages/plantId/base/base.js",
     "build-plantId-auth": "webpack --config ./webpack.config.js --output ./public/bundles/pages/plantId/auth.js ./src/bundles/entrypoints/pages/plantId/auth/auth.js",
     "doc": "node ./doc/_readme/documentor/documentor.js"
