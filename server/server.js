@@ -1,6 +1,6 @@
 const app = require('./app/app')
-const config = require('./server.config.json')
+const { port } = require('./server.config')
 
 // Start the **server** application with
 //  given port.
-app.listen(config.port)
+app.listen(port)
