@@ -1,7 +1,11 @@
 const { MongoClient } = require('mongodb')
 const uriResolver = require('./uriResolver/uriResolver')
-const { uri, dbName } = require('./clientConfig.json')
-const { username, password } = require('./clientSecret.json')
+const {
+  uri,
+  dbName,
+  username,
+  password
+} = require('./mongo.config')
 
 const client = new MongoClient(
   uriResolver(

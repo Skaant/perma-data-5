@@ -1,4 +1,0 @@
-{
-  "uri": "mongodb+srv://<username>:<password>@alpha-yytto.gcp.mongodb.net/test?retryWrites=true&w=majority",
-  "dbName": "dev"
-}
