@@ -17,7 +17,8 @@ export default ({ searchResults }) => {
 
           return (
             <div key={ id }
-                className='row'>
+                className='row'
+                onClick={ () => window.location.href = '/plant/' + id }>
               <a className='col-12 card my-2 text-dark px-4 py-3'
                   href={ '/plant/' + id }>
                 <div>
