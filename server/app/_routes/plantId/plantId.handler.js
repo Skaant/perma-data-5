@@ -13,7 +13,8 @@ module.exports = (req, res) => {
     return errorPage(
       res,
       new Error('A plant id must be given'),
-      400)
+      400
+    )
   }
 
   mongo()
@@ -28,7 +29,7 @@ module.exports = (req, res) => {
           data,
           sources
         }) => {
-            
+
           const page = pug
             .renderFile(
               './server/views/pages/plantId/plantId.pug', 

@@ -1,19 +1,24 @@
 #sources-block.container
-  each source, key in plant.sources
-    .row(
-      id= key
-    )
-      .col-4.rounded-right
-        - var rootSource = source.parents[0] || source
-        ul.text-left.py-3.list-unstyled
-          li
-            span.font-weight-bold Langue :&nbsp;
-            span= rootSource.lang
-          li
-            span.font-weight-bold Auteur(s) :&nbsp;
-            span= rootSource.authors
-      .col-8.pl-0
-        ol.breadcrumb.amber.lighten-4
-          li.breadcrumb-item.font-weight-bold= source.title
-          each parent in source.parents.slice().reverse()
-            li.breadcrumb-item= parent.title
+  table.table.table-striped
+    thead
+      th Titre
+      th Informations
+    tbody
+      each source, key in plant.sources
+        tr(
+          id= key
+        )
+          td.col-8.pl-0
+            ol.breadcrumb
+              li.breadcrumb-item.font-weight-bold= source.title
+              each parent in source.parents.slice().reverse()
+                li.breadcrumb-item= parent.title
+          td.col-4.rounded-right
+            - var rootSource = source.parents[0] || source
+            if (rootSource.lang)
+              p.mb-2 Langue :&nbsp;
+                span.font-weight-bold= rootSource.lang
+                
+            if (rootSource.authors)
+              p.mb-2 Auteur(s) :&nbsp;
+                span.font-weight-bold= rootSource.authors
