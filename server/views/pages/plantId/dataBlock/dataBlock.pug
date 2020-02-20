@@ -12,13 +12,13 @@
           tbody
             each item in items
               tr
-                th(
+                th.col-3(
                   scope='row'
                 )= key
-                td= item.value
-                td
+                td.col-6= item.value
+                td.col-3
                   each source in item.sources
                     p
-                      a(
+                      a.text-green(
                         href= '#' + source
-                      )= plant.sources[source].title
+                      )= plant.sources[source].parents[0].shortTitle || plant.sources[source].parents[0].title

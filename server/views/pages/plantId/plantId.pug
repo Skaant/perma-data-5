@@ -14,8 +14,8 @@ block content
         )= (plant.data['name,fr'] && plant.data['name,fr'][0] && plant.data['name,fr'][0].value || plant.id)
         include ./dataBlock/dataBlock
 
-    .row.my-4.py-2.justify-content-center
-      .col-12.col-md-8.card.container(
+    .row.bg-white.justify-content-center.z-depth-1.mb-4
+      .col-12.col-md-8.container(
         style='padding: 60px 60px 45px 60px'
       )
         h2.text-center.font-epic(
@@ -33,9 +33,9 @@ block content
               style='background-color: #7cb342 !important; letter-spacing: 3px'
             ) Créez un compte
     
-    .row
+    .row.py-2.justify-content-center
       .col-12.col-md-10.jumbotron
-        h2 Sources
+        h2.mb-4 Sources
         include ./sourcesBlock/sourcesBlock
 
   block scripts

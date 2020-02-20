@@ -29,8 +29,6 @@ module.exports = (req, res) => {
           data,
           sources
         }) => {
-            
-          console.log(data['name,fr'])
 
           const page = pug
             .renderFile(

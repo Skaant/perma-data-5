@@ -10,11 +10,11 @@
 
 .text-green,
 .text-green-hover {
-  color: #7cb342 
+  color: #7cb342 !important;
 }
 
 .text-green-hover:hover {
-  color: #388e3c;
+  color: #388e3c !important;
   cursor: pointer;
 }
 
