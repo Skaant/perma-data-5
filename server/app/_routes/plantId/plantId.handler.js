@@ -34,8 +34,13 @@ module.exports = (req, res) => {
             .renderFile(
               './server/views/pages/plantId/plantId.pug', 
               {
-                titles: {
-                  page: data['name,fr'][0].value
+                page: {
+                  title: data['name,fr'][0].value
+                    + ', '
+                    + plantId,
+                  description: 'En apprendre plus sur '
+                    + plantId
+                    + '.'
                 },
                 plant: {
                   id: plantId,
