@@ -14,8 +14,15 @@ module.exports = new ControlChainItem(
         .buildings
 
       nextBuildings['kolos-rayon']
-        .quests = {
-          tuto2Quest: {
+        .quests['tuto2Quest']
+          .status = 'READ'
+
+      nextBuildings['kolos-rayon']
+        .stories = {
+          seedOverFrastStory: {
+            status: 'NEW'
+          },
+          kolosXanStory: {
             status: 'NEW'
           }
         }
