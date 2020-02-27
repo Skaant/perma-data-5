@@ -16,9 +16,27 @@ html(
     include ./scripts/scripts
     style
       include ../_styles/commons.css
-  body.light-green.darken-1
+  body.light-green.darken-1.position-relative
     include ./navbar/navbar
     block content
+    .position-absolute.text-right.w-100.pt-3(
+      style= 'bottom: 0'
+    )
+      h5.pr-2.text-right.text-white.font-weight-lighter(
+        style='font-size: 1rem'
+      ) 
+        b.h5.font-epic 2020&nbsp;
+        span les copains - développé par 
+        a.text-white(
+          href='https://www.linkedin.com/in/romaric-ruga-507244a1/'
+          style='text-decoration: underline'
+        ) Romaric Ruga&nbsp;
+        span , alias&nbsp;
+        a.text-white(
+          href='https://imrok.fr'
+          style='text-decoration: underline'
+        )
+          b.font-epic IMROK
     #notification-modal_anchor
     #error-modal_anchor
     block scripts
