@@ -17,27 +17,32 @@ export default ({
       let score = 0
 
       switch (
-        `${ item.type }${ item.status }`) {
+        `${ item.type }_${ item.status }`) {
         
-        case 'QUEST_CURRENT' :
+        case 'QUEST_READ' :
 
           score = 1
+          break
       
-        case 'DIALOG_CURRENT' :
+        case 'STORY_READ' :
 
-          score - 2
+          score = 2
+          break
     
-        case 'DIALOG_NEW' :
+        case 'STORY_NEW' :
 
-          score - 4
+          score = 4
+          break
 
         case 'QUEST_NEW' :
 
-          score - 5
+          score = 5
+          break
 
         case 'QUEST_VALIDATED' :
 
-          score - 10
+          score = 10
+          break
       }
 
       return {
@@ -51,16 +56,16 @@ export default ({
         score: aScore
       }, {
         score: bScore
-      }) => {
+      }) =>
 
-      bScore - aScore
-    })
+        bScore - aScore
+    )
     // TODO : rename `item` to `dialog`
     .map(item => (
       <button key={ item.id }
           className={ `list-group-item font-weight-light text-left pr-3 py-3 rounded-0 ${
             // HIGHLIGHTS COLOR for !opened || valid
-            item.status !== 'CURRENT'
+            item.status !== 'READ'
               ? 'btn-green text-white'
               
               : ''
@@ -95,7 +100,7 @@ export default ({
             }
           }>
         {
-          item.status !== 'CURRENT'
+          item.status !== 'READ'
             && (
               <span className={ 
                     `fas ${
@@ -114,14 +119,14 @@ export default ({
           dialogTypeIconEnum[item.type]
         } ${
           // HIGHLIGHT COLORS for 'NEW' or 'VALIDATED'
-          item.status === 'CURRENT'
+          item.status === 'READ'
             ? 'text-green'
 
             : 'text-white'
-        }` }
+        } mr-2` }
             title={ dialogTypeLabelEnum[item.type] }
             aria-hidden='true'></span>
-        <span className='mb-0 mt-1 ml-2'>
+        <span className='mb-0 mt-1'>
           { item.title }</span>
       </button>
     ))
