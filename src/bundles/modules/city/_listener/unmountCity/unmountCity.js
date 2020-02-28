@@ -8,4 +8,4 @@ export default () =>
   
   window.ReactDOM
     .unmountComponentAtNode(document
-      .getElementById('home-auth'))
+      .getElementById('city__anchor'))

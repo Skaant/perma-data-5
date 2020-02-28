@@ -5,6 +5,8 @@ export default n => {
 
     throw new Error('RAYÖN must contains at least 3 ZUMS (a XAN).')
 
+  n += 1
+
   let a = 0,
     b = 1,
     c = 1,

@@ -3,6 +3,7 @@ import unmountCityElements from './unmountCity/unmountCity';
 import { CITY_SERVER_ACTION_SUCCESS, CITY_SERVER_ACTION_ERROR } from '../_actions/city.actions';
 
 let previous = null
+let previousAuth = null
 
 const store = window.__STORE__
 
@@ -10,7 +11,7 @@ export default () => {
 
   const {
     city: next,
-    auth
+    auth: nextAuth
   } = store
     .getState()
 
@@ -23,7 +24,7 @@ export default () => {
      } = next
 
     renderCity({
-      pseudo: auth
+      pseudo: nextAuth
         .user
         .pseudo,
       buildings
@@ -61,5 +62,11 @@ export default () => {
           }))
   }
 
+  if (previousAuth && previousAuth.user && !nextAuth.user) {
+
+    unmountCityElements()
+  }
+
   previous = next
+  previousAuth = nextAuth
 }
