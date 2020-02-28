@@ -36,10 +36,8 @@ export default ({
                   ? dialogState
                     .history[dialog.id]
                       .page
-                  : (_dialog.status === 'VALIDATED'
-                    ? (_dialog.pages.length - 1)
 
-                    : 0)
+                  : 0
               }
             )
       } />,

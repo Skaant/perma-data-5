@@ -4,8 +4,8 @@ import seedOverFrastStory from "./_dialogs/_stories/seedOverFrast/seedOverFrast.
 import kolosXanStory from "./_dialogs/_stories/kolosXan/kolosXan.story";
 
 export default {
-  trighb: "kolos",
-  name: "nexus",
+  trighb: "KOLOS",
+  name: "RAYÖN",
   levels: {
     '0': {
       name: "Graine intrépide",

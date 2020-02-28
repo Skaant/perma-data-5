@@ -11,7 +11,7 @@ export default ({
 }) =>
 
   list
-    /** ORDERING #1 : setting scores */
+    /** ORDERING #1 : computing start page & display score */
     .map(item => {
 
       let score = 0
@@ -47,7 +47,11 @@ export default ({
 
       return {
         ...item,
-        score
+        score,
+        page: item.status !== 'NEW'
+          ? (item.pages.length - 1)
+
+          : 0
       }
     })
     /** ORDERING #2 : comparing scores */
@@ -83,21 +87,16 @@ export default ({
             fontSize: '14px'
           } }
           onClick={
-            () => {
+            () =>
 
-              // ► TO REWORK
-              if (item.type !== 'passive') {
-
-                window.__STORE__
-                  .dispatch({
-                    type: DIALOG_MODAL_OPEN,
-                    dialog: {
-                      buildingId,
-                      ...item,
-                    }
-                  })
-              }
-            }
+              window.__STORE__
+                .dispatch({
+                  type: DIALOG_MODAL_OPEN,
+                  dialog: {
+                    buildingId,
+                    ...item,
+                  }
+                })
           }>
         {
           item.status !== 'READ'
