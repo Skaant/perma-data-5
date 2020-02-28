@@ -5,89 +5,92 @@ block content
 
     .row.justify-content-center
       .col-12.col-md-10.jumbotron.text-center
-        img.w-100(
-          src='/public/images/pages/home/infinite-frast.jpg'
+        img(
+          src='public/images/pages/home/perma-data-logo.jpg'
+          alt='Logo de PERMA-DATA : unité de donnée avec deux branches formatrices et papillons-coeur.'
+          style='max-width: 800px'
         )
-        h1.mx-auto.mb-4.pt-4.font-epic.font-weight-bold(
+        h1.mx-auto.pt-4.font-epic.font-weight-bold(
           style='margin-top: 30px'
         ) PERMA-DATA
-        h2.mx-auto.mb-3.pt-1.font-weight-lighter La communauté des cultivateurs de savoir
+        h2.mx-auto.mb-3.pt-1.lead.font-weight-lighter La communauté des cultivateurs de savoir
+
+    .row.bg-white.justify-content-center.z-depth-1
+      .col-12.col-sm-10.col-md-6.py-5
+        h2.h3.font-epic.my-5 Vous aimez les plantes&nbsp;? Vous travaillez avec elles&nbsp;?
+        p.font-weight-lighter.mb-5(
+          style= 'font-size: 1.4rem'
+        )
+          b.font-epic PERMA-DATA&nbsp;
+          span est un méta-outil ludique et communautaire pour la culture, la recherche et la gouvernance.
+          <br/><br/>
+          span En explorant sa base-de-données collaborative, vous trouverez toutes les informations utiles pour concevoir votre jardin ou pour n'importe quelle autre activité.
+          <br/><br/>
+          span Véritablement, le champ des possibles est immense.
+
+    .row.my-4.py-2.justify-content-center
+      .col-12.col-md-8
+        .card.pt-5.px-5.pb-3
+          h2.h3.font-epic.mb-5.px-5.pt-3 Trouvez des informations sur les plantes qui vous intéressent
+          #home-search_anchor.md-form.row.justify-content-center
+            input.form-control.col-12.col-md-6.font-weight-light(
+              style='font-size: 1.2rem; font-family: Roboto, sans-serif'
+              type='text'
+              placeholder='Tapez le début d\'un nom'
+            )
+      .col-12.col-md-4.container
+        .card.p-5
+          .row
+            h3.h5.font-weight-light.mb-4.pt-3 Découvrez quelques unes de nos pages :
+          .row
+            a.col-12(
+              href="plant/glechoma%20hederacea"
+            ) Lierre terrestre
+            a.col-12(
+              href="plant/verbena%20officinalis"
+            ) Verveine officinale
 
     .row.bg-white.justify-content-center.z-depth-1
       .col-12.col-md-8
-        p.font-weight-lighter(
-          style='margin-top: 90px; margin-bottom: 60px; font-size: 1.4rem'
+        img.w-100.mt-5(
+          src='/public/images/pages/home/infinite-frast.jpg'
         )
-          span Bonjour et bienvenue sur&nbsp;
-          b.font-epic PERMA-DATA,
+        p.font-weight-lighter(
+          style='margin: 60px; font-size: 1.4rem'
+        ) Il y a tellement de choses à découvrir
           br
-          span un site qui regroupe
-          br
-          span de nombreux outils pour la conception de jardins et
-          br
-          span d'innombrables informations sur les plantes.
-
-    .row.my-4.pt-2.justify-content-center
-      .col-12.col-md-10.card(
-        style='padding: 60px 60px 30px 60px'
-      )
-        h2.text-center.font-epic(
-          style='margin: 45px 45px 15px 45px'
-        ) Trouvez des plantes
-        #home-search_anchor.md-form.row.justify-content-center
-          input.form-control.col-12.col-md-6.text-center.font-weight-light(
-            style='font-size: 1.2rem; font-family: Roboto, sans-serif'
-            type='text'
-            placeholder='Tapez le début d\'un nom'
-          )
-
-    .row.my-4.pt-2.justify-content-center
-      .col-12.col-md-4.mb-4.pb-2
-        .card
-          .mx-auto(
-            style='margin-top: 60px; margin-bottom: 60px'
-          )
-            img.w-100(
-              src='public/images/pages/home/perma-data-logo.jpg'
-            )
-      .col-12.col-md-8
-        .card.pb-4
-          p.font-weight-lighter(
-            style='margin: 60px; font-size: 2rem'
-          ) Il y a tellement de choses à découvrir
-            br
-            span sur&nbsp;
-            b.font-epic PERMA-DATA&nbsp;
-            span :
-          ul(
-            style='margin: 0 60px 45px'
-          )
-            li.mb-3
-              a.font-weight-lighter.text-dark(
-                style='font-size: 1.4rem; text-decoration: underline'
-                href='#universe'
-              ) Immergez-vous dans l'univers épique des &nbsp;
-                b.font-epic ZUMS
-            li.mb-3
-              a.font-weight-lighter.text-dark(
-                style='font-size: 1.4rem; text-decoration: underline'
-                href='#search'
-              ) Personnalisez vos recherches
-            li.mb-3
-              a.font-weight-lighter.text-dark(
-                style='font-size: 1.4rem; text-decoration: underline'
-                href='#manage'
-              ) Gérez votre stock et vos cultures
-            li.mb-3
-              a.font-weight-lighter.text-dark(
-                style='font-size: 1.4rem; text-decoration: underline'
-                href='#contribute'
-              ) Alimentez la base-de-données avec vos trouvailles botaniques
-            li
-              a.font-weight-lighter.text-dark(
-                style='font-size: 1.4rem; text-decoration: underline'
-                href='#develop'
-              ) Contribuez au développement de l'outil
+          span sur&nbsp;
+          b.font-epic PERMA-DATA&nbsp;
+          span :
+        ul(
+          style='margin: 0 60px 45px'
+        )
+          li.mb-3
+            a.font-weight-lighter.text-dark(
+              style='font-size: 1.4rem; text-decoration: underline'
+              href='#universe'
+            ) Immergez-vous dans l'univers épique des &nbsp;
+              b.font-epic ZUMS
+          li.mb-3
+            a.font-weight-lighter.text-dark(
+              style='font-size: 1.4rem; text-decoration: underline'
+              href='#search'
+            ) Personnalisez vos recherches
+          li.mb-3
+            a.font-weight-lighter.text-dark(
+              style='font-size: 1.4rem; text-decoration: underline'
+              href='#manage'
+            ) Gérez votre stock et vos cultures
+          li.mb-3
+            a.font-weight-lighter.text-dark(
+              style='font-size: 1.4rem; text-decoration: underline'
+              href='#contribute'
+            ) Alimentez la base-de-données avec vos trouvailles botaniques
+          li
+            a.font-weight-lighter.text-dark(
+              style='font-size: 1.4rem; text-decoration: underline'
+              href='#develop'
+            ) Contribuez au développement de l'outil
 
     .row.my-4.py-2.justify-content-center
       .col-12.col-md-10.card.container(
@@ -392,25 +395,7 @@ block content
             )
               span Tenez-vous informés !
 
-    .row
-      .col-12(
-        style='margin-top: 30px'
-      )
-        h5.pr-2.text-right.text-white.font-weight-lighter(
-          style='font-size: 1rem'
-        ) développé par 
-          a.text-white(
-            href='https://www.linkedin.com/in/romaric-ruga-507244a1/'
-            style='text-decoration: underline'
-          ) Romaric Ruga&nbsp;
-          span , alias&nbsp;
-          a.text-white(
-            href='https://imrok.fr'
-            style='text-decoration: underline'
-          )
-            b.font-epic IMROK
-
-  #home-auth
+  #home-auth.pb-5
     #city__anchor
     #dialog-modal__anchor
 

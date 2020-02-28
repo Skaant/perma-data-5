@@ -1,8 +1,8 @@
 export default {
-  "kolos": {
+  "KOLOS": {
     "color": "6CEEA3"
   },
-  "novs": {
+  "ARKEOS": {
     "color": "6CEEA3"
   }
 }

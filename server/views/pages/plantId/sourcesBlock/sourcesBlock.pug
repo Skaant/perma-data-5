@@ -1,5 +1,5 @@
 #sources-block.container
-  table.table.table-striped
+  table.table
     thead
       th Titre
       th Informations
@@ -10,15 +10,18 @@
         )
           td.col-8.pl-0
             ol.breadcrumb
+              each parent, index in source.parents
+                if (index === 0)
+                  li.breadcrumb-item.font-weight-bold= parent.title
+                else
+                  li.breadcrumb-item= parent.title
               li.breadcrumb-item.font-weight-bold= source.title
-              each parent in source.parents.slice().reverse()
-                li.breadcrumb-item= parent.title
           td.col-4.rounded-right
             - var rootSource = source.parents[0] || source
             if (rootSource.lang)
-              p.mb-2 Langue :&nbsp;
+              p.mb-1 Langue :&nbsp;
                 span.font-weight-bold= rootSource.lang
                 
             if (rootSource.authors)
-              p.mb-2 Auteur(s) :&nbsp;
+              p.mb-1 Auteur(s) :&nbsp;
                 span.font-weight-bold= rootSource.authors

@@ -8,7 +8,8 @@ module.exports =
           './server/views/pages/home/home.pug',
           {
             user: req.user,
-            titles: {
-              page: 'Accueil'
+            page: {
+              title: 'Accueil',
+              description: 'La communauté des cultivateurs de savoir. Des données sur les plantes, un jeu pour les explorer.'
             }
           }))

@@ -8,7 +8,7 @@ module.exports = new ControlChainItem(
 
       const buildings = {
         'kolos-rayon': {
-          xp: 0,
+          zums: 3,
           quests: {
             'tuto1Quest': {
               status: 'NEW'

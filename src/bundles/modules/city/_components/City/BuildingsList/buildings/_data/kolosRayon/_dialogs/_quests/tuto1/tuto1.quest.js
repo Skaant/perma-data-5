@@ -118,7 +118,7 @@ export default {
             <b className='font-epic'>ZUMS</b>.
           </p>
           <p>
-            Allez-y, que pousse cette civilisation du futur !
+            Allez-y, que croisse encore cette civilisation du futur !
           </p>
         </React.Fragment>
       ),

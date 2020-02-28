@@ -1,5 +1,5 @@
 import React from 'react'
-import BuildingList from './BuildingList/BuildingList'
+import BuildingsList from './BuildingsList/BuildingsList'
 
 export default ({
   pseudo,
@@ -16,7 +16,7 @@ export default ({
             { pseudo }</span>
         </h1>
       </div>
-      <BuildingList buildings={ buildings }/>
+      <BuildingsList buildings={ buildings }/>
     </div>
   </div>
 )
