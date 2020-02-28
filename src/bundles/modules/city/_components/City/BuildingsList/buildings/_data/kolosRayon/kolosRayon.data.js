@@ -6,17 +6,20 @@ import kolosXanStory from "./_dialogs/_stories/kolosXan/kolosXan.story";
 export default {
   trighb: "KOLOS",
   name: "RAYÖN",
-  levels: {
-    '0': {
+  levels: [
+    {
       name: "Graine intrépide",
-      flavour: "A l'intérieur de cette graine, endormie : la conscience; le potentiel de remplir l'espace et de le porter plus haut.",
+      flavour: "A l'intérieur de cette graine, endormie : la conscience; le potentiel de remplir l'espace et de le porter plus haut."
     },
-    '100': {
-      xp: 100,
-      name: "Pousse",
+    {
+      name: "Germe fulgurant",
+      flavour: "Ça y est, elle a germé la flamme qui maintiendra unies toutes les âmes de la CITÉ. "
+    },
+    {
+      name: "Pousse aventurière",
       flavour: "Ça y est, elle a germé la flamme qui maintiendra unies toutes les âmes de la CITÉ. "
     }
-  },
+  ],
   quests: {
     tuto1Quest,
     tuto2Quest

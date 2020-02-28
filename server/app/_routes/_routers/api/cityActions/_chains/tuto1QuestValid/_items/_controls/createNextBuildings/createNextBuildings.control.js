@@ -14,6 +14,9 @@ module.exports = new ControlChainItem(
         .buildings
 
       nextBuildings['kolos-rayon']
+        .zums += 1
+
+      nextBuildings['kolos-rayon']
         .quests = {
           tuto2Quest: {
             status: 'NEW'
