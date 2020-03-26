@@ -59,7 +59,7 @@ export default ({ dialog }) => {
               <span aria-hidden='true'>&times;</span>
             </button>
             <h5 className='modal-title h2 font-weight-light mt-2 my-4'>
-              <span className={ `fas ${
+              <span className={ `${
                     dialog.status === 'VALIDATED'
                       ? 'fa-3x ml-3 my-4'
 
