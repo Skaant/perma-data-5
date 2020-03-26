@@ -8,7 +8,7 @@ describe(
   () => {
 
     describe(
-      'instances',
+      'instances :',
       () => {
 
         const patterns = recursiveDirReader(
@@ -22,36 +22,53 @@ describe(
         patterns
           .forEach(({
             name,
-            path
+            path,
+            content: pattern
           }) => {
 
             describe(
-              `* ${ name }`,
+              `${ name.toUpperCase() }`,
               () => {
 
                 describe(
-                  `path : ${ path }`,
+                  `* path :`,
+                  () =>
+
+                    describe(
+                      path,
+                      () => {
+        
+                        it(
+                          'file name and parent folder should be equal',
+                          () =>
+        
+                            path.split('/')
+                              .reverse()[1]
+                              .should.equal(name)
+                        )
+            
+                        it(
+                          'parent + 1 folder name should equal `_patterns`',
+                          () =>
+        
+                            path.split('/')
+                              .reverse()[2]
+                              .should.equal('_patterns')
+                        )
+
+                      }))
+              
+                describe(
+                  '* content :',
                   () => {
-        
+
                     it(
-                      'should be contained in a parent + 1 `_patterns` folder',
+                      'file name and pattern id should be equal',
                       () =>
-    
-                        path.split('/')
-                          .reverse()[2]
-                          .should.equal('_patterns')
-                    )
-        
-                    it(
-                      'should be contained in a parent folder with the same name',
-                      () =>
-    
-                        path.split('/')
-                          .reverse()[1]
-                          .should.equal(name)
-                    )
-                  }
-                )
+                        
+                        name
+                          .should.equal(pattern.getId()))
+                  })
               })
           })
       })

@@ -34,17 +34,14 @@ module.exports = class Pattern {
     this._id = id
     this._summary = summary
   }
+
+  getId() {
+
+    return this._id
+  }
+
+  getSummary() {
+
+    return this._summary
+  }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
