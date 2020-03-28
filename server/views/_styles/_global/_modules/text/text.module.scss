@@ -1,0 +1,19 @@
+@font-face {
+  font-family: 'day roman';
+  src: url('/public/fonts/DAYROM__.ttf');
+}
+
+.text-epic,
+.font-epic {
+  font-family: 'day roman';
+}
+
+.text-green,
+.text-green-hover {
+  color: #7cb342 !important;
+}
+
+.text-green-hover:hover {
+  color: #388e3c !important;
+  cursor: pointer;
+}
