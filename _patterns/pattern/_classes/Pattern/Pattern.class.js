@@ -1,3 +1,5 @@
+const PatternRelation = require('./PatternRelation/PatternRelation.class')
+
 /**
  * The `Pattern` class describes a pattern (in the sense of
  *  Christopher Alexander, *see note below*),
@@ -18,21 +20,25 @@
  * > in such a way that you can use this solution a million times over, 
  * > without ever doing it the same way twice.
  */
-module.exports = class Pattern {
+class Pattern {
 
   /**
    * Creates a new **pattern definition**.
    * 
    * @param {string} id - The pattern identifier. Must equals the filename.
    * @param {string} summary - Shortly describes the pattern.
+   * @param {Array<PatternRelation>} relations - A list of `PatternRelations`,
+   *  types relations between this pattern [source] and other(s) [target(s)].
    */
   constructor(
     id,
-    summary
+    summary,
+    relations = []
   ) {
 
     this._id = id
     this._summary = summary
+    this._relations = relations
   }
 
   getId() {
@@ -44,4 +50,12 @@ module.exports = class Pattern {
 
     return this._summary
   }
+
+  getRelations() {
+
+    return this._relations
+  }
 }
+
+module.exports = Pattern
+module.exports.PatternRelation = PatternRelation

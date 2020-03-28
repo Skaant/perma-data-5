@@ -9,7 +9,7 @@ const fs = require('fs')
  * 
  * @note The descriptive object contains the
  *  following properties :
- *  * `name`, the file name split from the first `'.'` occurence,
+ *  * `name`, the file name,
  *  * `path`, the full path (from the rootPath location),
  *  *  and, **for JS files only**, `content` (an object, a class or
  *  a class instance).
@@ -52,7 +52,7 @@ const recursiveDirReader = (
             return [
               ...files,
               {
-                name : name.split('.')[0],
+                name : name,
                 path,
                 content: !dirent.isDirectory()
                   && name.match(/\.js/)
