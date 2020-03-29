@@ -1,4 +1,4 @@
-const Pattern = require('../../../../_patterns/pattern/_classes/Pattern/Pattern.class'),
+const Pattern = require('../../../_patterns/pattern/_classes/Pattern/Pattern.class'),
   PatternRelation = Pattern.PatternRelation,
   PatternRelationTypeEnum = PatternRelation.PatternRelationTypeEnum
 const stylesPagesPattern = require('./pages/pages.styles.pattern')

@@ -1,18 +1,24 @@
-const Pattern = require('../../../../../_patterns/pattern/_classes/Pattern/Pattern.class'),
+const Pattern = require('../../../../_patterns/pattern/_classes/Pattern/Pattern.class'),
   PatternRelation = Pattern.PatternRelation,
   PatternRelationTypeEnum = PatternRelation.PatternRelationTypeEnum
-const stylesPagesPattern = require('../pages/pages.styles.pattern')
+const stylesPattern = require('../styles.pattern')
+const stylesGlobalPattern = require('../global/global.styles.pattern')
 const stylesModulesPattern = require('../modules/modules.styles.pattern')
 
 /**
  */
-const stylesGlobalPattern = new Pattern(
-  'global.styles',
+const stylesPagesPattern = new Pattern(
+  'pages.styles',
   'A folder which contains `.scss` files.',
   [
     new PatternRelation(
-      stylesPagesPattern,
+      stylesPattern,
       PatternRelationTypeEnum.COMPOSITION_TARGET
+    ),
+    new PatternRelation(
+      stylesGlobalPattern,
+      PatternRelationTypeEnum.COMPOSITION_SOURCE,
+      'global'
     ),
     new PatternRelation(
       stylesModulesPattern,
@@ -22,4 +28,4 @@ const stylesGlobalPattern = new Pattern(
   ]
 )
 
-module.exports = stylesGlobalPattern
+module.exports = stylesPagesPattern
