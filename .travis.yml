@@ -7,6 +7,8 @@ branches:
 install:
 - npm install
 before_script:
+- npm test
+script:
 - npm run build-home-base -- --env.mode=production --env.watch=false
 - npm run build-home-auth -- --env.mode=production --env.watch=false
 - npm run build-plantId-base -- --env.mode=production --env.watch=false
@@ -14,8 +16,6 @@ before_script:
 - npm run build-styles-global
 - echo -e "{\"username\":\"$MONGO_CLIENT_USERNAME\",\"password\":\"$MONGO_CLIENT_PASSWORD\"}" > ./server/mongo/clientSecret.json
 - ls ./build/bundles
-script:
-- npm test 
 cache:
   directories:
   - node_modules

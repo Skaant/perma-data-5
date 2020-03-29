@@ -10,7 +10,7 @@
     "build-home-auth": "npx webpack --config ./webpack.config.js --output ./public/bundles/pages/home/auth.js ./src/bundles/entrypoints/pages/home/auth/auth.js",
     "build-plantId-base": "npx webpack --config ./webpack.config.js --output ./public/bundles/pages/plantId/base.js ./src/bundles/entrypoints/pages/plantId/base/base.js",
     "build-plantId-auth": "npx webpack --config ./webpack.config.js --output ./public/bundles/pages/plantId/auth.js ./src/bundles/entrypoints/pages/plantId/auth/auth.js",
-    "build-styles-global": "npx node-sass ./server/views/_styles/_ global/global.scss ./public/styles/global.css",
+    "build-styles-global": "npx node-sass ./server/views/_styles/_global/global.scss ./public/styles/global/global.css",
     "doc": "node ./doc/_readme/documentor/documentor.js"
   },
   "repository": {
