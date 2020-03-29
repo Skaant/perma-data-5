@@ -15,6 +15,7 @@ script:
 - npm run build-plantId-auth -- --env.mode=production --env.watch=false
 - npm run build-styles-global
 - echo -e "{\"username\":\"$MONGO_CLIENT_USERNAME\",\"password\":\"$MONGO_CLIENT_PASSWORD\"}" > ./server/mongo/clientSecret.json
+- echo "ok ?"
 deploy:
   provider: heroku
   api_key: "$HEROKU_API_KEY"
