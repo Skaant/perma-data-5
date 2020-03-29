@@ -5,13 +5,12 @@
   "scripts": {
     "start": "node ./server/server.js",
     "dev-start": "npx nodemon ./server/server.js",
-    "test": "mocha \"./**/*.test.*js\" --exclude \"./**/node_modules/**\"",
-    "build-home-base": "webpack --config ./webpack.config.js --output ./public/bundles/pages/home/base.js ./src/bundles/entrypoints/pages/home/base/base.js --watch true",
-    "build-home-base-prod": "webpack --config ./webpack.config.js --output ./public/bundles/pages/home/base.js ./src/bundles/entrypoints/pages/home/base/base.js --mode production",
-    "build-home-auth": "webpack --config ./webpack.config.js --output ./public/bundles/pages/home/auth.js ./src/bundles/entrypoints/pages/home/auth/auth.js --watch true",
-    "build-home-auth-prod": "webpack --config ./webpack.config.js --output ./public/bundles/pages/home/auth.js ./src/bundles/entrypoints/pages/home/auth/auth.js --mode production",
-    "build-plantId-base": "webpack --config ./webpack.config.js --output ./public/bundles/pages/plantId/base.js ./src/bundles/entrypoints/pages/plantId/base/base.js",
-    "build-plantId-auth": "webpack --config ./webpack.config.js --output ./public/bundles/pages/plantId/auth.js ./src/bundles/entrypoints/pages/plantId/auth/auth.js",
+    "test": "npx mocha \"./**/*.test.*js\" --exclude \"./**/node_modules/**\"",
+    "build-home-base": "npx webpack --config ./webpack.config.js --output ./public/bundles/pages/home/base.js ./src/bundles/entrypoints/pages/home/base/base.js",
+    "build-home-auth": "npx webpack --config ./webpack.config.js --output ./public/bundles/pages/home/auth.js ./src/bundles/entrypoints/pages/home/auth/auth.js",
+    "build-plantId-base": "npx webpack --config ./webpack.config.js --output ./public/bundles/pages/plantId/base.js ./src/bundles/entrypoints/pages/plantId/base/base.js",
+    "build-plantId-auth": "npx webpack --config ./webpack.config.js --output ./public/bundles/pages/plantId/auth.js ./src/bundles/entrypoints/pages/plantId/auth/auth.js",
+    "build-styles-global": "npx node-sass ./server/views/_styles/_ global/global.scss ./public/styles/global.css",
     "doc": "node ./doc/_readme/documentor/documentor.js"
   },
   "repository": {
@@ -48,6 +47,7 @@
     "js-cookie": "^2.2.1",
     "mocha": "^6.2.3",
     "mock-fs": "^4.11.0",
+    "node-sass": "^4.13.1",
     "nodemon": "^1.19.4",
     "proxyquire": "^2.1.3",
     "react": "^16.13.1",

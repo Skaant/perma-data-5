@@ -4,8 +4,13 @@ node_js:
 install:
 - npm install
 before_script:
-- echo -e "{\"username\":\"$MONGO_CLIENT_USERNAME\",\"password\":\"$MONGO_CLIENT_PASSWORD\"}" > ./src/mongo/clientSecret.json
+- echo -e "{\"username\":\"$MONGO_CLIENT_USERNAME\",\"password\":\"$MONGO_CLIENT_PASSWORD\"}" > ./server/mongo/clientSecret.json
 - sleep 1s
+- npm run build-home-base -- --env.mode=production --env.watch=false
+- npm run build-home-auth -- --env.mode=production --env.watch=false
+- npm run build-plantId-base -- --env.mode=production --env.watch=false
+- npm run build-plantId-auth -- --env.mode=production --env.watch=false
+- npm run build-styles-global
 script:
 - npm test 
 cache:
