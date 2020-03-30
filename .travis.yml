@@ -22,6 +22,7 @@ deploy:
   app: perma-data-5
   on:
     branch: release
+  skip_cleanup: true
 cache:
   directories:
   - node_modules
