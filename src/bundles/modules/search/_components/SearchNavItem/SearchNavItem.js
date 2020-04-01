@@ -26,8 +26,11 @@ export default ({
             e.key === 'Enter'
               && loadSearchResults() } />
 
-      <div className='btn-bubble col p-0 bg-green-accent shadow'>
-        <span className='fas fa-search fa-lg text-white'></span>
+      <div className='btn-bubble col p-0'
+          onClick={ e =>
+          
+            loadSearchResults() }>
+        <span className='fas fa-search fa-lg text-green'></span>
       </div>
     </div>
 

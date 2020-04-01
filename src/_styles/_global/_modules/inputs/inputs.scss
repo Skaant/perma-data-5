@@ -2,7 +2,7 @@
 
 .input-bubble {
   border-radius: 2rem;
-  padding-right: .7rem;
+  padding-right: .85rem;
   padding-left: 3rem;
 
   input[type=text] {
@@ -10,12 +10,12 @@
     padding-top: 1.35rem;
 
     &:hover {
-      border-bottom: 1px $green-accent solid !important;
+      border-bottom: 1px $green solid !important;
       box-shadow: none;
     }
 
     &:focus:not([readonly]) {
-      border-bottom: 2px $green-accent solid !important;
+      border-bottom: 1px $green-dark solid !important;
       box-shadow: none;
     }
   }
