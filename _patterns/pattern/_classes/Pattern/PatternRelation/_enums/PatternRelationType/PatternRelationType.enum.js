@@ -1,18 +1,18 @@
-module.exports = {
+const PatternRelationTypeEnum = {
   /**
    * This pattern is abstracting the target.
    */
-  PATTERN_RELATION_GENERALIZATION: 'PATTERN_RELATION_GENERALIZATION',
+  GENERALIZATION: 'GENERALIZATION',
   /**
    * This pattern is extending the target.
    */
-  PATTERN_RELATION_SPECIALIZATION: 'PATTERN_RELATION_SPECIALIZATION',
+  SPECIALIZATION: 'SPECIALIZATION',
   /**
    * This pattern is the composition source [parent].
    * 
    * *Target cannot exist independently of the pattern.*
    */
-  PATTERN_RELATION_COMPOSITION_SOURCE: 'PATTERN_RELATION_COMPOSITION_SOURCE',
+  COMPOSITION_SOURCE: 'COMPOSITION_SOURCE',
   /**
    * This pattern is :
    *  1. at the top, composition source [parent],
@@ -20,13 +20,13 @@ module.exports = {
    * 
    * *Target cannot exist independently of the pattern.*
    */
-  PATTERN_RELATION_COMPOSITION_SPECIALIZATION_SOURCE: 'PATTERN_RELATION_COMPOSITION_SPECIALIZATION_SOURCE',
+  COMPOSITION_SPECIALIZATION_SOURCE: 'COMPOSITION_SPECIALIZATION_SOURCE',
   /**
    * This pattern is the composition target [children].
    * 
    * *Pattern cannot exist independently of the pattern.*
    */
-  PATTERN_RELATION_COMPOSITION_TARGET: 'PATTERN_RELATION_COMPOSITION_TARGET',
+  COMPOSITION_TARGET: 'COMPOSITION_TARGET',
   /**
    * This pattern is :
    *  1. at the bottom, composition target [children],
@@ -34,17 +34,19 @@ module.exports = {
    * 
    * *Pattern cannot exist independently of the pattern.*
    */
-  PATTERN_RELATION_COMPOSITION_SPECIALIZATION_TARGET: 'PATTERN_RELATION_COMPOSITION_SPECIALIZATION_TARGET',
+  COMPOSITION_SPECIALIZATION_TARGET: 'COMPOSITION_SPECIALIZATION_TARGET',
   /**
    * This pattern is the aggregation source [parent].
    * 
    * *Target can exist independently of the pattern.*
    */
-  PATTERN_RELATION_AGGREGATION_SOURCE: 'PATTERN_RELATION_AGGREGATION_SOURCE',
+  AGGREGATION_SOURCE: 'AGGREGATION_SOURCE',
   /**
    * This pattern is the aggregation target [children].
    * 
    * *Pattern can exist independently of the pattern.*
    */
-  PATTERN_RELATION_AGGREGATION_TARGET: 'PATTERN_RELATION_AGGREGATION_TARGET',
+  AGGREGATION_TARGET: 'AGGREGATION_TARGET',
 }
+
+module.exports = PatternRelationTypeEnum

@@ -20,7 +20,7 @@ export default ({
           && (checkingLogin
             || checkingToken)
           && (
-            <span className='spinner-grow text-white nav-link'
+            <span className='spinner-grow text-green nav-link'
                 role='status'></span>
           )
       }
@@ -29,10 +29,7 @@ export default ({
           && !(checkingLogin
             || checkingToken)
           && (
-            <span className="fas fa-user mt-2 text-white"
-                style={ {
-                  cursor: 'pointer'
-                } }
+            <span className="fas fa-user fa-lg text-green"
                 title="S'authentifier"
                 onClick={
                   () =>
@@ -45,10 +42,7 @@ export default ({
       {
         user
           && (
-            <span className="fas fa-user-check text-white"
-                style={ {
-                  cursor: 'pointer'
-                } }
+            <span className="fas fa-user-check fa-lg text-green"
                 title={ 'Menu utilisateur de : '
                   + user.pseudo }
                 onClick={

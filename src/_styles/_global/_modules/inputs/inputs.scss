@@ -1,0 +1,30 @@
+@import '../../variables';
+
+.input-bubble {
+  border-radius: 2rem;
+  padding-right: .85rem;
+  padding-left: 3rem;
+
+  input[type=text] {
+    margin-bottom: .9rem;
+    padding-top: 1.35rem;
+
+    &:hover {
+      border-bottom: 1px $green solid !important;
+      box-shadow: none;
+    }
+
+    &:focus:not([readonly]) {
+      border-bottom: 1px $green-dark solid !important;
+      box-shadow: none;
+    }
+  }
+
+  &:hover {
+    
+    > .text-green {
+      color: $green-dark !important;
+      transition: color 0.4s ease-out;
+    }
+  }
+}

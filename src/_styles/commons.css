@@ -1,44 +1,6 @@
-@font-face {
-  font-family: 'day roman';
-  src: url('/public/fonts/DAYROM__.ttf');
-}
-
-.text-epic,
-.font-epic {
-  font-family: 'day roman';
-}
-
-.text-green,
-.text-green-hover {
-  color: #7cb342 !important;
-}
-
-.text-green-hover:hover {
-  color: #388e3c !important;
-  cursor: pointer;
-}
-
-.btn-lg {
-  letter-spacing: 2.5px;
-}
-
-.btn-green {
-  background-color: #7cb342 !important;
-}
-
 .modal-content img + p.small {
   font-size: 0.8rem;
   letter-spacing: 0.35px;
-}
-
-.btn-green:hover {
-  background-color: #388e3c !important;
-}
-
-.btn-outline-green {
-  border: 2px solid #7cb342 !important;
-  background-color: transparent !important;
-  color: #7cb342 !important;
 }
 
 #search-input {

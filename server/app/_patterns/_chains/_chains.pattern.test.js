@@ -1,3 +1,4 @@
+/* DISABLED until new `Pattern` format is implemented
 const chai = require('chai')
 const _pattern = require('./_chains.pattern')
 const recursiveDirReader = require('../../../../_utils/recursiveDirReader/recursiveDirReader')
@@ -8,7 +9,7 @@ describe(
   _pattern
     .id,
   () => {
-
+    
     describe(
       'instances',
       () => {
@@ -138,7 +139,7 @@ describe(
                         )
                       })
                   }
-                ) */
+                ) *\/
               }))
       })
-  })
+  }) */

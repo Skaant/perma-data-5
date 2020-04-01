@@ -1,0 +1,25 @@
+@font-face {
+  font-family: 'day roman';
+  src: url('/public/fonts/DAYROM__.ttf');
+}
+
+@import '../../variables';
+
+.text-epic,
+.font-epic {
+  font-family: 'day roman';
+}
+
+.text-green,
+.text-green-hover {
+  color: $green !important;
+}
+
+.text-green-hover:hover {
+  color: $green-dark !important;
+  cursor: pointer;
+}
+
+.text-accent {
+  color: $green-accent;
+}

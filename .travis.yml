@@ -1,13 +1,28 @@
 language: node_js
 node_js:
 - '10'
+branches:
+  only:
+    - release
 install:
 - npm install
 before_script:
-- echo -e "{\"username\":\"$MONGO_CLIENT_USERNAME\",\"password\":\"$MONGO_CLIENT_PASSWORD\"}" > ./src/mongo/clientSecret.json
-- sleep 1s
+- npm test
 script:
-- npm test 
+- npm run build-home-base -- --env.mode=production --env.watch=false
+- npm run build-home-auth -- --env.mode=production --env.watch=false
+- npm run build-plantId-base -- --env.mode=production --env.watch=false
+- npm run build-plantId-auth -- --env.mode=production --env.watch=false
+- npm run build-styles-global
+- echo -e "{\"username\":\"$MONGO_CLIENT_USERNAME\",\"password\":\"$MONGO_CLIENT_PASSWORD\"}" > ./server/mongo/clientSecret.json
+- echo "ok ?"
+deploy:
+  provider: heroku
+  api_key: "$HEROKU_API_KEY"
+  app: perma-data-5
+  on:
+    branch: release
+  skip_cleanup: true
 cache:
   directories:
   - node_modules
