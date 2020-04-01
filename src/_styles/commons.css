@@ -1,24 +1,6 @@
-.btn-lg {
-  letter-spacing: 2.5px;
-}
-
-.btn-green {
-  background-color: #7cb342 !important;
-}
-
 .modal-content img + p.small {
   font-size: 0.8rem;
   letter-spacing: 0.35px;
-}
-
-.btn-green:hover {
-  background-color: #388e3c !important;
-}
-
-.btn-outline-green {
-  border: 2px solid #7cb342 !important;
-  background-color: transparent !important;
-  color: #7cb342 !important;
 }
 
 #search-input {

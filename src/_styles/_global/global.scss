@@ -1,1 +1,13 @@
-@import './_modules/text/text.module.scss'
+@import './variables';
+
+.bg-green {
+  background-color: $green !important;
+}
+
+.bg-green-accent {
+  background-color: $green-accent !important;
+}
+
+@import './_modules/text/text';
+@import './_modules/buttons/butttons';
+@import './_modules/inputs/inputs';

@@ -1,0 +1,36 @@
+@import '../../variables';
+
+.btn-lg {
+  letter-spacing: 2.5px;
+}
+
+.btn-green {
+  background-color: $green !important;
+}
+
+.btn-green:hover {
+  background-color: $green-dark !important;
+}
+
+.btn-outline-green {
+  border: 2px solid $green !important;
+  background-color: transparent !important;
+  color: $green !important;
+}
+
+.btn-bubble {
+  border-radius: 2rem;
+  cursor: pointer;
+
+  > span {
+    margin: 1.5rem;
+  }
+
+  &:hover {
+    
+    > .text-green {
+      color: $green-dark !important;
+      transition: color 0.4s ease-out;
+    }
+  }
+}

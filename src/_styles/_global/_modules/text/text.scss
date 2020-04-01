@@ -3,6 +3,8 @@
   src: url('/public/fonts/DAYROM__.ttf');
 }
 
+@import '../../variables';
+
 .text-epic,
 .font-epic {
   font-family: 'day roman';
@@ -10,10 +12,14 @@
 
 .text-green,
 .text-green-hover {
-  color: #7cb342 !important;
+  color: $green !important;
 }
 
 .text-green-hover:hover {
-  color: #388e3c !important;
+  color: $green-dark !important;
   cursor: pointer;
+}
+
+.text-accent {
+  color: $green-accent;
 }
