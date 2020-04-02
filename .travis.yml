@@ -3,7 +3,7 @@ node_js:
 - '10'
 branches:
   only:
-    - release
+    - master
 install:
 - npm install
 before_script:
@@ -21,7 +21,7 @@ deploy:
   api_key: "$HEROKU_API_KEY"
   app: perma-data-5
   on:
-    branch: release
+    branch: master
   skip_cleanup: true
 cache:
   directories:
