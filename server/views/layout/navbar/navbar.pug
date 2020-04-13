@@ -1,22 +1,29 @@
-nav.navbar.z-depth-0.pt-2.mb-4.py-3
+nav.navbar.navbar-expand-md.z-depth-0.pt-2.mb-4.py-3
   a.navbar-brand.text-white.font-epic.ml-2(
     href='/'
     style='font-size: 1.75rem'
-  ) PERMA-DATA 
-  ul.navbar-nav.ml-auto.nav-flex-icons
-    li.nav-item.d-none
-      .spinner-grow.text-white(
-        role="status"
-      )
-    li.nav-item.mt-0.mr-3
-      #search-nav-item.input-bubble.bg-white.md-form.my-0.shadow
-        input#search-input.form-control.mb-0.pb-0.pt-2.text-green(
-          type="text"
-          placeholder="Trouvez des plantes"
-          value=""
-        )
-    li.nav-item.mt-0.mr-2
-      #auth-nav-item.btn.btn-bubble.btn-white.mt-0.p-0
-        .spinner-grow.nav-link.text-green(
-          role="status"
-        )
+  ) PERMA-DATA
+  button.navbar-toggler(
+    type='button'
+    data-toggle='collapse'
+    data-target="#collapsible-menu"
+    aria-controls="collapsible-menu"
+    aria-expanded="false"
+    aria-label="Afficher le menu"
+  )
+    span.text-white.fas.fa-bars
+  #collapsible-menu.collapse.navbar-collapse
+    ul.navbar-nav.flex-row.justify-content-end.ml-auto.mt-2.mt-md-0
+      li.nav-item.mt-0.mr-2
+        #search-nav-item.input-bubble.bg-white.md-form.my-0.shadow
+          input#search-input.d-none.d-md-inline(
+            type= 'text',
+            placeholder= "Recherche de plantes"
+          )
+          span.fas.fa-search.fa-lg.text-green
+        #search-modal_anchor
+      li.nav-item.mt-0.mr-2
+        #auth-nav-item.btn.btn-bubble.btn-white.mt-0.p-0
+          span.fas.fa-user-check.fa-lg.text-green.animated.infinite.flash(
+            title='Chargement des données utilisateur'
+          )

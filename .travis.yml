@@ -9,13 +9,17 @@ install:
 before_script:
 - npm test
 script:
+# Render PUG files to HTML files for static pages
+- npm run render-static
+# Build client application bundles
 - npm run build-home-base -- --env.mode=production --env.watch=false
 - npm run build-home-auth -- --env.mode=production --env.watch=false
 - npm run build-plantId-base -- --env.mode=production --env.watch=false
 - npm run build-plantId-auth -- --env.mode=production --env.watch=false
+# Render SCSS global file to CSS
 - npm run build-styles-global
+# Creates the mongo client secret file using ENV variables
 - echo -e "{\"username\":\"$MONGO_CLIENT_USERNAME\",\"password\":\"$MONGO_CLIENT_PASSWORD\"}" > ./server/mongo/clientSecret.json
-- echo "ok ?"
 deploy:
   provider: heroku
   api_key: "$HEROKU_API_KEY"

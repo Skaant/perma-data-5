@@ -6,34 +6,29 @@ export default ({
   value
 }) => (
   <React.Fragment>
-
-    <div className='row'>
       
-      <input id='search-input'
-          type='text'
-          className='form-control text-dark col mx-2 pb-0 mr-4 font-weight-light'
-          placeholder='Trouvez des plantes'
-          value={ value }
-          onChange={ e =>
-            
-            window.__STORE__
-              .dispatch({
-                type: SEARCH_VALUE_CHANGE,
-                value: e.target.value
-              }) }
-          onKeyPress={ e => 
-
-            e.key === 'Enter'
-              && loadSearchResults() } />
-
-      <div className='btn-bubble col p-0'
-          onClick={ e =>
+    <input id='search-input'
+        type='text'
+        className='d-none d-md-inline'
+        placeholder='Recherche de plantes'
+        value={ value }
+        onChange={ e =>
           
-            loadSearchResults() }>
-        <span className='fas fa-search fa-lg text-green'></span>
-      </div>
-    </div>
+          window.__STORE__
+            .dispatch({
+              type: SEARCH_VALUE_CHANGE,
+              value: e.target.value
+            }) }
+        onKeyPress={ e => 
 
-    <div id='search-modal_anchor'></div>
+          e.key === 'Enter'
+            && loadSearchResults() } />
+
+    <span className='fas fa-search fa-lg text-green'
+        onClick={ e =>
+        
+          loadSearchResults() }>
+    </span>
+
   </React.Fragment>
 )

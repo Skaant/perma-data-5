@@ -1,7 +1,10 @@
 extends ../../layout/layout.pug
 
 block content
-  #home-base.pb-5.container-fluid
+
+  #home-base(
+    class= 'container pb-5' + (auth ? ' d-none' : '')
+  )
 
     .row.justify-content-center
       .col-12.col-md-10.jumbotron.text-center
