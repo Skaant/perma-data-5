@@ -1,22 +1,22 @@
 @import '../../variables';
 
+input[type=text] {
+  margin-left: 2rem;
+
+  &:hover {
+    border-bottom: 1px $green solid !important;
+    box-shadow: none !important;
+  }
+
+  &:focus:not([readonly]) {
+    border-bottom: 1px $green-dark solid !important;
+    box-shadow: none !important;
+  }
+}
+
 .input-bubble {
   border-radius: 2rem;
   box-shadow: .5rem .5rem -0.5rem rgba(0,0,0,.25) !important;
-
-  > input[type=text] {
-    margin-left: 2rem;
-
-    &:hover {
-      border-bottom: 1px $green solid !important;
-      box-shadow: none;
-    }
-
-    &:focus:not([readonly]) {
-      border-bottom: 1px $green-dark solid !important;
-      box-shadow: none;
-    }
-  }
 
   > .fas.fa-search {
     padding: 1.4rem 1.3rem 1.4rem 1.3rem;

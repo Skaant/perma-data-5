@@ -3,55 +3,136 @@ extends ../../layout/layout.pug
 block content
 
   #home-base(
-    class= 'container pb-5' + (auth ? ' d-none' : '')
+    class= 'container pb-5 px-4' + (auth ? ' d-none' : '')
   )
 
-    .row.justify-content-center
-      .col-12.col-md-10.jumbotron.text-center
-        img(
-          src='public/images/pages/home/perma-data-logo.jpg'
-          alt='Logo de PERMA-DATA : unité de donnée avec deux branches formatrices et papillons-coeur.'
-          style='max-width: 800px'
-        )
-        h1.mx-auto.pt-4.font-epic.font-weight-bold(
-          style='margin-top: 30px'
-        ) PERMA-DATA
-        h2.mx-auto.mb-3.pt-1.lead.font-weight-lighter La communauté des cultivateurs de savoir
+    .row.card.mb-3.mb-sm-5
+    
+      .col-12
+      
+        .p-5.text-center
 
-    .row.bg-white.justify-content-center.z-depth-1
-      .col-12.col-sm-10.col-md-6.py-5
-        h2.h3.font-epic.my-5 Vous aimez les plantes&nbsp;? Vous travaillez avec elles&nbsp;?
-        p.font-weight-lighter.mb-5(
-          style= 'font-size: 1.4rem'
-        )
-          b.font-epic PERMA-DATA&nbsp;
-          span est un méta-outil ludique et communautaire pour la culture, la recherche et la gouvernance.
-          <br/><br/>
-          span En explorant sa base-de-données collaborative, vous trouverez toutes les informations utiles pour concevoir votre jardin ou pour n'importe quelle autre activité.
-          <br/><br/>
-          span Véritablement, le champ des possibles est immense.
+          img(
+            src='public/images/pages/home/perma-data-logo.jpg'
+            alt='Logo de PERMA-DATA : unité de donnée avec deux branches formatrices et papillons-coeur.'
+            style='max-width: 100%'
+          )
+          h1.font-epic.font-weight-bold.mt-5 PERMA-DATA
+          h3.font-weight-lighter.mb-3 La communauté des cultivateurs de savoir
 
-    .row.my-4.py-2.justify-content-center
-      .col-12.col-md-8
-        .card.pt-5.px-5.pb-3
-          h2.h3.font-epic.mb-5.px-5.pt-3 Trouvez des informations sur les plantes qui vous intéressent
-          #home-search_anchor.md-form.row.justify-content-center
-            input.form-control.col-12.col-md-6.font-weight-light(
+    .row.card.mb-3.mb-sm-5
+
+      .col-12
+      
+        .p-5
+
+          h2.my-5 Une base-de-données sur les plantes
+          p.font-weight-light
+            b.font-epic PERMA-DATA&nbsp;
+            span est un base de connaissance communutaire et ludique pour la culture de plantes, la recherche et la gouvernance.
+          p.font-weight-light Issu de sources authentifiées et agrégé par les utilisateurs de l'outil, le savoir stocké ici est l'objet d'un processus d'amélioration continue.
+          p.font-weight-light Les notions d'
+            b informatique durable
+            span , d'
+            b expérience utilisateur
+            span &nbsp;(ergonomie) ainsi que de 
+            b démocratie participative
+            span &nbsp;forment l'ADN du projet&nbsp;
+            b.font-epic PERMA-DATA&nbsp;
+            span : c'est l'orientation donnée à ses évolutions futures.
+
+    .row.flex-row.mb-3.mb-sm-5
+
+      .col-12.col-lg-4.text-center.mb-3.mb-md-0.px-0.pr-md-3
+
+        .card.p-5
+
+          .fas.fa-search.fa-6x.text-green.my-4
+          h2 Recherchez
+
+      .col-12.col-lg-8.px-0
+
+        .card.p-5
+      
+          h3.font-epic Trouvez des informations sur les plantes qui vous intéressent :
+          #home-search_anchor.md-form
+            input.form-control.font-weight-light.w-75(
               style='font-size: 1.2rem; font-family: Roboto, sans-serif'
               type='text'
-              placeholder='Tapez le début d\'un nom'
+              placeholder='Tapez le début du nom d\'une plante'
             )
-      .col-12.col-md-4.container
-        .card.p-5
-          .row
-            h3.h5.font-weight-light.mb-4.pt-3 Découvrez quelques unes de nos pages :
-          .row
-            a.col-12(
+          p.font-weight-light Peut-être connaissez-vous l'une des ces plantes :&nbsp;
+            a(
               href="plant/glechoma%20hederacea"
             ) Lierre terrestre
-            a.col-12(
+            span= ', '
+            a(
               href="plant/verbena%20officinalis"
             ) Verveine officinale
+            span= ' ?'
+
+    .row.card.mb-3.mb-sm-5
+
+      .col-12
+      
+        .p-5
+
+          h2.my-5 Un jeu pour améliorer votre expérience
+          p.font-weight-light
+            b.font-epic PERMA-DATA
+            span , sous forme de jeu, propose de nombreuses fonctionnalités pour la gestion des jardins, des connaissances et des groupes de travail.
+          p.font-weight-light Créez votre bio-cité, développez votre civilisation écologique et faites évoluer la palette d'outils mis à votre disposition.
+          p.font-weight-light Profitez de l'univers riche de&nbsp;
+            b.font-epic PERMA-DATA
+            span= ' pour vivre une aventure futuriste et grandiose qui vous ménera jusqu\'aux confins de l\'univers'
+
+    .row.flex-row-reverse.mb-3.mb-sm-5
+
+      .col-12.col-lg-4.text-center.mb-3.mb-md-0.px-0.pl-md-3
+
+        .card.p-5
+
+          .fas.fa-trophy.fa-6x.text-green.my-4
+          h2 Jouez
+
+      .col-12.col-lg-8.px-0
+
+        .card.p-5
+      
+          h3.font-epic Commencez à améliorer maintenant !
+          div.mt-5.mb-3
+            button.btn.btn-light.home-btn-sign-up.text-white.font-weight-light.ml-0.mr-4(
+              type='button'
+              style='background-color: #7cb342 !important; letter-spacing: 3px'
+            ) Créez un compte
+            button.btn.btn-outline-dark.home-btn-sign-in.font-weight-light(
+              type='button'
+              style='border-color: #7cb342 !important; letter-spacing: 3px'
+            ) Connectez-vous
+          p.font-weight-light Avec votre compte, vous accès à toutes ces fonctionnalités : gestion de l'interface, de votre grainothèque, de votre jardin; calendrier, ajout de données, filtres de recherche et partage de listes, création de groupes ... et bien plus encore !
+
+    .row.flex-row.mb-3.mb-sm-5
+
+      .col-12.col-lg-4.text-center.mb-3.mb-md-0.px-0.pr-md-3
+
+        .card.p-5
+
+          .fas.fa-users.fa-6x.text-green.my-4
+          h2 Développez
+
+      .col-12.col-lg-8.px-0
+
+        .card.p-5
+      
+          h3.font-epic
+            b.font-epic PERMA-DATA&nbsp;
+            span est un projet open-source
+          div
+            span blog
+            span github
+          p.font-weight-light Participez à la conception, au design et au développement du projet pour concrétiser vos idées et entrer dans la communauté officiante de&nbsp;
+            b.font-epic PERMA-DATA
+            span .
 
     .row.bg-white.justify-content-center.z-depth-1
       .col-12.col-md-8
