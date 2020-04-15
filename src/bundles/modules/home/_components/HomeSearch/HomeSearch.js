@@ -7,7 +7,7 @@ export default ({
 }) => (
   <input id='home-search'
       type='text'
-      className='form-control font-weight-light'
+      className='form-control'
       placeholder="Tapez le début d'un nom"
       value={ value }
       style={ {

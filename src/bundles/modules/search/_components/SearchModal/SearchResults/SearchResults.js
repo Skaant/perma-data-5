@@ -5,8 +5,7 @@ export default ({ searchResults }) => {
   const getLinkLabel = (id, names) => ({
     mainLabel: names[0] || id,
     altsLabel: (names[0] && names.length > 1) ?
-      (', ' + names.slice(1).join(', ')
-        + ', ') : false
+      (', ' + names.slice(1).join(', ')) : false
   })
   
   return (

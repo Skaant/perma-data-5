@@ -25,19 +25,11 @@ export default ({
             marginTop: '60px'
           } }>
         <div className='modal-content'>
-          <div className='modal-header z-depth-2'>
-            <div className='container'>
-              <div className='row'>
-                <h1 className='h2 font-weight-lighter'
-                    style={ {
-                      margin: '60px 45px 0'
-                    } }>
-                  Trouvez des plantes :</h1>
-              </div>
-              <div className='row'
-                  style={ {
-                    margin: '10px 45px 30px'
-                  } }>
+          <div className='modal-header z-depth-2 p-4'>
+            <div className='container p-0'>
+              <h1 className='mt-5 mb-4'>
+                Recherche de plantes</h1>
+              <div className='md-form'>
                 <SearchModalInput value={ value }/>
               </div>
             </div>
@@ -47,7 +39,7 @@ export default ({
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <div className='modal-body px-4 pt-3 pb-1'
+          <div className='modal-body p-4'
               // From the `modal-body`, should be moved to `SearchResults`
               style={ {
                 backgroundColor: '#7cb342'
@@ -55,16 +47,27 @@ export default ({
             {
               loadStatus
                 && (
-                  <div className='spinner-grow text-white'
-                      role='status'>
-                    <span className='sr-only'></span>
-                  </div>
+                  <p className='text-white mt-4 mb-0'>
+                    Chargement ...</p>
                 )
             }
             {
               searchResults
                 && (
-                  <SearchResults searchResults={ searchResults }/>
+                  <React.Fragment>
+                    <SearchResults searchResults={ searchResults }/>
+                    <p className='text-white mt-4 mb-0'>
+                      { searchResults.length } résultat{ searchResults.length === 1 ? '' : 's'}.</p>
+                  </React.Fragment>
+                )
+            }
+            {
+              !loadStatus
+                && (!searchResults
+                  || searchResults.length === 0)
+                && (
+                  <p className='text-white mt-4 mb-0'>
+                    Aucun résultat.</p>
                 )
             }
           </div>
