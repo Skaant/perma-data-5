@@ -7,7 +7,6 @@ import { MAIN_AUTH_USER_MODAL_OPEN } from '../../../mainAuth/_actions/mainAuth.a
 export default ({
   checkingLogin,
   checkingToken,
-  tokenInitialCheck,
   user
 }) => {
 
@@ -53,8 +52,6 @@ export default ({
                     }) }></span>
           )
       }
-      <div id='login-modal_anchor'></div>
-      <div id='user-modal_anchor'></div>
     </React.Fragment>
   )
 }

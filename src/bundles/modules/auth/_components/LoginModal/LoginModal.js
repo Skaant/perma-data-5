@@ -14,7 +14,7 @@ export default ({
 }) => {
 
   const modeLabels = {
-    'sign-in': 'Connectez-vous !',
+    'sign-in': 'Connectez-vous',
     'sign-up': 'Créez un compte',
     'recover-password': 'Mot de passe oublié ?'
   }
@@ -71,24 +71,10 @@ export default ({
             marginTop: '60px'
           } }>
         <div className='modal-content'>
-          <div className='modal-header'
-              style={ {
-                backgroundColor: '#7cb342'
-              } }>
-            <h1 className='modal-title text-white'
-                style={ {
-                  margin: '60px 45px 30px'
-                } }>
-                <b className='font-epic'>
-                  { label }</b></h1>
-            <button type='button'
-                className='close'
-                onClick={ closeModal }>
-              <span aria-hidden='true'>&times;</span>
-            </button>
-          </div>
-          <div className='modal-body z-depth-1'>
-            <div className='container pb-2'>
+          <div className='modal-header z-depth-2 p-4'>
+            <div className='container p-0'>
+              <h1 className='mt-5 mb-4'>
+                { label }</h1>
               <form className='row px-4 my-4'>
                 <style scoped>
                   {
@@ -100,7 +86,7 @@ export default ({
                 </style>
                 <div className='md-form col-12 my-2'>
                   <input type='email'
-                      className='form-control font-weight-light'
+                      className='form-control'
                       placeholder='E-mail'
                       value={ email }
                       onChange={
@@ -127,7 +113,7 @@ export default ({
                     && (
                       <div className='md-form col-12 my-2'>
                         <input type='text'
-                            className='form-control font-weight-light'
+                            className='form-control'
                             placeholder='Pseudo'
                             value={ pseudo }
                             onChange={
@@ -146,7 +132,7 @@ export default ({
                     && (
                       <div className='md-form col-12 my-2'>
                         <input type='password'
-                            className='form-control font-weight-light'
+                            className='form-control'
                             placeholder='Mot de passe'
                             value={ password }
                             onChange={
@@ -218,8 +204,13 @@ export default ({
                 }
               </ul>
             </div>
+            <button type='button'
+                className='close'
+                onClick={ closeModal }>
+              <span aria-hidden='true'>&times;</span>
+            </button>
           </div>
-          <div className='modal-footer'
+          <div className='modal-footer border-top-0'
               style={ {
                 backgroundColor: '#7cb342'
               } }>
