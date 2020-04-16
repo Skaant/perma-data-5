@@ -239,11 +239,12 @@ export default ({
                 backgroundColor: '#7cb342'
               } }>
             <button type='button'
-                className='btn btn-white'
+                className={ 'btn btn-white' + (errors.length > 0 ? ' disabled' : '') }
                 onClick={
                   () =>
                   
-                    validation() }>
+                    errors.length === 0
+                      && validation() }>
               Valider</button>
             <button type='button'
                 className='btn btn-outline-white'
