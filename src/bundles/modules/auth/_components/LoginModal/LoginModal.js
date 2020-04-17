@@ -25,7 +25,7 @@ const modeLabels = {
 const errorLabels = {
   [FORM_ERROR_EMAIL]: 'Adresse email non-valide',
   [FORM_ERROR_PSEUDO]: 'Le pseudo doit faire au moins 5 caractères',
-  [FORM_ERROR_PASSWORD]: 'Le pseudo doit faire au moins 8 caractères'
+  [FORM_ERROR_PASSWORD]: 'Le mot-de-passe doit faire au moins 8 caractères'
 }
 
 export default ({
