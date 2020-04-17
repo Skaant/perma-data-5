@@ -1,3 +1,4 @@
+const mongo = require('../../../../mongo/mongo')
 const ChainItemTypeEnum = require('../_enums/ChainItemType/ChainItemType.enum')
 
 const recursive = (
@@ -75,6 +76,8 @@ const recursive = (
         reject(err))
   
   } else {
+
+    mongo(true)
 
     resolve(data)
   }

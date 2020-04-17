@@ -1,21 +1,18 @@
 const { MongoClient } = require('mongodb')
-const uriResolver = require('./uriResolver/uriResolver')
 const {
-  uri,
-  dbName,
+  hostname,
+  database
+} = require('./mongo.config')
+const {
   username,
   password
-} = require('./mongo.config')
+} = require('./mongoSecret.config')
 
 const client = new MongoClient(
-  uriResolver(
-    uri,
-    username,
-    password
-  ), {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-})
+  `mongodb+srv://${ username }:${ password }@${ hostname }/test?retryWrites=true&w=majority`, 
+  {
+    useNewUrlParser: true
+  })
 
 /**
  * Get the MongoDB client instance & the on-usage database reference.
@@ -23,31 +20,32 @@ const client = new MongoClient(
  * @alias module:mongo
  * @promise { { client: MongoClient, db: Db } } - Client & instance
  */
-module.exports = () =>
+module.exports = (close = false) =>
 
-  new Promise((resolve, reject) => {
+  close ?
+    client.close()
 
-    if (!client.isConnected()) {
+    : new Promise((resolve, reject) => {
 
-      client.connect(err => {
+      if (!client.isConnected()) {
 
-        if (err) {
-          reject(err)
-        }
+        client.connect(err => {
+
+          if (err) {
+            reject(err)
+          }
+
+          resolve({
+            client,
+            db: client.db(database)
+          })
+        })
+
+      } else {
 
         resolve({
           client,
-          db: client
-            .db(dbName)
+          db: client.db(database)
         })
-      })
-
-    } else {
-
-      resolve({
-        client,
-        db: client
-          .db(dbName)
-      })
-    }
-  })
+      }
+    })
