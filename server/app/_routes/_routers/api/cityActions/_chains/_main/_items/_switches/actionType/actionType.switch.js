@@ -3,7 +3,6 @@ const SwitchChainItem = require('../../../../../../../../../../app/_patterns/_ch
 const cityActionsChains = require('../../../../')
 
 module.exports = new SwitchChainItem(
-  __filename,
   ({
     type
   }) =>

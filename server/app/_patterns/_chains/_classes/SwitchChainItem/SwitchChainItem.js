@@ -3,12 +3,10 @@ const ChainItemTypeEnum = require('../../_enums/ChainItemType/ChainItemType.enum
 
 class SwitchChainItem extends ChainItem {
 
-  constructor (filename, action) {
+  constructor (action) {
 
     super(
-      filename,
-      ChainItemTypeEnum
-        .SWITCH,
+      ChainItemTypeEnum.SWITCH,
       action
     )
   }

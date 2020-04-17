@@ -23,10 +23,13 @@ module.exports = (
           buildings: data.buildings
         }))
 
-    .catch(err => 
+    .catch(err => {
+
+      console.error(err);
+      
 
       res
         .status(err
           .code
           || 500)
-        .send(err))
+        .json(err)})

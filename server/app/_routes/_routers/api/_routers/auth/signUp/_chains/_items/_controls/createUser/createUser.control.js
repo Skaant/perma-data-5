@@ -1,8 +1,8 @@
 const atob = require('atob')
 const ControlChainItem = require('../../../../../../../../../../_patterns/_chains/_classes/ControlChainItem/ControlChainItem')
+const createToken = require('../../../../../_utils/createToken/createToken')
 
 module.exports = new ControlChainItem(
-  __filename,
   ({
     body
   }) =>
@@ -20,10 +20,9 @@ module.exports = new ControlChainItem(
           email,
           pseudo,
           password: atob(password),
-          token: Math
-            .random()
-            .toString(36)
-            .substr(2)
+          inscription: Date.now(),
+          verified: false,
+          verificationToken: createToken()
         }
       })
     }

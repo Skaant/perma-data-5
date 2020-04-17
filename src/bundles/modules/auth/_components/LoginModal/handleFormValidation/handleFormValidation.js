@@ -21,7 +21,7 @@ export default (
     })
 
   $.ajax(
-    `/api/auth/${ mode }`,
+    `/api/auth/${ mode.toLowerCase().replace('_', '-') }`,
     {
       method: 'PUT',
       data: {

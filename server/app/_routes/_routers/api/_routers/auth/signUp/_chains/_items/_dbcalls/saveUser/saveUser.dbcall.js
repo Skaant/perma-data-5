@@ -2,7 +2,6 @@ const mongo = require('../../../../../../../../../../../mongo/mongo')
 const DbcallChainItem = require('../../../../../../../../../../_patterns/_chains/_classes/DbcallChainItem/DbcallChainItem')
 
 module.exports = new DbcallChainItem(
-  __filename,
   ({
     user
   }) =>
