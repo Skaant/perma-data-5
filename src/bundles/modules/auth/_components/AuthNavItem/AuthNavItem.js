@@ -16,17 +16,17 @@ export default ({
     <React.Fragment>
       {
         !user
-          && (checkingLogin
-            || checkingToken)
+          && (checkingLogin === true
+            || checkingToken === true)
           && (
-            <span className='spinner-grow text-green nav-link'
-                role='status'></span>
+            <span className='fas fa-user fa-lg text-green animated infinite flash'
+                title='Chargement des données utilisateur'></span>
           )
       }
       {
         !user
-          && !(checkingLogin
-            || checkingToken)
+          && (checkingLogin !== true
+            && checkingToken !== true)
           && (
             <span className="fas fa-user fa-lg text-green"
                 title="S'authentifier"

@@ -22,10 +22,9 @@ const recursive = (
         switch (chain[0].type) {
 
           // `_data` is an effective data object
-          case ChainItemTypeEnum
-              .CONTROL:
-          case ChainItemTypeEnum
-              .DBCALL:
+          case ChainItemTypeEnum.CONTROL:
+          case ChainItemTypeEnum.DBCALL:
+          case ChainItemTypeEnum.EMAIL:
 
             const nextData = Object
               .assign(
@@ -35,8 +34,7 @@ const recursive = (
               )
             
             recursive(
-              chain
-                .slice(1),
+              chain.slice(1),
               nextData
             )
             

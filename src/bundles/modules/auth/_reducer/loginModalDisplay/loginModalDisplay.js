@@ -7,7 +7,10 @@ import {
 
 export default (
   state = false,
-  { type }
+  {
+    type,
+    pending
+  }
 ) => {
 
   switch (type) {
@@ -15,9 +18,16 @@ export default (
     case AUTH_LOGIN_MODAL_OPEN:
       return true
 
-    case AUTH_LOGIN_MODAL_CLOSE:
-    // Automatically close on authentication 
+    // Automatically close on authentication but
+    //  on pending user (to report verification mail send)
     case AUTH_LOGIN_CHECK_SUCCESS:
+
+      if (pending) {
+
+        return state
+      }
+      
+    case AUTH_LOGIN_MODAL_CLOSE:
     case AUTH_TOKEN_CHECK_SUCCESS:
       return false
     

@@ -13,15 +13,11 @@ module.exports = (
       res
     }
   )
-    .then(data => 
+    .then(() => 
 
-      res
-        .json({
-          pseudo: data
-            .user
-            .pseudo,
-          buildings: data.buildings
-        }))
+      res.json({
+        pending: true
+      }))
 
     .catch(err => {
 

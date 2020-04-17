@@ -12,7 +12,9 @@ import {
 import {
   FORM_ERROR_EMAIL,
   FORM_ERROR_PSEUDO,
-  FORM_ERROR_PASSWORD
+  FORM_ERROR_PASSWORD,
+  SERVER_ERROR_EMAIL,
+  SERVER_ERROR_PSEUDO
 } from '../../_enums/error/error.enum'
 import handleFormValidation from './handleFormValidation/handleFormValidation'
 
@@ -25,7 +27,9 @@ const modeLabels = {
 const errorLabels = {
   [FORM_ERROR_EMAIL]: 'Adresse email non-valide',
   [FORM_ERROR_PSEUDO]: 'Le pseudo doit faire au moins 5 caractères',
-  [FORM_ERROR_PASSWORD]: 'Le mot de passe doit faire au moins 8 caractères'
+  [FORM_ERROR_PASSWORD]: 'Le mot de passe doit faire au moins 8 caractères',
+  [SERVER_ERROR_EMAIL]: 'L\'adresse mail a déjà été choisi par un autre utilisateur',
+  [SERVER_ERROR_PSEUDO]: 'Le pseudo a déjà été choisi par un autre utilisateur'
 }
 
 export default ({
@@ -33,7 +37,9 @@ export default ({
   email,
   pseudo,
   password,
-  errors
+  userPending,
+  errors,
+  checkingLogin
 }) => {
 
   const label = modeLabels[mode]
@@ -234,22 +240,38 @@ export default ({
               <span aria-hidden='true'>&times;</span>
             </button>
           </div>
-          <div className='modal-footer border-top-0'
+          <div className='modal-footer border-top-0 d-block'
               style={ {
                 backgroundColor: '#7cb342'
               } }>
-            <button type='button'
-                className={ 'btn btn-white' + (errors.length > 0 ? ' disabled' : '') }
-                onClick={
-                  () =>
-                  
-                    errors.length === 0
-                      && validation() }>
-              Valider</button>
-            <button type='button'
-                className='btn btn-outline-white'
-                onClick={ closeModal }>
-              Fermer</button>
+            {
+              checkingLogin
+                && (
+                  <p className='text-white'>
+                    En attente du serveur ...</p>
+                )
+            }
+            {
+              userPending
+                && (
+                  <p className='text-white'>
+                    Un lien vous a été envoyé par mail pour finaliser votre inscription.</p>
+                )
+            }
+            <div className='text-right'>
+              <button type='button'
+                  className={ 'btn btn-white' + (errors.length > 0 ? ' disabled' : '') }
+                  onClick={
+                    () =>
+                    
+                      errors.length === 0
+                        && validation() }>
+                Valider</button>
+              <button type='button'
+                  className='btn btn-outline-white'
+                  onClick={ closeModal }>
+                Fermer</button>
+            </div>
           </div>
         </div>
       </div>

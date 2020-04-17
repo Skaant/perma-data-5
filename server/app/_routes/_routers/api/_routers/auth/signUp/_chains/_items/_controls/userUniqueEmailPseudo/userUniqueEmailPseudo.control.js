@@ -15,12 +15,12 @@ module.exports = new ControlChainItem(
 
         if (users.find(_user => _user.email === body.email)) {
   
-          reject(Error('400 `userEmailUnique` : L\'adresse email fournie est déjà utilisée (alors qu\'elle devrait être unique).'))
+          reject(Error('400 `SERVER_ERROR_EMAIL` : L\'adresse email fournie est déjà utilisée (alors qu\'elle devrait être unique).'))
         }
 
         if (users.find(_user => _user.pseudo === body.pseudo)) {
   
-          reject(Error('400 `userPseudoUnique` : Le pseudo fourni est déjà utilisé (alors qu\'il devrait être unique).'))
+          reject(Error('400 `SERVER_ERROR_PSEUDO` : Le pseudo fourni est déjà utilisé (alors qu\'il devrait être unique).'))
         }
       }
   

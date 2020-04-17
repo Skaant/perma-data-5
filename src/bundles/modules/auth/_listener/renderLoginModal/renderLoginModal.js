@@ -12,7 +12,8 @@ export default () => {
   
   window.ReactDOM
     .render(
-      <LoginModal { ...auth.form }/>,
+      <LoginModal { ...auth.form }
+          checkingLogin={ auth.checkingLogin } />,
       document
         .getElementById('login-modal_anchor'))
 

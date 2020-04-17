@@ -1,7 +1,9 @@
 import {
   AUTH_SWITCH_FORM_MODE,
   AUTH_UPDATE_FORM_FIELD,
-  AUTH_LOGIN_MODAL_OPEN
+  AUTH_LOGIN_MODAL_OPEN,
+  AUTH_LOGIN_CHECK_ERROR,
+  AUTH_LOGIN_CHECK_SUCCESS
 } from '../../_actions/auth.actions'
 import {
   SIGN_IN,
@@ -38,12 +40,15 @@ export default (
     email: '',
     pseudo: '',
     password: '',
+    userPending: false,
     errors: {}
   },
   {
     type,
     mode = SIGN_IN,
-    field
+    field,
+    pending,
+    error
   }
 ) => {
 
@@ -80,6 +85,25 @@ export default (
         ...newStateB,
         errors: checkErrors(newStateB)
       }
+
+    case AUTH_LOGIN_CHECK_ERROR:
+
+      return {
+        ...state,
+        errors: [
+          error.message.split('`')[1]
+        ]
+      }
+
+    case AUTH_LOGIN_CHECK_SUCCESS:
+
+      return pending
+        ? {
+          ...state,
+          userPending: true
+        }
+
+        : state
     
     default:
       return state

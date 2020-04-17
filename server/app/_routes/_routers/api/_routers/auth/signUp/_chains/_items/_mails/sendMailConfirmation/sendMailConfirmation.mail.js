@@ -6,10 +6,10 @@ module.exports = new EmailChainItem(
     user
   }) =>
   
-    new Promise((resolve, reject) =>
+    new Promise((resolve, reject) => {
     
-      mailer().sendMail(
-        {
+      mailer()
+        .sendMail({
           from: 'Support PERMA-DATA <support@permadata.net>',
           to: user.email,
           subject: 'Confirmez votre email',
@@ -37,11 +37,8 @@ A très bientôt sur <b>PERMA-DATA</b> !<br/>
 <br/><br/>
 <i>*Le projet est actuellement en version alpha : des bugs et des régressions peuvent se produire sur la plateforme.<br/>
 Vous pouvez utiliser cette adresse pour signaler à notre équipe tout soucis que vous pourriez rencontrer.</i>`
-        },
-        err =>
-        
-          !err
-            ? resolve()
-            
-            : reject(err)))
+        })
+        .then(() => resolve())
+        .catch(err => reject(err))
+  })
 )
