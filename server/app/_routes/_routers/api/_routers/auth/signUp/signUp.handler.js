@@ -25,11 +25,10 @@ module.exports = (
 
     .catch(err => {
 
-      console.error(err);
+      console.error(Object.keys(err));
       
 
-      res
-        .status(err
-          .code
-          || 500)
-        .json(err)})
+      return res.status(err.code || 500)
+        .json({
+          message: err.message
+        })})

@@ -11,7 +11,8 @@ const {
 const client = new MongoClient(
   `mongodb+srv://${ username }:${ password }@${ hostname }/test?retryWrites=true&w=majority`, 
   {
-    useNewUrlParser: true
+    useNewUrlParser: true,
+    useUnifiedTopology: true
   })
 
 /**

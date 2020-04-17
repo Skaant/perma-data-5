@@ -19,14 +19,19 @@ module.exports = new DbcallChainItem(
           db
             .collection('users')
             .find({
-              email: body.email
+              $or: [
+                {
+                  email: body.email
+                },
+                {
+                  pseudo: body.pseudo
+                }
+              ]
             })
-            .count()
-            .then(count =>
+            .toArray()
+            .then(users =>
 
-              resolve({
-                emailUsersCount: count
-              }))
+              resolve({ users }))
 
             .catch(err =>
 
