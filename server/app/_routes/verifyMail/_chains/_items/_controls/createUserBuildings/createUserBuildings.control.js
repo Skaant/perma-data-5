@@ -1,4 +1,4 @@
-const ControlChainItem = require('../../../../../../../../../../_patterns/_chains/_classes/ControlChainItem/ControlChainItem')
+const ControlChainItem = require('../../../../../../_patterns/_chains/_classes/ControlChainItem/ControlChainItem')
 
 module.exports = new ControlChainItem(
   () =>
@@ -6,7 +6,7 @@ module.exports = new ControlChainItem(
     new Promise(resolve => {
 
       const buildings = {
-        'kolos-rayon': {
+        'novs-rayon': {
           zums: 3,
           quests: {
             'tuto1Quest': {
@@ -16,9 +16,7 @@ module.exports = new ControlChainItem(
         }
       }
 
-      resolve({
-        buildings
-      })
+      resolve({ buildings })
     }
   )
 )

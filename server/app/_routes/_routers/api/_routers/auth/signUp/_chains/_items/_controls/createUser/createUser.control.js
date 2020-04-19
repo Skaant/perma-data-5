@@ -1,6 +1,6 @@
 const atob = require('atob')
 const ControlChainItem = require('../../../../../../../../../../_patterns/_chains/_classes/ControlChainItem/ControlChainItem')
-const createToken = require('../../../../../_utils/createToken/createToken')
+const createToken = require('../../../../../../../_utils/createToken/createToken')
 
 module.exports = new ControlChainItem(
   ({

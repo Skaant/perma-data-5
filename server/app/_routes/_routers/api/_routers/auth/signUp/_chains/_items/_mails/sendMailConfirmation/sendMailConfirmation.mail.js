@@ -19,7 +19,7 @@ Bonjour et bienvenue sur PERMA-DATA !
 Vous venez de vous inscrire à la version alpha* de PERMA-DATA et nous vous en remercions chaleureusement :)
 
 Pour finaliser votre inscription, vous devez confirmez votre adresse mail en cliquant sur le lien suivant :
-https://permadata.net/mail-confirm?token=${ user.verificationToken }
+https://permadata.net/verifiy-mail?token=${ user.verificationToken }
 
 A très bientôt sur PERMA-DATA !
 
@@ -31,7 +31,7 @@ Vous pouvez utiliser cette adresse pour signaler à notre équipe tout soucis qu
 Vous venez de vous inscrire à la version <i>alpha</i>* de <b>PERMA-DATA</b> et nous vous en remercions chaleureusement :)
 <br/><br/>
 Pour finaliser votre inscription, <b>vous devez confirmez votre adresse mail en cliquant sur le lien suivant</b> :<br/>
-<a href="https://permadata.net/mail-confirm?token=${ user.verificationToken }">https://permadata.net/mail-confirm?token=${ user.verificationToken }</a>
+<a href="https://permadata.net/verify-mail?token=${ user.verificationToken }">https://permadata.net/verify-mail?token=${ user.verificationToken }</a>
 <br/><br/>
 A très bientôt sur <b>PERMA-DATA</b> !<br/>
 <br/><br/>

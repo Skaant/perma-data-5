@@ -15,16 +15,14 @@ module.exports = (
   )
     .then(() => 
 
-      res.json({
-        pending: true
-      }))
+      res.status(201)
+        .json({
+          pending: true
+        }))
 
-    .catch(err => {
+    .catch(err =>     
 
-      console.error(Object.keys(err));
-      
-
-      return res.status(err.code || 500)
+      res.status(err.code || 500)
         .json({
           message: err.message
-        })})
+        }))
