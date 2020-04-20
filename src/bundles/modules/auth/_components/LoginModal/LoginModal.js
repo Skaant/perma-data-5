@@ -174,7 +174,7 @@ export default ({
               {
                 errors.length > 0
                   && (
-                    <ul className='text-danger mb-4 pl-4'>
+                    <ul className='text-danger my-5 pl-4'>
                       {
                         errors.map(error =>
                           
@@ -247,15 +247,18 @@ export default ({
             {
               checkingLogin
                 && (
-                  <p className='text-white'>
+                  <p className='text-white m-4'>
                     En attente du serveur ...</p>
                 )
             }
             {
               userPending
                 && (
-                  <p className='text-white'>
-                    Un lien vous a été envoyé par mail pour finaliser votre inscription.</p>
+                  <p className='text-white m-4'>
+                    <span className='fas fa-check'></span>&nbsp;
+                    Un mail de vérification vous a été envoyé.
+
+                    Cliquez sur le lien contenu dans l'email pour finaliser votre inscription.</p>
                 )
             }
             <div className='text-right'>

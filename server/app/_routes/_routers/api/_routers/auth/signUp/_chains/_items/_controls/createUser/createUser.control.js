@@ -19,7 +19,7 @@ module.exports = new ControlChainItem(
         user: {
           email,
           pseudo,
-          password: atob(password),
+          password: password,
           inscription: Date.now(),
           verified: false,
           verificationToken: createToken()
