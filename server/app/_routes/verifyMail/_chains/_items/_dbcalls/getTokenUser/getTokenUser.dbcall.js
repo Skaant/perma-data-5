@@ -3,7 +3,7 @@ const DbcallChainItem = require('../../../../../../_patterns/_chains/_classes/Db
 
 module.exports = new DbcallChainItem(
   ({
-    body
+    query
   }) =>
 
     new Promise(
@@ -19,7 +19,7 @@ module.exports = new DbcallChainItem(
           db
             .collection('users')
             .find({
-              verificationToken: body.token
+              verificationToken: query.token
             })
             .next()
             .then(user =>

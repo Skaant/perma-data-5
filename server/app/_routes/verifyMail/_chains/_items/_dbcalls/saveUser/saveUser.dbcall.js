@@ -1,5 +1,5 @@
-const mongo = require('../../../../../../../../../../../mongo/mongo')
-const DbcallChainItem = require('../../../../../../../../../../_patterns/_chains/_classes/DbcallChainItem/DbcallChainItem')
+const mongo = require('../../../../../../../mongo/mongo')
+const DbcallChainItem = require('../../../../../../_patterns/_chains/_classes/DbcallChainItem/DbcallChainItem')
 
 module.exports = new DbcallChainItem(
   ({
@@ -20,7 +20,7 @@ module.exports = new DbcallChainItem(
             .collection('users')
             .replaceOne(
               { 
-                _id: user._id
+                _id: updatedUser._id
               },
               updatedUser
             )

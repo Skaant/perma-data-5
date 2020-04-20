@@ -1,7 +1,7 @@
 const ControlChainItem = require('../../../../../../_patterns/_chains/_classes/ControlChainItem/ControlChainItem')
 const {
-  VERIFY_MAIL_MISSING_BODY,
-  VERIFY_MAIL_MISSING_BODY_TOKEN
+  VERIFY_MAIL_MISSING_QUERY,
+  VERIFY_MAIL_MISSING_QUERY_TOKEN
 } = require('../../../../_enums/_errors/verifyMail.errors.enum')
 
 module.exports = new ControlChainItem(
@@ -14,21 +14,21 @@ module.exports = new ControlChainItem(
       reject
     ) => {
   
-      const { body } = req
+      const { query } = req
   
-      if (!body) {
+      if (!query) {
   
-        reject(Error(`500 ${ VERIFY_MAIL_MISSING_BODY } : the request does not provide body.`))
+        reject(Error(`500 ${ VERIFY_MAIL_MISSING_QUERY } : the request does not provide body.`))
       }
   
-      const { token } = body
+      const { token } = query
   
       if (!token) {
   
-        reject(Error(`400 ${ VERIFY_MAIL_MISSING_BODY_TOKEN } : a verification token is expected.`))
+        reject(Error(`400 ${ VERIFY_MAIL_MISSING_QUERY_TOKEN } : a verification token is expected.`))
       }
   
-      resolve({ body })
+      resolve({ query })
     }
   )
 )

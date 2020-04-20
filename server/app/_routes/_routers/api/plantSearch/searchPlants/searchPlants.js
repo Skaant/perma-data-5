@@ -1,5 +1,4 @@
-const plantSearchAggregation =
-  require('./_aggregations/searchPlants/searchPlants')
+const plantSearchAggregation = require('./_aggregations/searchPlants/searchPlants')
 
 module.exports = (
   db,
@@ -11,8 +10,7 @@ module.exports = (
     reject
   ) => {
 
-    db
-      .collection('data')
+    db.collection('data')
       .aggregate(
         plantSearchAggregation(searchValue),
         (
@@ -22,7 +20,7 @@ module.exports = (
 
           if (err) {
 
-            reject(res, err)
+            reject(err)
           }
           
           cursor
@@ -33,6 +31,6 @@ module.exports = (
 
             .catch(err =>
 
-              reject(res, err))
+              reject(err))
         })
   })
