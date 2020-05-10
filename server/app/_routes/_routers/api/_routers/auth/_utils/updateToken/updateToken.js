@@ -1,4 +1,5 @@
 const mongo = require('../../../../../../../../mongo/mongo')
+const createToken = require('../../../../../../_utils/createToken/createToken')
 
 /**
  * Returns a promise that creates a new token,
@@ -17,8 +18,7 @@ module.exports =
   ) =>
     new Promise((resolve, reject) => {
       
-      const token = Math
-        .random().toString(36).substr(2)
+      const authToken = createToken()
     
       db
         .collection('users')
@@ -26,12 +26,13 @@ module.exports =
           _id
         }, {
           $set: {
-            token
+            authToken
           }
         })
         .then(() =>
 
-          resolve(token))
+          resolve(authToken))
+          
         .catch(err =>
 
           reject(err))

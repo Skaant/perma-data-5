@@ -75,8 +75,6 @@ const recursive = (
   
   } else {
 
-    mongo(true)
-
     resolve(data)
   }
 })
