@@ -1,6 +1,15 @@
 const fs = require('fs')
 const pug = require('pug')
 
+/**
+ * Renders all static files
+ */
+
+if (!fs.existsSync('./server/app/_routes/home/_files')) {
+
+  fs.mkdir('./server/app/_routes/home/_files')
+}
+
 fs.writeFileSync(
   './server/app/_routes/home/_files/home-base.html',
   pug
