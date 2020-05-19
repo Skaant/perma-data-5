@@ -22,7 +22,7 @@ block content
 
     .row.card.mb-3.mb-sm-5
 
-      .col-12
+      .col-12.p-5
       
         .p-5
 
@@ -69,6 +69,34 @@ block content
             a(
               href="plant/verbena%20officinalis"
             ) Verveine officinale
+            span= ', '
+            a(
+              href="plant/robinia%20pseudoacacia"
+            ) Robinier
+            span= ', '
+            a(
+              href="plant/oxalis%20acetosella"
+            ) Petite oseille
+            span= ', '
+            a(
+              href="plant/medicago%20sativa"
+            ) Luzerne
+            span= ', '
+            a(
+              href="plant/capsicum%20annuum"
+            ) Piment
+            span= ', '
+            a(
+              href="plant/heracleum%20mantegazzianum"
+            ) Berce du Caucase
+            span= ', '
+            a(
+              href="plant/cocos nucifera"
+            ) Cocotier
+            span= ', '
+            a(
+              href="plant/cannabis sativa"
+            ) Chanvre cultivé
             span= ' ?'
 
     .row.card.mb-3.mb-sm-5
@@ -78,6 +106,7 @@ block content
         .p-5
 
           h2.font-epic.my-5 Un jeu pour personnaliser votre expérience
+            span.h6.text-green Bientôt !
           p.font-weight-light
             b.font-epic PERMA-DATA&nbsp;
             span propose, sous forme de jeu, de nombreuses fonctionnalités pour la gestion des jardins, des connaissances et des groupes de travail.
@@ -101,11 +130,11 @@ block content
       
           h3 Il suffit d'un compte pour commencer à jouer !
           div.mt-5.mb-4
-            button.btn.btn-light.home-btn-sign-up.text-white.ml-0.mr-4(
+            button.btn.btn-light.home-btn-sign-up.text-white.ml-0.mr-4.disabled(
               type='button'
               style='background-color: #7cb342 !important; letter-spacing: 3px'
             ) Créez un compte
-            button.btn.btn-outline-dark.home-btn-sign-in.ml-0(
+            button.btn.btn-outline-dark.home-btn-sign-in.ml-0.disabled(
               type='button'
               style='border-color: #7cb342 !important; letter-spacing: 3px'
             ) Connectez-vous

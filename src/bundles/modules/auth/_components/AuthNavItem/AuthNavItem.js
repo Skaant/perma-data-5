@@ -19,7 +19,7 @@ export default ({
           && (checkingLogin === true
             || checkingToken === true)
           && (
-            <span className='fas fa-user fa-lg text-green animated infinite flash'
+            <span className='fas fa-user fa-lg text-green animated infinite flash disabled'
                 title='Chargement des données utilisateur'></span>
           )
       }
