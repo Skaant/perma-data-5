@@ -7,7 +7,7 @@ const pug = require('pug')
 
 if (!fs.existsSync('./server/app/_routes/home/_files')) {
 
-  fs.mkdir('./server/app/_routes/home/_files')
+  fs.mkdirSync('./server/app/_routes/home/_files')
 }
 
 fs.writeFileSync(
