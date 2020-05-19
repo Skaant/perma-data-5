@@ -7,7 +7,6 @@ import { MAIN_AUTH_USER_MODAL_OPEN } from '../../../mainAuth/_actions/mainAuth.a
 export default ({
   checkingLogin,
   checkingToken,
-  tokenInitialCheck,
   user
 }) => {
 
@@ -17,17 +16,17 @@ export default ({
     <React.Fragment>
       {
         !user
-          && (checkingLogin
-            || checkingToken)
+          && (checkingLogin === true
+            || checkingToken === true)
           && (
-            <span className='spinner-grow text-green nav-link'
-                role='status'></span>
+            <span className='fas fa-user fa-lg text-green animated infinite flash disabled'
+                title='Chargement des données utilisateur'></span>
           )
       }
       {
         !user
-          && !(checkingLogin
-            || checkingToken)
+          && (checkingLogin !== true
+            && checkingToken !== true)
           && (
             <span className="fas fa-user fa-lg text-green"
                 title="S'authentifier"
@@ -53,8 +52,6 @@ export default ({
                     }) }></span>
           )
       }
-      <div id='login-modal_anchor'></div>
-      <div id='user-modal_anchor'></div>
     </React.Fragment>
   )
 }

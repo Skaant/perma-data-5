@@ -1,5 +1,6 @@
+
 # PERMA-DATA
-**first release to come:** `0.5.1`
+**first release to come:** `0.5.2`
 
 ![PERMA-DATA logo: data and grow symbols + heart butterflies](https://raw.githubusercontent.com/Skaant/perma-data-5/master/doc/images/perma-data-logo.jpg)
 
@@ -14,41 +15,55 @@
 
 ## What is PERMA-DATA ?
 
-**PERMA-DATA** is being developped to agregate [**plant data**] from various but consistent sources.
+**PERMA-DATA** is being developped to **agregate [plant data] from various but consistent sources**.
 
-Our main concern is to make data available for everybody, while ensuring its quality and maintainability.
+Its main concern is to make this data available for everybody, while ensuring its quality and maintainability.
 
-The **PERMA-DATA** [manifest](/wiki/Manifest) details objectives and key features. It is here sumed up as a list of principles, but more information can be found on its main wiki page.
+The principles stated below define some key objectives.
 
 ### Principles
 
-1. **Gather and abstract plant data :** Extract [**plant data**] from different supports, and then, break it in an atomic and interoperable format.
+1. **Gather and abstract plant data** 
+Extract [plant data] from various supports and store it as atomic and interoperable value.
 
-2. **Shapes plant data for user :** From this raw and numerous atomic [**plant data**] (*principle 1*), build a user-friendly interface to display consistent data views.
+1. **Shapes plant data for user**
+From this raw and numerous atomic [plant data] (*principle 1*), build a user-friendly interface to display consistent data views.
 
-3. **Eco-responsible infrastructure :** Development and hosting aims for the lowest energetic and financial costs.
+1. **Continuous improvement**
+The application will never stop improving in term of reliability and features.
 
-4. **Minimalist features and workflows :** To enforces its low consumption orientation (*principle 3*) and save user time and attention, application remains as simple as possible.
+3. **Maintainable infrastructure**
+Development and hosting aims for the lowest energetic and financial costs.
 
-5. **Playing is learning :** As part of shaping data (*principle 6*), a gamification layer has been added to make and the learning more playful and the data crawling more interesting.
+4. **Minimalist features and workflows**
+To enforces its low consumption orientation (*principle 3*) and save user time and attention, application remains as simple as possible.
 
-6. **A fantastic universe :** The story of the **PERMA-DATA** game (*principle 5*) takes place between a near future and up to the end of universe : an ideal setup for imaginating tomorrow's solutions.
+5. **Playing is learning**
+As part of shaping data (*principle 6*), a gamification layer has been added to make and the learning more playful and the data crawling more interesting.
 
-7. **Art for the soul :** Illustrating this very universe (*principle 6*), creativity and aesthetics are also a support for sharing knowledge better.
+6. **A fantastic universe**
+The story of the PERMA-DATA game (*principle 5*) takes place between a near future and up to the end of universe : an ideal setup for imaginating tomorrow's solutions.
 
-8. **A philosophical tale :** Universe (*principle 6*) and art (*principle 7*) seres as an image/metaphor of way more abstract concepts.
+7. **Art for the soul**
+Illustrating this very universe (*principle 6*), creativity and aesthetics are also a support for sharing knowledge better.
 
-9. **Research tool :** Sourced and verfied [**plant data**], that you can contribute to enlarge by your work (*principle 11*).
+8. **A philosophical tale**
+Universe (*principle 6*) and art (*principle 7*) seres as an image/metaphor of way more abstract concepts.
 
-10. **Gardening tool :** Inventory your genetics, manage plants in your garden, get tips and send feedback (*principle 11*).
+9. **A tool for research**
+Sourced and verfied [**plant data**], that you can contribute to enlarge by your work (*principle 11*).
 
-11. **Community tool :** Gardening (*principle 10*) is also sharing. We are giving a pleasant interface to chat and visualize tasks for your gardener crew.
+10. **A tool for gardening**
+Inventory your genetics, manage plants in your garden, get tips and send feedback (*principle 11*).
 
-12. **Collaborative development:** The application is open-source, ready for user and developer interactions.
+11. **A tool for communities**
+Gardening (*principle 10*) is also sharing. We are giving a pleasant interface to chat and visualize tasks for your gardener crew.
 
-13. **Implementation of shared patterns :** Patterns are defined not to obfuscate architecture but to define a common language, easing design exchanges and code refactoring.
+12. **Collaborative development**
+The application is open-source, ready for user and developer interactions.
 
-14. **Continuous improvement :** The application will never stop improving in term of reliability and features.
+13. **Implementation of shared patterns**
+Patterns are defined not to obfuscate architecture but to define a common language, easing design exchanges and code refactoring.
 
 ## Development
 **PERMA-DATA** is built on a composite stack :
@@ -96,6 +111,7 @@ Every client bundle has its own `npm run` command :
 ```
 
 ### Patterns
+*Section automatically generated**
 
 * **global**
    * [_enum](#_enum)

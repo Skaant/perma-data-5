@@ -21,7 +21,7 @@ export default (
     })
 
   $.ajax(
-    `/api/auth/${ mode }`,
+    `/api/auth/${ mode.toLowerCase().replace('_', '-') }`,
     {
       method: 'PUT',
       data: {
@@ -31,12 +31,12 @@ export default (
       }
     }
   )
-    .then(user =>
+    .then(result =>
       
       store
         .dispatch({
           type: AUTH_LOGIN_CHECK_SUCCESS,
-          user
+          ...result
         }))
     
     .catch(error =>
@@ -44,6 +44,6 @@ export default (
       store
         .dispatch({
           type: AUTH_LOGIN_CHECK_ERROR,
-          error
+          error: error.responseJSON
         }))
 }

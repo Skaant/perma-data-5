@@ -4,20 +4,43 @@ import {
   AUTH_SWITCH_FORM_MODE,
   AUTH_UPDATE_FORM_FIELD
 } from '../../_actions/auth.actions'
+import {
+  SIGN_IN,
+  SIGN_UP,
+  RECOVER
+} from '../../_enums/mode/mode.enum'
+import {
+  FORM_ERROR_EMAIL,
+  FORM_ERROR_PSEUDO,
+  FORM_ERROR_PASSWORD,
+  SERVER_ERROR_EMAIL,
+  SERVER_ERROR_PSEUDO
+} from '../../_enums/error/error.enum'
 import handleFormValidation from './handleFormValidation/handleFormValidation'
+
+const modeLabels = {
+  [SIGN_IN]: 'Connectez-vous',
+  [SIGN_UP]: 'Créez un compte',
+  [RECOVER]: 'Mot de passe oublié ?'
+}
+
+const errorLabels = {
+  [FORM_ERROR_EMAIL]: 'Adresse email non-valide',
+  [FORM_ERROR_PSEUDO]: 'Le pseudo doit faire au moins 5 caractères',
+  [FORM_ERROR_PASSWORD]: 'Le mot de passe doit faire au moins 8 caractères',
+  [SERVER_ERROR_EMAIL]: 'L\'adresse mail a déjà été choisi par un autre utilisateur',
+  [SERVER_ERROR_PSEUDO]: 'Le pseudo a déjà été choisi par un autre utilisateur'
+}
 
 export default ({
   mode,
   email,
   pseudo,
-  password
+  password,
+  userPending,
+  errors,
+  checkingLogin
 }) => {
-
-  const modeLabels = {
-    'sign-in': 'Connectez-vous !',
-    'sign-up': 'Créez un compte',
-    'recover-password': 'Mot de passe oublié ?'
-  }
 
   const label = modeLabels[mode]
 
@@ -71,36 +94,14 @@ export default ({
             marginTop: '60px'
           } }>
         <div className='modal-content'>
-          <div className='modal-header'
-              style={ {
-                backgroundColor: '#7cb342'
-              } }>
-            <h1 className='modal-title text-white'
-                style={ {
-                  margin: '60px 45px 30px'
-                } }>
-                <b className='font-epic'>
-                  { label }</b></h1>
-            <button type='button'
-                className='close'
-                onClick={ closeModal }>
-              <span aria-hidden='true'>&times;</span>
-            </button>
-          </div>
-          <div className='modal-body z-depth-1'>
-            <div className='container pb-2'>
-              <form className='row px-4 my-4'>
-                <style scoped>
-                  {
-                    `.navbar.navbar-dark form .md-form input.form-control:focus {
-                        border-bottom: 2px white solid !important
-                        box-shadow: none
-                    }`
-                  }
-                </style>
+          <div className='modal-header z-depth-2 p-4'>
+            <div className='container p-0'>
+              <h1 className='mt-5 mb-4'>
+                { label }</h1>
+              <form className='row my-4'>
                 <div className='md-form col-12 my-2'>
                   <input type='email'
-                      className='form-control font-weight-light'
+                      className='form-control'
                       placeholder='E-mail'
                       value={ email }
                       onChange={
@@ -115,7 +116,7 @@ export default ({
                         e => {
 
                           if (e.key === 'Enter'
-                              && mode !== 'recover-password') {
+                              && mode !== RECOVER) {
 
                             validation()
                           }
@@ -123,11 +124,11 @@ export default ({
                       }/>
                 </div>
                 {
-                  mode === 'sign-up'
+                  mode === SIGN_UP
                     && (
                       <div className='md-form col-12 my-2'>
                         <input type='text'
-                            className='form-control font-weight-light'
+                            className='form-control'
                             placeholder='Pseudo'
                             value={ pseudo }
                             onChange={
@@ -142,11 +143,11 @@ export default ({
                     )
                 }
                 {
-                  mode !== 'recover-password'
+                  mode !== RECOVER
                     && (
                       <div className='md-form col-12 my-2'>
                         <input type='password'
-                            className='form-control font-weight-light'
+                            className='form-control'
                             placeholder='Mot de passe'
                             value={ password }
                             onChange={
@@ -161,7 +162,7 @@ export default ({
                               e => {
 
                                 if (e.key === 'Enter'
-                                    && mode !== 'recover-password') {
+                                    && mode !== RECOVER) {
 
                                   validation()
                                 }
@@ -170,9 +171,24 @@ export default ({
                     )
                 }
               </form>
+              {
+                errors.length > 0
+                  && (
+                    <ul className='text-danger my-5 pl-4'>
+                      {
+                        errors.map(error =>
+                          
+                          (
+                            <li>
+                              { errorLabels[error] }</li>
+                          ))
+                      }
+                    </ul>
+                  )
+              }
               <ul className='text-right list-unstyled'>
                 {
-                  mode !== 'sign-in'
+                  mode !== SIGN_IN
                     && (
                       <li>
                         <a style={ {
@@ -180,14 +196,14 @@ export default ({
                           } }
                             onClick={
                               () =>
-                                switchMode('sign-in')
+                                switchMode(SIGN_IN)
                             }>
-                          { modeLabels['sign-in'] }</a>
+                          { modeLabels[SIGN_IN] }</a>
                       </li>
                     )
                 }
                 {
-                  mode !== 'sign-up'
+                  mode !== SIGN_UP
                     && (
                       <li>
                         <a style={ {
@@ -195,14 +211,14 @@ export default ({
                           } }
                             onClick={
                               () =>
-                                switchMode('sign-up')
+                                switchMode(SIGN_UP)
                             }>
-                          { modeLabels['sign-up'] }</a>
+                          { modeLabels[SIGN_UP] }</a>
                       </li>
                     )
                 }
                 {
-                  mode !== 'recover-password'
+                  mode !== RECOVER
                     && (
                       <li>
                         <a style={ {
@@ -210,30 +226,55 @@ export default ({
                           } }
                             onClick={
                               () =>
-                                switchMode('recover-password')
+                                switchMode(RECOVER)
                             }>
-                          { modeLabels['recover-password'] }</a>
+                          { modeLabels[RECOVER] }</a>
                       </li>
                     )
                 }
               </ul>
             </div>
+            <button type='button'
+                className='close'
+                onClick={ closeModal }>
+              <span aria-hidden='true'>&times;</span>
+            </button>
           </div>
-          <div className='modal-footer'
+          <div className='modal-footer border-top-0 d-block'
               style={ {
                 backgroundColor: '#7cb342'
               } }>
-            <button type='button'
-                className='btn btn-white'
-                onClick={
-                  () =>
-                  
-                    validation() }>
-              Valider</button>
-            <button type='button'
-                className='btn btn-outline-white'
-                onClick={ closeModal }>
-              Fermer</button>
+            {
+              checkingLogin
+                && (
+                  <p className='text-white m-4'>
+                    En attente du serveur ...</p>
+                )
+            }
+            {
+              userPending
+                && (
+                  <p className='text-white m-4'>
+                    <span className='fas fa-check'></span>&nbsp;
+                    Un mail de vérification vous a été envoyé.
+
+                    Cliquez sur le lien contenu dans l'email pour finaliser votre inscription.</p>
+                )
+            }
+            <div className='text-right'>
+              <button type='button'
+                  className={ 'btn btn-white' + (errors.length > 0 ? ' disabled' : '') }
+                  onClick={
+                    () =>
+                    
+                      errors.length === 0
+                        && validation() }>
+                Valider</button>
+              <button type='button'
+                  className='btn btn-outline-white'
+                  onClick={ closeModal }>
+                Fermer</button>
+            </div>
           </div>
         </div>
       </div>

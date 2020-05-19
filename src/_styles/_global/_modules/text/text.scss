@@ -20,6 +20,10 @@
   cursor: pointer;
 }
 
+.disabled .text-green {
+  color: $green-disabled !important;
+}
+
 .text-accent {
   color: $green-accent;
 }

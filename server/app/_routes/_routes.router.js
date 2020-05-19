@@ -14,4 +14,8 @@ router.get(
   '/',
   require('./home/home.handler'))
 
+router.get(
+  '/verify-mail',
+  require('./verifyMail/verifyMail.handler'))
+
 module.exports = router

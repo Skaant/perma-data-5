@@ -12,7 +12,8 @@ module.exports = (req, res) => {
     error(
       res,
       new Error('`searchValue` must be set'),
-      400)
+      400
+    )
   }
 
   mongo()
@@ -21,7 +22,8 @@ module.exports = (req, res) => {
 
       searchPlants(
         db,
-        searchValue)
+        searchValue
+      )
 
         .then(plants => {
 
@@ -29,7 +31,8 @@ module.exports = (req, res) => {
 
             updateUserBuildings(
               db,
-              req.user._id)
+              req.user._id
+            )
 
               .then(buildings => 
                 
@@ -40,22 +43,19 @@ module.exports = (req, res) => {
 
               .catch(err => 
                 
-                error(
-                  res,
-                  err))
+                error(res, err))
+
           } else {
 
             res.json({
               plants
-             })
+            })
           }
         })
 
         .catch(err => 
           
-          error(
-            res,
-            err))
+          error(res, err))
     })
 
     .catch(err =>

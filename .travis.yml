@@ -3,25 +3,29 @@ node_js:
 - '10'
 branches:
   only:
-    - release
+    - master
 install:
 - npm install
 before_script:
 - npm test
 script:
+# Render PUG files to HTML files for static pages
+- npm run render-static
+# Build client application bundles
 - npm run build-home-base -- --env.mode=production --env.watch=false
 - npm run build-home-auth -- --env.mode=production --env.watch=false
 - npm run build-plantId-base -- --env.mode=production --env.watch=false
 - npm run build-plantId-auth -- --env.mode=production --env.watch=false
+# Render SCSS global file to CSS
 - npm run build-styles-global
-- echo -e "{\"username\":\"$MONGO_CLIENT_USERNAME\",\"password\":\"$MONGO_CLIENT_PASSWORD\"}" > ./server/mongo/clientSecret.json
-- echo "ok ?"
+# Creates the mongo client secret file using ENV variables
+- echo -e "{\"username\":\"$MONGO_CLIENT_USERNAME\",\"password\":\"$MONGO_CLIENT_FORM_ERROR_PASSWORD\"}" > ./server/mongo/clientSecret.json
 deploy:
   provider: heroku
   api_key: "$HEROKU_API_KEY"
   app: perma-data-5
   on:
-    branch: release
+    branch: master
   skip_cleanup: true
 cache:
   directories:

@@ -24,6 +24,11 @@
 
   > span {
     padding: 1.5rem;
+
+    &.fa-user-check {
+      padding-right: 18px;
+      padding-left: 23px;
+    }
   }
 
   &:hover {

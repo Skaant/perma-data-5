@@ -14,8 +14,8 @@ module.exports = () =>
 
           if (!user) {
 
-            res
-              .clearCookie('auth')
+            res.clearCookie('auth')
+            
             next()
           }
 

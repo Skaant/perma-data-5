@@ -1,5 +1,6 @@
 module.exports = {
   CONTROL: 'CONTROL',
   DBCALL: 'DBCALL',
-  SWITCH: 'SWITCH'
+  SWITCH: 'SWITCH',
+  EMAIL: 'EMAIL'
 }

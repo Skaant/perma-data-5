@@ -3,7 +3,7 @@ module.exports = token =>
   [
     {
       '$match': {
-        'token': token
+        'authToken': token
       }
     }, {
       '$lookup': {

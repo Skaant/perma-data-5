@@ -13,20 +13,16 @@ module.exports = (
       res
     }
   )
-    .then(data => 
+    .then(() => 
 
-      res
+      res.status(201)
         .json({
-          pseudo: data
-            .user
-            .pseudo,
-          buildings: data.buildings
+          pending: true
         }))
 
-    .catch(err => 
+    .catch(err =>     
 
-      res
-        .status(err
-          .code
-          || 500)
-        .send(err))
+      res.status(err.code || 500)
+        .json({
+          message: err.message
+        }))

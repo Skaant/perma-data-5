@@ -3,7 +3,7 @@ const ControlChainItem = require('../../../../../../../../../../app/_patterns/_c
 const cityActionsChains = require('../../../../')
 
 module.exports = new ControlChainItem(
-  __filename,({
+  ({
     req
   }) =>
 

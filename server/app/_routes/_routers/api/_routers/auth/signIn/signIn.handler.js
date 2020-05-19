@@ -23,10 +23,8 @@ module.exports = (
 
     const {
       email,
-      password: encryptedPassword
+      password
     } = req.body
-
-    const password = atob(encryptedPassword)
 
     mongo()
 
@@ -75,11 +73,11 @@ module.exports = (
                     )
                   ])
                 
-                  .then(([token, buildings]) => {
+                  .then(([authToken, buildings]) => {
                     
                     res.cookie(
                       'auth',
-                      token,
+                      authToken,
                       {
                         maxAge: 432000000
                       }

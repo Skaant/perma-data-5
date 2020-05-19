@@ -82,10 +82,9 @@ export default () => {
     previous = next
 
   } else if (previous
-    && JSON
-      .stringify(previous.form)
-      !== JSON
-        .stringify(next.form)) {
+    && (
+      JSON.stringify(previous.form) !== JSON.stringify(next.form))
+      || previous.checkingLogin !== next.checkingLogin) {
     
     previous = next
 

@@ -1,15 +1,15 @@
 const reqBodyControl = require('../_items/_controls/reqBody/reqBody.control')
+const getEmailPseudoUsersDbcall = require('../_items/_dbcalls/getEmailPseudoUsers/getEmailPseudoUsers.dbcall')
+const userUniqueEmailPseudoControl = require('../_items/_controls/userUniqueEmailPseudo/userUniqueEmailPseudo.control')
 const createUserControl = require('../_items/_controls/createUser/createUser.control')
 const saveUserDbcall = require('../_items/_dbcalls/saveUser/saveUser.dbcall')
-const setCookiesControl = require('../_items/_controls/setCookies/setCookies.control')
-const createBuildingControl = require('../_items/_controls/createBuilding/createBuilding.control')
-const saveBuildingDbcall = require('../_items/_dbcalls/saveBuilding/saveBuilding.dbcall')
+const sendMailConfirmationMail = require('../_items/_mails/sendMailConfirmation/sendMailConfirmation.mail')
 
 module.exports = [
   reqBodyControl,
+  getEmailPseudoUsersDbcall,
+  userUniqueEmailPseudoControl,
   createUserControl,
   saveUserDbcall,
-  setCookiesControl,
-  createBuildingControl,
-  saveBuildingDbcall
+  sendMailConfirmationMail
 ]

@@ -10,7 +10,8 @@ export default (
   {
     type,
     bundleId,
-    user
+    user,
+    pending
   }
 ) => {
 
@@ -19,7 +20,7 @@ export default (
     case AUTH_LOGIN_CHECK_SUCCESS:
     case AUTH_TOKEN_CHECK_SUCCESS:
 
-      return user
+      return !pending && user
 
     case INITALIZER_BUNDLE_REGISTERED:
 
