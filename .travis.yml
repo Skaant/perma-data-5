@@ -19,7 +19,7 @@ script:
 # Render SCSS global file to CSS
 - npm run build-styles-global
 # Creates the mongo client secret file using ENV variables
-- echo -e "{\"username\":\"$MONGO_CLIENT_USERNAME\",\"password\":\"$MONGO_CLIENT_FORM_ERROR_PASSWORD\"}" > ./server/mongo/clientSecret.json
+- echo -e "{\"username\":\"$MONGO_CLIENT_USERNAME\",\"password\":\"$MONGO_CLIENT_FORM_ERROR_PASSWORD\"}" > ./app/server/mongo/clientSecret.json
 deploy:
   provider: heroku
   api_key: "$HEROKU_API_KEY"
