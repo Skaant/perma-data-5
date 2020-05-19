@@ -20,6 +20,8 @@ script:
 - npm run build-styles-global
 # Creates the mongo client secret file using ENV variables
 - echo -e "module.exports = {\"username\":\"$MONGO_CLIENT_USERNAME\",\"password\":\"$MONGO_CLIENT_FORM_ERROR_PASSWORD\"}" > ./server/mongo/mongoSecret.config.js
+# Creates the mailer secret file using ENV variables
+- echo -e "module.exports = {\"user\":\"$MAILER_USER\",\"pass\":\"$MAILER_PASS\"}" > ./server/app/_utils/mailer/mailerSecret.config.js
 deploy:
   provider: heroku
   api_key: "$HEROKU_API_KEY"
