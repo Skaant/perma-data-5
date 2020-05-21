@@ -7,7 +7,7 @@ const {
   username,
   password
 } = require('./mongoSecret.config')
-
+console.log(`mongodb+srv://${ username }:${ password }@${ hostname }/test?retryWrites=true&w=majority`)
 const client = new MongoClient(
   `mongodb+srv://${ username }:${ password }@${ hostname }/test?retryWrites=true&w=majority`, 
   {
